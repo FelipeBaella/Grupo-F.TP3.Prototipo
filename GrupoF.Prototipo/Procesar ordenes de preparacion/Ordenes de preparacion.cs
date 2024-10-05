@@ -6,5 +6,10 @@ namespace GrupoF.Prototipo
         {
             InitializeComponent();
         }
+
+        private void InitializeComponent()
+        {
+
+        }
     }
 }

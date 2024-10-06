@@ -122,7 +122,6 @@
             // 
             // ComboBox_Descripcion_Mercaderia
             // 
-            CargarMercaderias();
             ComboBox_Descripcion_Mercaderia.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBox_Descripcion_Mercaderia.FormattingEnabled = true;
             ComboBox_Descripcion_Mercaderia.Location = new Point(43, 55);
@@ -132,7 +131,6 @@
             // 
             // ComboBox_Descripcion_Deposito
             // 
-            CargarDepositos();
             ComboBox_Descripcion_Deposito.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBox_Descripcion_Deposito.FormattingEnabled = true;
             ComboBox_Descripcion_Deposito.Location = new Point(299, 55);

@@ -111,18 +111,18 @@
             // 
             // CompletarOrdenDeSeleccion_boton
             // 
-            CompletarOrdenDeSeleccion_boton.Location = new Point(256, 307);
+            CompletarOrdenDeSeleccion_boton.Location = new Point(523, 307);
             CompletarOrdenDeSeleccion_boton.Name = "CompletarOrdenDeSeleccion_boton";
-            CompletarOrdenDeSeleccion_boton.Size = new Size(209, 23);
+            CompletarOrdenDeSeleccion_boton.Size = new Size(197, 33);
             CompletarOrdenDeSeleccion_boton.TabIndex = 2;
-            CompletarOrdenDeSeleccion_boton.Text = "Orden de Seleccion Completada";
+            CompletarOrdenDeSeleccion_boton.Text = "Procesar Orden de Seleccion";
             CompletarOrdenDeSeleccion_boton.UseVisualStyleBackColor = true;
             // 
             // ProcesarOrdenDeSeleccion_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(732, 450);
+            ClientSize = new Size(734, 361);
             Controls.Add(CompletarOrdenDeSeleccion_boton);
             Controls.Add(listView1);
             Controls.Add(OrdenesDeSeleccionLabel);

@@ -123,6 +123,7 @@
             // ComboBox_Descripcion_Mercaderia
             // 
             CargarMercaderias();
+            ComboBox_Descripcion_Mercaderia.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBox_Descripcion_Mercaderia.FormattingEnabled = true;
             ComboBox_Descripcion_Mercaderia.Location = new Point(43, 55);
             ComboBox_Descripcion_Mercaderia.Name = "ComboBox_Descripcion_Mercaderia";
@@ -132,11 +133,13 @@
             // ComboBox_Descripcion_Deposito
             // 
             CargarDepositos();
+            ComboBox_Descripcion_Deposito.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBox_Descripcion_Deposito.FormattingEnabled = true;
             ComboBox_Descripcion_Deposito.Location = new Point(299, 55);
             ComboBox_Descripcion_Deposito.Name = "ComboBox_Descripcion_Deposito";
             ComboBox_Descripcion_Deposito.Size = new Size(121, 23);
             ComboBox_Descripcion_Deposito.TabIndex = 5;
+            ComboBox_Descripcion_Deposito.SelectedIndexChanged += ComboBox_Descripcion_Deposito_SelectedIndexChanged;
             // 
             // button_aceptar
             // 
@@ -273,6 +276,7 @@
             Controls.Add(button_aceptar);
             Name = "Generar_orden_preparacion";
             Text = "Generar Orden de Preparacion";
+            Load += Generar_orden_preparacion_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox3.ResumeLayout(false);

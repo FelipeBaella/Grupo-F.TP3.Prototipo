@@ -131,8 +131,24 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
         private void button_salir_click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+
+                this.Close();
+            }
 
         }
 
+        private void Generar_orden_preparacion_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ComboBox_Descripcion_Deposito_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 {
-    public partial class ProcesarOrdenesDeSeleccion_form : Form
+    public partial class ProcesarOrdenesDePreparacion_form : Form
     {
         private CrearOrdenDeSeleccion_model _ordenesDeSeleccionModel = new CrearOrdenDeSeleccion_model();
 
-        public ProcesarOrdenesDeSeleccion_form()
+        public ProcesarOrdenesDePreparacion_form()
         {
             InitializeComponent();
         }

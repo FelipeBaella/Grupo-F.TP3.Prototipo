@@ -4,7 +4,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 {
 
 
-    partial class ProcesarOrdenesDeSeleccion_form
+    partial class ProcesarOrdenesDePreparacion_form
     {
         private CrearOrdenDeSeleccion_model _ordenesDeSeleccionModel2 = new CrearOrdenDeSeleccion_model();
 

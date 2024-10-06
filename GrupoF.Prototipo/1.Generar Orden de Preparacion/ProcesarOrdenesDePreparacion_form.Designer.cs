@@ -41,8 +41,6 @@
         }
 
 
-
-
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -67,6 +65,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
+        /// 
+
         private void InitializeComponent()
         {
             TextBox_Id_Cliente = new TextBox();
@@ -98,7 +98,6 @@
             TextBox_Id_Cliente.Name = "TextBox_Id_Cliente";
             TextBox_Id_Cliente.Size = new Size(100, 23);
             TextBox_Id_Cliente.TabIndex = 0;
-            TextBox_Id_Cliente.TextChanged += textBox1_TextChanged;
             // 
             // TextBox_Cantidad
             // 
@@ -113,7 +112,6 @@
             TextBox_NombreApellido.Name = "TextBox_NombreApellido";
             TextBox_NombreApellido.Size = new Size(100, 23);
             TextBox_NombreApellido.TabIndex = 2;
-            TextBox_NombreApellido.TextChanged += textBox3_TextChanged;
             // 
             // TextBox_Dni
             // 
@@ -121,16 +119,15 @@
             TextBox_Dni.Name = "TextBox_Dni";
             TextBox_Dni.Size = new Size(100, 23);
             TextBox_Dni.TabIndex = 3;
-            TextBox_Dni.TextChanged += textBox4_TextChanged;
             // 
             // ComboBox_Descripcion_Mercaderia
             // 
+            CargarMercaderias();
             ComboBox_Descripcion_Mercaderia.FormattingEnabled = true;
             ComboBox_Descripcion_Mercaderia.Location = new Point(43, 55);
             ComboBox_Descripcion_Mercaderia.Name = "ComboBox_Descripcion_Mercaderia";
             ComboBox_Descripcion_Mercaderia.Size = new Size(121, 23);
             ComboBox_Descripcion_Mercaderia.TabIndex = 4;
-            ComboBox_Descripcion_Mercaderia.SelectedIndexChanged += ComboBox_Descripcion_Mercaderia_;
             // 
             // ComboBox_Descripcion_Deposito
             // 
@@ -173,7 +170,6 @@
             groupBox1.TabIndex = 8;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos Transportistas";
-            groupBox1.Enter += groupBox1_Enter;
             // 
             // label6
             // 
@@ -215,7 +211,6 @@
             groupBox3.TabIndex = 10;
             groupBox3.TabStop = false;
             groupBox3.Text = "Datos Generales";
-            groupBox3.Enter += groupBox3_Enter;
             // 
             // label2
             // 
@@ -247,7 +242,6 @@
             groupBox4.TabIndex = 11;
             groupBox4.TabStop = false;
             groupBox4.Text = "Datos Mercaderias";
-            groupBox4.Enter += groupBox4_Enter;
             // 
             // label4
             // 

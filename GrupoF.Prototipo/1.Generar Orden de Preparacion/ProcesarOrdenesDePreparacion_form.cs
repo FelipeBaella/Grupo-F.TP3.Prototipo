@@ -19,45 +19,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox4_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ComboBox_Descripcion_Deposito_(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ComboBox_Descripcion_Mercaderia_(object sender, EventArgs e)
-        {
-
-        }
 
         private void button_aceptar_click(object sender, EventArgs e)
         {
@@ -156,7 +117,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                 TextBox_Dni.Focus();
                 return;
             }
-           
+
 
             MessageBox.Show("Se creo la orden de preparacion con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -166,5 +127,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         {
 
         }
+
     }
 }

@@ -1,3 +1,4 @@
+using GrupoF.Prototipo.Procesar_ordener_de_seleccion;
 using GrupoF.Prototipo.Procesar_ordenes_de_preparacion;
 
 namespace GrupoF.Prototipo
@@ -13,7 +14,7 @@ namespace GrupoF.Prototipo
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Generar_orden_preparacion());
+            Application.Run(new ProcesarOrdenesDeSeleccion_form());
         }
     }
 }

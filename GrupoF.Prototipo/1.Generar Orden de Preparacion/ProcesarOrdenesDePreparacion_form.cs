@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
+using GrupoF.Prototipo.Procesar_ordener_de_seleccion;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -121,6 +123,10 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
             MessageBox.Show("Se creo la orden de preparacion con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            this.Close();
+
+            ProcesarOrdenDeSeleccion_form nuevaForma = new ProcesarOrdenDeSeleccion_form();
+            nuevaForma.Show();
         }
 
         private void button_salir_click(object sender, EventArgs e)

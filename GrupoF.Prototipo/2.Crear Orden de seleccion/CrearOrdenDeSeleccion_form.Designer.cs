@@ -6,7 +6,30 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
     partial class ProcesarOrdenesDeSeleccion_form
     {
-        private OrdnesDePreparacionModel _ordenesModel = new OrdnesDePreparacionModel();
+        private CrearOrdenDeSeleccion_model _ordenesDeSeleccionModel2 = new CrearOrdenDeSeleccion_model();
+
+
+        private void CargarOrdenesDePreparacion()
+        {
+            foreach (var orden in _ordenesDeSeleccionModel2.OrdenesDePreparacion)
+            {
+                ListViewItem listViewItem = new ListViewItem(new string[] {
+
+                    "",
+                    "",
+                    orden.Id_OrdenDePreparacion.ToString(),
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                }, -1);
+
+                OrdenesDePreparacion_ListView.Items.Add(listViewItem);
+            }
+        }
+
 
         /// <summary>
         /// Required designer variable.
@@ -34,8 +57,6 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         /// </summary>
         private void InitializeComponent()
         {
-            ListViewItem listViewItem1 = new ListViewItem(new string[] { "Pendiente", "Alta", "12345", "56789", "Juan Pérez", "06/10/2024", "Mercadería Ejemplo", "10", "Depósito A" }, -1);
-            ListViewItem listViewItem2 = new ListViewItem(new string[] { "Pendiente", "Alta", "12345", "56789", "Juan Pérez", "06/10/2024", "Mercadería Ejemplo", "10", "Depósito B" }, -1);
             OrdenesDePreparacion_ListView = new ListView();
             Estado_OP = new ColumnHeader();
             Prioridad = new ColumnHeader();
@@ -48,19 +69,22 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             Deposito = new ColumnHeader();
             Button_Crear_Orden = new Button();
             label1 = new Label();
+            textBox_Id_Orden = new TextBox();
+            label2 = new Label();
             SuspendLayout();
             // 
             // OrdenesDePreparacion_ListView
             // 
             OrdenesDePreparacion_ListView.Columns.AddRange(new ColumnHeader[] { Estado_OP, Prioridad, ID_OP, ID_Cliente, Nombre_Cliente, Fecha_Emision, Descripcion_Mercaderia, Cantidad, Deposito });
-            OrdenesDePreparacion_ListView.Items.AddRange(new ListViewItem[] { listViewItem1, listViewItem2 });
+
+            CargarOrdenesDePreparacion();
+
             OrdenesDePreparacion_ListView.Location = new Point(12, 42);
             OrdenesDePreparacion_ListView.Name = "OrdenesDePreparacion_ListView";
             OrdenesDePreparacion_ListView.Size = new Size(810, 207);
             OrdenesDePreparacion_ListView.TabIndex = 0;
             OrdenesDePreparacion_ListView.UseCompatibleStateImageBehavior = false;
             OrdenesDePreparacion_ListView.View = View.Details;
-            OrdenesDePreparacion_ListView.SelectedIndexChanged += listView1_SelectedIndexChanged_1;
             // 
             // Estado_OP
             // 
@@ -106,12 +130,13 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // 
             // Button_Crear_Orden
             // 
-            Button_Crear_Orden.Location = new Point(343, 314);
+            Button_Crear_Orden.Location = new Point(664, 314);
             Button_Crear_Orden.Name = "Button_Crear_Orden";
             Button_Crear_Orden.Size = new Size(158, 23);
             Button_Crear_Orden.TabIndex = 1;
             Button_Crear_Orden.Text = "Crear orden de seleccion";
             Button_Crear_Orden.UseVisualStyleBackColor = true;
+            Button_Crear_Orden.Click += Button_Crear_Orden_Click;
             // 
             // label1
             // 
@@ -122,19 +147,35 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             label1.Size = new Size(169, 20);
             label1.TabIndex = 2;
             label1.Text = "Ordenes de preparacion";
-            label1.Click += label1_Click;
+            // 
+            // textBox_Id_Orden
+            // 
+            textBox_Id_Orden.Location = new Point(558, 315);
+            textBox_Id_Orden.Name = "textBox_Id_Orden";
+            textBox_Id_Orden.Size = new Size(100, 23);
+            textBox_Id_Orden.TabIndex = 3;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(558, 297);
+            label2.Name = "label2";
+            label2.Size = new Size(51, 15);
+            label2.TabIndex = 4;
+            label2.Text = "Id orden";
             // 
             // ProcesarOrdenesDeSeleccion_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(918, 376);
+            Controls.Add(label2);
+            Controls.Add(textBox_Id_Orden);
             Controls.Add(label1);
             Controls.Add(Button_Crear_Orden);
             Controls.Add(OrdenesDePreparacion_ListView);
             Name = "ProcesarOrdenesDeSeleccion_form";
             Text = "Crear Orden de seleccion";
-            Load += ProcesarOrdenesDeSeleccion_form_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -162,5 +203,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         private TextBox textBox5;
         private TextBox textBox6;
         private ColumnHeader Nombre;
+        private TextBox textBox_Id_Orden;
+        private Label label2;
     }
 }

@@ -34,12 +34,12 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         /// </summary>
         private void InitializeComponent()
         {
-            ListViewItem listViewItem5 = new ListViewItem(new string[] { "Pendiente", "Alta", "12345", "56789", "Juan Pérez", "06/10/2024", "Mercadería Ejemplo", "10", "Depósito A" }, -1);
-            ListViewItem listViewItem6 = new ListViewItem(new string[] { "Pendiente", "Alta", "12345", "56789", "Juan Pérez", "06/10/2024", "Mercadería Ejemplo", "10", "Depósito B" }, -1);
+            ListViewItem listViewItem1 = new ListViewItem(new string[] { "Pendiente", "Alta", "12345", "56789", "Juan Pérez", "06/10/2024", "Mercadería Ejemplo", "10", "Depósito A" }, -1);
+            ListViewItem listViewItem2 = new ListViewItem(new string[] { "Pendiente", "Alta", "12345", "56789", "Juan Pérez", "06/10/2024", "Mercadería Ejemplo", "10", "Depósito B" }, -1);
             OrdenesDePreparacion_ListView = new ListView();
-            Estado = new ColumnHeader();
+            Estado_OP = new ColumnHeader();
             Prioridad = new ColumnHeader();
-            ID_Orden = new ColumnHeader();
+            ID_OP = new ColumnHeader();
             ID_Cliente = new ColumnHeader();
             Nombre_Cliente = new ColumnHeader();
             Fecha_Emision = new ColumnHeader();
@@ -52,8 +52,8 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // 
             // OrdenesDePreparacion_ListView
             // 
-            OrdenesDePreparacion_ListView.Columns.AddRange(new ColumnHeader[] { Estado, Prioridad, ID_Orden, ID_Cliente, Nombre_Cliente, Fecha_Emision, Descripcion_Mercaderia, Cantidad, Deposito });
-            OrdenesDePreparacion_ListView.Items.AddRange(new ListViewItem[] { listViewItem5, listViewItem6 });
+            OrdenesDePreparacion_ListView.Columns.AddRange(new ColumnHeader[] { Estado_OP, Prioridad, ID_OP, ID_Cliente, Nombre_Cliente, Fecha_Emision, Descripcion_Mercaderia, Cantidad, Deposito });
+            OrdenesDePreparacion_ListView.Items.AddRange(new ListViewItem[] { listViewItem1, listViewItem2 });
             OrdenesDePreparacion_ListView.Location = new Point(12, 42);
             OrdenesDePreparacion_ListView.Name = "OrdenesDePreparacion_ListView";
             OrdenesDePreparacion_ListView.Size = new Size(810, 207);
@@ -62,18 +62,18 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             OrdenesDePreparacion_ListView.View = View.Details;
             OrdenesDePreparacion_ListView.SelectedIndexChanged += listView1_SelectedIndexChanged_1;
             // 
-            // Estado
+            // Estado_OP
             // 
-            Estado.Text = "Estado";
-            Estado.Width = 70;
+            Estado_OP.Text = "Estado OP";
+            Estado_OP.Width = 70;
             // 
             // Prioridad
             // 
             Prioridad.Text = "Prioridad";
             // 
-            // ID_Orden
+            // ID_OP
             // 
-            ID_Orden.Text = "ID Orden";
+            ID_OP.Text = "ID OP";
             // 
             // ID_Cliente
             // 
@@ -144,9 +144,9 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         #endregion
 
         private ListView OrdenesDePreparacion_ListView;
-        private ColumnHeader Estado;
+        private ColumnHeader Estado_OP;
         private ColumnHeader Prioridad;
-        private ColumnHeader ID_Orden;
+        private ColumnHeader ID_OP;
         private ColumnHeader ID_Cliente;
         private ColumnHeader Nombre_Cliente;
         private ColumnHeader Fecha_Emision;

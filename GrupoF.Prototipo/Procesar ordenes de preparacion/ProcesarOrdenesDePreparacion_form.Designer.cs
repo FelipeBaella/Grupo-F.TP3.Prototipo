@@ -2,6 +2,8 @@
 {
     partial class Form1
     {
+        private OrdnesDePreparacionModel _ordenesModel = new OrdnesDePreparacionModel();
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -37,15 +39,15 @@
             button1 = new Button();
             button2 = new Button();
             groupBox1 = new GroupBox();
+            label6 = new Label();
+            label5 = new Label();
             groupBox2 = new GroupBox();
             groupBox3 = new GroupBox();
-            groupBox4 = new GroupBox();
-            label1 = new Label();
             label2 = new Label();
-            label3 = new Label();
+            label1 = new Label();
+            groupBox4 = new GroupBox();
             label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
+            label3 = new Label();
             groupBox1.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
@@ -94,6 +96,14 @@
             // ComboBox_Descripcion_Deposito
             // 
             ComboBox_Descripcion_Deposito.FormattingEnabled = true;
+
+            //foreach (var item in _ordenesModel.Depositos)
+            //{
+            //    ComboBox_Descripcion_Deposito.Items.AddRange(new object[] { item.Nombre_Deposito });
+            //}
+
+            ComboBox_Descripcion_Deposito.Items.AddRange(new object[] { "Deposito" });
+
             ComboBox_Descripcion_Deposito.Location = new Point(299, 55);
             ComboBox_Descripcion_Deposito.Name = "ComboBox_Descripcion_Deposito";
             ComboBox_Descripcion_Deposito.Size = new Size(121, 23);
@@ -131,6 +141,24 @@
             groupBox1.Text = "Datos Transportistas";
             groupBox1.Enter += groupBox1_Enter;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(303, 38);
+            label6.Name = "label6";
+            label6.Size = new Size(107, 15);
+            label6.TabIndex = 5;
+            label6.Text = "Nombre y Apellido";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(43, 38);
+            label5.Name = "label5";
+            label5.Size = new Size(27, 15);
+            label5.TabIndex = 4;
+            label5.Text = "DNI";
+            // 
             // groupBox2
             // 
             groupBox2.Location = new Point(0, 106);
@@ -155,6 +183,24 @@
             groupBox3.Text = "Datos Generales";
             groupBox3.Enter += groupBox3_Enter;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(299, 37);
+            label2.Name = "label2";
+            label2.Size = new Size(54, 15);
+            label2.TabIndex = 11;
+            label2.Text = "Deposito";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(39, 37);
+            label1.Name = "label1";
+            label1.Size = new Size(57, 15);
+            label1.TabIndex = 10;
+            label1.Text = "Id Cliente";
+            // 
             // groupBox4
             // 
             groupBox4.Controls.Add(label4);
@@ -169,33 +215,6 @@
             groupBox4.Text = "Datos Mercaderias";
             groupBox4.Enter += groupBox4_Enter;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(39, 37);
-            label1.Name = "label1";
-            label1.Size = new Size(57, 15);
-            label1.TabIndex = 10;
-            label1.Text = "Id Cliente";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(299, 37);
-            label2.Name = "label2";
-            label2.Size = new Size(54, 15);
-            label2.TabIndex = 11;
-            label2.Text = "Deposito";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(43, 37);
-            label3.Name = "label3";
-            label3.Size = new Size(69, 15);
-            label3.TabIndex = 5;
-            label3.Text = "Descripcion";
-            // 
             // label4
             // 
             label4.AutoSize = true;
@@ -205,23 +224,14 @@
             label4.TabIndex = 6;
             label4.Text = "Cantidad";
             // 
-            // label5
+            // label3
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(43, 38);
-            label5.Name = "label5";
-            label5.Size = new Size(27, 15);
-            label5.TabIndex = 4;
-            label5.Text = "DNI";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(303, 38);
-            label6.Name = "label6";
-            label6.Size = new Size(107, 15);
-            label6.TabIndex = 5;
-            label6.Text = "Nombre y Apellido";
+            label3.AutoSize = true;
+            label3.Location = new Point(43, 37);
+            label3.Name = "label3";
+            label3.Size = new Size(69, 15);
+            label3.TabIndex = 5;
+            label3.Text = "Descripcion";
             // 
             // Form1
             // 

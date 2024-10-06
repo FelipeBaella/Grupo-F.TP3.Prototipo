@@ -52,5 +52,10 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         {
 
         }
+
+        private void ComboBox_Descripcion_Deposito_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          
+        }
     }
 }

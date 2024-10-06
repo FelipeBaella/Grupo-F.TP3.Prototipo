@@ -1,7 +1,11 @@
-﻿namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
+﻿using GrupoF.Prototipo.Procesar_ordenes_de_preparacion;
+
+namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 {
     partial class ProcesarOrdenesDeSeleccion_form
     {
+        private OrdnesDePreparacionModel _ordenesModel = new OrdnesDePreparacionModel();
+
         /// <summary>
         /// Required designer variable.
         /// </summary>

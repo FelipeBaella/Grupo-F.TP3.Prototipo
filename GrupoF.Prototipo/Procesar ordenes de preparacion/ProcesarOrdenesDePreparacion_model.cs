@@ -34,5 +34,12 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
             new Mercaderia {Id_Mercaderia = 2, Descripcion_Mercaderia = "Peras"}
         };
+
+        public List<Deposito> Depositos { get; set; } = new List<Deposito>
+        {
+            new Deposito {Id_Deposito = 1, Nombre_Deposito = "Rosario"},
+
+            new Deposito {Id_Deposito = 2, Nombre_Deposito = "Mendoza"}
+        };
     }
 }

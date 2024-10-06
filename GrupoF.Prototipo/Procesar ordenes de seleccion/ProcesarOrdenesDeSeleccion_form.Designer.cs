@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ListViewItem listViewItem1 = new ListViewItem("");
+            ListViewItem listViewItem1 = new ListViewItem(new string[] { "Pendiente", "Alta", "12345", "56789", "Juan Pérez", "06/10/2024", "Mercadería Ejemplo", "10", "Depósito A" }, -1);
+            ListViewItem listViewItem2 = new ListViewItem(new string[] { "Pendiente", "Alta", "12345", "56789", "Juan Pérez", "06/10/2024", "Mercadería Ejemplo", "10", "Depósito B" }, -1);
             listView1 = new ListView();
             Estado = new ColumnHeader();
+            Prioridad = new ColumnHeader();
             ID_Orden = new ColumnHeader();
             ID_Cliente = new ColumnHeader();
             Nombre_Cliente = new ColumnHeader();
             Fecha_Emision = new ColumnHeader();
-            Prioridad = new ColumnHeader();
             Descripcion_Mercaderia = new ColumnHeader();
             Cantidad = new ColumnHeader();
             Deposito = new ColumnHeader();
@@ -46,10 +47,10 @@
             // listView1
             // 
             listView1.Columns.AddRange(new ColumnHeader[] { Estado, Prioridad, ID_Orden, ID_Cliente, Nombre_Cliente, Fecha_Emision, Descripcion_Mercaderia, Cantidad, Deposito });
-            listView1.Items.AddRange(new ListViewItem[] { listViewItem1 });
+            listView1.Items.AddRange(new ListViewItem[] { listViewItem1, listViewItem2 });
             listView1.Location = new Point(12, 42);
             listView1.Name = "listView1";
-            listView1.Size = new Size(879, 207);
+            listView1.Size = new Size(810, 207);
             listView1.TabIndex = 0;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = View.Details;
@@ -58,7 +59,11 @@
             // Estado
             // 
             Estado.Text = "Estado";
-            Estado.Width = 50;
+            Estado.Width = 70;
+            // 
+            // Prioridad
+            // 
+            Prioridad.Text = "Prioridad";
             // 
             // ID_Orden
             // 
@@ -78,10 +83,6 @@
             // 
             Fecha_Emision.Text = "Fecha Emision";
             Fecha_Emision.Width = 90;
-            // 
-            // Prioridad
-            // 
-            Prioridad.Text = "Prioridad";
             // 
             // Descripcion_Mercaderia
             // 
@@ -130,35 +131,6 @@
             Load += ProcesarOrdenesDeSeleccion_form_Load;
             ResumeLayout(false);
             PerformLayout();
-
-
-            ListViewItem item = new ListViewItem("Pendiente"); // Valor de la primera columna (Estado)
-            item.SubItems.Add("Alta"); // Valor de la columna Prioridad
-            item.SubItems.Add("12345"); // ID Orden
-            item.SubItems.Add("56789"); // ID Cliente
-            item.SubItems.Add("Juan Pérez"); // Nombre Cliente
-            item.SubItems.Add(DateTime.Now.ToString("dd/MM/yyyy")); // Fecha Emision
-            item.SubItems.Add("Mercadería Ejemplo"); // Descripción Mercadería
-            item.SubItems.Add("10"); // Cantidad
-            item.SubItems.Add("Depósito A"); // Depósito
-
-            // Agregar el item al ListView
-            listView1.Items.Add(item);
-
-
-
-            ListViewItem item2 = new ListViewItem("Pendiente"); // Valor de la primera columna (Estado)
-            item2.SubItems.Add("Alta"); // Valor de la columna Prioridad
-            item2.SubItems.Add("12345"); // ID Orden
-            item2.SubItems.Add("56789"); // ID Cliente
-            item2.SubItems.Add("Juan Pérez"); // Nombre Cliente
-            item2.SubItems.Add(DateTime.Now.ToString("dd/MM/yyyy")); // Fecha Emision
-            item2.SubItems.Add("Mercadería Ejemplo"); // Descripción Mercadería
-            item2.SubItems.Add("10"); // Cantidad
-            item2.SubItems.Add("Depósito A"); // Depósito
-
-            // Agregar el item al ListView
-            listView1.Items.Add(item2);
         }
 
 

@@ -8,5 +8,31 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 {
     internal interface ProcesarOrdenesDePreparacion_model
     {
+
+    }
+
+    internal class OrdnesDePreparacionModel
+    {
+        public List<Cliente> Clientes { get; set; } = new List<Cliente>
+        {
+            new Cliente {Id_Cliente = 1, Dni = 42119134, NombreApellido = "Quimey Lopez SR"},
+
+            new Cliente {Id_Cliente = 2, Dni = 42102237, NombreApellido = "Agustin Tallone SR"}
+        };
+
+        public List<Transportista> Transportistas { get; set; } = new List<Transportista>
+        {
+            new Transportista {Dni_Transportista = 42119134, NombreApellido_Transportista = "Quimey Lopez"},
+
+            new Transportista {Dni_Transportista = 42102237, NombreApellido_Transportista = "Agustin Tallone"}
+        };
+
+
+        public List<Mercaderia> Mercaderias { get; set; } = new List<Mercaderia>
+        {
+            new Mercaderia {Id_Mercaderia = 1, Descripcion_Mercaderia = "Manzanas"},
+
+            new Mercaderia {Id_Mercaderia = 2, Descripcion_Mercaderia = "Peras"}
+        };
     }
 }

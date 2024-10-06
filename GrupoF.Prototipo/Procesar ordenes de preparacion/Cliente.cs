@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 {
-    internal class Mercaderia
+    internal class Cliente
     {
-        public int Id_Mercaderia { get; set; }
-
-        public string Descripcion_Mercaderia { get; set; }  
-        
+        public int Id_Cliente { get; set; }
+        public int Dni { get; set; }
+        public string NombreApellido { get; set; }
     }
 }

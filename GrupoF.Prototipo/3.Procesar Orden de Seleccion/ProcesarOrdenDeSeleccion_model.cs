@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
+namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 {
-    internal class ProcesasOrdenesDeSeleccion_Model
+    internal class ProcesarOrdenDeSeleccion_model
     {
     }
-
-
-
 }

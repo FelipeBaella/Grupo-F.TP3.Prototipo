@@ -1,8 +1,47 @@
 ﻿namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 {
-    partial class Form1
+    partial class Generar_orden_preparacion
     {
         private OrdnesDePreparacionModel _ordenesModel = new OrdnesDePreparacionModel();
+
+        private void CargarDepositos()
+        {
+            // Limpiamos el ComboBox por si ya tiene elementos cargados
+            ComboBox_Descripcion_Deposito.Items.Clear();
+
+            // Iteramos sobre la lista de depósitos y agregamos los nombres al ComboBox
+            foreach (var deposito in _ordenesModel.Depositos)
+            {
+                ComboBox_Descripcion_Deposito.Items.Add(deposito.Nombre_Deposito);
+            }
+
+            // Si lo deseas, puedes seleccionar el primer elemento como predeterminado
+            if (ComboBox_Descripcion_Deposito.Items.Count > 0)
+            {
+                ComboBox_Descripcion_Deposito.SelectedIndex = 0;
+            }
+        }
+
+        private void CargarMercaderias()
+        {
+            // Limpiamos el ComboBox por si ya tiene elementos cargados
+            ComboBox_Descripcion_Mercaderia.Items.Clear();
+
+            // Iteramos sobre la lista de depósitos y agregamos los nombres al ComboBox
+            foreach (var mercaderia in _ordenesModel.Mercaderias)
+            {
+                ComboBox_Descripcion_Mercaderia.Items.Add(mercaderia.Descripcion_Mercaderia);
+            }
+
+            // Si lo deseas, puedes seleccionar el primer elemento como predeterminado
+            if (ComboBox_Descripcion_Mercaderia.Items.Count > 0)
+            {
+                ComboBox_Descripcion_Mercaderia.SelectedIndex = 0;
+            }
+        }
+
+
+
 
         /// <summary>
         /// Required designer variable.
@@ -31,13 +70,13 @@
         private void InitializeComponent()
         {
             TextBox_Id_Cliente = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            comboBox1 = new ComboBox();
+            TextBox_Cantidad = new TextBox();
+            TextBox_NombreApellido = new TextBox();
+            TextBox_Dni = new TextBox();
+            ComboBox_Descripcion_Mercaderia = new ComboBox();
             ComboBox_Descripcion_Deposito = new ComboBox();
-            button1 = new Button();
-            button2 = new Button();
+            button_aceptar = new Button();
+            button_salir = new Button();
             groupBox1 = new GroupBox();
             label6 = new Label();
             label5 = new Label();
@@ -61,78 +100,74 @@
             TextBox_Id_Cliente.TabIndex = 0;
             TextBox_Id_Cliente.TextChanged += textBox1_TextChanged;
             // 
-            // textBox2
+            // TextBox_Cantidad
             // 
-            textBox2.Location = new Point(303, 55);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 1;
+            TextBox_Cantidad.Location = new Point(303, 55);
+            TextBox_Cantidad.Name = "TextBox_Cantidad";
+            TextBox_Cantidad.Size = new Size(100, 23);
+            TextBox_Cantidad.TabIndex = 1;
             // 
-            // textBox3
+            // TextBox_NombreApellido
             // 
-            textBox3.Location = new Point(303, 56);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 2;
-            textBox3.TextChanged += textBox3_TextChanged;
+            TextBox_NombreApellido.Location = new Point(303, 56);
+            TextBox_NombreApellido.Name = "TextBox_NombreApellido";
+            TextBox_NombreApellido.Size = new Size(100, 23);
+            TextBox_NombreApellido.TabIndex = 2;
+            TextBox_NombreApellido.TextChanged += textBox3_TextChanged;
             // 
-            // textBox4
+            // TextBox_Dni
             // 
-            textBox4.Location = new Point(43, 56);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(100, 23);
-            textBox4.TabIndex = 3;
-            textBox4.TextChanged += textBox4_TextChanged;
+            TextBox_Dni.Location = new Point(43, 56);
+            TextBox_Dni.Name = "TextBox_Dni";
+            TextBox_Dni.Size = new Size(100, 23);
+            TextBox_Dni.TabIndex = 3;
+            TextBox_Dni.TextChanged += textBox4_TextChanged;
             // 
-            // comboBox1
+            // ComboBox_Descripcion_Mercaderia
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(43, 55);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 4;
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            CargarMercaderias();
+            ComboBox_Descripcion_Mercaderia.FormattingEnabled = true;
+            ComboBox_Descripcion_Mercaderia.Location = new Point(43, 55);
+            ComboBox_Descripcion_Mercaderia.Name = "ComboBox_Descripcion_Mercaderia";
+            ComboBox_Descripcion_Mercaderia.Size = new Size(121, 23);
+            ComboBox_Descripcion_Mercaderia.TabIndex = 4;
+            ComboBox_Descripcion_Mercaderia.SelectedIndexChanged += ComboBox_Descripcion_Mercaderia_;
             // 
             // ComboBox_Descripcion_Deposito
             // 
+            CargarDepositos();
             ComboBox_Descripcion_Deposito.FormattingEnabled = true;
-
-            //foreach (var item in _ordenesModel.Depositos)
-            //{
-            //    ComboBox_Descripcion_Deposito.Items.AddRange(new object[] { item.Nombre_Deposito });
-            //}
-
-            ComboBox_Descripcion_Deposito.Items.AddRange(new object[] { "Deposito" });
-
             ComboBox_Descripcion_Deposito.Location = new Point(299, 55);
             ComboBox_Descripcion_Deposito.Name = "ComboBox_Descripcion_Deposito";
             ComboBox_Descripcion_Deposito.Size = new Size(121, 23);
             ComboBox_Descripcion_Deposito.TabIndex = 5;
             // 
-            // button1
+            // button_aceptar
             // 
-            button1.Location = new Point(326, 398);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 6;
-            button1.Text = "Aceptar";
-            button1.UseVisualStyleBackColor = true;
+            button_aceptar.Location = new Point(326, 398);
+            button_aceptar.Name = "button_aceptar";
+            button_aceptar.Size = new Size(75, 23);
+            button_aceptar.TabIndex = 6;
+            button_aceptar.Text = "Aceptar";
+            button_aceptar.UseVisualStyleBackColor = true;
+            button_aceptar.Click += button_aceptar_click;
             // 
-            // button2
+            // button_salir
             // 
-            button2.Location = new Point(424, 398);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 7;
-            button2.Text = "Salir";
-            button2.UseVisualStyleBackColor = true;
+            button_salir.Location = new Point(424, 398);
+            button_salir.Name = "button_salir";
+            button_salir.Size = new Size(75, 23);
+            button_salir.TabIndex = 7;
+            button_salir.Text = "Salir";
+            button_salir.UseVisualStyleBackColor = true;
+            button_salir.Click += button_salir_click;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(textBox3);
-            groupBox1.Controls.Add(textBox4);
+            groupBox1.Controls.Add(TextBox_NombreApellido);
+            groupBox1.Controls.Add(TextBox_Dni);
             groupBox1.Location = new Point(44, 236);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(445, 100);
@@ -205,8 +240,8 @@
             // 
             groupBox4.Controls.Add(label4);
             groupBox4.Controls.Add(label3);
-            groupBox4.Controls.Add(comboBox1);
-            groupBox4.Controls.Add(textBox2);
+            groupBox4.Controls.Add(ComboBox_Descripcion_Mercaderia);
+            groupBox4.Controls.Add(TextBox_Cantidad);
             groupBox4.Location = new Point(44, 130);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(445, 100);
@@ -233,7 +268,7 @@
             label3.TabIndex = 5;
             label3.Text = "Descripcion";
             // 
-            // Form1
+            // Generar_orden_preparacion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -241,10 +276,10 @@
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(groupBox1);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Name = "Form1";
-            Text = "Form1";
+            Controls.Add(button_salir);
+            Controls.Add(button_aceptar);
+            Name = "Generar_orden_preparacion";
+            Text = "Generar Orden de Preparacion";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox3.ResumeLayout(false);
@@ -254,16 +289,18 @@
             ResumeLayout(false);
         }
 
+
+
         #endregion
 
         private TextBox TextBox_Id_Cliente;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private ComboBox comboBox1;
+        private TextBox TextBox_Cantidad;
+        private TextBox TextBox_NombreApellido;
+        private TextBox TextBox_Dni;
+        private ComboBox ComboBox_Descripcion_Mercaderia;
         private ComboBox ComboBox_Descripcion_Deposito;
-        private Button button1;
-        private Button button2;
+        private Button button_aceptar;
+        private Button button_salir;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
         private GroupBox groupBox3;

@@ -15,6 +15,8 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
     {
         public List<Cliente> Clientes { get; set; } = new List<Cliente>
         {
+            new Cliente {Id_Cliente = 0, Dni = 0, NombreApellido = "---"},
+
             new Cliente {Id_Cliente = 1, Dni = 42119134, NombreApellido = "Quimey Lopez SR"},
 
             new Cliente {Id_Cliente = 2, Dni = 42102237, NombreApellido = "Agustin Tallone SR"}
@@ -30,6 +32,8 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
         public List<Mercaderia> Mercaderias { get; set; } = new List<Mercaderia>
         {
+            new Mercaderia {Id_Mercaderia = 0, Descripcion_Mercaderia = "---"},
+
             new Mercaderia {Id_Mercaderia = 1, Descripcion_Mercaderia = "Manzanas"},
 
             new Mercaderia {Id_Mercaderia = 2, Descripcion_Mercaderia = "Peras"}
@@ -37,9 +41,13 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
         public List<Deposito> Depositos { get; set; } = new List<Deposito>
         {
+            new Deposito {Id_Deposito = 0, Nombre_Deposito = "---"},
+
             new Deposito {Id_Deposito = 1, Nombre_Deposito = "Rosario"},
 
             new Deposito {Id_Deposito = 2, Nombre_Deposito = "Mendoza"}
         };
+
+
     }
 }

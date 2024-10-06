@@ -125,7 +125,6 @@
             // 
             // ComboBox_Descripcion_Mercaderia
             // 
-            CargarMercaderias();
             ComboBox_Descripcion_Mercaderia.FormattingEnabled = true;
             ComboBox_Descripcion_Mercaderia.Location = new Point(43, 55);
             ComboBox_Descripcion_Mercaderia.Name = "ComboBox_Descripcion_Mercaderia";

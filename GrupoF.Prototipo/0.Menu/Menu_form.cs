@@ -31,7 +31,6 @@ namespace GrupoF.Prototipo._0.Menu
             nuevaForma.Show();
         }
 
-
         private void button_CrearOrdenDeSeleccion_Click(object sender, EventArgs e)
         {
             this.Hide();

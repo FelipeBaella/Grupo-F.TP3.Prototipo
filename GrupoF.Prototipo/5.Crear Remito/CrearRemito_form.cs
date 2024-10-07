@@ -26,5 +26,10 @@ namespace GrupoF.Prototipo._5.Crear_Remito
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

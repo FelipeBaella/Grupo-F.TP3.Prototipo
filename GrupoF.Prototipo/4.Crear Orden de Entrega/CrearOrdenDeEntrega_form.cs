@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GrupoF.Prototipo._0.Menu;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,15 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
         public CrearOrdenDeEntrega_Form()
         {
             InitializeComponent();
+        }
+
+        private void VolverAlMenu_button_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            Menu_form nuevaForma = new Menu_form();
+
+            nuevaForma.Show();
         }
     }
 }

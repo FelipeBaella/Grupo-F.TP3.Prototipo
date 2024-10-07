@@ -40,6 +40,7 @@
             CrearOrdenDeEntrega_boton = new Button();
             IdOrdenDePreparacion_label = new Label();
             OrdenDePreparacion_textbox = new TextBox();
+            VolverAlMenu_button = new Button();
             SuspendLayout();
             // 
             // CrearOrdenDeEntrega_label
@@ -99,7 +100,7 @@
             // CrearOrdenDeEntrega_boton
             // 
             CrearOrdenDeEntrega_boton.Font = new Font("Segoe UI", 9F);
-            CrearOrdenDeEntrega_boton.Location = new Point(534, 309);
+            CrearOrdenDeEntrega_boton.Location = new Point(437, 306);
             CrearOrdenDeEntrega_boton.Name = "CrearOrdenDeEntrega_boton";
             CrearOrdenDeEntrega_boton.Size = new Size(142, 36);
             CrearOrdenDeEntrega_boton.TabIndex = 2;
@@ -110,7 +111,7 @@
             // 
             IdOrdenDePreparacion_label.AutoSize = true;
             IdOrdenDePreparacion_label.Font = new Font("Segoe UI", 9F);
-            IdOrdenDePreparacion_label.Location = new Point(392, 291);
+            IdOrdenDePreparacion_label.Location = new Point(295, 291);
             IdOrdenDePreparacion_label.Name = "IdOrdenDePreparacion_label";
             IdOrdenDePreparacion_label.Size = new Size(136, 15);
             IdOrdenDePreparacion_label.TabIndex = 3;
@@ -118,16 +119,28 @@
             // 
             // OrdenDePreparacion_textbox
             // 
-            OrdenDePreparacion_textbox.Location = new Point(392, 312);
+            OrdenDePreparacion_textbox.Location = new Point(295, 309);
             OrdenDePreparacion_textbox.Name = "OrdenDePreparacion_textbox";
             OrdenDePreparacion_textbox.Size = new Size(136, 29);
             OrdenDePreparacion_textbox.TabIndex = 4;
+            // 
+            // VolverAlMenu_button
+            // 
+            VolverAlMenu_button.Font = new Font("Segoe UI", 9F);
+            VolverAlMenu_button.Location = new Point(585, 306);
+            VolverAlMenu_button.Name = "VolverAlMenu_button";
+            VolverAlMenu_button.Size = new Size(102, 36);
+            VolverAlMenu_button.TabIndex = 5;
+            VolverAlMenu_button.Text = "Volver Al Menu";
+            VolverAlMenu_button.UseVisualStyleBackColor = true;
+            VolverAlMenu_button.Click += VolverAlMenu_button_Click;
             // 
             // CrearOrdenDeEntrega_Form
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(699, 378);
+            Controls.Add(VolverAlMenu_button);
             Controls.Add(OrdenDePreparacion_textbox);
             Controls.Add(IdOrdenDePreparacion_label);
             Controls.Add(CrearOrdenDeEntrega_boton);
@@ -155,5 +168,6 @@
         private ColumnHeader Cantidad;
         private Label IdOrdenDePreparacion_label;
         private TextBox OrdenDePreparacion_textbox;
+        private Button VolverAlMenu_button;
     }
 }

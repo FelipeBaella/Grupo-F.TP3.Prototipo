@@ -50,6 +50,7 @@
             label7 = new Label();
             label8 = new Label();
             label9 = new Label();
+            VolverAlMenu_Button = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -205,7 +206,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(411, 220);
+            button2.Location = new Point(409, 182);
             button2.Name = "button2";
             button2.Size = new Size(97, 23);
             button2.TabIndex = 8;
@@ -214,7 +215,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(544, 220);
+            button3.Location = new Point(544, 182);
             button3.Name = "button3";
             button3.Size = new Size(122, 23);
             button3.TabIndex = 9;
@@ -223,7 +224,7 @@
             // 
             // button4
             // 
-            button4.Location = new Point(694, 220);
+            button4.Location = new Point(694, 182);
             button4.Name = "button4";
             button4.Size = new Size(75, 23);
             button4.TabIndex = 10;
@@ -233,7 +234,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(409, 202);
+            label7.Location = new Point(411, 164);
             label7.Name = "label7";
             label7.Size = new Size(99, 15);
             label7.TabIndex = 11;
@@ -242,7 +243,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(544, 202);
+            label8.Location = new Point(544, 164);
             label8.Name = "label8";
             label8.Size = new Size(122, 15);
             label8.TabIndex = 12;
@@ -251,17 +252,28 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(694, 202);
+            label9.Location = new Point(694, 164);
             label9.Name = "label9";
             label9.Size = new Size(45, 15);
             label9.TabIndex = 13;
             label9.Text = "Remito";
+            // 
+            // VolverAlMenu_Button
+            // 
+            VolverAlMenu_Button.Location = new Point(655, 220);
+            VolverAlMenu_Button.Name = "VolverAlMenu_Button";
+            VolverAlMenu_Button.Size = new Size(114, 23);
+            VolverAlMenu_Button.TabIndex = 14;
+            VolverAlMenu_Button.Text = "Volver Al Menu";
+            VolverAlMenu_Button.UseVisualStyleBackColor = true;
+            VolverAlMenu_Button.Click += VolverAlMenu_Button_Click;
             // 
             // CrearRemito_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 273);
+            Controls.Add(VolverAlMenu_Button);
             Controls.Add(label9);
             Controls.Add(label8);
             Controls.Add(label7);
@@ -307,5 +319,6 @@
         private Label label7;
         private Label label8;
         private Label label9;
+        private Button VolverAlMenu_Button;
     }
 }

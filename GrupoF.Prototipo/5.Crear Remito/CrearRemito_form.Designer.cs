@@ -33,17 +33,17 @@
             textBox3 = new TextBox();
             textBox4 = new TextBox();
             groupBox1 = new GroupBox();
-            groupBox2 = new GroupBox();
-            label1 = new Label();
-            button1 = new Button();
             label2 = new Label();
-            label3 = new Label();
+            button1 = new Button();
+            label1 = new Label();
+            groupBox2 = new GroupBox();
             label4 = new Label();
+            label3 = new Label();
             textBox5 = new TextBox();
             textBox6 = new TextBox();
             groupBox3 = new GroupBox();
-            label5 = new Label();
             label6 = new Label();
+            label5 = new Label();
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
@@ -98,6 +98,35 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos del Transportista";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(138, 24);
+            label2.Name = "label2";
+            label2.Size = new Size(107, 15);
+            label2.TabIndex = 6;
+            label2.Text = "Nombre y Apellido";
+            label2.Click += label2_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(7, 71);
+            button1.Name = "button1";
+            button1.Size = new Size(85, 23);
+            button1.TabIndex = 5;
+            button1.Text = "Aceptar";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(7, 24);
+            label1.Name = "label1";
+            label1.Size = new Size(27, 15);
+            label1.TabIndex = 4;
+            label1.Text = "DNI";
+            // 
             // groupBox2
             // 
             groupBox2.Controls.Add(label4);
@@ -111,33 +140,14 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Datos de Mercaderia";
             // 
-            // label1
+            // label4
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(7, 24);
-            label1.Name = "label1";
-            label1.Size = new Size(27, 15);
-            label1.TabIndex = 4;
-            label1.Text = "DNI";
-            // 
-            // button1
-            // 
-            button1.Location = new Point(32, 71);
-            button1.Name = "button1";
-            button1.Size = new Size(85, 23);
-            button1.TabIndex = 5;
-            button1.Text = "Aceptar";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(138, 24);
-            label2.Name = "label2";
-            label2.Size = new Size(107, 15);
-            label2.TabIndex = 6;
-            label2.Text = "Nombre y Apellido";
-            label2.Click += label2_Click;
+            label4.AutoSize = true;
+            label4.Location = new Point(227, 24);
+            label4.Name = "label4";
+            label4.Size = new Size(55, 15);
+            label4.TabIndex = 4;
+            label4.Text = "Cantidad";
             // 
             // label3
             // 
@@ -147,15 +157,6 @@
             label3.Size = new Size(69, 15);
             label3.TabIndex = 3;
             label3.Text = "Descripcion";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(227, 24);
-            label4.Name = "label4";
-            label4.Size = new Size(55, 15);
-            label4.TabIndex = 4;
-            label4.Text = "Cantidad";
             // 
             // textBox5
             // 
@@ -184,15 +185,6 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "Datos del Cliente";
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(7, 19);
-            label5.Name = "label5";
-            label5.Size = new Size(58, 15);
-            label5.TabIndex = 7;
-            label5.Text = "ID Cliente";
-            // 
             // label6
             // 
             label6.AutoSize = true;
@@ -201,6 +193,15 @@
             label6.Size = new Size(131, 15);
             label6.TabIndex = 8;
             label6.Text = "Descripcion Mercaderia";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(7, 19);
+            label5.Name = "label5";
+            label5.Size = new Size(58, 15);
+            label5.TabIndex = 7;
+            label5.Text = "ID Cliente";
             // 
             // button2
             // 

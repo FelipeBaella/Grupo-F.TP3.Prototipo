@@ -36,7 +36,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Name = "ProcesarOrdenDeEntrega_form";
-            Text = "ProcesarOrdenDeEntrega_form";
+            Text = "Procesar Orden De Entrega";
             ResumeLayout(false);
         }
 

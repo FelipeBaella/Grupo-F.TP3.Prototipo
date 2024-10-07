@@ -6,30 +6,32 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
     partial class ProcesarOrdenDeSeleccion_form
     {
         private CrearOrdenDeSeleccion_model CrearOrdenesDeSeleccionModel = new CrearOrdenDeSeleccion_model();
-        private OrdnesDePreparacionModel OrdnesDePreparacionModel = new OrdnesDePreparacionModel();
+        private CrearOrdnesDePreparacionModel CrearOrdnesDePreparacionModel = new CrearOrdnesDePreparacionModel();
         private ProcesarOrdenDeSeleccion_model ProcesarOrdenDeSeleccionModel = new ProcesarOrdenDeSeleccion_model();
 
         private void CargarOrdenesDePreparacion()
         {
             foreach (var orden in ProcesarOrdenDeSeleccionModel.OrdenesDeSeleccion)
             {
-                var cliente = OrdnesDePreparacionModel.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
-                var mercaderia = OrdnesDePreparacionModel.Mercaderias.Where(x => x.Id_Mercaderia == orden.Id_Mercaderia).FirstOrDefault();
-                var depositos = OrdnesDePreparacionModel.Depositos.Where(x => x.Id_Deposito == orden.Id_Deposito).FirstOrDefault();
-                var OrdenPreparacion = OrdnesDePreparacionModel..Where(x => x.Id_Deposito == orden.Id_Deposito).FirstOrDefault();
+                var cliente = CrearOrdnesDePreparacionModel.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
+                var mercaderia = CrearOrdnesDePreparacionModel.Mercaderias.Where(x => x.Id_Mercaderia == orden.Id_Mercaderia).FirstOrDefault();
+                var depositos = CrearOrdnesDePreparacionModel.Depositos.Where(x => x.Id_Deposito == orden.Id_Deposito).FirstOrDefault();
+                var OrdenDePreparacion = CrearOrdenesDeSeleccionModel.OrdenesDePreparacion.Where(x => x.Id_OrdenDePreparacion == orden.Id_Deposito).FirstOrDefault();
+                var estado = CrearOrdenesDeSeleccionModel.OrdenesDePreparacion.Where(x => x.Id_Estado == orden.Id_Estado).FirstOrDefault();
 
 
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 
-                    orden.Id_Estado.ToString(),
+                    estado.Id_Estado.ToString(),
                     orden.Id_OrdenDeSeleccion.ToString(),
                     orden.Id_OrdenPreparacion.ToString(),
-                    orden.Id_Cliente.ToString(),
-                    cliente.NombreApellido,
-                    orden.Emision_OrdenDePreparacion.ToString(),
+                    OrdenDePreparacion.Prioridad_OrdenDePreparacion.ToString(),
+                    OrdenDePreparacion.Emision_OrdenDePreparacion.ToString(),
+                    depositos.Nombre_Deposito,              
                     mercaderia.Descripcion_Mercaderia,
-                    orden.Cantidad_OrdenDePreparacion.ToString(),
-                    depositos.Nombre_Deposito,
+                    OrdenDePreparacion.Cantidad_OrdenDePreparacion.ToString(),
+                    "Cordenadas".ToString(),
+                 
                 }, -1);
 
                 ProcesarOrdenesDeSeleccion_listView.Items.Add(listViewItem);
@@ -89,7 +91,8 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             // 
             // ProcesarOrdenesDeSeleccion_listView
             // 
-            ProcesarOrdenesDeSeleccion_listView.Columns.AddRange(new ColumnHeader[] { Estado_OS, ID_OS, ID_OP, Prioridad_OP, Fecha_Emision, Descripcion_Mercaderia, Cantidad, Coordenadas, Deposito });
+            ProcesarOrdenesDeSeleccion_listView.Columns.AddRange(new ColumnHeader[] { Estado_OS, ID_OS, ID_OP, Prioridad_OP, Fecha_Emision, Deposito, Descripcion_Mercaderia, Cantidad, Coordenadas });
+            CargarOrdenesDePreparacion();
             ProcesarOrdenesDeSeleccion_listView.Location = new Point(12, 33);
             ProcesarOrdenesDeSeleccion_listView.Name = "ProcesarOrdenesDeSeleccion_listView";
             ProcesarOrdenesDeSeleccion_listView.Size = new Size(714, 268);
@@ -124,24 +127,20 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             // 
             // Descripcion_Mercaderia
             // 
-            Descripcion_Mercaderia.DisplayIndex = 6;
             Descripcion_Mercaderia.Text = "Descripcion Mercaderia";
             Descripcion_Mercaderia.Width = 150;
             // 
             // Cantidad
             // 
-            Cantidad.DisplayIndex = 7;
             Cantidad.Text = "Cantidad";
             // 
             // Coordenadas
             // 
-            Coordenadas.DisplayIndex = 8;
             Coordenadas.Text = "Coordenadas";
             Coordenadas.Width = 90;
             // 
             // Deposito
             // 
-            Deposito.DisplayIndex = 5;
             Deposito.Text = "Deposito";
             // 
             // CompletarOrdenDeSeleccion_boton

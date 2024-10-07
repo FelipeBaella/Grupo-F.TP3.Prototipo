@@ -34,7 +34,7 @@ namespace GrupoF.Prototipo._5.Crear_Remito
         private void InitializeComponent()
         {
             NombreApellido_textBox = new TextBox();
-            Ingresar_ID_OP_textBox = new TextBox();
+            IngresarIDOP_textBox = new TextBox();
             DNI_textBox = new TextBox();
             OrdenDePreparacion_groupBox = new GroupBox();
             Ingresar_button = new Button();
@@ -55,7 +55,7 @@ namespace GrupoF.Prototipo._5.Crear_Remito
             CUIT_label = new Label();
             DescripcionMercaderia_label = new Label();
             NombreCliente_label = new Label();
-            button_Emitir = new Button();
+            Emitir_button = new Button();
             VolverAlMenu_button = new Button();
             Remito_groupBox = new GroupBox();
             OrdenDePreparacion_groupBox.SuspendLayout();
@@ -72,12 +72,12 @@ namespace GrupoF.Prototipo._5.Crear_Remito
             NombreApellido_textBox.Size = new Size(94, 23);
             NombreApellido_textBox.TabIndex = 0;
             // 
-            // Ingresar_ID_OP_textBox
+            // IngresarIDOP_textBox
             // 
-            Ingresar_ID_OP_textBox.Location = new Point(7, 42);
-            Ingresar_ID_OP_textBox.Name = "Ingresar_ID_OP_textBox";
-            Ingresar_ID_OP_textBox.Size = new Size(110, 23);
-            Ingresar_ID_OP_textBox.TabIndex = 1;
+            IngresarIDOP_textBox.Location = new Point(7, 42);
+            IngresarIDOP_textBox.Name = "IngresarIDOP_textBox";
+            IngresarIDOP_textBox.Size = new Size(110, 23);
+            IngresarIDOP_textBox.TabIndex = 1;
             // 
             // DNI_textBox
             // 
@@ -91,7 +91,7 @@ namespace GrupoF.Prototipo._5.Crear_Remito
             // 
             OrdenDePreparacion_groupBox.Controls.Add(Ingresar_button);
             OrdenDePreparacion_groupBox.Controls.Add(ID_OP_label);
-            OrdenDePreparacion_groupBox.Controls.Add(Ingresar_ID_OP_textBox);
+            OrdenDePreparacion_groupBox.Controls.Add(IngresarIDOP_textBox);
             OrdenDePreparacion_groupBox.Location = new Point(37, 25);
             OrdenDePreparacion_groupBox.Name = "OrdenDePreparacion_groupBox";
             OrdenDePreparacion_groupBox.Size = new Size(460, 100);
@@ -272,15 +272,15 @@ namespace GrupoF.Prototipo._5.Crear_Remito
             NombreCliente_label.TabIndex = 7;
             NombreCliente_label.Text = "Nombre Cliente";
             // 
-            // button_Emitir
+            // Emitir_button
             // 
-            button_Emitir.Location = new Point(7, 22);
-            button_Emitir.Name = "button_Emitir";
-            button_Emitir.Size = new Size(97, 23);
-            button_Emitir.TabIndex = 8;
-            button_Emitir.Text = "Emitir";
-            button_Emitir.UseVisualStyleBackColor = true;
-            button_Emitir.Click += button_Emitir_Click;
+            Emitir_button.Location = new Point(7, 22);
+            Emitir_button.Name = "Emitir_button";
+            Emitir_button.Size = new Size(97, 23);
+            Emitir_button.TabIndex = 8;
+            Emitir_button.Text = "Emitir";
+            Emitir_button.UseVisualStyleBackColor = true;
+            Emitir_button.Click += button_Emitir_Click;
             // 
             // VolverAlMenu_button
             // 
@@ -294,7 +294,7 @@ namespace GrupoF.Prototipo._5.Crear_Remito
             // 
             // Remito_groupBox
             // 
-            Remito_groupBox.Controls.Add(button_Emitir);
+            Remito_groupBox.Controls.Add(Emitir_button);
             Remito_groupBox.Location = new Point(37, 413);
             Remito_groupBox.Name = "Remito_groupBox";
             Remito_groupBox.Size = new Size(117, 56);
@@ -327,7 +327,7 @@ namespace GrupoF.Prototipo._5.Crear_Remito
         #endregion
 
         private TextBox NombreApellido_textBox;
-        private TextBox Ingresar_ID_OP_textBox;
+        private TextBox IngresarIDOP_textBox;
         private TextBox DNI_textBox;
         private GroupBox OrdenDePreparacion_groupBox;
         private GroupBox groupBox2;
@@ -340,7 +340,7 @@ namespace GrupoF.Prototipo._5.Crear_Remito
         private GroupBox groupBox3;
         private Label DescripcionMercaderia_label;
         private Label NombreCliente_label;
-        private Button button_Emitir;
+        private Button Emitir_button;
         private Button VolverAlMenu_button;
         private TextBox Cantidad_textBox;
         private Label Cantidad_label;

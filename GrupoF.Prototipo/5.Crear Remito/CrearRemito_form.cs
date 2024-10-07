@@ -57,7 +57,7 @@ namespace GrupoF.Prototipo._5.Crear_Remito
 
         private void Ingresar_button_Click(object sender, EventArgs e)
         {
-            string idOP = Ingresar_ID_OP_textBox.Text;
+            string idOP = IngresarIDOP_textBox.Text;
 
             this.Hide();
             CrearRemito_form nuevaForma = new CrearRemito_form(int.Parse(idOP));

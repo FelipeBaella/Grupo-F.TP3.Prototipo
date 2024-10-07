@@ -25,26 +25,26 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
         private void button_Crear_Orden_Click(object sender, EventArgs e)
         {
-            string Id_Orden = textBox_Id_Orden.Text.Trim();
+            string Id_Orden = IdOrden_textBox.Text.Trim();
 
             if(Id_Orden == "")
             {
                 MessageBox.Show("Id no puede estar vacio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBox_Id_Orden.Focus();
+                IdOrden_textBox.Focus();
                 return;
             }
 
             if (!Id_Orden.All(char.IsDigit))
             {
                 MessageBox.Show("Id debe ser un numero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBox_Id_Orden.Focus();
+                IdOrden_textBox.Focus();
                 return;
             }
 
             if (!_ordenesDeSeleccion_model.OrdenesDePreparacion.Any(o => o.Id_OrdenDePreparacion == int.Parse(Id_Orden)))
             {
                 MessageBox.Show("Debes seleccionar una orden valida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBox_Id_Orden.Focus();
+                IdOrden_textBox.Focus();
                 return;
             }
 

@@ -78,7 +78,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
             OrdenesDeEntrega_label = new Label();
             IdOrdenDeEntrega_label = new Label();
             IdOrdenDeEntrega_textBox = new TextBox();
-            button_ProcesarOrdenDeEntrega = new Button();
+            ProcesarOrdenDeEntrega_button = new Button();
             VolverAlMenu_button = new Button();
             SuspendLayout();
             // 
@@ -159,16 +159,16 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
             IdOrdenDeEntrega_textBox.Size = new Size(100, 23);
             IdOrdenDeEntrega_textBox.TabIndex = 3;
             // 
-            // button_ProcesarOrdenDeEntrega
+            // ProcesarOrdenDeEntrega_button
             // 
-            button_ProcesarOrdenDeEntrega.Font = new Font("Segoe UI", 9F);
-            button_ProcesarOrdenDeEntrega.Location = new Point(596, 226);
-            button_ProcesarOrdenDeEntrega.Name = "button_ProcesarOrdenDeEntrega";
-            button_ProcesarOrdenDeEntrega.Size = new Size(75, 23);
-            button_ProcesarOrdenDeEntrega.TabIndex = 4;
-            button_ProcesarOrdenDeEntrega.Text = "Procesar";
-            button_ProcesarOrdenDeEntrega.UseVisualStyleBackColor = true;
-            button_ProcesarOrdenDeEntrega.Click += ProcesarOrdenDeEntrega_button_Click;
+            ProcesarOrdenDeEntrega_button.Font = new Font("Segoe UI", 9F);
+            ProcesarOrdenDeEntrega_button.Location = new Point(596, 226);
+            ProcesarOrdenDeEntrega_button.Name = "ProcesarOrdenDeEntrega_button";
+            ProcesarOrdenDeEntrega_button.Size = new Size(75, 23);
+            ProcesarOrdenDeEntrega_button.TabIndex = 4;
+            ProcesarOrdenDeEntrega_button.Text = "Procesar";
+            ProcesarOrdenDeEntrega_button.UseVisualStyleBackColor = true;
+            ProcesarOrdenDeEntrega_button.Click += ProcesarOrdenDeEntrega_button_Click;
             // 
             // VolverAlMenu_button
             // 
@@ -186,7 +186,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 267);
             Controls.Add(VolverAlMenu_button);
-            Controls.Add(button_ProcesarOrdenDeEntrega);
+            Controls.Add(ProcesarOrdenDeEntrega_button);
             Controls.Add(IdOrdenDeEntrega_textBox);
             Controls.Add(IdOrdenDeEntrega_label);
             Controls.Add(OrdenesDeEntrega_label);
@@ -212,7 +212,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
         private ColumnHeader DNI_Transportista;
         private Label IdOrdenDeEntrega_label;
         private TextBox IdOrdenDeEntrega_textBox;
-        private Button button_ProcesarOrdenDeEntrega;
+        private Button ProcesarOrdenDeEntrega_button;
         private Button VolverAlMenu_button;
     }
 }

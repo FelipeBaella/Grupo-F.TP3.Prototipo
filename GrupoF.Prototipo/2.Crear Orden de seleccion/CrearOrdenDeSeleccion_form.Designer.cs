@@ -72,9 +72,9 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             Descripcion_Mercaderia = new ColumnHeader();
             Cantidad = new ColumnHeader();
             Deposito = new ColumnHeader();
-            button_Crear_Orden = new Button();
-            label1 = new Label();
-            textBox_Id_Orden = new TextBox();
+            CrearOrden_button = new Button();
+            OrdenesDePreparacion_label = new Label();
+            IdOrden_textBox = new TextBox();
             label2 = new Label();
             VolverAlMenu_button = new Button();
             SuspendLayout();
@@ -131,32 +131,32 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             Deposito.Text = "Deposito";
             Deposito.Width = 100;
             // 
-            // button_Crear_Orden
+            // CrearOrden_button
             // 
-            button_Crear_Orden.Location = new Point(568, 314);
-            button_Crear_Orden.Name = "button_Crear_Orden";
-            button_Crear_Orden.Size = new Size(158, 23);
-            button_Crear_Orden.TabIndex = 1;
-            button_Crear_Orden.Text = "Crear orden de seleccion";
-            button_Crear_Orden.UseVisualStyleBackColor = true;
-            button_Crear_Orden.Click += button_Crear_Orden_Click;
+            CrearOrden_button.Location = new Point(568, 314);
+            CrearOrden_button.Name = "CrearOrden_button";
+            CrearOrden_button.Size = new Size(158, 23);
+            CrearOrden_button.TabIndex = 1;
+            CrearOrden_button.Text = "Crear orden de seleccion";
+            CrearOrden_button.UseVisualStyleBackColor = true;
+            CrearOrden_button.Click += button_Crear_Orden_Click;
             // 
-            // label1
+            // OrdenesDePreparacion_label
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 11F);
-            label1.Location = new Point(12, 19);
-            label1.Name = "label1";
-            label1.Size = new Size(169, 20);
-            label1.TabIndex = 2;
-            label1.Text = "Ordenes de preparacion";
+            OrdenesDePreparacion_label.AutoSize = true;
+            OrdenesDePreparacion_label.Font = new Font("Segoe UI", 11F);
+            OrdenesDePreparacion_label.Location = new Point(12, 19);
+            OrdenesDePreparacion_label.Name = "OrdenesDePreparacion_label";
+            OrdenesDePreparacion_label.Size = new Size(169, 20);
+            OrdenesDePreparacion_label.TabIndex = 2;
+            OrdenesDePreparacion_label.Text = "Ordenes de preparacion";
             // 
-            // textBox_Id_Orden
+            // IdOrden_textBox
             // 
-            textBox_Id_Orden.Location = new Point(462, 314);
-            textBox_Id_Orden.Name = "textBox_Id_Orden";
-            textBox_Id_Orden.Size = new Size(100, 23);
-            textBox_Id_Orden.TabIndex = 3;
+            IdOrden_textBox.Location = new Point(462, 314);
+            IdOrden_textBox.Name = "IdOrden_textBox";
+            IdOrden_textBox.Size = new Size(100, 23);
+            IdOrden_textBox.TabIndex = 3;
             // 
             // label2
             // 
@@ -184,9 +184,9 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             ClientSize = new Size(836, 375);
             Controls.Add(VolverAlMenu_button);
             Controls.Add(label2);
-            Controls.Add(textBox_Id_Orden);
-            Controls.Add(label1);
-            Controls.Add(button_Crear_Orden);
+            Controls.Add(IdOrden_textBox);
+            Controls.Add(OrdenesDePreparacion_label);
+            Controls.Add(CrearOrden_button);
             Controls.Add(OrdenesDePreparacion_ListView);
             Name = "CrearOrdenDeSeleccion_form";
             Text = "Crear Orden de seleccion";
@@ -208,8 +208,8 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         private ColumnHeader Descripcion_Mercaderia;
         private ColumnHeader Cantidad;
         private ColumnHeader Deposito;
-        private Button button_Crear_Orden;
-        private Label label1;
+        private Button CrearOrden_button;
+        private Label OrdenesDePreparacion_label;
         private TextBox textBox1;
         private TextBox prueba6;
         private TextBox textBox3;
@@ -217,7 +217,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         private TextBox textBox5;
         private TextBox textBox6;
         private ColumnHeader Nombre;
-        private TextBox textBox_Id_Orden;
+        private TextBox IdOrden_textBox;
         private Label label2;
         private Button VolverAlMenu_button;
     }

@@ -69,7 +69,7 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
             Descripcion_Mercaderia = new ColumnHeader();
             Cantidad = new ColumnHeader();
             Deposito = new ColumnHeader();
-            button_CrearOrdenDeEntrega = new Button();
+            CrearOrdenDeEntrega_button = new Button();
             IdOrdenDePreparacion_label = new Label();
             IdOrdenDePreparacion_textbox = new TextBox();
             VolverAlMenu_button = new Button();
@@ -129,16 +129,16 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
             Deposito.Text = "Deposito";
             Deposito.Width = 100;
             // 
-            // button_CrearOrdenDeEntrega
+            // CrearOrdenDeEntrega_button
             // 
-            button_CrearOrdenDeEntrega.Font = new Font("Segoe UI", 9F);
-            button_CrearOrdenDeEntrega.Location = new Point(437, 318);
-            button_CrearOrdenDeEntrega.Name = "button_CrearOrdenDeEntrega";
-            button_CrearOrdenDeEntrega.Size = new Size(142, 36);
-            button_CrearOrdenDeEntrega.TabIndex = 2;
-            button_CrearOrdenDeEntrega.Text = "Crear Orden De Entrega";
-            button_CrearOrdenDeEntrega.UseVisualStyleBackColor = true;
-            button_CrearOrdenDeEntrega.Click += button_CrearOrdenDeEntrega_Click;
+            CrearOrdenDeEntrega_button.Font = new Font("Segoe UI", 9F);
+            CrearOrdenDeEntrega_button.Location = new Point(437, 318);
+            CrearOrdenDeEntrega_button.Name = "CrearOrdenDeEntrega_button";
+            CrearOrdenDeEntrega_button.Size = new Size(142, 36);
+            CrearOrdenDeEntrega_button.TabIndex = 2;
+            CrearOrdenDeEntrega_button.Text = "Crear Orden De Entrega";
+            CrearOrdenDeEntrega_button.UseVisualStyleBackColor = true;
+            CrearOrdenDeEntrega_button.Click += button_CrearOrdenDeEntrega_Click;
             // 
             // IdOrdenDePreparacion_label
             // 
@@ -176,7 +176,7 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
             Controls.Add(VolverAlMenu_button);
             Controls.Add(IdOrdenDePreparacion_textbox);
             Controls.Add(IdOrdenDePreparacion_label);
-            Controls.Add(button_CrearOrdenDeEntrega);
+            Controls.Add(CrearOrdenDeEntrega_button);
             Controls.Add(OrdenesDePreparacion_listView);
             Controls.Add(CrearOrdenDeEntrega_label);
             Font = new Font("Segoe UI", 12F);
@@ -191,7 +191,7 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 
         private Label CrearOrdenDeEntrega_label;
         private ListView OrdenesDePreparacion_listView;
-        private Button button_CrearOrdenDeEntrega;
+        private Button CrearOrdenDeEntrega_button;
         private ColumnHeader Estado_OP;
         private ColumnHeader ID_OP;
         private ColumnHeader Prioridad_OP;

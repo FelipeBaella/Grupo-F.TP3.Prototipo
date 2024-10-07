@@ -14,9 +14,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 {
-    public partial class CrearOrdenPreparacion_form : Form
+    public partial class CrearOrdenDePreparacion_form : Form
     {
-        public CrearOrdenPreparacion_form()
+        public CrearOrdenDePreparacion_form()
         {
             InitializeComponent();
         }
@@ -141,7 +141,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
         }
 
-        private void CrearOrdenPreparacion_form_Load(object sender, EventArgs e)
+        private void CrearOrdenDePreparacion_form_Load(object sender, EventArgs e)
         {
 
         }

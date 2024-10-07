@@ -37,7 +37,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
             this.Hide();
 
-            CrearOrdenPreparacion_form nuevaForma = new CrearOrdenPreparacion_form();
+            CrearOrdenDePreparacion_form nuevaForma = new CrearOrdenDePreparacion_form();
             nuevaForma.Show();
         }
     }

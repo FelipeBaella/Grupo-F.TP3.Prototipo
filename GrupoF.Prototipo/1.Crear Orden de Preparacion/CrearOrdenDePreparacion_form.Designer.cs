@@ -1,6 +1,6 @@
 ﻿namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 {
-    partial class CrearOrdenPreparacion_form
+    partial class CrearOrdenDePreparacion_form
     {
         private OrdnesDePreparacionModel _ordenesModel = new OrdnesDePreparacionModel();
 
@@ -264,7 +264,7 @@
             label3.TabIndex = 5;
             label3.Text = "Descripcion";
             // 
-            // CrearOrdenPreparacion_form
+            // CrearOrdenDePreparacion_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -274,9 +274,9 @@
             Controls.Add(groupBox1);
             Controls.Add(button_salir);
             Controls.Add(button_aceptar);
-            Name = "CrearOrdenPreparacion_form";
+            Name = "CrearOrdenDePreparacion_form";
             Text = "Generar Orden de Preparacion";
-            Load += CrearOrdenPreparacion_form_Load;
+            Load += CrearOrdenDePreparacion_form_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox3.ResumeLayout(false);

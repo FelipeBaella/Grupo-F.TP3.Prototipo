@@ -40,6 +40,7 @@
             Coordenadas = new ColumnHeader();
             Deposito = new ColumnHeader();
             CompletarOrdenDeSeleccion_boton = new Button();
+            VolverAlMenu_Button = new Button();
             SuspendLayout();
             // 
             // OrdenesDeSeleccionLabel
@@ -111,18 +112,29 @@
             // 
             // CompletarOrdenDeSeleccion_boton
             // 
-            CompletarOrdenDeSeleccion_boton.Location = new Point(523, 307);
+            CompletarOrdenDeSeleccion_boton.Location = new Point(386, 307);
             CompletarOrdenDeSeleccion_boton.Name = "CompletarOrdenDeSeleccion_boton";
             CompletarOrdenDeSeleccion_boton.Size = new Size(197, 33);
             CompletarOrdenDeSeleccion_boton.TabIndex = 2;
             CompletarOrdenDeSeleccion_boton.Text = "Procesar Orden de Seleccion";
             CompletarOrdenDeSeleccion_boton.UseVisualStyleBackColor = true;
             // 
+            // VolverAlMenu_Button
+            // 
+            VolverAlMenu_Button.Location = new Point(598, 307);
+            VolverAlMenu_Button.Name = "VolverAlMenu_Button";
+            VolverAlMenu_Button.Size = new Size(124, 33);
+            VolverAlMenu_Button.TabIndex = 15;
+            VolverAlMenu_Button.Text = "Volver Al Menu";
+            VolverAlMenu_Button.UseVisualStyleBackColor = true;
+            VolverAlMenu_Button.Click += VolverAlMenu_Button_Click;
+            // 
             // ProcesarOrdenDeSeleccion_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(734, 361);
+            Controls.Add(VolverAlMenu_Button);
             Controls.Add(CompletarOrdenDeSeleccion_boton);
             Controls.Add(listView1);
             Controls.Add(OrdenesDeSeleccionLabel);
@@ -146,5 +158,6 @@
         private ColumnHeader Coordenadas;
         private ColumnHeader Deposito;
         private Button CompletarOrdenDeSeleccion_boton;
+        private Button VolverAlMenu_Button;
     }
 }

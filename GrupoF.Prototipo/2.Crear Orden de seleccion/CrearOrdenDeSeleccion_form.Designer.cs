@@ -76,12 +76,12 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             label1 = new Label();
             textBox_Id_Orden = new TextBox();
             label2 = new Label();
+            VolverAlMenu_button = new Button();
             SuspendLayout();
             // 
             // OrdenesDePreparacion_ListView
             // 
             OrdenesDePreparacion_ListView.Columns.AddRange(new ColumnHeader[] { Estado_OP, Prioridad, ID_OP, ID_Cliente, Nombre_Cliente, Fecha_Emision, Descripcion_Mercaderia, Cantidad, Deposito });
-            CargarOrdenesDePreparacion();
             OrdenesDePreparacion_ListView.Location = new Point(12, 42);
             OrdenesDePreparacion_ListView.Name = "OrdenesDePreparacion_ListView";
             OrdenesDePreparacion_ListView.Size = new Size(810, 207);
@@ -133,7 +133,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // 
             // Button_Crear_Orden
             // 
-            Button_Crear_Orden.Location = new Point(664, 314);
+            Button_Crear_Orden.Location = new Point(568, 314);
             Button_Crear_Orden.Name = "Button_Crear_Orden";
             Button_Crear_Orden.Size = new Size(158, 23);
             Button_Crear_Orden.TabIndex = 1;
@@ -153,7 +153,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // 
             // textBox_Id_Orden
             // 
-            textBox_Id_Orden.Location = new Point(558, 315);
+            textBox_Id_Orden.Location = new Point(462, 314);
             textBox_Id_Orden.Name = "textBox_Id_Orden";
             textBox_Id_Orden.Size = new Size(100, 23);
             textBox_Id_Orden.TabIndex = 3;
@@ -161,17 +161,28 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(558, 297);
+            label2.Location = new Point(462, 290);
             label2.Name = "label2";
             label2.Size = new Size(51, 15);
             label2.TabIndex = 4;
             label2.Text = "Id orden";
+            // 
+            // VolverAlMenu_button
+            // 
+            VolverAlMenu_button.Location = new Point(732, 313);
+            VolverAlMenu_button.Name = "VolverAlMenu_button";
+            VolverAlMenu_button.Size = new Size(101, 23);
+            VolverAlMenu_button.TabIndex = 5;
+            VolverAlMenu_button.Text = "Volver al Menu";
+            VolverAlMenu_button.UseVisualStyleBackColor = true;
+            VolverAlMenu_button.Click += VolverAlMenu_button_Click;
             // 
             // CrearOrdenDeSeleccion_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(836, 375);
+            Controls.Add(VolverAlMenu_button);
             Controls.Add(label2);
             Controls.Add(textBox_Id_Orden);
             Controls.Add(label1);
@@ -208,5 +219,6 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         private ColumnHeader Nombre;
         private TextBox textBox_Id_Orden;
         private Label label2;
+        private Button VolverAlMenu_button;
     }
 }

@@ -87,6 +87,7 @@
             groupBox4 = new GroupBox();
             label4 = new Label();
             label3 = new Label();
+            VolverAlMenu_button = new Button();
             groupBox1.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
@@ -122,7 +123,6 @@
             // 
             // ComboBox_Descripcion_Mercaderia
             // 
-            CargarMercaderias();
             ComboBox_Descripcion_Mercaderia.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBox_Descripcion_Mercaderia.FormattingEnabled = true;
             ComboBox_Descripcion_Mercaderia.Location = new Point(43, 55);
@@ -132,7 +132,6 @@
             // 
             // ComboBox_Descripcion_Deposito
             // 
-            CargarDepositos();
             ComboBox_Descripcion_Deposito.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBox_Descripcion_Deposito.FormattingEnabled = true;
             ComboBox_Descripcion_Deposito.Location = new Point(299, 55);
@@ -143,7 +142,7 @@
             // 
             // button_aceptar
             // 
-            button_aceptar.Location = new Point(326, 398);
+            button_aceptar.Location = new Point(240, 402);
             button_aceptar.Name = "button_aceptar";
             button_aceptar.Size = new Size(75, 23);
             button_aceptar.TabIndex = 6;
@@ -153,7 +152,7 @@
             // 
             // button_salir
             // 
-            button_salir.Location = new Point(424, 398);
+            button_salir.Location = new Point(429, 402);
             button_salir.Name = "button_salir";
             button_salir.Size = new Size(75, 23);
             button_salir.TabIndex = 7;
@@ -264,11 +263,22 @@
             label3.TabIndex = 5;
             label3.Text = "Descripcion";
             // 
+            // VolverAlMenu_button
+            // 
+            VolverAlMenu_button.Location = new Point(321, 402);
+            VolverAlMenu_button.Name = "VolverAlMenu_button";
+            VolverAlMenu_button.Size = new Size(102, 23);
+            VolverAlMenu_button.TabIndex = 12;
+            VolverAlMenu_button.Text = "Volver al Menu";
+            VolverAlMenu_button.UseVisualStyleBackColor = true;
+            VolverAlMenu_button.Click += VolverAlMenu_button_Click;
+            // 
             // CrearOrdenDePreparacion_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(516, 437);
+            Controls.Add(VolverAlMenu_button);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(groupBox1);
@@ -308,5 +318,6 @@
         private Label label1;
         private Label label4;
         private Label label3;
+        private Button VolverAlMenu_button;
     }
 }

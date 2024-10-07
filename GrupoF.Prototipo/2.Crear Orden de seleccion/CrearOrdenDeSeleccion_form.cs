@@ -1,4 +1,5 @@
-﻿using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
+﻿using GrupoF.Prototipo._0.Menu;
+using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
 using GrupoF.Prototipo.Procesar_ordenes_de_preparacion;
 using System;
 using System.Collections.Generic;
@@ -38,6 +39,15 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             this.Hide();
 
             CrearOrdenDePreparacion_form nuevaForma = new CrearOrdenDePreparacion_form();
+            nuevaForma.Show();
+        }
+
+        private void VolverAlMenu_button_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            Menu_form nuevaForma = new Menu_form();
+
             nuevaForma.Show();
         }
     }

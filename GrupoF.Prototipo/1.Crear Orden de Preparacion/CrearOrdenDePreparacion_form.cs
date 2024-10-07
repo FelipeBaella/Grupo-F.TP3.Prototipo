@@ -1,4 +1,5 @@
-﻿using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
+﻿using GrupoF.Prototipo._0.Menu;
+using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
 using GrupoF.Prototipo.Procesar_ordener_de_seleccion;
 using System;
 using System.Collections.Generic;
@@ -127,7 +128,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
             CrearOrdenDeSeleccion_form nuevaForma = new CrearOrdenDeSeleccion_form();
             nuevaForma.Show();
-    
+
         }
 
         private void button_salir_click(object sender, EventArgs e)
@@ -149,6 +150,15 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         private void ComboBox_Descripcion_Deposito_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void VolverAlMenu_button_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            Menu_form nuevaForma = new Menu_form();
+
+            nuevaForma.Show();
         }
     }
 }

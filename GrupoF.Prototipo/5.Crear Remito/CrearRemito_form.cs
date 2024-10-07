@@ -66,7 +66,12 @@ namespace GrupoF.Prototipo._5.Crear_Remito
 
         private void button_Emitir_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Se creo el remito con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            this.Hide();
+
+            Menu_form nuevaForma = new Menu_form();
+            nuevaForma.Show();
         }
     }
 }

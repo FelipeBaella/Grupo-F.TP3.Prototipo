@@ -19,6 +19,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
         public ProcesarOrdenDeEntrega_form()
         {
             InitializeComponent();
+            CargarOrdenesDeEntrega();
         }
 
         private void ProcesarOrdenDeEntrega_button_Click(object sender, EventArgs e)

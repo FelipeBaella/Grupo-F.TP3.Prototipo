@@ -76,7 +76,6 @@
             ComboBox_Descripcion_Mercaderia = new ComboBox();
             ComboBox_Descripcion_Deposito = new ComboBox();
             button_aceptar = new Button();
-            button_salir = new Button();
             groupBox1 = new GroupBox();
             label6 = new Label();
             label5 = new Label();
@@ -97,8 +96,10 @@
             // 
             TextBox_Id_Cliente.Location = new Point(39, 55);
             TextBox_Id_Cliente.Name = "TextBox_Id_Cliente";
+            TextBox_Id_Cliente.ReadOnly = true;
             TextBox_Id_Cliente.Size = new Size(100, 23);
             TextBox_Id_Cliente.TabIndex = 0;
+            TextBox_Id_Cliente.Text = "1";
             // 
             // TextBox_Cantidad
             // 
@@ -123,7 +124,6 @@
             // 
             // ComboBox_Descripcion_Mercaderia
             // 
-            CargarMercaderias();
             ComboBox_Descripcion_Mercaderia.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBox_Descripcion_Mercaderia.FormattingEnabled = true;
             ComboBox_Descripcion_Mercaderia.Location = new Point(43, 55);
@@ -133,7 +133,6 @@
             // 
             // ComboBox_Descripcion_Deposito
             // 
-            CargarDepositos();
             ComboBox_Descripcion_Deposito.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBox_Descripcion_Deposito.FormattingEnabled = true;
             ComboBox_Descripcion_Deposito.Location = new Point(299, 55);
@@ -143,23 +142,13 @@
             // 
             // button_aceptar
             // 
-            button_aceptar.Location = new Point(240, 402);
+            button_aceptar.Location = new Point(306, 402);
             button_aceptar.Name = "button_aceptar";
             button_aceptar.Size = new Size(75, 23);
             button_aceptar.TabIndex = 6;
             button_aceptar.Text = "Aceptar";
             button_aceptar.UseVisualStyleBackColor = true;
             button_aceptar.Click += button_aceptar_click;
-            // 
-            // button_salir
-            // 
-            button_salir.Location = new Point(429, 402);
-            button_salir.Name = "button_salir";
-            button_salir.Size = new Size(75, 23);
-            button_salir.TabIndex = 7;
-            button_salir.Text = "Salir";
-            button_salir.UseVisualStyleBackColor = true;
-            button_salir.Click += button_salir_click;
             // 
             // groupBox1
             // 
@@ -266,7 +255,7 @@
             // 
             // VolverAlMenu_button
             // 
-            VolverAlMenu_button.Location = new Point(321, 402);
+            VolverAlMenu_button.Location = new Point(387, 402);
             VolverAlMenu_button.Name = "VolverAlMenu_button";
             VolverAlMenu_button.Size = new Size(102, 23);
             VolverAlMenu_button.TabIndex = 12;
@@ -283,7 +272,6 @@
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(groupBox1);
-            Controls.Add(button_salir);
             Controls.Add(button_aceptar);
             Name = "CrearOrdenDePreparacion_form";
             Text = "Generar Orden de Preparacion";
@@ -307,7 +295,6 @@
         private ComboBox ComboBox_Descripcion_Mercaderia;
         private ComboBox ComboBox_Descripcion_Deposito;
         private Button button_aceptar;
-        private Button button_salir;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
         private GroupBox groupBox3;

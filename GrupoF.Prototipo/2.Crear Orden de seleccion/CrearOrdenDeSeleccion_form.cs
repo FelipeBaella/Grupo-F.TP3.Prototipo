@@ -19,7 +19,8 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
         public CrearOrdenDeSeleccion_form()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            CargarOrdenesDePreparacion();
         }
 
         private void button_Crear_Orden_Click(object sender, EventArgs e)

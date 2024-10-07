@@ -19,7 +19,8 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 
         public CrearOrdenDeEntrega_Form()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            CargarOrdenesDePreparacion();
         }
 
         private void VolverAlMenu_button_Click(object sender, EventArgs e)

@@ -20,6 +20,8 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         public CrearOrdenDePreparacion_form()
         {
             InitializeComponent();
+            CargarDepositos();
+            CargarMercaderias();
         }
 
 
@@ -74,9 +76,9 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                 return;
             }
 
-            if (Dni.Length < 7 || Dni.Length > 8)
+            if (Dni.Length != 8)
             {
-                MessageBox.Show("El campo Dni debe ser tener 7 u 8 caracteres", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El campo Dni debe ser tener 8 caracteres", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextBox_Cantidad.Focus();
                 return;
             }
@@ -88,12 +90,23 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                 return;
             }
 
-
-            int cantidad;
-
-            if (!int.TryParse(Cantidad, out cantidad))
+            if (!Cantidad.All(char.IsDigit))
             {
                 MessageBox.Show("El campo Cantidad debe ser un numero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TextBox_Cantidad.Focus();
+                return;
+            }
+
+            if (string.IsNullOrEmpty(NombreApellido))
+            {
+                MessageBox.Show("El campo Nombre y Apellido no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TextBox_NombreApellido.Focus();
+                return;
+            }
+
+            if (NombreApellido.Any(char.IsDigit))
+            {
+                MessageBox.Show("El campo Nombre y Apellido no puede contener numeros", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TextBox_Cantidad.Focus();
                 return;
             }
@@ -124,12 +137,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
         private void button_salir_click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                this.Close();
-            }
+            
 
         }
 

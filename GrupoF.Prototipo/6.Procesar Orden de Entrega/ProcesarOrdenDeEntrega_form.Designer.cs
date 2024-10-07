@@ -85,7 +85,6 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
             // listView_OrdenesDeEntrega
             // 
             listView_OrdenesDeEntrega.Columns.AddRange(new ColumnHeader[] { Estado_OE, ID_OE, Fecha_Emision_OE, ID_OP, Prioridad_OP, Descripcion_Mercaderia, Cantidad_Mercaderia, Deposito, DNI_Transportista });
-            CargarOrdenesDeEntrega();
             listView_OrdenesDeEntrega.Location = new Point(12, 33);
             listView_OrdenesDeEntrega.Name = "listView_OrdenesDeEntrega";
             listView_OrdenesDeEntrega.Size = new Size(776, 171);

@@ -96,7 +96,6 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             // ProcesarOrdenesDeSeleccion_listView
             // 
             ProcesarOrdenesDeSeleccion_listView.Columns.AddRange(new ColumnHeader[] { Estado_OS, ID_OS, ID_OP, Prioridad_OP, Fecha_Emision, Deposito, Descripcion_Mercaderia, Cantidad, Coordenadas });
-            CargarOrdenesDePreparacion();
             ProcesarOrdenesDeSeleccion_listView.Location = new Point(12, 33);
             ProcesarOrdenesDeSeleccion_listView.Name = "ProcesarOrdenesDeSeleccion_listView";
             ProcesarOrdenesDeSeleccion_listView.Size = new Size(714, 268);

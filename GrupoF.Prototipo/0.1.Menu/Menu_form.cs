@@ -73,9 +73,12 @@ namespace GrupoF.Prototipo._0.Menu
 
         private void button_Salir_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }        
         }
-
-
     }
 }

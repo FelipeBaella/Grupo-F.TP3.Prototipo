@@ -19,6 +19,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
         public ProcesarOrdenDeSeleccion_form()
         {
             InitializeComponent();
+            CargarOrdenesDePreparacion();
         }
 
         private void VolverAlMenu_button_Click(object sender, EventArgs e)

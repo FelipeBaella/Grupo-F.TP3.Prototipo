@@ -82,7 +82,6 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // OrdenesDePreparacion_ListView
             // 
             OrdenesDePreparacion_ListView.Columns.AddRange(new ColumnHeader[] { Estado_OP, Prioridad, ID_OP, ID_Cliente, Nombre_Cliente, Fecha_Emision, Descripcion_Mercaderia, Cantidad, Deposito });
-            CargarOrdenesDePreparacion();
             OrdenesDePreparacion_ListView.Location = new Point(12, 42);
             OrdenesDePreparacion_ListView.Name = "OrdenesDePreparacion_ListView";
             OrdenesDePreparacion_ListView.Size = new Size(810, 207);

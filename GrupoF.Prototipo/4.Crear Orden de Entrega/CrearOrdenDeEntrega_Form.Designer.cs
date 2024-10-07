@@ -88,7 +88,6 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
             // OrdenesDePreparacion_listView
             // 
             OrdenesDePreparacion_listView.Columns.AddRange(new ColumnHeader[] { Estado_OP, ID_OP, Prioridad_OP, Fecha_Emision_OP, Descripcion_Mercaderia, Cantidad, Deposito });
-            CargarOrdenesDePreparacion();
             OrdenesDePreparacion_listView.Font = new Font("Segoe UI", 9F);
             OrdenesDePreparacion_listView.Location = new Point(12, 33);
             OrdenesDePreparacion_listView.Name = "OrdenesDePreparacion_listView";

@@ -4,26 +4,31 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 {
 
 
-    partial class ProcesarOrdenesDePreparacion_form
+    partial class CrearOrdenDeSeleccion_form
     {
         private CrearOrdenDeSeleccion_model _ordenesDeSeleccionModel2 = new CrearOrdenDeSeleccion_model();
-
-
+        private OrdnesDePreparacionModel OrdnesDePreparacionModel = new OrdnesDePreparacionModel();
+      
         private void CargarOrdenesDePreparacion()
         {
             foreach (var orden in _ordenesDeSeleccionModel2.OrdenesDePreparacion)
             {
+                var cliente = OrdnesDePreparacionModel.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
+                var mercaderia = OrdnesDePreparacionModel.Mercaderias.Where(x => x.Id_Mercaderia == orden.Id_Mercaderia).FirstOrDefault();
+                var depositos = OrdnesDePreparacionModel.Depositos.Where(x => x.Id_Deposito == orden.Id_Deposito).FirstOrDefault();
+
+
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 
-                    "",
-                    "",
+                    orden.Emision_OrdenDePreparacion.ToString(),
+                    orden.Prioridad_OrdenDePreparacion.ToString(),
                     orden.Id_OrdenDePreparacion.ToString(),
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
+                    orden.Id_Cliente.ToString(),
+                    cliente.NombreApellido,
+                    orden.Emision_OrdenDePreparacion.ToString(),
+                    mercaderia.Descripcion_Mercaderia,
+                    orden.Cantidad_OrdenDePreparacion.ToString(),
+                    depositos.Nombre_Deposito,
                 }, -1);
 
                 OrdenesDePreparacion_ListView.Items.Add(listViewItem);
@@ -76,6 +81,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // OrdenesDePreparacion_ListView
             // 
             OrdenesDePreparacion_ListView.Columns.AddRange(new ColumnHeader[] { Estado_OP, Prioridad, ID_OP, ID_Cliente, Nombre_Cliente, Fecha_Emision, Descripcion_Mercaderia, Cantidad, Deposito });
+            CargarOrdenesDePreparacion();
             OrdenesDePreparacion_ListView.Location = new Point(12, 42);
             OrdenesDePreparacion_ListView.Name = "OrdenesDePreparacion_ListView";
             OrdenesDePreparacion_ListView.Size = new Size(810, 207);
@@ -161,7 +167,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             label2.TabIndex = 4;
             label2.Text = "Id orden";
             // 
-            // ProcesarOrdenesDePreparacion_form
+            // CrearOrdenDeSeleccion_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -171,7 +177,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             Controls.Add(label1);
             Controls.Add(Button_Crear_Orden);
             Controls.Add(OrdenesDePreparacion_ListView);
-            Name = "ProcesarOrdenesDePreparacion_form";
+            Name = "CrearOrdenDeSeleccion_form";
             Text = "Crear Orden de seleccion";
             ResumeLayout(false);
             PerformLayout();

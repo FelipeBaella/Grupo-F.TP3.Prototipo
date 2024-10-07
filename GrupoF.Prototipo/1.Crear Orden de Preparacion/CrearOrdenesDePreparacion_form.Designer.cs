@@ -1,6 +1,6 @@
 ﻿namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 {
-    partial class Generar_orden_preparacion
+    partial class CrearOrdenPreparacion_form
     {
         private OrdnesDePreparacionModel _ordenesModel = new OrdnesDePreparacionModel();
 
@@ -122,6 +122,7 @@
             // 
             // ComboBox_Descripcion_Mercaderia
             // 
+            CargarMercaderias();
             ComboBox_Descripcion_Mercaderia.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBox_Descripcion_Mercaderia.FormattingEnabled = true;
             ComboBox_Descripcion_Mercaderia.Location = new Point(43, 55);
@@ -131,6 +132,7 @@
             // 
             // ComboBox_Descripcion_Deposito
             // 
+            CargarDepositos();
             ComboBox_Descripcion_Deposito.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBox_Descripcion_Deposito.FormattingEnabled = true;
             ComboBox_Descripcion_Deposito.Location = new Point(299, 55);
@@ -262,7 +264,7 @@
             label3.TabIndex = 5;
             label3.Text = "Descripcion";
             // 
-            // Generar_orden_preparacion
+            // CrearOrdenPreparacion_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -272,9 +274,9 @@
             Controls.Add(groupBox1);
             Controls.Add(button_salir);
             Controls.Add(button_aceptar);
-            Name = "Generar_orden_preparacion";
+            Name = "CrearOrdenPreparacion_form";
             Text = "Generar Orden de Preparacion";
-            Load += Generar_orden_preparacion_Load;
+            Load += CrearOrdenPreparacion_form_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox3.ResumeLayout(false);

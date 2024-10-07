@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 {
-    public partial class ProcesarOrdenesDePreparacion_form : Form
+    public partial class CrearOrdenDeSeleccion_form : Form
     {
         private CrearOrdenDeSeleccion_model _ordenesDeSeleccionModel = new CrearOrdenDeSeleccion_model();
 
-        public ProcesarOrdenesDePreparacion_form()
+        public CrearOrdenDeSeleccion_form()
         {
             InitializeComponent();
         }
@@ -35,9 +35,9 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
             MessageBox.Show("Se creo la orden de seleccion con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            this.Close();
+            this.Hide();
 
-            Generar_orden_preparacion nuevaForma = new Generar_orden_preparacion();
+            CrearOrdenPreparacion_form nuevaForma = new CrearOrdenPreparacion_form();
             nuevaForma.Show();
         }
     }

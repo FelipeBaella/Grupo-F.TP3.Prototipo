@@ -14,9 +14,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 {
-    public partial class Generar_orden_preparacion : Form
+    public partial class CrearOrdenPreparacion_form : Form
     {
-        public Generar_orden_preparacion()
+        public CrearOrdenPreparacion_form()
         {
             InitializeComponent();
         }
@@ -123,10 +123,11 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
             MessageBox.Show("Se creo la orden de preparacion con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            this.Close();
+            this.Hide();
 
-            ProcesarOrdenDeSeleccion_form nuevaForma = new ProcesarOrdenDeSeleccion_form();
+            CrearOrdenDeSeleccion_form nuevaForma = new CrearOrdenDeSeleccion_form();
             nuevaForma.Show();
+    
         }
 
         private void button_salir_click(object sender, EventArgs e)
@@ -135,13 +136,12 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
             if (result == DialogResult.Yes)
             {
-
                 this.Close();
             }
 
         }
 
-        private void Generar_orden_preparacion_Load(object sender, EventArgs e)
+        private void CrearOrdenPreparacion_form_Load(object sender, EventArgs e)
         {
 
         }

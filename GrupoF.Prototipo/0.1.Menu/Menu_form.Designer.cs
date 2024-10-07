@@ -28,97 +28,97 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button_CrearOrdenDePreparacion = new Button();
-            button_CrearOrdenDeSeleccion = new Button();
-            button_ProcesarOrdenDeSeleccion = new Button();
-            button_CrearOrdenDeEntrega = new Button();
-            button_CrearRemito = new Button();
-            button_ProcesarOrdenDeEntrega = new Button();
-            button_Salir = new Button();
+            CrearOrdenDePreparacion_button = new Button();
+            CrearOrdenDeSeleccion_button = new Button();
+            ProcesarOrdenDeSeleccion_button = new Button();
+            CrearOrdenDeEntrega_button = new Button();
+            CrearRemito_button = new Button();
+            ProcesarOrdenDeEntrega_button = new Button();
+            Salir_button = new Button();
             SuspendLayout();
             // 
-            // button_CrearOrdenDePreparacion
+            // CrearOrdenDePreparacion_button
             // 
-            button_CrearOrdenDePreparacion.Location = new Point(115, 10);
-            button_CrearOrdenDePreparacion.Name = "button_CrearOrdenDePreparacion";
-            button_CrearOrdenDePreparacion.Size = new Size(185, 50);
-            button_CrearOrdenDePreparacion.TabIndex = 0;
-            button_CrearOrdenDePreparacion.Text = "Crear Orden de Preparacion";
-            button_CrearOrdenDePreparacion.UseVisualStyleBackColor = true;
-            button_CrearOrdenDePreparacion.Click += button_CrearOrdenDePreparacion_Click;
+            CrearOrdenDePreparacion_button.Location = new Point(115, 10);
+            CrearOrdenDePreparacion_button.Name = "CrearOrdenDePreparacion_button";
+            CrearOrdenDePreparacion_button.Size = new Size(185, 50);
+            CrearOrdenDePreparacion_button.TabIndex = 0;
+            CrearOrdenDePreparacion_button.Text = "Crear Orden de Preparacion";
+            CrearOrdenDePreparacion_button.UseVisualStyleBackColor = true;
+            CrearOrdenDePreparacion_button.Click += button_CrearOrdenDePreparacion_Click;
             // 
-            // button_CrearOrdenDeSeleccion
+            // CrearOrdenDeSeleccion_button
             // 
-            button_CrearOrdenDeSeleccion.Location = new Point(115, 80);
-            button_CrearOrdenDeSeleccion.Name = "button_CrearOrdenDeSeleccion";
-            button_CrearOrdenDeSeleccion.Size = new Size(185, 50);
-            button_CrearOrdenDeSeleccion.TabIndex = 1;
-            button_CrearOrdenDeSeleccion.Text = "Crear Orden de Seleccion";
-            button_CrearOrdenDeSeleccion.UseVisualStyleBackColor = true;
-            button_CrearOrdenDeSeleccion.Click += button_CrearOrdenDeSeleccion_Click;
+            CrearOrdenDeSeleccion_button.Location = new Point(115, 80);
+            CrearOrdenDeSeleccion_button.Name = "CrearOrdenDeSeleccion_button";
+            CrearOrdenDeSeleccion_button.Size = new Size(185, 50);
+            CrearOrdenDeSeleccion_button.TabIndex = 1;
+            CrearOrdenDeSeleccion_button.Text = "Crear Orden de Seleccion";
+            CrearOrdenDeSeleccion_button.UseVisualStyleBackColor = true;
+            CrearOrdenDeSeleccion_button.Click += button_CrearOrdenDeSeleccion_Click;
             // 
-            // button_ProcesarOrdenDeSeleccion
+            // ProcesarOrdenDeSeleccion_button
             // 
-            button_ProcesarOrdenDeSeleccion.Location = new Point(115, 150);
-            button_ProcesarOrdenDeSeleccion.Name = "button_ProcesarOrdenDeSeleccion";
-            button_ProcesarOrdenDeSeleccion.Size = new Size(185, 50);
-            button_ProcesarOrdenDeSeleccion.TabIndex = 2;
-            button_ProcesarOrdenDeSeleccion.Text = "Procesar Orden de Seleccion";
-            button_ProcesarOrdenDeSeleccion.UseVisualStyleBackColor = true;
-            button_ProcesarOrdenDeSeleccion.Click += button_ProcesarOrdenDeSeleccion_Click;
+            ProcesarOrdenDeSeleccion_button.Location = new Point(115, 150);
+            ProcesarOrdenDeSeleccion_button.Name = "ProcesarOrdenDeSeleccion_button";
+            ProcesarOrdenDeSeleccion_button.Size = new Size(185, 50);
+            ProcesarOrdenDeSeleccion_button.TabIndex = 2;
+            ProcesarOrdenDeSeleccion_button.Text = "Procesar Orden de Seleccion";
+            ProcesarOrdenDeSeleccion_button.UseVisualStyleBackColor = true;
+            ProcesarOrdenDeSeleccion_button.Click += button_ProcesarOrdenDeSeleccion_Click;
             // 
-            // button_CrearOrdenDeEntrega
+            // CrearOrdenDeEntrega_button
             // 
-            button_CrearOrdenDeEntrega.Location = new Point(115, 220);
-            button_CrearOrdenDeEntrega.Name = "button_CrearOrdenDeEntrega";
-            button_CrearOrdenDeEntrega.Size = new Size(185, 50);
-            button_CrearOrdenDeEntrega.TabIndex = 3;
-            button_CrearOrdenDeEntrega.Text = "Crear Orden de Entrega";
-            button_CrearOrdenDeEntrega.UseVisualStyleBackColor = true;
-            button_CrearOrdenDeEntrega.Click += button_CrearOrdenDeEntrega_Click;
+            CrearOrdenDeEntrega_button.Location = new Point(115, 220);
+            CrearOrdenDeEntrega_button.Name = "CrearOrdenDeEntrega_button";
+            CrearOrdenDeEntrega_button.Size = new Size(185, 50);
+            CrearOrdenDeEntrega_button.TabIndex = 3;
+            CrearOrdenDeEntrega_button.Text = "Crear Orden de Entrega";
+            CrearOrdenDeEntrega_button.UseVisualStyleBackColor = true;
+            CrearOrdenDeEntrega_button.Click += button_CrearOrdenDeEntrega_Click;
             // 
-            // button_CrearRemito
+            // CrearRemito_button
             // 
-            button_CrearRemito.Location = new Point(115, 290);
-            button_CrearRemito.Name = "button_CrearRemito";
-            button_CrearRemito.Size = new Size(185, 50);
-            button_CrearRemito.TabIndex = 4;
-            button_CrearRemito.Text = "Crear Remito";
-            button_CrearRemito.UseVisualStyleBackColor = true;
-            button_CrearRemito.Click += button_CrearRemito_Click;
+            CrearRemito_button.Location = new Point(115, 290);
+            CrearRemito_button.Name = "CrearRemito_button";
+            CrearRemito_button.Size = new Size(185, 50);
+            CrearRemito_button.TabIndex = 4;
+            CrearRemito_button.Text = "Crear Remito";
+            CrearRemito_button.UseVisualStyleBackColor = true;
+            CrearRemito_button.Click += button_CrearRemito_Click;
             // 
-            // button_ProcesarOrdenDeEntrega
+            // ProcesarOrdenDeEntrega_button
             // 
-            button_ProcesarOrdenDeEntrega.Location = new Point(115, 360);
-            button_ProcesarOrdenDeEntrega.Name = "button_ProcesarOrdenDeEntrega";
-            button_ProcesarOrdenDeEntrega.Size = new Size(185, 50);
-            button_ProcesarOrdenDeEntrega.TabIndex = 5;
-            button_ProcesarOrdenDeEntrega.Text = "Procesar Orden de Entrega";
-            button_ProcesarOrdenDeEntrega.UseVisualStyleBackColor = true;
-            button_ProcesarOrdenDeEntrega.Click += button_ProcesarOrdenDeEntrega_Click;
+            ProcesarOrdenDeEntrega_button.Location = new Point(115, 360);
+            ProcesarOrdenDeEntrega_button.Name = "ProcesarOrdenDeEntrega_button";
+            ProcesarOrdenDeEntrega_button.Size = new Size(185, 50);
+            ProcesarOrdenDeEntrega_button.TabIndex = 5;
+            ProcesarOrdenDeEntrega_button.Text = "Procesar Orden de Entrega";
+            ProcesarOrdenDeEntrega_button.UseVisualStyleBackColor = true;
+            ProcesarOrdenDeEntrega_button.Click += button_ProcesarOrdenDeEntrega_Click;
             // 
-            // button_Salir
+            // Salir_button
             // 
-            button_Salir.Location = new Point(171, 416);
-            button_Salir.Name = "button_Salir";
-            button_Salir.Size = new Size(75, 23);
-            button_Salir.TabIndex = 6;
-            button_Salir.Text = "Salir";
-            button_Salir.UseVisualStyleBackColor = true;
-            button_Salir.Click += button_Salir_Click;
+            Salir_button.Location = new Point(171, 416);
+            Salir_button.Name = "Salir_button";
+            Salir_button.Size = new Size(75, 23);
+            Salir_button.TabIndex = 6;
+            Salir_button.Text = "Salir";
+            Salir_button.UseVisualStyleBackColor = true;
+            Salir_button.Click += button_Salir_Click;
             // 
             // Menu_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(412, 450);
-            Controls.Add(button_Salir);
-            Controls.Add(button_ProcesarOrdenDeEntrega);
-            Controls.Add(button_CrearRemito);
-            Controls.Add(button_CrearOrdenDeEntrega);
-            Controls.Add(button_ProcesarOrdenDeSeleccion);
-            Controls.Add(button_CrearOrdenDeSeleccion);
-            Controls.Add(button_CrearOrdenDePreparacion);
+            Controls.Add(Salir_button);
+            Controls.Add(ProcesarOrdenDeEntrega_button);
+            Controls.Add(CrearRemito_button);
+            Controls.Add(CrearOrdenDeEntrega_button);
+            Controls.Add(ProcesarOrdenDeSeleccion_button);
+            Controls.Add(CrearOrdenDeSeleccion_button);
+            Controls.Add(CrearOrdenDePreparacion_button);
             Name = "Menu_form";
             Text = "Menu";
             ResumeLayout(false);
@@ -126,12 +126,12 @@
 
         #endregion
 
-        private Button button_CrearOrdenDePreparacion;
-        private Button button_CrearOrdenDeSeleccion;
-        private Button button_ProcesarOrdenDeSeleccion;
-        private Button button_CrearOrdenDeEntrega;
-        private Button button_CrearRemito;
-        private Button button_ProcesarOrdenDeEntrega;
-        private Button button_Salir;
+        private Button CrearOrdenDePreparacion_button;
+        private Button CrearOrdenDeSeleccion_button;
+        private Button ProcesarOrdenDeSeleccion_button;
+        private Button CrearOrdenDeEntrega_button;
+        private Button CrearRemito_button;
+        private Button ProcesarOrdenDeEntrega_button;
+        private Button Salir_button;
     }
 }

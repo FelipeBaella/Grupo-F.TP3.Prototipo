@@ -25,22 +25,22 @@ namespace GrupoF.Prototipo._0._0.LogIn_form
 
         private void button_Ingresar_Click(object sender, EventArgs e)
         {
-            string usuario = textBox_usuario.Text.Trim().ToUpper();
-            string contraseña = textBox_contrasena.Text.Trim();
+            string usuario = Usuario_textBox.Text.Trim().ToUpper();
+            string contraseña = Contrasena_textbox.Text.Trim();
 
             string contraseñaUsuario = "";
 
             if (usuario == "")
             {
                 MessageBox.Show("Ingrese un usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBox_usuario.Focus();
+                Usuario_textBox.Focus();
                 return;
             }
 
             if (contraseña == "")
             {
                 MessageBox.Show("Ingrese una contrasña", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBox_contrasena.Focus();
+                Contrasena_textbox.Focus();
                 return;
             }
 
@@ -56,7 +56,7 @@ namespace GrupoF.Prototipo._0._0.LogIn_form
             if (contraseña != contraseñaUsuario)
             {
                 MessageBox.Show("Usuario o contraseña incorrecto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBox_usuario.Focus();
+                Usuario_textBox.Focus();
                 return;
             }
 

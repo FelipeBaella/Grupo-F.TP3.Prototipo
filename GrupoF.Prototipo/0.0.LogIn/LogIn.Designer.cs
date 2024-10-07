@@ -28,65 +28,65 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox_usuario = new TextBox();
-            textBox_contrasena = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
-            button_Ingresar = new Button();
+            Usuario_textBox = new TextBox();
+            Contrasena_textbox = new TextBox();
+            Usuario_label = new Label();
+            Contraseña_label = new Label();
+            Ingresar_button = new Button();
             SuspendLayout();
             // 
-            // textBox_usuario
+            // Usuario_textBox
             // 
-            textBox_usuario.Location = new Point(76, 122);
-            textBox_usuario.Name = "textBox_usuario";
-            textBox_usuario.Size = new Size(183, 23);
-            textBox_usuario.TabIndex = 0;
+            Usuario_textBox.Location = new Point(76, 122);
+            Usuario_textBox.Name = "Usuario_textBox";
+            Usuario_textBox.Size = new Size(183, 23);
+            Usuario_textBox.TabIndex = 0;
             // 
-            // textBox_contrasena
+            // Contrasena_textbox
             // 
-            textBox_contrasena.Location = new Point(76, 199);
-            textBox_contrasena.Name = "textBox_contrasena";
-            textBox_contrasena.Size = new Size(183, 23);
-            textBox_contrasena.TabIndex = 1;
+            Contrasena_textbox.Location = new Point(76, 199);
+            Contrasena_textbox.Name = "Contrasena_textbox";
+            Contrasena_textbox.Size = new Size(183, 23);
+            Contrasena_textbox.TabIndex = 1;
             // 
-            // label1
+            // Usuario_label
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(77, 103);
-            label1.Name = "label1";
-            label1.Size = new Size(47, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Usuario";
+            Usuario_label.AutoSize = true;
+            Usuario_label.Location = new Point(77, 103);
+            Usuario_label.Name = "Usuario_label";
+            Usuario_label.Size = new Size(47, 15);
+            Usuario_label.TabIndex = 2;
+            Usuario_label.Text = "Usuario";
             // 
-            // label2
+            // Contraseña_label
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(77, 181);
-            label2.Name = "label2";
-            label2.Size = new Size(67, 15);
-            label2.TabIndex = 3;
-            label2.Text = "Contraseña";
+            Contraseña_label.AutoSize = true;
+            Contraseña_label.Location = new Point(77, 181);
+            Contraseña_label.Name = "Contraseña_label";
+            Contraseña_label.Size = new Size(67, 15);
+            Contraseña_label.TabIndex = 3;
+            Contraseña_label.Text = "Contraseña";
             // 
-            // button_Ingresar
+            // Ingresar_button
             // 
-            button_Ingresar.Location = new Point(131, 245);
-            button_Ingresar.Name = "button_Ingresar";
-            button_Ingresar.Size = new Size(75, 23);
-            button_Ingresar.TabIndex = 4;
-            button_Ingresar.Text = "Ingresar";
-            button_Ingresar.UseVisualStyleBackColor = true;
-            button_Ingresar.Click += button_Ingresar_Click;
+            Ingresar_button.Location = new Point(131, 245);
+            Ingresar_button.Name = "Ingresar_button";
+            Ingresar_button.Size = new Size(75, 23);
+            Ingresar_button.TabIndex = 4;
+            Ingresar_button.Text = "Ingresar";
+            Ingresar_button.UseVisualStyleBackColor = true;
+            Ingresar_button.Click += button_Ingresar_Click;
             // 
             // LogIn_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(315, 450);
-            Controls.Add(button_Ingresar);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(textBox_contrasena);
-            Controls.Add(textBox_usuario);
+            Controls.Add(Ingresar_button);
+            Controls.Add(Contraseña_label);
+            Controls.Add(Usuario_label);
+            Controls.Add(Contrasena_textbox);
+            Controls.Add(Usuario_textBox);
             Name = "LogIn_form";
             Text = "Form1";
             ResumeLayout(false);
@@ -95,10 +95,10 @@
 
         #endregion
 
-        private TextBox textBox_usuario;
-        private TextBox textBox_contrasena;
-        private Label label1;
-        private Label label2;
-        private Button button_Ingresar;
+        private TextBox Usuario_textBox;
+        private TextBox Contrasena_textbox;
+        private Label Usuario_label;
+        private Label Contraseña_label;
+        private Button Ingresar_button;
     }
 }

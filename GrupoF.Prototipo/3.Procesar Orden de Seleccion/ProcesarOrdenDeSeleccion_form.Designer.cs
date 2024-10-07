@@ -1,7 +1,41 @@
-﻿namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
+﻿using GrupoF.Prototipo.Procesar_ordener_de_seleccion;
+using GrupoF.Prototipo.Procesar_ordenes_de_preparacion;
+
+namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 {
     partial class ProcesarOrdenDeSeleccion_form
     {
+        private CrearOrdenDeSeleccion_model CrearOrdenesDeSeleccionModel = new CrearOrdenDeSeleccion_model();
+        private OrdnesDePreparacionModel OrdnesDePreparacionModel = new OrdnesDePreparacionModel();
+        private ProcesarOrdenDeSeleccion_model ProcesarOrdenDeSeleccionModel = new ProcesarOrdenDeSeleccion_model();
+
+        private void CargarOrdenesDePreparacion()
+        {
+            foreach (var orden in ProcesarOrdenDeSeleccionModel.OrdenesDeSeleccion)
+            {
+                var cliente = OrdnesDePreparacionModel.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
+                var mercaderia = OrdnesDePreparacionModel.Mercaderias.Where(x => x.Id_Mercaderia == orden.Id_Mercaderia).FirstOrDefault();
+                var depositos = OrdnesDePreparacionModel.Depositos.Where(x => x.Id_Deposito == orden.Id_Deposito).FirstOrDefault();
+                var OrdenPreparacion = OrdnesDePreparacionModel..Where(x => x.Id_Deposito == orden.Id_Deposito).FirstOrDefault();
+
+
+                ListViewItem listViewItem = new ListViewItem(new string[] {
+
+                    orden.Id_Estado.ToString(),
+                    orden.Id_OrdenDeSeleccion.ToString(),
+                    orden.Id_OrdenPreparacion.ToString(),
+                    orden.Id_Cliente.ToString(),
+                    cliente.NombreApellido,
+                    orden.Emision_OrdenDePreparacion.ToString(),
+                    mercaderia.Descripcion_Mercaderia,
+                    orden.Cantidad_OrdenDePreparacion.ToString(),
+                    depositos.Nombre_Deposito,
+                }, -1);
+
+                ProcesarOrdenesDeSeleccion_listView.Items.Add(listViewItem);
+            }
+        }
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -29,7 +63,7 @@
         private void InitializeComponent()
         {
             OrdenesDeSeleccionLabel = new Label();
-            listView1 = new ListView();
+            ProcesarOrdenesDeSeleccion_listView = new ListView();
             Estado_OS = new ColumnHeader();
             ID_OS = new ColumnHeader();
             ID_OP = new ColumnHeader();
@@ -53,15 +87,15 @@
             OrdenesDeSeleccionLabel.TabIndex = 0;
             OrdenesDeSeleccionLabel.Text = "Ordenes de Seleccion";
             // 
-            // listView1
+            // ProcesarOrdenesDeSeleccion_listView
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { Estado_OS, ID_OS, ID_OP, Prioridad_OP, Fecha_Emision, Descripcion_Mercaderia, Cantidad, Coordenadas, Deposito });
-            listView1.Location = new Point(12, 33);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(714, 268);
-            listView1.TabIndex = 1;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
+            ProcesarOrdenesDeSeleccion_listView.Columns.AddRange(new ColumnHeader[] { Estado_OS, ID_OS, ID_OP, Prioridad_OP, Fecha_Emision, Descripcion_Mercaderia, Cantidad, Coordenadas, Deposito });
+            ProcesarOrdenesDeSeleccion_listView.Location = new Point(12, 33);
+            ProcesarOrdenesDeSeleccion_listView.Name = "ProcesarOrdenesDeSeleccion_listView";
+            ProcesarOrdenesDeSeleccion_listView.Size = new Size(714, 268);
+            ProcesarOrdenesDeSeleccion_listView.TabIndex = 1;
+            ProcesarOrdenesDeSeleccion_listView.UseCompatibleStateImageBehavior = false;
+            ProcesarOrdenesDeSeleccion_listView.View = View.Details;
             // 
             // Estado_OS
             // 
@@ -136,7 +170,7 @@
             ClientSize = new Size(734, 361);
             Controls.Add(VolverAlMenu_Button);
             Controls.Add(CompletarOrdenDeSeleccion_boton);
-            Controls.Add(listView1);
+            Controls.Add(ProcesarOrdenesDeSeleccion_listView);
             Controls.Add(OrdenesDeSeleccionLabel);
             Name = "ProcesarOrdenDeSeleccion_form";
             Text = "Procesar Orden de Seleccion";
@@ -147,7 +181,7 @@
         #endregion
 
         private Label OrdenesDeSeleccionLabel;
-        private ListView listView1;
+        private ListView ProcesarOrdenesDeSeleccion_listView;
         private ColumnHeader Estado_OS;
         private ColumnHeader ID_OS;
         private ColumnHeader ID_OP;

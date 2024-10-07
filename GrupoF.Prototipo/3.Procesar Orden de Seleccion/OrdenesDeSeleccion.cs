@@ -10,11 +10,10 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
     {
         public int Id_OrdenDeSeleccion { get; set; }
         public int Id_Estado{ get; set; }
-        public bool Id_OrdenPreparacion { get; set; }
+        public int Id_OrdenPreparacion { get; set; }
         public int Id_Cliente { get; set; }
         public DateTime Emision_OrdenDeSeleccion { get; set; }
         public int Id_Mercaderia { get; set; }
-        public int Cantidad_OrdenDePreparacion { get; set; }
         public int Id_Deposito { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
     }
 
-    internal class OrdnesDePreparacionModel
+    internal class CrearOrdnesDePreparacionModel
     {
         public List<Cliente> Clientes { get; set; } = new List<Cliente>
         {

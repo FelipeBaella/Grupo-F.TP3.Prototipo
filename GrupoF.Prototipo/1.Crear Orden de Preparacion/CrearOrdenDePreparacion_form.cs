@@ -34,15 +34,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             string? mercaderiaSeleccionada = ComboBox_Descripcion_Mercaderia.SelectedItem?.ToString();
 
 
-            // Validar los datos
-            //if (string.IsNullOrEmpty(Id_Cliente))
-            //{
-            //    MessageBox.Show("El campo Id Cliente no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    TextBox_Id_Cliente.Focus();
-            //    return;
-            //}
-
-
             if (depositoSeleccionado == "---")
             {
                 MessageBox.Show("Debes seleccionar un depósito valido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

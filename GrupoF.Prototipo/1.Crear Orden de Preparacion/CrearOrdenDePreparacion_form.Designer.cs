@@ -2,7 +2,7 @@
 {
     partial class CrearOrdenDePreparacion_form
     {
-        private OrdnesDePreparacionModel _ordenesModel = new OrdnesDePreparacionModel();
+        private CrearOrdnesDePreparacionModel CrearOrdnesDePreparacionModel = new CrearOrdnesDePreparacionModel();
 
         private void CargarDepositos()
         {
@@ -10,7 +10,7 @@
             ComboBox_Descripcion_Deposito.Items.Clear();
 
             // Iteramos sobre la lista de depósitos y agregamos los nombres al ComboBox
-            foreach (var deposito in _ordenesModel.Depositos)
+            foreach (var deposito in CrearOrdnesDePreparacionModel.Depositos)
             {
                 ComboBox_Descripcion_Deposito.Items.Add(deposito.Nombre_Deposito);
             }
@@ -28,7 +28,7 @@
             ComboBox_Descripcion_Mercaderia.Items.Clear();
 
             // Iteramos sobre la lista de depósitos y agregamos los nombres al ComboBox
-            foreach (var mercaderia in _ordenesModel.Mercaderias)
+            foreach (var mercaderia in CrearOrdnesDePreparacionModel.Mercaderias)
             {
                 ComboBox_Descripcion_Mercaderia.Items.Add(mercaderia.Descripcion_Mercaderia);
             }

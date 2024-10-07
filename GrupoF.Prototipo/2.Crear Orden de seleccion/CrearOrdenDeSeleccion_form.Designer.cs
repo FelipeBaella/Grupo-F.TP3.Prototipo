@@ -163,9 +163,9 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             label2.AutoSize = true;
             label2.Location = new Point(462, 290);
             label2.Name = "label2";
-            label2.Size = new Size(51, 15);
+            label2.Size = new Size(135, 15);
             label2.TabIndex = 4;
-            label2.Text = "Id orden";
+            label2.Text = "Id Orden de Preparacion";
             // 
             // VolverAlMenu_button
             // 

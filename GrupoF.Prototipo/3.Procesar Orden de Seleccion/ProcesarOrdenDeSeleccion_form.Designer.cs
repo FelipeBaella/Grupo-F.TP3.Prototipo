@@ -148,7 +148,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             // 
             // button_ProcesarOrdenDeSeleccion
             // 
-            button_ProcesarOrdenDeSeleccion.Location = new Point(386, 311);
+            button_ProcesarOrdenDeSeleccion.Location = new Point(387, 312);
             button_ProcesarOrdenDeSeleccion.Name = "button_ProcesarOrdenDeSeleccion";
             button_ProcesarOrdenDeSeleccion.Size = new Size(197, 33);
             button_ProcesarOrdenDeSeleccion.TabIndex = 2;
@@ -158,7 +158,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             // 
             // VolverAlMenu_button
             // 
-            VolverAlMenu_button.Location = new Point(598, 311);
+            VolverAlMenu_button.Location = new Point(590, 312);
             VolverAlMenu_button.Name = "VolverAlMenu_button";
             VolverAlMenu_button.Size = new Size(124, 33);
             VolverAlMenu_button.TabIndex = 15;
@@ -168,7 +168,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             // 
             // textBox_Id_OrdenDeSeleccion
             // 
-            textBox_Id_OrdenDeSeleccion.Location = new Point(280, 322);
+            textBox_Id_OrdenDeSeleccion.Location = new Point(259, 321);
             textBox_Id_OrdenDeSeleccion.Name = "textBox_Id_OrdenDeSeleccion";
             textBox_Id_OrdenDeSeleccion.Size = new Size(100, 23);
             textBox_Id_OrdenDeSeleccion.TabIndex = 16;
@@ -176,11 +176,11 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             // label_Id_OrdenDeSeleccion
             // 
             label_Id_OrdenDeSeleccion.AutoSize = true;
-            label_Id_OrdenDeSeleccion.Location = new Point(280, 304);
+            label_Id_OrdenDeSeleccion.Location = new Point(257, 303);
             label_Id_OrdenDeSeleccion.Name = "label_Id_OrdenDeSeleccion";
-            label_Id_OrdenDeSeleccion.Size = new Size(53, 15);
+            label_Id_OrdenDeSeleccion.Size = new Size(122, 15);
             label_Id_OrdenDeSeleccion.TabIndex = 17;
-            label_Id_OrdenDeSeleccion.Text = "Id Orden";
+            label_Id_OrdenDeSeleccion.Text = "Id Orden de Seleccion";
             // 
             // ProcesarOrdenDeSeleccion_form
             // 

@@ -1,5 +1,5 @@
 ﻿/*
-Estimado,
+Estimado Lider Tecnico,
 
 Se detallan a continuacion las cuestiones tecnicas que se tuvieron en cuenta:
 

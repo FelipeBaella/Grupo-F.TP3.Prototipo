@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 {
-    internal interface ProcesarOrdenesDePreparacion_model
+    internal interface ProcesarOrdenesDePreparacion__model
     {
 
     }
 
-    internal class CrearOrdnesDePreparacionModel
+    internal class CrearOrdnesDePreparacion_model
     {
         public List<Cliente> Clientes { get; set; } = new List<Cliente>
         {
             new Cliente {Id_Cliente = 0, Dni = 0, NombreApellido = "---"},
 
-            new Cliente {Id_Cliente = 1, Dni = 42119134, NombreApellido = "Quimey Lopez SR"},
+            new Cliente {Id_Cliente = 1, Dni = 42119134, NombreApellido = "Quimey Lopez SR", Cuit = 242119134, Domicilio = "Casa 1", CondIva = "Si"},
 
-            new Cliente {Id_Cliente = 2, Dni = 42102237, NombreApellido = "Agustin Tallone SR"}
+            new Cliente {Id_Cliente = 2, Dni = 42102237, NombreApellido = "Agustin Tallone SR", Cuit = 242102237, Domicilio = "Dpto 2", CondIva = "No"}
         };
 
         public List<Transportista> Transportistas { get; set; } = new List<Transportista>

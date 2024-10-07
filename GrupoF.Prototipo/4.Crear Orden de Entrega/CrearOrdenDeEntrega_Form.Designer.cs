@@ -1,7 +1,39 @@
-﻿namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
+﻿using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
+using GrupoF.Prototipo.Procesar_ordener_de_seleccion;
+using GrupoF.Prototipo.Procesar_ordenes_de_preparacion;
+
+namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 {
     partial class CrearOrdenDeEntrega_Form
     {
+        private CrearOrdenDeSeleccion_model CrearOrdenesDeSeleccion_model = new CrearOrdenDeSeleccion_model();
+        private CrearOrdnesDePreparacion_model CrearOrdnesDePreparacion_model = new CrearOrdnesDePreparacion_model();
+
+        private void CargarOrdenesDePreparacion()
+        {
+            foreach (var orden in CrearOrdenesDeSeleccion_model.OrdenesDePreparacion)
+            {
+                var cliente = CrearOrdnesDePreparacion_model.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
+                var mercaderia = CrearOrdnesDePreparacion_model.Mercaderias.Where(x => x.Id_Mercaderia == orden.Id_Mercaderia).FirstOrDefault();
+                var depositos = CrearOrdnesDePreparacion_model.Depositos.Where(x => x.Id_Deposito == orden.Id_Deposito).FirstOrDefault();
+
+                ListViewItem listViewItem = new ListViewItem(new string[] {
+
+                    orden.Id_Estado.ToString(),
+                    orden.Id_OrdenDePreparacion.ToString(),
+                    orden.Prioridad_OrdenDePreparacion.ToString(),
+                    orden.Emision_OrdenDePreparacion.ToString(),
+               
+                    mercaderia.Descripcion_Mercaderia,
+                    orden.Cantidad_OrdenDePreparacion.ToString(),
+                    depositos.Nombre_Deposito,
+
+                }, -1);
+
+                OrdenesDePreparacion_listView.Items.Add(listViewItem);
+            }
+        }
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -29,7 +61,7 @@
         private void InitializeComponent()
         {
             CrearOrdenDeEntrega_label = new Label();
-            listView1 = new ListView();
+            OrdenesDePreparacion_listView = new ListView();
             Estado_OP = new ColumnHeader();
             ID_OP = new ColumnHeader();
             Prioridad_OP = new ColumnHeader();
@@ -53,16 +85,17 @@
             CrearOrdenDeEntrega_label.TabIndex = 0;
             CrearOrdenDeEntrega_label.Text = "Ordenes De Preparacion";
             // 
-            // listView1
+            // OrdenesDePreparacion_listView
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { Estado_OP, ID_OP, Prioridad_OP, Fecha_Emision_OP, Descripcion_Mercaderia, Cantidad, Deposito });
-            listView1.Font = new Font("Segoe UI", 9F);
-            listView1.Location = new Point(12, 33);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(675, 255);
-            listView1.TabIndex = 1;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
+            OrdenesDePreparacion_listView.Columns.AddRange(new ColumnHeader[] { Estado_OP, ID_OP, Prioridad_OP, Fecha_Emision_OP, Descripcion_Mercaderia, Cantidad, Deposito });
+            CargarOrdenesDePreparacion();
+            OrdenesDePreparacion_listView.Font = new Font("Segoe UI", 9F);
+            OrdenesDePreparacion_listView.Location = new Point(12, 33);
+            OrdenesDePreparacion_listView.Name = "OrdenesDePreparacion_listView";
+            OrdenesDePreparacion_listView.Size = new Size(675, 255);
+            OrdenesDePreparacion_listView.TabIndex = 1;
+            OrdenesDePreparacion_listView.UseCompatibleStateImageBehavior = false;
+            OrdenesDePreparacion_listView.View = View.Details;
             // 
             // Estado_OP
             // 
@@ -144,7 +177,7 @@
             Controls.Add(OrdenDePreparacion_textbox);
             Controls.Add(IdOrdenDePreparacion_label);
             Controls.Add(CrearOrdenDeEntrega_boton);
-            Controls.Add(listView1);
+            Controls.Add(OrdenesDePreparacion_listView);
             Controls.Add(CrearOrdenDeEntrega_label);
             Font = new Font("Segoe UI", 12F);
             Margin = new Padding(4);
@@ -157,7 +190,7 @@
         #endregion
 
         private Label CrearOrdenDeEntrega_label;
-        private ListView listView1;
+        private ListView OrdenesDePreparacion_listView;
         private Button CrearOrdenDeEntrega_boton;
         private ColumnHeader Estado_OP;
         private ColumnHeader ID_OP;

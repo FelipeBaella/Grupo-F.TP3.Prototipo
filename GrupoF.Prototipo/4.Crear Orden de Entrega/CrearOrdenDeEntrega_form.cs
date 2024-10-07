@@ -26,5 +26,6 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 
             nuevaForma.Show();
         }
+
     }
 }

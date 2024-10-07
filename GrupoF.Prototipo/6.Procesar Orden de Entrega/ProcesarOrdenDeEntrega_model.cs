@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 {
-    internal class ProcesarOrdenDeEntrega_model
+    internal class ProcesarOrdenDeEntrega__model
     {
     }
 }

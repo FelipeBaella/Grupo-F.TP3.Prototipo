@@ -73,10 +73,7 @@ namespace GrupoF.Prototipo._0.Menu
 
         private void button_Salir_Click(object sender, EventArgs e)
         {
-            this.Hide();
-
-            CrearOrdenDeSeleccion_form nuevaForma = new CrearOrdenDeSeleccion_form();
-            nuevaForma.Show();
+            this.Close();
         }
 
       

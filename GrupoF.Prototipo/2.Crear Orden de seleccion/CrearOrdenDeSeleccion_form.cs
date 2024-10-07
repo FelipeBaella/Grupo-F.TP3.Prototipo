@@ -15,7 +15,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 {
     public partial class CrearOrdenDeSeleccion_form : Form
     {
-        private CrearOrdenDeSeleccion_model _ordenesDeSeleccionModel = new CrearOrdenDeSeleccion_model();
+        private CrearOrdenDeSeleccion_model _ordenesDeSeleccion_model = new CrearOrdenDeSeleccion_model();
 
         public CrearOrdenDeSeleccion_form()
         {
@@ -27,7 +27,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             string Id_Orden = textBox_Id_Orden.Text.Trim();
 
 
-            if (!_ordenesDeSeleccionModel.OrdenesDePreparacion.Any(o => o.Id_OrdenDePreparacion == int.Parse(Id_Orden)))
+            if (!_ordenesDeSeleccion_model.OrdenesDePreparacion.Any(o => o.Id_OrdenDePreparacion == int.Parse(Id_Orden)))
             {
                 MessageBox.Show("Debes seleccionar una orden valida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox_Id_Orden.Focus();

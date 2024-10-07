@@ -7,15 +7,15 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
     partial class CrearOrdenDeSeleccion_form
     {
         private CrearOrdenDeSeleccion_model CrearOrdenDeSeleccion_model = new CrearOrdenDeSeleccion_model();
-        private CrearOrdnesDePreparacionModel CrearOrdnesDePreparacionModel = new CrearOrdnesDePreparacionModel();
+        private CrearOrdnesDePreparacion_model CrearOrdnesDePreparacion_model = new CrearOrdnesDePreparacion_model();
       
         private void CargarOrdenesDePreparacion()
         {
             foreach (var orden in CrearOrdenDeSeleccion_model.OrdenesDePreparacion)
             {
-                var cliente = CrearOrdnesDePreparacionModel.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
-                var mercaderia = CrearOrdnesDePreparacionModel.Mercaderias.Where(x => x.Id_Mercaderia == orden.Id_Mercaderia).FirstOrDefault();
-                var depositos = CrearOrdnesDePreparacionModel.Depositos.Where(x => x.Id_Deposito == orden.Id_Deposito).FirstOrDefault();
+                var cliente = CrearOrdnesDePreparacion_model.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
+                var mercaderia = CrearOrdnesDePreparacion_model.Mercaderias.Where(x => x.Id_Mercaderia == orden.Id_Mercaderia).FirstOrDefault();
+                var depositos = CrearOrdnesDePreparacion_model.Depositos.Where(x => x.Id_Deposito == orden.Id_Deposito).FirstOrDefault();
 
 
                 ListViewItem listViewItem = new ListViewItem(new string[] {

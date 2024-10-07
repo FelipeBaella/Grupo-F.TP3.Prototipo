@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 {
-    internal class ProcesarOrdenDeSeleccion__model
+    internal class ProcesarOrdenDeSeleccion_model
     {
         public List<OrdenesDeSeleccion> OrdenesDeSeleccion { get; set; } = new List<OrdenesDeSeleccion>
         {

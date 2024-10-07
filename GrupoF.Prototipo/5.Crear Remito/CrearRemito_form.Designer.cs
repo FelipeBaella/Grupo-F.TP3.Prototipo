@@ -55,8 +55,8 @@ namespace GrupoF.Prototipo._5.Crear_Remito
             CUIT_label = new Label();
             DescripcionMercaderia_label = new Label();
             NombreCliente_label = new Label();
-            Emitir_button = new Button();
-            VolverAlMenu_Button = new Button();
+            button_Emitir = new Button();
+            VolverAlMenu_button = new Button();
             Remito_groupBox = new GroupBox();
             OrdenDePreparacion_groupBox.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -272,28 +272,29 @@ namespace GrupoF.Prototipo._5.Crear_Remito
             NombreCliente_label.TabIndex = 7;
             NombreCliente_label.Text = "Nombre Cliente";
             // 
-            // Emitir_button
+            // button_Emitir
             // 
-            Emitir_button.Location = new Point(7, 22);
-            Emitir_button.Name = "Emitir_button";
-            Emitir_button.Size = new Size(97, 23);
-            Emitir_button.TabIndex = 8;
-            Emitir_button.Text = "Emitir";
-            Emitir_button.UseVisualStyleBackColor = true;
+            button_Emitir.Location = new Point(7, 22);
+            button_Emitir.Name = "button_Emitir";
+            button_Emitir.Size = new Size(97, 23);
+            button_Emitir.TabIndex = 8;
+            button_Emitir.Text = "Emitir";
+            button_Emitir.UseVisualStyleBackColor = true;
+            button_Emitir.Click += button_Emitir_Click;
             // 
-            // VolverAlMenu_Button
+            // VolverAlMenu_button
             // 
-            VolverAlMenu_Button.Location = new Point(175, 435);
-            VolverAlMenu_Button.Name = "VolverAlMenu_Button";
-            VolverAlMenu_Button.Size = new Size(114, 23);
-            VolverAlMenu_Button.TabIndex = 14;
-            VolverAlMenu_Button.Text = "Volver Al Menu";
-            VolverAlMenu_Button.UseVisualStyleBackColor = true;
-            VolverAlMenu_Button.Click += VolverAlMenu_Button_Click;
+            VolverAlMenu_button.Location = new Point(175, 435);
+            VolverAlMenu_button.Name = "VolverAlMenu_button";
+            VolverAlMenu_button.Size = new Size(114, 23);
+            VolverAlMenu_button.TabIndex = 14;
+            VolverAlMenu_button.Text = "Volver Al Menu";
+            VolverAlMenu_button.UseVisualStyleBackColor = true;
+            VolverAlMenu_button.Click += VolverAlMenu_button_Click;
             // 
             // Remito_groupBox
             // 
-            Remito_groupBox.Controls.Add(Emitir_button);
+            Remito_groupBox.Controls.Add(button_Emitir);
             Remito_groupBox.Location = new Point(37, 413);
             Remito_groupBox.Name = "Remito_groupBox";
             Remito_groupBox.Size = new Size(117, 56);
@@ -307,7 +308,7 @@ namespace GrupoF.Prototipo._5.Crear_Remito
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(520, 555);
             Controls.Add(Remito_groupBox);
-            Controls.Add(VolverAlMenu_Button);
+            Controls.Add(VolverAlMenu_button);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(OrdenDePreparacion_groupBox);
@@ -339,8 +340,8 @@ namespace GrupoF.Prototipo._5.Crear_Remito
         private GroupBox groupBox3;
         private Label DescripcionMercaderia_label;
         private Label NombreCliente_label;
-        private Button Emitir_button;
-        private Button VolverAlMenu_Button;
+        private Button button_Emitir;
+        private Button VolverAlMenu_button;
         private TextBox Cantidad_textBox;
         private Label Cantidad_label;
         private TextBox CUIT_textBox;

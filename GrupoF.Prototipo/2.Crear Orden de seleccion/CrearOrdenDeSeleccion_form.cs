@@ -22,10 +22,23 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             InitializeComponent();
         }
 
-        private void Button_Crear_Orden_Click(object sender, EventArgs e)
+        private void button_Crear_Orden_Click(object sender, EventArgs e)
         {
             string Id_Orden = textBox_Id_Orden.Text.Trim();
 
+            if(Id_Orden == "")
+            {
+                MessageBox.Show("Id no puede estar vacio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_Id_Orden.Focus();
+                return;
+            }
+
+            if (!Id_Orden.All(char.IsDigit))
+            {
+                MessageBox.Show("Id debe ser un numero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox_Id_Orden.Focus();
+                return;
+            }
 
             if (!_ordenesDeSeleccion_model.OrdenesDePreparacion.Any(o => o.Id_OrdenDePreparacion == int.Parse(Id_Orden)))
             {
@@ -38,7 +51,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
             this.Hide();
 
-            CrearOrdenDePreparacion_form nuevaForma = new CrearOrdenDePreparacion_form();
+            Menu_form nuevaForma = new Menu_form();
             nuevaForma.Show();
         }
 

@@ -46,7 +46,7 @@ namespace GrupoF.Prototipo._5.Crear_Remito
         }
 
 
-        private void VolverAlMenu_Button_Click(object sender, EventArgs e)
+        private void VolverAlMenu_button_Click(object sender, EventArgs e)
         {
             this.Hide();
 
@@ -62,6 +62,11 @@ namespace GrupoF.Prototipo._5.Crear_Remito
             this.Hide();
             CrearRemito_form nuevaForma = new CrearRemito_form(int.Parse(idOP));
             nuevaForma.Show();
+        }
+
+        private void button_Emitir_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

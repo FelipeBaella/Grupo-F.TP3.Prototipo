@@ -117,7 +117,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
             this.Hide();
 
-            CrearOrdenDeSeleccion_form nuevaForma = new CrearOrdenDeSeleccion_form();
+            Menu_form nuevaForma = new Menu_form();
             nuevaForma.Show();
 
         }
@@ -130,16 +130,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             {
                 this.Close();
             }
-
-        }
-
-        private void CrearOrdenDePreparacion_form_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ComboBox_Descripcion_Deposito_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
         }
 

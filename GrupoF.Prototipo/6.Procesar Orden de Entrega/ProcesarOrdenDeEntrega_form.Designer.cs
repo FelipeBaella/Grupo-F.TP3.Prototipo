@@ -1,7 +1,44 @@
-﻿namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
+﻿using GrupoF.Prototipo.Procesar_ordener_de_seleccion;
+using GrupoF.Prototipo.Procesar_ordenes_de_preparacion;
+
+namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 {
     partial class ProcesarOrdenDeEntrega_form
     {
+        private ProcesarOrdenDeEntrega_model ProcesarOrdenDeEntrega_model = new ProcesarOrdenDeEntrega_model();
+        private CrearOrdenDeSeleccion_model CrearOrdenDeSeleccion_model = new CrearOrdenDeSeleccion_model();
+        private CrearOrdnesDePreparacion_model CrearOrdnesDePreparacion_model = new CrearOrdnesDePreparacion_model();
+
+        private void CargarOrdenesDeEntrega()
+        {
+            foreach (var orden in ProcesarOrdenDeEntrega_model.OrdenesDeEntrega)
+            {
+                var OrdnesDePreparacion = CrearOrdenDeSeleccion_model.OrdenesDePreparacion.Where(x => x.Id_OrdenDePreparacion == orden.Id_OrdenDePreparacion).FirstOrDefault();
+
+                var cliente = CrearOrdnesDePreparacion_model.Clientes.Where(x => x.Id_Cliente == OrdnesDePreparacion.Id_Cliente).FirstOrDefault();
+                var mercaderia = CrearOrdnesDePreparacion_model.Mercaderias.Where(x => x.Id_Mercaderia == OrdnesDePreparacion.Id_Mercaderia).FirstOrDefault();
+                var depositos = CrearOrdnesDePreparacion_model.Depositos.Where(x => x.Id_Deposito == OrdnesDePreparacion.Id_Deposito).FirstOrDefault();
+
+                ListViewItem listViewItem = new ListViewItem(new string[] {
+
+                    orden.Id_Estado.ToString(),
+                    orden.Id_OrdenDeEntrega.ToString(),
+                    orden.Emision_OrdenDeEntrega.ToString(),
+                    orden.Id_OrdenDePreparacion.ToString(),
+
+                    OrdnesDePreparacion.Prioridad_OrdenDePreparacion.ToString(),
+               
+                    mercaderia.Descripcion_Mercaderia,
+                    OrdnesDePreparacion.Cantidad_OrdenDePreparacion.ToString(),
+                    depositos.Nombre_Deposito,
+                    OrdnesDePreparacion.Dni_Transportista.ToString(),
+
+                }, -1);
+
+                listView_OrdenesDeEntrega.Items.Add(listViewItem);
+            }
+        }
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -28,7 +65,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listView1 = new ListView();
+            listView_OrdenesDeEntrega = new ListView();
             Estado_OE = new ColumnHeader();
             ID_OE = new ColumnHeader();
             Fecha_Emision_OE = new ColumnHeader();
@@ -41,19 +78,20 @@
             OrdenesDeEntrega_label = new Label();
             IdOrdenDeEntrega_label = new Label();
             IdOrdenDeEntrega_textBox = new TextBox();
-            ProcesarOrdenDeEntrega_button = new Button();
+            button_ProcesarOrdenDeEntrega = new Button();
             VolverAlMenu_button = new Button();
             SuspendLayout();
             // 
-            // listView1
+            // listView_OrdenesDeEntrega
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { Estado_OE, ID_OE, Fecha_Emision_OE, ID_OP, Prioridad_OP, Descripcion_Mercaderia, Cantidad_Mercaderia, Deposito, DNI_Transportista });
-            listView1.Location = new Point(12, 33);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(776, 171);
-            listView1.TabIndex = 0;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
+            listView_OrdenesDeEntrega.Columns.AddRange(new ColumnHeader[] { Estado_OE, ID_OE, Fecha_Emision_OE, ID_OP, Prioridad_OP, Descripcion_Mercaderia, Cantidad_Mercaderia, Deposito, DNI_Transportista });
+            CargarOrdenesDeEntrega();
+            listView_OrdenesDeEntrega.Location = new Point(12, 33);
+            listView_OrdenesDeEntrega.Name = "listView_OrdenesDeEntrega";
+            listView_OrdenesDeEntrega.Size = new Size(776, 171);
+            listView_OrdenesDeEntrega.TabIndex = 0;
+            listView_OrdenesDeEntrega.UseCompatibleStateImageBehavior = false;
+            listView_OrdenesDeEntrega.View = View.Details;
             // 
             // Estado_OE
             // 
@@ -122,16 +160,16 @@
             IdOrdenDeEntrega_textBox.Size = new Size(100, 23);
             IdOrdenDeEntrega_textBox.TabIndex = 3;
             // 
-            // ProcesarOrdenDeEntrega_button
+            // button_ProcesarOrdenDeEntrega
             // 
-            ProcesarOrdenDeEntrega_button.Font = new Font("Segoe UI", 9F);
-            ProcesarOrdenDeEntrega_button.Location = new Point(596, 226);
-            ProcesarOrdenDeEntrega_button.Name = "ProcesarOrdenDeEntrega_button";
-            ProcesarOrdenDeEntrega_button.Size = new Size(75, 23);
-            ProcesarOrdenDeEntrega_button.TabIndex = 4;
-            ProcesarOrdenDeEntrega_button.Text = "Procesar";
-            ProcesarOrdenDeEntrega_button.UseVisualStyleBackColor = true;
-            ProcesarOrdenDeEntrega_button.Click += ProcesarOrdenDeEntrega_button_Click;
+            button_ProcesarOrdenDeEntrega.Font = new Font("Segoe UI", 9F);
+            button_ProcesarOrdenDeEntrega.Location = new Point(596, 226);
+            button_ProcesarOrdenDeEntrega.Name = "button_ProcesarOrdenDeEntrega";
+            button_ProcesarOrdenDeEntrega.Size = new Size(75, 23);
+            button_ProcesarOrdenDeEntrega.TabIndex = 4;
+            button_ProcesarOrdenDeEntrega.Text = "Procesar";
+            button_ProcesarOrdenDeEntrega.UseVisualStyleBackColor = true;
+            button_ProcesarOrdenDeEntrega.Click += ProcesarOrdenDeEntrega_button_Click;
             // 
             // VolverAlMenu_button
             // 
@@ -149,11 +187,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 267);
             Controls.Add(VolverAlMenu_button);
-            Controls.Add(ProcesarOrdenDeEntrega_button);
+            Controls.Add(button_ProcesarOrdenDeEntrega);
             Controls.Add(IdOrdenDeEntrega_textBox);
             Controls.Add(IdOrdenDeEntrega_label);
             Controls.Add(OrdenesDeEntrega_label);
-            Controls.Add(listView1);
+            Controls.Add(listView_OrdenesDeEntrega);
             Name = "ProcesarOrdenDeEntrega_form";
             Text = "Procesar Orden De Entrega";
             ResumeLayout(false);
@@ -162,7 +200,7 @@
 
         #endregion
 
-        private ListView listView1;
+        private ListView listView_OrdenesDeEntrega;
         private Label OrdenesDeEntrega_label;
         private ColumnHeader Estado_OE;
         private ColumnHeader ID_OE;
@@ -175,7 +213,7 @@
         private ColumnHeader DNI_Transportista;
         private Label IdOrdenDeEntrega_label;
         private TextBox IdOrdenDeEntrega_textBox;
-        private Button ProcesarOrdenDeEntrega_button;
+        private Button button_ProcesarOrdenDeEntrega;
         private Button VolverAlMenu_button;
     }
 }

@@ -7,7 +7,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
     {
         private CrearOrdenDeSeleccion_model CrearOrdenesDeSeleccion_model = new CrearOrdenDeSeleccion_model();
         private CrearOrdnesDePreparacion_model CrearOrdnesDePreparacion_model = new CrearOrdnesDePreparacion_model();
-        private ProcesarOrdenDeSeleccion__model ProcesarOrdenDeSeleccion_model = new ProcesarOrdenDeSeleccion__model();
+        private ProcesarOrdenDeSeleccion_model ProcesarOrdenDeSeleccion_model = new ProcesarOrdenDeSeleccion_model();
 
         private void CargarOrdenesDePreparacion()
         {
@@ -73,12 +73,14 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             ID_OP = new ColumnHeader();
             Prioridad_OP = new ColumnHeader();
             Fecha_Emision = new ColumnHeader();
+            Deposito = new ColumnHeader();
             Descripcion_Mercaderia = new ColumnHeader();
             Cantidad = new ColumnHeader();
             Coordenadas = new ColumnHeader();
-            Deposito = new ColumnHeader();
-            CompletarOrdenDeSeleccion_boton = new Button();
-            VolverAlMenu_Button = new Button();
+            button_ProcesarOrdenDeSeleccion = new Button();
+            VolverAlMenu_button = new Button();
+            textBox_Id_OrdenDeSeleccion = new TextBox();
+            label_Id_OrdenDeSeleccion = new Label();
             SuspendLayout();
             // 
             // OrdenesDeSeleccionLabel
@@ -127,6 +129,10 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             Fecha_Emision.Text = "Fecha Emision";
             Fecha_Emision.Width = 90;
             // 
+            // Deposito
+            // 
+            Deposito.Text = "Deposito";
+            // 
             // Descripcion_Mercaderia
             // 
             Descripcion_Mercaderia.Text = "Descripcion Mercaderia";
@@ -141,36 +147,51 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             Coordenadas.Text = "Coordenadas";
             Coordenadas.Width = 90;
             // 
-            // Deposito
+            // button_ProcesarOrdenDeSeleccion
             // 
-            Deposito.Text = "Deposito";
+            button_ProcesarOrdenDeSeleccion.Location = new Point(386, 311);
+            button_ProcesarOrdenDeSeleccion.Name = "button_ProcesarOrdenDeSeleccion";
+            button_ProcesarOrdenDeSeleccion.Size = new Size(197, 33);
+            button_ProcesarOrdenDeSeleccion.TabIndex = 2;
+            button_ProcesarOrdenDeSeleccion.Text = "Procesar Orden de Seleccion";
+            button_ProcesarOrdenDeSeleccion.UseVisualStyleBackColor = true;
+            button_ProcesarOrdenDeSeleccion.Click += button_ProcesarOrdenDeSeleccion_Click;
             // 
-            // CompletarOrdenDeSeleccion_boton
+            // VolverAlMenu_button
             // 
-            CompletarOrdenDeSeleccion_boton.Location = new Point(386, 307);
-            CompletarOrdenDeSeleccion_boton.Name = "CompletarOrdenDeSeleccion_boton";
-            CompletarOrdenDeSeleccion_boton.Size = new Size(197, 33);
-            CompletarOrdenDeSeleccion_boton.TabIndex = 2;
-            CompletarOrdenDeSeleccion_boton.Text = "Procesar Orden de Seleccion";
-            CompletarOrdenDeSeleccion_boton.UseVisualStyleBackColor = true;
+            VolverAlMenu_button.Location = new Point(598, 311);
+            VolverAlMenu_button.Name = "VolverAlMenu_button";
+            VolverAlMenu_button.Size = new Size(124, 33);
+            VolverAlMenu_button.TabIndex = 15;
+            VolverAlMenu_button.Text = "Volver Al Menu";
+            VolverAlMenu_button.UseVisualStyleBackColor = true;
+            VolverAlMenu_button.Click += VolverAlMenu_button_Click;
             // 
-            // VolverAlMenu_Button
+            // textBox_Id_OrdenDeSeleccion
             // 
-            VolverAlMenu_Button.Location = new Point(598, 307);
-            VolverAlMenu_Button.Name = "VolverAlMenu_Button";
-            VolverAlMenu_Button.Size = new Size(124, 33);
-            VolverAlMenu_Button.TabIndex = 15;
-            VolverAlMenu_Button.Text = "Volver Al Menu";
-            VolverAlMenu_Button.UseVisualStyleBackColor = true;
-            VolverAlMenu_Button.Click += VolverAlMenu_Button_Click;
+            textBox_Id_OrdenDeSeleccion.Location = new Point(280, 322);
+            textBox_Id_OrdenDeSeleccion.Name = "textBox_Id_OrdenDeSeleccion";
+            textBox_Id_OrdenDeSeleccion.Size = new Size(100, 23);
+            textBox_Id_OrdenDeSeleccion.TabIndex = 16;
+            // 
+            // label_Id_OrdenDeSeleccion
+            // 
+            label_Id_OrdenDeSeleccion.AutoSize = true;
+            label_Id_OrdenDeSeleccion.Location = new Point(280, 304);
+            label_Id_OrdenDeSeleccion.Name = "label_Id_OrdenDeSeleccion";
+            label_Id_OrdenDeSeleccion.Size = new Size(53, 15);
+            label_Id_OrdenDeSeleccion.TabIndex = 17;
+            label_Id_OrdenDeSeleccion.Text = "Id Orden";
             // 
             // ProcesarOrdenDeSeleccion_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(734, 361);
-            Controls.Add(VolverAlMenu_Button);
-            Controls.Add(CompletarOrdenDeSeleccion_boton);
+            Controls.Add(label_Id_OrdenDeSeleccion);
+            Controls.Add(textBox_Id_OrdenDeSeleccion);
+            Controls.Add(VolverAlMenu_button);
+            Controls.Add(button_ProcesarOrdenDeSeleccion);
             Controls.Add(ProcesarOrdenesDeSeleccion_listView);
             Controls.Add(OrdenesDeSeleccionLabel);
             Name = "ProcesarOrdenDeSeleccion_form";
@@ -192,7 +213,9 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
         private ColumnHeader Cantidad;
         private ColumnHeader Coordenadas;
         private ColumnHeader Deposito;
-        private Button CompletarOrdenDeSeleccion_boton;
-        private Button VolverAlMenu_Button;
+        private Button button_ProcesarOrdenDeSeleccion;
+        private Button VolverAlMenu_button;
+        private TextBox textBox_Id_OrdenDeSeleccion;
+        private Label label_Id_OrdenDeSeleccion;
     }
 }

@@ -6,12 +6,12 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 {
     partial class CrearOrdenDeEntrega_Form
     {
-        private CrearOrdenDeSeleccion_model CrearOrdenesDeSeleccion_model = new CrearOrdenDeSeleccion_model();
+        private CrearOrdenDeSeleccion_model ProcesarOrdenDeSeleccion_model = new CrearOrdenDeSeleccion_model();
         private CrearOrdnesDePreparacion_model CrearOrdnesDePreparacion_model = new CrearOrdnesDePreparacion_model();
 
         private void CargarOrdenesDePreparacion()
         {
-            foreach (var orden in CrearOrdenesDeSeleccion_model.OrdenesDePreparacion)
+            foreach (var orden in ProcesarOrdenDeSeleccion_model.OrdenesDePreparacion)
             {
                 var cliente = CrearOrdnesDePreparacion_model.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
                 var mercaderia = CrearOrdnesDePreparacion_model.Mercaderias.Where(x => x.Id_Mercaderia == orden.Id_Mercaderia).FirstOrDefault();
@@ -69,9 +69,9 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
             Descripcion_Mercaderia = new ColumnHeader();
             Cantidad = new ColumnHeader();
             Deposito = new ColumnHeader();
-            CrearOrdenDeEntrega_boton = new Button();
+            button_CrearOrdenDeEntrega = new Button();
             IdOrdenDePreparacion_label = new Label();
-            OrdenDePreparacion_textbox = new TextBox();
+            IdOrdenDePreparacion_textbox = new TextBox();
             VolverAlMenu_button = new Button();
             SuspendLayout();
             // 
@@ -130,37 +130,38 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
             Deposito.Text = "Deposito";
             Deposito.Width = 100;
             // 
-            // CrearOrdenDeEntrega_boton
+            // button_CrearOrdenDeEntrega
             // 
-            CrearOrdenDeEntrega_boton.Font = new Font("Segoe UI", 9F);
-            CrearOrdenDeEntrega_boton.Location = new Point(437, 306);
-            CrearOrdenDeEntrega_boton.Name = "CrearOrdenDeEntrega_boton";
-            CrearOrdenDeEntrega_boton.Size = new Size(142, 36);
-            CrearOrdenDeEntrega_boton.TabIndex = 2;
-            CrearOrdenDeEntrega_boton.Text = "Crear Orden De Entrega";
-            CrearOrdenDeEntrega_boton.UseVisualStyleBackColor = true;
+            button_CrearOrdenDeEntrega.Font = new Font("Segoe UI", 9F);
+            button_CrearOrdenDeEntrega.Location = new Point(437, 318);
+            button_CrearOrdenDeEntrega.Name = "button_CrearOrdenDeEntrega";
+            button_CrearOrdenDeEntrega.Size = new Size(142, 36);
+            button_CrearOrdenDeEntrega.TabIndex = 2;
+            button_CrearOrdenDeEntrega.Text = "Crear Orden De Entrega";
+            button_CrearOrdenDeEntrega.UseVisualStyleBackColor = true;
+            button_CrearOrdenDeEntrega.Click += button_CrearOrdenDeEntrega_Click;
             // 
             // IdOrdenDePreparacion_label
             // 
             IdOrdenDePreparacion_label.AutoSize = true;
             IdOrdenDePreparacion_label.Font = new Font("Segoe UI", 9F);
-            IdOrdenDePreparacion_label.Location = new Point(295, 291);
+            IdOrdenDePreparacion_label.Location = new Point(295, 307);
             IdOrdenDePreparacion_label.Name = "IdOrdenDePreparacion_label";
             IdOrdenDePreparacion_label.Size = new Size(136, 15);
             IdOrdenDePreparacion_label.TabIndex = 3;
             IdOrdenDePreparacion_label.Text = "Id Orden De Preparacion";
             // 
-            // OrdenDePreparacion_textbox
+            // IdOrdenDePreparacion_textbox
             // 
-            OrdenDePreparacion_textbox.Location = new Point(295, 309);
-            OrdenDePreparacion_textbox.Name = "OrdenDePreparacion_textbox";
-            OrdenDePreparacion_textbox.Size = new Size(136, 29);
-            OrdenDePreparacion_textbox.TabIndex = 4;
+            IdOrdenDePreparacion_textbox.Location = new Point(295, 325);
+            IdOrdenDePreparacion_textbox.Name = "IdOrdenDePreparacion_textbox";
+            IdOrdenDePreparacion_textbox.Size = new Size(136, 29);
+            IdOrdenDePreparacion_textbox.TabIndex = 4;
             // 
             // VolverAlMenu_button
             // 
             VolverAlMenu_button.Font = new Font("Segoe UI", 9F);
-            VolverAlMenu_button.Location = new Point(585, 306);
+            VolverAlMenu_button.Location = new Point(585, 318);
             VolverAlMenu_button.Name = "VolverAlMenu_button";
             VolverAlMenu_button.Size = new Size(102, 36);
             VolverAlMenu_button.TabIndex = 5;
@@ -174,9 +175,9 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(699, 378);
             Controls.Add(VolverAlMenu_button);
-            Controls.Add(OrdenDePreparacion_textbox);
+            Controls.Add(IdOrdenDePreparacion_textbox);
             Controls.Add(IdOrdenDePreparacion_label);
-            Controls.Add(CrearOrdenDeEntrega_boton);
+            Controls.Add(button_CrearOrdenDeEntrega);
             Controls.Add(OrdenesDePreparacion_listView);
             Controls.Add(CrearOrdenDeEntrega_label);
             Font = new Font("Segoe UI", 12F);
@@ -191,7 +192,7 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 
         private Label CrearOrdenDeEntrega_label;
         private ListView OrdenesDePreparacion_listView;
-        private Button CrearOrdenDeEntrega_boton;
+        private Button button_CrearOrdenDeEntrega;
         private ColumnHeader Estado_OP;
         private ColumnHeader ID_OP;
         private ColumnHeader Prioridad_OP;
@@ -202,5 +203,6 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
         private Label IdOrdenDePreparacion_label;
         private TextBox OrdenDePreparacion_textbox;
         private Button VolverAlMenu_button;
+        private TextBox IdOrdenDePreparacion_textbox;
     }
 }

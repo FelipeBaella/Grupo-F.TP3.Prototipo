@@ -72,7 +72,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             Descripcion_Mercaderia = new ColumnHeader();
             Cantidad = new ColumnHeader();
             Deposito = new ColumnHeader();
-            Button_Crear_Orden = new Button();
+            button_Crear_Orden = new Button();
             label1 = new Label();
             textBox_Id_Orden = new TextBox();
             label2 = new Label();
@@ -82,6 +82,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // OrdenesDePreparacion_ListView
             // 
             OrdenesDePreparacion_ListView.Columns.AddRange(new ColumnHeader[] { Estado_OP, Prioridad, ID_OP, ID_Cliente, Nombre_Cliente, Fecha_Emision, Descripcion_Mercaderia, Cantidad, Deposito });
+            CargarOrdenesDePreparacion();
             OrdenesDePreparacion_ListView.Location = new Point(12, 42);
             OrdenesDePreparacion_ListView.Name = "OrdenesDePreparacion_ListView";
             OrdenesDePreparacion_ListView.Size = new Size(810, 207);
@@ -131,15 +132,15 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             Deposito.Text = "Deposito";
             Deposito.Width = 100;
             // 
-            // Button_Crear_Orden
+            // button_Crear_Orden
             // 
-            Button_Crear_Orden.Location = new Point(568, 314);
-            Button_Crear_Orden.Name = "Button_Crear_Orden";
-            Button_Crear_Orden.Size = new Size(158, 23);
-            Button_Crear_Orden.TabIndex = 1;
-            Button_Crear_Orden.Text = "Crear orden de seleccion";
-            Button_Crear_Orden.UseVisualStyleBackColor = true;
-            Button_Crear_Orden.Click += Button_Crear_Orden_Click;
+            button_Crear_Orden.Location = new Point(568, 314);
+            button_Crear_Orden.Name = "button_Crear_Orden";
+            button_Crear_Orden.Size = new Size(158, 23);
+            button_Crear_Orden.TabIndex = 1;
+            button_Crear_Orden.Text = "Crear orden de seleccion";
+            button_Crear_Orden.UseVisualStyleBackColor = true;
+            button_Crear_Orden.Click += button_Crear_Orden_Click;
             // 
             // label1
             // 
@@ -186,7 +187,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             Controls.Add(label2);
             Controls.Add(textBox_Id_Orden);
             Controls.Add(label1);
-            Controls.Add(Button_Crear_Orden);
+            Controls.Add(button_Crear_Orden);
             Controls.Add(OrdenesDePreparacion_ListView);
             Name = "CrearOrdenDeSeleccion_form";
             Text = "Crear Orden de seleccion";
@@ -208,7 +209,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         private ColumnHeader Descripcion_Mercaderia;
         private ColumnHeader Cantidad;
         private ColumnHeader Deposito;
-        private Button Button_Crear_Orden;
+        private Button button_Crear_Orden;
         private Label label1;
         private TextBox textBox1;
         private TextBox prueba6;

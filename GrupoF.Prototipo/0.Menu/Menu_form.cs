@@ -73,9 +73,9 @@ namespace GrupoF.Prototipo._0.Menu
 
         private void button_Salir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
-      
+
     }
 }

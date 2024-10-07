@@ -34,10 +34,12 @@
             ID_OP = new ColumnHeader();
             Prioridad_OP = new ColumnHeader();
             Fecha_Emision_OP = new ColumnHeader();
-            Descripcion_Deposito = new ColumnHeader();
             Descripcion_Mercaderia = new ColumnHeader();
             Cantidad = new ColumnHeader();
+            Deposito = new ColumnHeader();
             CrearOrdenDeEntrega_boton = new Button();
+            IdOrdenDePreparacion_label = new Label();
+            OrdenDePreparacion_textbox = new TextBox();
             SuspendLayout();
             // 
             // CrearOrdenDeEntrega_label
@@ -52,11 +54,11 @@
             // 
             // listView1
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { Estado_OP, ID_OP, Prioridad_OP, Fecha_Emision_OP, Descripcion_Mercaderia, Cantidad, Descripcion_Deposito });
+            listView1.Columns.AddRange(new ColumnHeader[] { Estado_OP, ID_OP, Prioridad_OP, Fecha_Emision_OP, Descripcion_Mercaderia, Cantidad, Deposito });
             listView1.Font = new Font("Segoe UI", 9F);
             listView1.Location = new Point(12, 33);
             listView1.Name = "listView1";
-            listView1.Size = new Size(764, 255);
+            listView1.Size = new Size(675, 255);
             listView1.TabIndex = 1;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = View.Details;
@@ -78,12 +80,7 @@
             // Fecha_Emision_OP
             // 
             Fecha_Emision_OP.Text = "Fecha Emision OP";
-            Fecha_Emision_OP.Width = 100;
-            // 
-            // Descripcion_Deposito
-            // 
-            Descripcion_Deposito.Text = "Descripcion Deposito";
-            Descripcion_Deposito.Width = 120;
+            Fecha_Emision_OP.Width = 120;
             // 
             // Descripcion_Mercaderia
             // 
@@ -92,23 +89,47 @@
             // 
             // Cantidad
             // 
-            Cantidad.DisplayIndex = 5;
             Cantidad.Text = "Cantidad";
+            // 
+            // Deposito
+            // 
+            Deposito.Text = "Deposito";
+            Deposito.Width = 100;
             // 
             // CrearOrdenDeEntrega_boton
             // 
-            CrearOrdenDeEntrega_boton.Location = new Point(275, 294);
+            CrearOrdenDeEntrega_boton.Font = new Font("Segoe UI", 9F);
+            CrearOrdenDeEntrega_boton.Location = new Point(534, 309);
             CrearOrdenDeEntrega_boton.Name = "CrearOrdenDeEntrega_boton";
-            CrearOrdenDeEntrega_boton.Size = new Size(225, 45);
+            CrearOrdenDeEntrega_boton.Size = new Size(142, 36);
             CrearOrdenDeEntrega_boton.TabIndex = 2;
             CrearOrdenDeEntrega_boton.Text = "Crear Orden De Entrega";
             CrearOrdenDeEntrega_boton.UseVisualStyleBackColor = true;
+            // 
+            // IdOrdenDePreparacion_label
+            // 
+            IdOrdenDePreparacion_label.AutoSize = true;
+            IdOrdenDePreparacion_label.Font = new Font("Segoe UI", 9F);
+            IdOrdenDePreparacion_label.Location = new Point(392, 291);
+            IdOrdenDePreparacion_label.Name = "IdOrdenDePreparacion_label";
+            IdOrdenDePreparacion_label.Size = new Size(136, 15);
+            IdOrdenDePreparacion_label.TabIndex = 3;
+            IdOrdenDePreparacion_label.Text = "Id Orden De Preparacion";
+            // 
+            // OrdenDePreparacion_textbox
+            // 
+            OrdenDePreparacion_textbox.Location = new Point(392, 312);
+            OrdenDePreparacion_textbox.Name = "OrdenDePreparacion_textbox";
+            OrdenDePreparacion_textbox.Size = new Size(136, 29);
+            OrdenDePreparacion_textbox.TabIndex = 4;
             // 
             // CrearOrdenDeEntrega_Form
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(786, 378);
+            ClientSize = new Size(699, 378);
+            Controls.Add(OrdenDePreparacion_textbox);
+            Controls.Add(IdOrdenDePreparacion_label);
             Controls.Add(CrearOrdenDeEntrega_boton);
             Controls.Add(listView1);
             Controls.Add(CrearOrdenDeEntrega_label);
@@ -129,8 +150,10 @@
         private ColumnHeader ID_OP;
         private ColumnHeader Prioridad_OP;
         private ColumnHeader Fecha_Emision_OP;
-        private ColumnHeader Descripcion_Deposito;
+        private ColumnHeader Deposito;
         private ColumnHeader Descripcion_Mercaderia;
         private ColumnHeader Cantidad;
+        private Label IdOrdenDePreparacion_label;
+        private TextBox OrdenDePreparacion_textbox;
     }
 }

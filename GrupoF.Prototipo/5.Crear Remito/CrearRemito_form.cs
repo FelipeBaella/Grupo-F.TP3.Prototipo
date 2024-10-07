@@ -41,5 +41,15 @@ namespace GrupoF.Prototipo._5.Crear_Remito
 
             nuevaForma.Show();
         }
+
+        private void CrearRemito_form_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

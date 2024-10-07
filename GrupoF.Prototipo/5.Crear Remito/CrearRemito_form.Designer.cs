@@ -28,239 +28,186 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            groupBox1 = new GroupBox();
-            label2 = new Label();
-            button1 = new Button();
-            label1 = new Label();
+            NombreApellido_textBox = new TextBox();
+            Ingresar_ID_OP_textBox = new TextBox();
+            DNI_textBox = new TextBox();
+            OrdenDePreparacion_groupBox = new GroupBox();
+            Ingresar_button = new Button();
+            ID_OP_label = new Label();
             groupBox2 = new GroupBox();
-            label4 = new Label();
-            label3 = new Label();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
+            Nombre_Apellido_label = new Label();
+            DNI_label = new Label();
+            NombreCliente_textBox = new TextBox();
+            DescripcionMercaderia_textBox = new TextBox();
             groupBox3 = new GroupBox();
-            label6 = new Label();
-            label5 = new Label();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            label7 = new Label();
-            label8 = new Label();
-            label9 = new Label();
+            DescripcionMercaderia_label = new Label();
+            NombreCliente_label = new Label();
+            Emitir_button = new Button();
             VolverAlMenu_Button = new Button();
-            groupBox1.SuspendLayout();
+            CUIT_label = new Label();
+            CUIT_textBox = new TextBox();
+            Cantidad_label = new Label();
+            Cantidad_textBox = new TextBox();
+            CondicionFrenteAlIva_textbox = new TextBox();
+            Domicilio_textBox = new TextBox();
+            CondicionFrenteAlIva_label = new Label();
+            Domicilio_label = new Label();
+            Remito_groupBox = new GroupBox();
+            OrdenDePreparacion_groupBox.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
+            Remito_groupBox.SuspendLayout();
             SuspendLayout();
             // 
-            // textBox1
+            // NombreApellido_textBox
             // 
-            textBox1.Location = new Point(227, 42);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(94, 23);
-            textBox1.TabIndex = 0;
+            NombreApellido_textBox.Location = new Point(227, 42);
+            NombreApellido_textBox.Name = "NombreApellido_textBox";
+            NombreApellido_textBox.Size = new Size(94, 23);
+            NombreApellido_textBox.TabIndex = 0;
             // 
-            // textBox2
+            // Ingresar_ID_OP_textBox
             // 
-            textBox2.Location = new Point(7, 42);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(110, 23);
-            textBox2.TabIndex = 1;
+            Ingresar_ID_OP_textBox.Location = new Point(7, 42);
+            Ingresar_ID_OP_textBox.Name = "Ingresar_ID_OP_textBox";
+            Ingresar_ID_OP_textBox.Size = new Size(110, 23);
+            Ingresar_ID_OP_textBox.TabIndex = 1;
             // 
-            // textBox3
+            // DNI_textBox
             // 
-            textBox3.Location = new Point(19, 42);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(169, 23);
-            textBox3.TabIndex = 2;
+            DNI_textBox.Location = new Point(19, 42);
+            DNI_textBox.Name = "DNI_textBox";
+            DNI_textBox.Size = new Size(169, 23);
+            DNI_textBox.TabIndex = 2;
             // 
-            // textBox4
+            // OrdenDePreparacion_groupBox
             // 
-            textBox4.Location = new Point(138, 42);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(169, 23);
-            textBox4.TabIndex = 3;
-            textBox4.TextChanged += textBox4_TextChanged;
+            OrdenDePreparacion_groupBox.Controls.Add(Ingresar_button);
+            OrdenDePreparacion_groupBox.Controls.Add(ID_OP_label);
+            OrdenDePreparacion_groupBox.Controls.Add(Ingresar_ID_OP_textBox);
+            OrdenDePreparacion_groupBox.Location = new Point(37, 25);
+            OrdenDePreparacion_groupBox.Name = "OrdenDePreparacion_groupBox";
+            OrdenDePreparacion_groupBox.Size = new Size(460, 100);
+            OrdenDePreparacion_groupBox.TabIndex = 4;
+            OrdenDePreparacion_groupBox.TabStop = false;
+            OrdenDePreparacion_groupBox.Text = "Orden De Preparacion";
+            OrdenDePreparacion_groupBox.Enter += groupBox1_Enter;
             // 
-            // groupBox1
+            // Ingresar_button
             // 
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(button1);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(textBox4);
-            groupBox1.Location = new Point(37, 25);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(335, 100);
-            groupBox1.TabIndex = 4;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Datos del Transportista";
+            Ingresar_button.Location = new Point(7, 71);
+            Ingresar_button.Name = "Ingresar_button";
+            Ingresar_button.Size = new Size(85, 23);
+            Ingresar_button.TabIndex = 5;
+            Ingresar_button.Text = "Ingresar";
+            Ingresar_button.UseVisualStyleBackColor = true;
+            Ingresar_button.Click += button1_Click;
             // 
-            // label2
+            // ID_OP_label
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(138, 24);
-            label2.Name = "label2";
-            label2.Size = new Size(107, 15);
-            label2.TabIndex = 6;
-            label2.Text = "Nombre y Apellido";
-            label2.Click += label2_Click;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(7, 71);
-            button1.Name = "button1";
-            button1.Size = new Size(85, 23);
-            button1.TabIndex = 5;
-            button1.Text = "Aceptar";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(7, 24);
-            label1.Name = "label1";
-            label1.Size = new Size(27, 15);
-            label1.TabIndex = 4;
-            label1.Text = "DNI";
+            ID_OP_label.AutoSize = true;
+            ID_OP_label.Location = new Point(7, 24);
+            ID_OP_label.Name = "ID_OP_label";
+            ID_OP_label.Size = new Size(37, 15);
+            ID_OP_label.TabIndex = 4;
+            ID_OP_label.Text = "ID OP";
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(label4);
-            groupBox2.Controls.Add(label3);
-            groupBox2.Controls.Add(textBox3);
-            groupBox2.Controls.Add(textBox1);
-            groupBox2.Location = new Point(409, 25);
+            groupBox2.Controls.Add(Nombre_Apellido_label);
+            groupBox2.Controls.Add(DNI_label);
+            groupBox2.Controls.Add(DNI_textBox);
+            groupBox2.Controls.Add(NombreApellido_textBox);
+            groupBox2.Location = new Point(37, 302);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(340, 100);
+            groupBox2.Size = new Size(460, 100);
             groupBox2.TabIndex = 0;
             groupBox2.TabStop = false;
             groupBox2.Text = "Datos de Mercaderia";
             // 
-            // label4
+            // Nombre_Apellido_label
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(227, 24);
-            label4.Name = "label4";
-            label4.Size = new Size(55, 15);
-            label4.TabIndex = 4;
-            label4.Text = "Cantidad";
+            Nombre_Apellido_label.AutoSize = true;
+            Nombre_Apellido_label.Location = new Point(227, 24);
+            Nombre_Apellido_label.Name = "Nombre_Apellido_label";
+            Nombre_Apellido_label.Size = new Size(98, 15);
+            Nombre_Apellido_label.TabIndex = 4;
+            Nombre_Apellido_label.Text = "Nombre Apellido";
             // 
-            // label3
+            // DNI_label
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(19, 24);
-            label3.Name = "label3";
-            label3.Size = new Size(69, 15);
-            label3.TabIndex = 3;
-            label3.Text = "Descripcion";
+            DNI_label.AutoSize = true;
+            DNI_label.Location = new Point(19, 24);
+            DNI_label.Name = "DNI_label";
+            DNI_label.Size = new Size(27, 15);
+            DNI_label.TabIndex = 3;
+            DNI_label.Text = "DNI";
             // 
-            // textBox5
+            // NombreCliente_textBox
             // 
-            textBox5.Location = new Point(6, 38);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(111, 23);
-            textBox5.TabIndex = 5;
+            NombreCliente_textBox.Location = new Point(6, 38);
+            NombreCliente_textBox.Name = "NombreCliente_textBox";
+            NombreCliente_textBox.Size = new Size(111, 23);
+            NombreCliente_textBox.TabIndex = 5;
             // 
-            // textBox6
+            // DescripcionMercaderia_textBox
             // 
-            textBox6.Location = new Point(138, 38);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(164, 23);
-            textBox6.TabIndex = 6;
+            DescripcionMercaderia_textBox.Location = new Point(138, 38);
+            DescripcionMercaderia_textBox.Name = "DescripcionMercaderia_textBox";
+            DescripcionMercaderia_textBox.Size = new Size(164, 23);
+            DescripcionMercaderia_textBox.TabIndex = 6;
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(label6);
-            groupBox3.Controls.Add(label5);
-            groupBox3.Controls.Add(textBox5);
-            groupBox3.Controls.Add(textBox6);
-            groupBox3.Location = new Point(37, 155);
+            groupBox3.Controls.Add(Domicilio_label);
+            groupBox3.Controls.Add(CondicionFrenteAlIva_label);
+            groupBox3.Controls.Add(Domicilio_textBox);
+            groupBox3.Controls.Add(CondicionFrenteAlIva_textbox);
+            groupBox3.Controls.Add(Cantidad_textBox);
+            groupBox3.Controls.Add(Cantidad_label);
+            groupBox3.Controls.Add(CUIT_textBox);
+            groupBox3.Controls.Add(CUIT_label);
+            groupBox3.Controls.Add(DescripcionMercaderia_label);
+            groupBox3.Controls.Add(NombreCliente_label);
+            groupBox3.Controls.Add(NombreCliente_textBox);
+            groupBox3.Controls.Add(DescripcionMercaderia_textBox);
+            groupBox3.Location = new Point(37, 144);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(335, 88);
+            groupBox3.Size = new Size(460, 137);
             groupBox3.TabIndex = 7;
             groupBox3.TabStop = false;
             groupBox3.Text = "Datos del Cliente";
             // 
-            // label6
+            // DescripcionMercaderia_label
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(138, 19);
-            label6.Name = "label6";
-            label6.Size = new Size(131, 15);
-            label6.TabIndex = 8;
-            label6.Text = "Descripcion Mercaderia";
+            DescripcionMercaderia_label.AutoSize = true;
+            DescripcionMercaderia_label.Location = new Point(138, 19);
+            DescripcionMercaderia_label.Name = "DescripcionMercaderia_label";
+            DescripcionMercaderia_label.Size = new Size(131, 15);
+            DescripcionMercaderia_label.TabIndex = 8;
+            DescripcionMercaderia_label.Text = "Descripcion Mercaderia";
             // 
-            // label5
+            // NombreCliente_label
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(7, 19);
-            label5.Name = "label5";
-            label5.Size = new Size(58, 15);
-            label5.TabIndex = 7;
-            label5.Text = "ID Cliente";
+            NombreCliente_label.AutoSize = true;
+            NombreCliente_label.Location = new Point(7, 19);
+            NombreCliente_label.Name = "NombreCliente_label";
+            NombreCliente_label.Size = new Size(91, 15);
+            NombreCliente_label.TabIndex = 7;
+            NombreCliente_label.Text = "Nombre Cliente";
             // 
-            // button2
+            // Emitir_button
             // 
-            button2.Location = new Point(409, 182);
-            button2.Name = "button2";
-            button2.Size = new Size(97, 23);
-            button2.TabIndex = 8;
-            button2.Text = "Actualizar ";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(544, 182);
-            button3.Name = "button3";
-            button3.Size = new Size(122, 23);
-            button3.TabIndex = 9;
-            button3.Text = "Actualizar";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(694, 182);
-            button4.Name = "button4";
-            button4.Size = new Size(75, 23);
-            button4.TabIndex = 10;
-            button4.Text = "Descargar";
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(411, 164);
-            label7.Name = "label7";
-            label7.Size = new Size(99, 15);
-            label7.TabIndex = 11;
-            label7.Text = "Orden de Entrega";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(544, 164);
-            label8.Name = "label8";
-            label8.Size = new Size(122, 15);
-            label8.TabIndex = 12;
-            label8.Text = "Orden de Preparacion";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(694, 164);
-            label9.Name = "label9";
-            label9.Size = new Size(45, 15);
-            label9.TabIndex = 13;
-            label9.Text = "Remito";
+            Emitir_button.Location = new Point(7, 22);
+            Emitir_button.Name = "Emitir_button";
+            Emitir_button.Size = new Size(97, 23);
+            Emitir_button.TabIndex = 8;
+            Emitir_button.Text = "Emitir";
+            Emitir_button.UseVisualStyleBackColor = true;
             // 
             // VolverAlMenu_Button
             // 
-            VolverAlMenu_Button.Location = new Point(655, 220);
+            VolverAlMenu_Button.Location = new Point(175, 435);
             VolverAlMenu_Button.Name = "VolverAlMenu_Button";
             VolverAlMenu_Button.Size = new Size(114, 23);
             VolverAlMenu_Button.TabIndex = 14;
@@ -268,57 +215,129 @@
             VolverAlMenu_Button.UseVisualStyleBackColor = true;
             VolverAlMenu_Button.Click += VolverAlMenu_Button_Click;
             // 
+            // CUIT_label
+            // 
+            CUIT_label.AutoSize = true;
+            CUIT_label.Location = new Point(7, 82);
+            CUIT_label.Name = "CUIT_label";
+            CUIT_label.Size = new Size(32, 15);
+            CUIT_label.TabIndex = 9;
+            CUIT_label.Text = "CUIT";
+            // 
+            // CUIT_textBox
+            // 
+            CUIT_textBox.Location = new Point(7, 100);
+            CUIT_textBox.Name = "CUIT_textBox";
+            CUIT_textBox.Size = new Size(111, 23);
+            CUIT_textBox.TabIndex = 10;
+            // 
+            // Cantidad_label
+            // 
+            Cantidad_label.AutoSize = true;
+            Cantidad_label.Location = new Point(138, 82);
+            Cantidad_label.Name = "Cantidad_label";
+            Cantidad_label.Size = new Size(55, 15);
+            Cantidad_label.TabIndex = 11;
+            Cantidad_label.Text = "Cantidad";
+            // 
+            // Cantidad_textBox
+            // 
+            Cantidad_textBox.Location = new Point(138, 100);
+            Cantidad_textBox.Name = "Cantidad_textBox";
+            Cantidad_textBox.Size = new Size(164, 23);
+            Cantidad_textBox.TabIndex = 12;
+            // 
+            // CondicionFrenteAlIva_textbox
+            // 
+            CondicionFrenteAlIva_textbox.Location = new Point(327, 38);
+            CondicionFrenteAlIva_textbox.Name = "CondicionFrenteAlIva_textbox";
+            CondicionFrenteAlIva_textbox.Size = new Size(127, 23);
+            CondicionFrenteAlIva_textbox.TabIndex = 13;
+            // 
+            // Domicilio_textBox
+            // 
+            Domicilio_textBox.Location = new Point(327, 100);
+            Domicilio_textBox.Name = "Domicilio_textBox";
+            Domicilio_textBox.Size = new Size(127, 23);
+            Domicilio_textBox.TabIndex = 14;
+            // 
+            // CondicionFrenteAlIva_label
+            // 
+            CondicionFrenteAlIva_label.AutoSize = true;
+            CondicionFrenteAlIva_label.Location = new Point(323, 19);
+            CondicionFrenteAlIva_label.Name = "CondicionFrenteAlIva_label";
+            CondicionFrenteAlIva_label.Size = new Size(132, 15);
+            CondicionFrenteAlIva_label.TabIndex = 15;
+            CondicionFrenteAlIva_label.Text = "Condicion Frente Al IVA";
+            // 
+            // Domicilio_label
+            // 
+            Domicilio_label.AutoSize = true;
+            Domicilio_label.Location = new Point(327, 82);
+            Domicilio_label.Name = "Domicilio_label";
+            Domicilio_label.Size = new Size(58, 15);
+            Domicilio_label.TabIndex = 16;
+            Domicilio_label.Text = "Domicilio";
+            // 
+            // Remito_groupBox
+            // 
+            Remito_groupBox.Controls.Add(Emitir_button);
+            Remito_groupBox.Location = new Point(37, 413);
+            Remito_groupBox.Name = "Remito_groupBox";
+            Remito_groupBox.Size = new Size(117, 56);
+            Remito_groupBox.TabIndex = 5;
+            Remito_groupBox.TabStop = false;
+            Remito_groupBox.Text = "Remito";
+            // 
             // CrearRemito_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 273);
+            ClientSize = new Size(520, 555);
+            Controls.Add(Remito_groupBox);
             Controls.Add(VolverAlMenu_Button);
-            Controls.Add(label9);
-            Controls.Add(label8);
-            Controls.Add(label7);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
-            Controls.Add(groupBox1);
+            Controls.Add(OrdenDePreparacion_groupBox);
             Name = "CrearRemito_form";
-            Text = "CrearRemito_form";
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            Text = "Crear Remito";
+            Load += CrearRemito_form_Load;
+            OrdenDePreparacion_groupBox.ResumeLayout(false);
+            OrdenDePreparacion_groupBox.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
+            Remito_groupBox.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private GroupBox groupBox1;
+        private TextBox NombreApellido_textBox;
+        private TextBox Ingresar_ID_OP_textBox;
+        private TextBox DNI_textBox;
+        private GroupBox OrdenDePreparacion_groupBox;
         private GroupBox groupBox2;
-        private Label label2;
-        private Button button1;
-        private Label label1;
-        private Label label4;
-        private Label label3;
-        private TextBox textBox5;
-        private TextBox textBox6;
+        private Button Ingresar_button;
+        private Label ID_OP_label;
+        private Label Nombre_Apellido_label;
+        private Label DNI_label;
+        private TextBox NombreCliente_textBox;
+        private TextBox DescripcionMercaderia_textBox;
         private GroupBox groupBox3;
-        private Label label6;
-        private Label label5;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Label label7;
-        private Label label8;
-        private Label label9;
+        private Label DescripcionMercaderia_label;
+        private Label NombreCliente_label;
+        private Button Emitir_button;
         private Button VolverAlMenu_Button;
+        private TextBox Cantidad_textBox;
+        private Label Cantidad_label;
+        private TextBox CUIT_textBox;
+        private Label CUIT_label;
+        private Label Domicilio_label;
+        private Label CondicionFrenteAlIva_label;
+        private TextBox Domicilio_textBox;
+        private TextBox CondicionFrenteAlIva_textbox;
+        private GroupBox Remito_groupBox;
     }
 }

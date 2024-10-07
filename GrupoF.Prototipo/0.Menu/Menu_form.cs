@@ -48,6 +48,14 @@ namespace GrupoF.Prototipo._0.Menu
             nuevaForma.Show();
         }
 
+        private void button_CrearOrdenDeEntrega_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            CrearOrdenDeEntrega_Form nuevaForma = new CrearOrdenDeEntrega_Form();
+            nuevaForma.Show();
+        }
+
         private void button_CrearRemito_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -72,6 +80,6 @@ namespace GrupoF.Prototipo._0.Menu
             nuevaForma.Show();
         }
 
- 
+      
     }
 }

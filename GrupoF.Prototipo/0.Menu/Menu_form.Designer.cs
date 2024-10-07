@@ -75,6 +75,7 @@
             button_CrearOrdenDeEntrega.TabIndex = 3;
             button_CrearOrdenDeEntrega.Text = "Crear Orden de Entrega";
             button_CrearOrdenDeEntrega.UseVisualStyleBackColor = true;
+            button_CrearOrdenDeEntrega.Click += button_CrearOrdenDeEntrega_Click;
             // 
             // button_CrearRemito
             // 

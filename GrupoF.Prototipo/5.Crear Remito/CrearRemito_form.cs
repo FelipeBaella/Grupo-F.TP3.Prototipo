@@ -16,7 +16,7 @@ namespace GrupoF.Prototipo._5.Crear_Remito
 {
     public partial class CrearRemito_form : Form
     {
-        private CrearRemito_model CrearRemito_model = new CrearRemito_model();
+        private CrearOrdenDeSeleccion_model CrearOrdenDeSeleccion_model = new CrearOrdenDeSeleccion_model();
         private CrearOrdnesDePreparacion_model CrearOrdnesDePreparacion_model = new CrearOrdnesDePreparacion_model();
 
         public CrearRemito_form(int id = 0)
@@ -27,7 +27,7 @@ namespace GrupoF.Prototipo._5.Crear_Remito
 
         private void CargarDatos(int id)
         {
-            var orden = CrearRemito_model.OrdenesDePreparacion.Where(x => x.Id_OrdenDePreparacion == id).FirstOrDefault();
+            var orden = CrearOrdenDeSeleccion_model.OrdenesDePreparacion.Where(x => x.Id_OrdenDePreparacion == id).FirstOrDefault();
 
             if (orden != null)
             {
@@ -57,10 +57,32 @@ namespace GrupoF.Prototipo._5.Crear_Remito
 
         private void Ingresar_button_Click(object sender, EventArgs e)
         {
-            string idOP = IngresarIDOP_textBox.Text;
+            string Id_Orden = IngresarIDOP_textBox.Text;
+
+            if (Id_Orden == "")
+            {
+                MessageBox.Show("Id no puede estar vacio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                IngresarIDOP_textBox.Focus();
+                return;
+            }
+
+            if (!Id_Orden.All(char.IsDigit))
+            {
+                MessageBox.Show("Id debe ser un numero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                IngresarIDOP_textBox.Focus();
+                return;
+            }
+
+
+            if (!CrearOrdenDeSeleccion_model.OrdenesDePreparacion.Any(o => o.Id_OrdenDePreparacion == int.Parse(Id_Orden)))
+            {
+                MessageBox.Show("Debes seleccionar una orden valida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                IngresarIDOP_textBox.Focus();
+                return;
+            }
 
             this.Hide();
-            CrearRemito_form nuevaForma = new CrearRemito_form(int.Parse(idOP));
+            CrearRemito_form nuevaForma = new CrearRemito_form(int.Parse(Id_Orden));
             nuevaForma.Show();
         }
 

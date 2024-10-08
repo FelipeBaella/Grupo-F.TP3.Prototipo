@@ -18,5 +18,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         public int Id_Deposito { get; set; }
         public int Dni_Transportista { get; set; }
         public string NombreApellido_Transportista { get; set; }
+        public int? Id_Remito { get; set; }
     }
 }

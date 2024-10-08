@@ -32,7 +32,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
                     depositos.Nombre_Deposito,              
                     mercaderia.Descripcion_Mercaderia,
                     OrdenDePreparacion.Cantidad_OrdenDePreparacion.ToString(),
-                    "Cordenadas".ToString(),
+                    depositos.Coordenadas_Deposito.ToString(),
                  
                 }, -1);
 

@@ -47,6 +47,18 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
                 return;
             }
 
+            var Id_Remito = CrearOrdenDeSeleccion_model.OrdenesDePreparacion
+            .Where(o => o.Id_OrdenDePreparacion == int.Parse(Id_Orden))
+            .Select(o => o.Id_Remito)
+            .FirstOrDefault();
+
+            if (Id_Remito == null)
+            {
+                MessageBox.Show("Para procesar la Orden de Entrega, primero se le deberá crear un remito a la Orden de Preparación asociada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                IdOrdenDeEntrega_textBox.Focus();
+                return;
+            }
+
             MessageBox.Show("Se creo la orden de seleccion con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             this.Hide();

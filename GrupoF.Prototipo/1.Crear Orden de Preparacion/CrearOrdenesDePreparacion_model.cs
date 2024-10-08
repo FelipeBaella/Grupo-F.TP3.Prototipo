@@ -41,11 +41,11 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
         public List<Deposito> Depositos { get; set; } = new List<Deposito>
         {
-            new Deposito {Id_Deposito = 0, Nombre_Deposito = "---"},
+            new Deposito { Id_Cliente = 0, Id_Deposito = 0, Nombre_Deposito = "---", Coordenadas_Deposito = "0-0-0"},
 
-            new Deposito {Id_Deposito = 1, Nombre_Deposito = "Rosario"},
+            new Deposito { Id_Cliente = 1, Id_Deposito = 1, Nombre_Deposito = "GBAS 1", Coordenadas_Deposito = "15-32-7"},
 
-            new Deposito {Id_Deposito = 2, Nombre_Deposito = "Mendoza"}
+            new Deposito { Id_Cliente = 2, Id_Deposito = 2, Nombre_Deposito = "GBAS 2", Coordenadas_Deposito = "12-43-2" }
         };
 
 

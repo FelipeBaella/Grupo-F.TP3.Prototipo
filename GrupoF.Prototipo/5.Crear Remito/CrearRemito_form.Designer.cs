@@ -5,7 +5,32 @@ namespace GrupoF.Prototipo._5.Crear_Remito
 {
     partial class CrearRemito_form
     {
-        
+        private CrearOrdenDeSeleccion_model ProcesarOrdenDeSeleccion_model = new CrearOrdenDeSeleccion_model();
+
+        private void CargarOrdenesDePreparacion()
+        {
+            foreach (var orden in ProcesarOrdenDeSeleccion_model.OrdenesDePreparacion)
+            {
+                var cliente = CrearOrdnesDePreparacion_model.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
+                var mercaderia = CrearOrdnesDePreparacion_model.Mercaderias.Where(x => x.Id_Mercaderia == orden.Id_Mercaderia).FirstOrDefault();
+                var depositos = CrearOrdnesDePreparacion_model.Depositos.Where(x => x.Id_Deposito == orden.Id_Deposito).FirstOrDefault();
+
+                ListViewItem listViewItem = new ListViewItem(new string[] {
+
+                    orden.Id_Estado.ToString(),
+                    orden.Id_OrdenDePreparacion.ToString(),
+                    orden.Prioridad_OrdenDePreparacion.ToString(),
+                    orden.Emision_OrdenDePreparacion.ToString(),
+
+                    mercaderia.Descripcion_Mercaderia,
+                    orden.Cantidad_OrdenDePreparacion.ToString(),
+                    depositos.Nombre_Deposito,
+
+                }, -1);
+
+                //OrdenesDePreparacion_listView.Items.Add(listViewItem);
+            }
+        }
 
         /// <summary>
         /// Required designer variable.
@@ -92,7 +117,7 @@ namespace GrupoF.Prototipo._5.Crear_Remito
             OrdenDePreparacion_groupBox.Controls.Add(Ingresar_button);
             OrdenDePreparacion_groupBox.Controls.Add(ID_OP_label);
             OrdenDePreparacion_groupBox.Controls.Add(IngresarIDOP_textBox);
-            OrdenDePreparacion_groupBox.Location = new Point(37, 25);
+            OrdenDePreparacion_groupBox.Location = new Point(27, 29);
             OrdenDePreparacion_groupBox.Name = "OrdenDePreparacion_groupBox";
             OrdenDePreparacion_groupBox.Size = new Size(460, 100);
             OrdenDePreparacion_groupBox.TabIndex = 4;
@@ -124,7 +149,7 @@ namespace GrupoF.Prototipo._5.Crear_Remito
             groupBox2.Controls.Add(DNI_label);
             groupBox2.Controls.Add(DNI_textBox);
             groupBox2.Controls.Add(NombreApellido_textBox);
-            groupBox2.Location = new Point(37, 302);
+            groupBox2.Location = new Point(27, 306);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(460, 100);
             groupBox2.TabIndex = 0;
@@ -179,7 +204,7 @@ namespace GrupoF.Prototipo._5.Crear_Remito
             groupBox3.Controls.Add(NombreCliente_label);
             groupBox3.Controls.Add(NombreCliente_textBox);
             groupBox3.Controls.Add(DescripcionMercaderia_textBox);
-            groupBox3.Location = new Point(37, 144);
+            groupBox3.Location = new Point(27, 148);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(460, 137);
             groupBox3.TabIndex = 7;
@@ -284,7 +309,7 @@ namespace GrupoF.Prototipo._5.Crear_Remito
             // 
             // VolverAlMenu_button
             // 
-            VolverAlMenu_button.Location = new Point(175, 435);
+            VolverAlMenu_button.Location = new Point(165, 439);
             VolverAlMenu_button.Name = "VolverAlMenu_button";
             VolverAlMenu_button.Size = new Size(114, 23);
             VolverAlMenu_button.TabIndex = 14;
@@ -295,7 +320,7 @@ namespace GrupoF.Prototipo._5.Crear_Remito
             // Remito_groupBox
             // 
             Remito_groupBox.Controls.Add(Emitir_button);
-            Remito_groupBox.Location = new Point(37, 413);
+            Remito_groupBox.Location = new Point(27, 417);
             Remito_groupBox.Name = "Remito_groupBox";
             Remito_groupBox.Size = new Size(117, 56);
             Remito_groupBox.TabIndex = 5;

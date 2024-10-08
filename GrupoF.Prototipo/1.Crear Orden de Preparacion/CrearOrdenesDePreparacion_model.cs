@@ -17,16 +17,16 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         {
             new Cliente {Id_Cliente = 0, Dni = 0, NombreApellido = "---"},
 
-            new Cliente {Id_Cliente = 1, Dni = 42119134, NombreApellido = "Quimey Lopez SR", Cuit = 242119134, Domicilio = "Casa 1", CondIva = "Si"},
+            new Cliente {Id_Cliente = 1, Dni = 42119134, NombreApellido = "Felipe Diaz", Cuit = 242119134, Domicilio = "Casa 1", CondIva = "Si"},
 
-            new Cliente {Id_Cliente = 2, Dni = 42102237, NombreApellido = "Agustin Tallone SR", Cuit = 242102237, Domicilio = "Dpto 2", CondIva = "No"}
+            new Cliente {Id_Cliente = 2, Dni = 42102237, NombreApellido = "Martin Frias", Cuit = 242102237, Domicilio = "Dpto 2", CondIva = "No"}
         };
 
         public List<Transportista> Transportistas { get; set; } = new List<Transportista>
         {
-            new Transportista {Dni_Transportista = 42119134, NombreApellido_Transportista = "Quimey Lopez"},
+            new Transportista {Dni_Transportista = 42119134, NombreApellido_Transportista = "Carlos Lopez"},
 
-            new Transportista {Dni_Transportista = 42102237, NombreApellido_Transportista = "Agustin Tallone"}
+            new Transportista {Dni_Transportista = 42102237, NombreApellido_Transportista = "Matias Tallone"}
         };
 
 

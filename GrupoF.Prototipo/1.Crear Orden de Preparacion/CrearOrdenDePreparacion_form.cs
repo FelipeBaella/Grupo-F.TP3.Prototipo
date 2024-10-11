@@ -137,7 +137,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
         private void button_salir_click(object sender, EventArgs e)
         {
-            
+
 
         }
 
@@ -148,6 +148,16 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             Menu_form nuevaForma = new Menu_form();
 
             nuevaForma.Show();
+        }
+
+        private void Deposito_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DescripcionDeposito_Combobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -77,11 +77,10 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             Dni_textbox = new TextBox();
             DescripcionMercaderia_ComboBox = new ComboBox();
             DescripcionDeposito_Combobox = new ComboBox();
-            Aceptar_button = new Button();
+            CrearOP_button = new Button();
             DatosTransportistas_groupbox = new GroupBox();
             NombreApellido_label = new Label();
             label5 = new Label();
-            groupBox2 = new GroupBox();
             DatosGenerales_groupBox = new GroupBox();
             Deposito_label = new Label();
             IdCliente_label = new Label();
@@ -89,68 +88,76 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             Cantidad_label = new Label();
             Descripcion_label = new Label();
             VolverAlMenu_button = new Button();
+            button1 = new Button();
+            listView1 = new ListView();
+            groupBox1 = new GroupBox();
+            Item = new ColumnHeader();
+            columnHeader1 = new ColumnHeader();
+            button2 = new Button();
             DatosTransportistas_groupbox.SuspendLayout();
             DatosGenerales_groupBox.SuspendLayout();
             DatosMercaderias_groupBox.SuspendLayout();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // IdCliente_textbox
             // 
-            IdCliente_textbox.Location = new Point(39, 55);
+            IdCliente_textbox.Location = new Point(19, 39);
             IdCliente_textbox.Name = "IdCliente_textbox";
             IdCliente_textbox.ReadOnly = true;
-            IdCliente_textbox.Size = new Size(100, 23);
+            IdCliente_textbox.Size = new Size(121, 23);
             IdCliente_textbox.TabIndex = 0;
             IdCliente_textbox.Text = "1";
             // 
             // Cantidad_textbox
             // 
-            Cantidad_textbox.Location = new Point(303, 55);
+            Cantidad_textbox.Location = new Point(9, 113);
             Cantidad_textbox.Name = "Cantidad_textbox";
-            Cantidad_textbox.Size = new Size(100, 23);
+            Cantidad_textbox.Size = new Size(186, 23);
             Cantidad_textbox.TabIndex = 1;
             // 
             // NombreApellido_TextBox
             // 
-            NombreApellido_TextBox.Location = new Point(303, 56);
+            NombreApellido_TextBox.Location = new Point(6, 98);
             NombreApellido_TextBox.Name = "NombreApellido_TextBox";
-            NombreApellido_TextBox.Size = new Size(100, 23);
+            NombreApellido_TextBox.Size = new Size(238, 23);
             NombreApellido_TextBox.TabIndex = 2;
             // 
             // Dni_textbox
             // 
-            Dni_textbox.Location = new Point(43, 56);
+            Dni_textbox.Location = new Point(6, 37);
             Dni_textbox.Name = "Dni_textbox";
-            Dni_textbox.Size = new Size(100, 23);
+            Dni_textbox.Size = new Size(238, 23);
             Dni_textbox.TabIndex = 3;
             // 
             // DescripcionMercaderia_ComboBox
             // 
             DescripcionMercaderia_ComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             DescripcionMercaderia_ComboBox.FormattingEnabled = true;
-            DescripcionMercaderia_ComboBox.Location = new Point(43, 55);
+            DescripcionMercaderia_ComboBox.Location = new Point(9, 55);
             DescripcionMercaderia_ComboBox.Name = "DescripcionMercaderia_ComboBox";
-            DescripcionMercaderia_ComboBox.Size = new Size(121, 23);
+            DescripcionMercaderia_ComboBox.Size = new Size(186, 23);
             DescripcionMercaderia_ComboBox.TabIndex = 4;
             // 
             // DescripcionDeposito_Combobox
             // 
             DescripcionDeposito_Combobox.DropDownStyle = ComboBoxStyle.DropDownList;
             DescripcionDeposito_Combobox.FormattingEnabled = true;
-            DescripcionDeposito_Combobox.Location = new Point(299, 55);
+            DescripcionDeposito_Combobox.Location = new Point(19, 107);
             DescripcionDeposito_Combobox.Name = "DescripcionDeposito_Combobox";
             DescripcionDeposito_Combobox.Size = new Size(121, 23);
             DescripcionDeposito_Combobox.TabIndex = 5;
+            DescripcionDeposito_Combobox.SelectedIndexChanged += DescripcionDeposito_Combobox_SelectedIndexChanged;
             // 
-            // Aceptar_button
+            // CrearOP_button
             // 
-            Aceptar_button.Location = new Point(306, 402);
-            Aceptar_button.Name = "Aceptar_button";
-            Aceptar_button.Size = new Size(75, 23);
-            Aceptar_button.TabIndex = 6;
-            Aceptar_button.Text = "Aceptar";
-            Aceptar_button.UseVisualStyleBackColor = true;
-            Aceptar_button.Click += button_aceptar_click;
+            CrearOP_button.Location = new Point(554, 492);
+            CrearOP_button.Name = "CrearOP_button";
+            CrearOP_button.Size = new Size(75, 23);
+            CrearOP_button.TabIndex = 6;
+            CrearOP_button.Text = "Crear OP";
+            CrearOP_button.UseVisualStyleBackColor = true;
+            CrearOP_button.Click += button_aceptar_click;
             // 
             // DatosTransportistas_groupbox
             // 
@@ -158,9 +165,9 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             DatosTransportistas_groupbox.Controls.Add(label5);
             DatosTransportistas_groupbox.Controls.Add(NombreApellido_TextBox);
             DatosTransportistas_groupbox.Controls.Add(Dni_textbox);
-            DatosTransportistas_groupbox.Location = new Point(44, 236);
+            DatosTransportistas_groupbox.Location = new Point(298, 23);
             DatosTransportistas_groupbox.Name = "DatosTransportistas_groupbox";
-            DatosTransportistas_groupbox.Size = new Size(445, 100);
+            DatosTransportistas_groupbox.Size = new Size(446, 152);
             DatosTransportistas_groupbox.TabIndex = 8;
             DatosTransportistas_groupbox.TabStop = false;
             DatosTransportistas_groupbox.Text = "Datos Transportistas";
@@ -168,40 +175,30 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             // NombreApellido_label
             // 
             NombreApellido_label.AutoSize = true;
-            NombreApellido_label.Location = new Point(303, 38);
+            NombreApellido_label.Location = new Point(6, 69);
             NombreApellido_label.Name = "NombreApellido_label";
-            NombreApellido_label.Size = new Size(107, 15);
+            NombreApellido_label.Size = new Size(177, 15);
             NombreApellido_label.TabIndex = 5;
-            NombreApellido_label.Text = "Nombre y Apellido";
+            NombreApellido_label.Text = "Nombre y Apellido Transportista";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(43, 38);
+            label5.Location = new Point(6, 19);
             label5.Name = "label5";
-            label5.Size = new Size(27, 15);
+            label5.Size = new Size(97, 15);
             label5.TabIndex = 4;
-            label5.Text = "DNI";
-            // 
-            // groupBox2
-            // 
-            groupBox2.Location = new Point(0, 106);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(441, 85);
-            groupBox2.TabIndex = 9;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "groupBox2";
+            label5.Text = "DNI Transportista";
             // 
             // DatosGenerales_groupBox
             // 
             DatosGenerales_groupBox.Controls.Add(Deposito_label);
             DatosGenerales_groupBox.Controls.Add(IdCliente_label);
             DatosGenerales_groupBox.Controls.Add(DescripcionDeposito_Combobox);
-            DatosGenerales_groupBox.Controls.Add(groupBox2);
             DatosGenerales_groupBox.Controls.Add(IdCliente_textbox);
             DatosGenerales_groupBox.Location = new Point(48, 23);
             DatosGenerales_groupBox.Name = "DatosGenerales_groupBox";
-            DatosGenerales_groupBox.Size = new Size(441, 100);
+            DatosGenerales_groupBox.Size = new Size(226, 152);
             DatosGenerales_groupBox.TabIndex = 10;
             DatosGenerales_groupBox.TabStop = false;
             DatosGenerales_groupBox.Text = "Datos Generales";
@@ -209,30 +206,32 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             // Deposito_label
             // 
             Deposito_label.AutoSize = true;
-            Deposito_label.Location = new Point(299, 37);
+            Deposito_label.Location = new Point(19, 78);
             Deposito_label.Name = "Deposito_label";
-            Deposito_label.Size = new Size(54, 15);
+            Deposito_label.Size = new Size(119, 15);
             Deposito_label.TabIndex = 11;
-            Deposito_label.Text = "Deposito";
+            Deposito_label.Text = "Descripcion Deposito";
+            Deposito_label.Click += Deposito_label_Click;
             // 
             // IdCliente_label
             // 
             IdCliente_label.AutoSize = true;
-            IdCliente_label.Location = new Point(39, 37);
+            IdCliente_label.Location = new Point(19, 19);
             IdCliente_label.Name = "IdCliente_label";
-            IdCliente_label.Size = new Size(57, 15);
+            IdCliente_label.Size = new Size(58, 15);
             IdCliente_label.TabIndex = 10;
-            IdCliente_label.Text = "Id Cliente";
+            IdCliente_label.Text = "ID Cliente";
             // 
             // DatosMercaderias_groupBox
             // 
+            DatosMercaderias_groupBox.Controls.Add(button1);
             DatosMercaderias_groupBox.Controls.Add(Cantidad_label);
             DatosMercaderias_groupBox.Controls.Add(Descripcion_label);
             DatosMercaderias_groupBox.Controls.Add(DescripcionMercaderia_ComboBox);
             DatosMercaderias_groupBox.Controls.Add(Cantidad_textbox);
-            DatosMercaderias_groupBox.Location = new Point(44, 130);
+            DatosMercaderias_groupBox.Location = new Point(48, 196);
             DatosMercaderias_groupBox.Name = "DatosMercaderias_groupBox";
-            DatosMercaderias_groupBox.Size = new Size(445, 100);
+            DatosMercaderias_groupBox.Size = new Size(226, 290);
             DatosMercaderias_groupBox.TabIndex = 11;
             DatosMercaderias_groupBox.TabStop = false;
             DatosMercaderias_groupBox.Text = "Datos Mercaderias";
@@ -240,24 +239,24 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             // Cantidad_label
             // 
             Cantidad_label.AutoSize = true;
-            Cantidad_label.Location = new Point(303, 37);
+            Cantidad_label.Location = new Point(9, 95);
             Cantidad_label.Name = "Cantidad_label";
-            Cantidad_label.Size = new Size(55, 15);
+            Cantidad_label.Size = new Size(117, 15);
             Cantidad_label.TabIndex = 6;
-            Cantidad_label.Text = "Cantidad";
+            Cantidad_label.Text = "Cantidad Mercaderia";
             // 
             // Descripcion_label
             // 
             Descripcion_label.AutoSize = true;
-            Descripcion_label.Location = new Point(43, 37);
+            Descripcion_label.Location = new Point(9, 37);
             Descripcion_label.Name = "Descripcion_label";
-            Descripcion_label.Size = new Size(69, 15);
+            Descripcion_label.Size = new Size(131, 15);
             Descripcion_label.TabIndex = 5;
-            Descripcion_label.Text = "Descripcion";
+            Descripcion_label.Text = "Descripcion Mercaderia";
             // 
             // VolverAlMenu_button
             // 
-            VolverAlMenu_button.Location = new Point(387, 402);
+            VolverAlMenu_button.Location = new Point(642, 492);
             VolverAlMenu_button.Name = "VolverAlMenu_button";
             VolverAlMenu_button.Size = new Size(102, 23);
             VolverAlMenu_button.TabIndex = 12;
@@ -265,16 +264,59 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             VolverAlMenu_button.UseVisualStyleBackColor = true;
             VolverAlMenu_button.Click += VolverAlMenu_button_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(120, 152);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 13;
+            button1.Text = "Agregar ";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // listView1
+            // 
+            listView1.Columns.AddRange(new ColumnHeader[] { Item, columnHeader1 });
+            listView1.Location = new Point(6, 22);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(409, 252);
+            listView1.TabIndex = 13;
+            listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(listView1);
+            groupBox1.Location = new Point(298, 197);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(446, 289);
+            groupBox1.TabIndex = 14;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Items Orden de Preparacion";
+            // 
+            // Item
+            // 
+            Item.Text = "Item";
+            // 
+            // button2
+            // 
+            button2.Location = new Point(455, 492);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 15;
+            button2.Text = "Borrar Item";
+            button2.UseVisualStyleBackColor = true;
+            // 
             // CrearOrdenDePreparacion_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(516, 437);
+            ClientSize = new Size(766, 541);
+            Controls.Add(button2);
+            Controls.Add(groupBox1);
             Controls.Add(VolverAlMenu_button);
             Controls.Add(DatosMercaderias_groupBox);
             Controls.Add(DatosGenerales_groupBox);
             Controls.Add(DatosTransportistas_groupbox);
-            Controls.Add(Aceptar_button);
+            Controls.Add(CrearOP_button);
             Name = "CrearOrdenDePreparacion_form";
             Text = "Generar Orden de Preparacion";
             DatosTransportistas_groupbox.ResumeLayout(false);
@@ -283,6 +325,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             DatosGenerales_groupBox.PerformLayout();
             DatosMercaderias_groupBox.ResumeLayout(false);
             DatosMercaderias_groupBox.PerformLayout();
+            groupBox1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -296,9 +339,8 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         private TextBox Dni_textbox;
         private ComboBox DescripcionMercaderia_ComboBox;
         private ComboBox DescripcionDeposito_Combobox;
-        private Button Aceptar_button;
+        private Button CrearOP_button;
         private GroupBox DatosTransportistas_groupbox;
-        private GroupBox groupBox2;
         private GroupBox DatosGenerales_groupBox;
         private GroupBox DatosMercaderias_groupBox;
         private Label NombreApellido_label;
@@ -308,5 +350,11 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         private Label Cantidad_label;
         private Label Descripcion_label;
         private Button VolverAlMenu_button;
+        private Button button1;
+        private ListView listView1;
+        private GroupBox groupBox1;
+        private ColumnHeader Item;
+        private ColumnHeader columnHeader1;
+        private Button button2;
     }
 }

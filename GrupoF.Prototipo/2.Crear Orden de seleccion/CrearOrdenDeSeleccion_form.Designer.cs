@@ -1,21 +1,19 @@
-﻿using GrupoF.Prototipo.Procesar_ordenes_de_preparacion;
+﻿using GrupoF.Prototipo.Base_de_Datos;
+using GrupoF.Prototipo.Procesar_ordenes_de_preparacion;
 
 namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 {
 
 
     partial class CrearOrdenDeSeleccion_form
-    {
-        private CrearOrdenDeSeleccion_model CrearOrdenDeSeleccion_model = new CrearOrdenDeSeleccion_model();
-        private CrearOrdnesDePreparacion_model CrearOrdnesDePreparacion_model = new CrearOrdnesDePreparacion_model();
-      
+    {    
         private void CargarOrdenesDePreparacion()
         {
-            foreach (var orden in CrearOrdenDeSeleccion_model.OrdenesDePreparacion)
+            foreach (var orden in Datos_model.OrdenesDePreparacion)
             {
-                var cliente = CrearOrdnesDePreparacion_model.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
-                var mercaderia = CrearOrdnesDePreparacion_model.Mercaderias.Where(x => x.Id_Mercaderia == orden.Id_Mercaderia).FirstOrDefault();
-                var depositos = CrearOrdnesDePreparacion_model.Depositos.Where(x => x.Id_Deposito == orden.Id_Deposito).FirstOrDefault();
+                var cliente = Datos_model.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
+                var mercaderia = Datos_model.Mercaderias.Where(x => x.Id_Mercaderia == orden.Id_Mercaderia).FirstOrDefault();
+                var depositos = Datos_model.Depositos.Where(x => x.Id_Deposito == orden.Id_Deposito).FirstOrDefault();
 
 
                 ListViewItem listViewItem = new ListViewItem(new string[] {

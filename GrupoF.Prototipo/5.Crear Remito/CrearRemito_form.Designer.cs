@@ -5,15 +5,13 @@ namespace GrupoF.Prototipo._5.Crear_Remito
 {
     partial class CrearRemito_form
     {
-        private CrearOrdenDeSeleccion_model ProcesarOrdenDeSeleccion_model = new CrearOrdenDeSeleccion_model();
-
         private void CargarOrdenesDePreparacion()
         {
-            foreach (var orden in ProcesarOrdenDeSeleccion_model.OrdenesDePreparacion)
+            foreach (var orden in Datos_model.OrdenesDePreparacion)
             {
-                var cliente = CrearOrdnesDePreparacion_model.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
-                var mercaderia = CrearOrdnesDePreparacion_model.Mercaderias.Where(x => x.Id_Mercaderia == orden.Id_Mercaderia).FirstOrDefault();
-                var depositos = CrearOrdnesDePreparacion_model.Depositos.Where(x => x.Id_Deposito == orden.Id_Deposito).FirstOrDefault();
+                var cliente = Datos_model.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
+                var mercaderia = Datos_model.Mercaderias.Where(x => x.Id_Mercaderia == orden.Id_Mercaderia).FirstOrDefault();
+                var depositos = Datos_model.Depositos.Where(x => x.Id_Deposito == orden.Id_Deposito).FirstOrDefault();
 
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 

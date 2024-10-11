@@ -5,21 +5,17 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 {
     partial class ProcesarOrdenDeSeleccion_form
     {
-        private CrearOrdenDeSeleccion_model CrearOrdenesDeSeleccion_model = new CrearOrdenDeSeleccion_model();
-        private CrearOrdnesDePreparacion_model CrearOrdnesDePreparacion_model = new CrearOrdnesDePreparacion_model();
-        private ProcesarOrdenDeSeleccion_model ProcesarOrdenDeSeleccion_model = new ProcesarOrdenDeSeleccion_model();
-
         private void CargarOrdenesDePreparacion()
         {
-            foreach (var orden in ProcesarOrdenDeSeleccion_model.OrdenesDeSeleccion)
+            foreach (var orden in Datos_model.OrdenesDeSeleccion)
             {
-                var OrdenDePreparacion = CrearOrdenesDeSeleccion_model.OrdenesDePreparacion.Where(x => x.Id_OrdenDePreparacion == orden.Id_OrdenDePreparacion).FirstOrDefault();
+                var OrdenDePreparacion = Datos_model.OrdenesDePreparacion.Where(x => x.Id_OrdenDePreparacion == orden.Id_OrdenDePreparacion).FirstOrDefault();
 
-                var cliente = CrearOrdnesDePreparacion_model.Clientes.Where(x => x.Id_Cliente == OrdenDePreparacion.Id_Cliente).FirstOrDefault();
-                var mercaderia = CrearOrdnesDePreparacion_model.Mercaderias.Where(x => x.Id_Mercaderia == OrdenDePreparacion.Id_Mercaderia).FirstOrDefault();
-                var depositos = CrearOrdnesDePreparacion_model.Depositos.Where(x => x.Id_Deposito == OrdenDePreparacion.Id_Deposito).FirstOrDefault();   
+                var cliente = Datos_model.Clientes.Where(x => x.Id_Cliente == OrdenDePreparacion.Id_Cliente).FirstOrDefault();
+                var mercaderia = Datos_model.Mercaderias.Where(x => x.Id_Mercaderia == OrdenDePreparacion.Id_Mercaderia).FirstOrDefault();
+                var depositos = Datos_model.Depositos.Where(x => x.Id_Deposito == OrdenDePreparacion.Id_Deposito).FirstOrDefault();   
                 
-                var estado = CrearOrdenesDeSeleccion_model.OrdenesDePreparacion.Where(x => x.Id_Estado == orden.Id_Estado).FirstOrDefault();
+                var estado = Datos_model.OrdenesDePreparacion.Where(x => x.Id_Estado == orden.Id_Estado).FirstOrDefault();
 
 
                 ListViewItem listViewItem = new ListViewItem(new string[] {

@@ -1,5 +1,6 @@
 ﻿using GrupoF.Prototipo._0.Menu;
 using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
+using GrupoF.Prototipo.Base_de_Datos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +15,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 {
     public partial class ProcesarOrdenDeEntrega_form : Form
     {
-        private ProcesarOrdenDeEntrega_model ProcesarOrdenDeEntrega_model_ = new ProcesarOrdenDeEntrega_model();
+        private Datos_model Datos_model = new Datos_model();
 
         public ProcesarOrdenDeEntrega_form()
         {
@@ -40,14 +41,14 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
                 return;
             }
 
-            if (!ProcesarOrdenDeEntrega_model_.OrdenesDeEntrega.Any(o => o.Id_OrdenDeEntrega == int.Parse(Id_Orden)))
+            if (!Datos_model.OrdenesDeEntrega.Any(o => o.Id_OrdenDeEntrega == int.Parse(Id_Orden)))
             {
                 MessageBox.Show("Debes seleccionar una orden valida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 IdOrdenDeEntrega_textBox.Focus();
                 return;
             }
 
-            var Id_Remito = CrearOrdenDeSeleccion_model.OrdenesDePreparacion
+            var Id_Remito = Datos_model.OrdenesDePreparacion
             .Where(o => o.Id_OrdenDePreparacion == int.Parse(Id_Orden))
             .Select(o => o.Id_Remito)
             .FirstOrDefault();

@@ -1,23 +1,20 @@
-﻿using GrupoF.Prototipo.Procesar_ordener_de_seleccion;
+﻿using GrupoF.Prototipo.Base_de_Datos;
+using GrupoF.Prototipo.Procesar_ordener_de_seleccion;
 using GrupoF.Prototipo.Procesar_ordenes_de_preparacion;
 
 namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 {
     partial class ProcesarOrdenDeEntrega_form
     {
-        private ProcesarOrdenDeEntrega_model ProcesarOrdenDeEntrega_model = new ProcesarOrdenDeEntrega_model();
-        private CrearOrdenDeSeleccion_model CrearOrdenDeSeleccion_model = new CrearOrdenDeSeleccion_model();
-        private CrearOrdnesDePreparacion_model CrearOrdnesDePreparacion_model = new CrearOrdnesDePreparacion_model();
-
         private void CargarOrdenesDeEntrega()
         {
-            foreach (var orden in ProcesarOrdenDeEntrega_model.OrdenesDeEntrega)
+            foreach (var orden in Datos_model.OrdenesDeEntrega)
             {
-                var OrdnesDePreparacion = CrearOrdenDeSeleccion_model.OrdenesDePreparacion.Where(x => x.Id_OrdenDePreparacion == orden.Id_OrdenDePreparacion).FirstOrDefault();
+                var OrdnesDePreparacion = Datos_model.OrdenesDePreparacion.Where(x => x.Id_OrdenDePreparacion == orden.Id_OrdenDePreparacion).FirstOrDefault();
 
-                var cliente = CrearOrdnesDePreparacion_model.Clientes.Where(x => x.Id_Cliente == OrdnesDePreparacion.Id_Cliente).FirstOrDefault();
-                var mercaderia = CrearOrdnesDePreparacion_model.Mercaderias.Where(x => x.Id_Mercaderia == OrdnesDePreparacion.Id_Mercaderia).FirstOrDefault();
-                var depositos = CrearOrdnesDePreparacion_model.Depositos.Where(x => x.Id_Deposito == OrdnesDePreparacion.Id_Deposito).FirstOrDefault();
+                var cliente = Datos_model.Clientes.Where(x => x.Id_Cliente == OrdnesDePreparacion.Id_Cliente).FirstOrDefault();
+                var mercaderia = Datos_model.Mercaderias.Where(x => x.Id_Mercaderia == OrdnesDePreparacion.Id_Mercaderia).FirstOrDefault();
+                var depositos = Datos_model.Depositos.Where(x => x.Id_Deposito == OrdnesDePreparacion.Id_Deposito).FirstOrDefault();
 
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 

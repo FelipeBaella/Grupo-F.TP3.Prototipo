@@ -1,4 +1,5 @@
 ﻿using GrupoF.Prototipo._0.Menu;
+using GrupoF.Prototipo.Base_de_Datos;
 using GrupoF.Prototipo.Procesar_ordener_de_seleccion;
 using GrupoF.Prototipo.Procesar_ordenes_de_preparacion;
 using System;
@@ -16,8 +17,7 @@ namespace GrupoF.Prototipo._5.Crear_Remito
 {
     public partial class CrearRemito_form : Form
     {
-        private CrearOrdenDeSeleccion_model CrearOrdenDeSeleccion_model = new CrearOrdenDeSeleccion_model();
-        private CrearOrdnesDePreparacion_model CrearOrdnesDePreparacion_model = new CrearOrdnesDePreparacion_model();
+        private Datos_model Datos_model = new Datos_model();
 
         public CrearRemito_form(int id = 0)
         {
@@ -27,12 +27,12 @@ namespace GrupoF.Prototipo._5.Crear_Remito
 
         private void CargarDatos(int id)
         {
-            var orden = CrearOrdenDeSeleccion_model.OrdenesDePreparacion.Where(x => x.Id_OrdenDePreparacion == id).FirstOrDefault();
+            var orden = Datos_model.OrdenesDePreparacion.Where(x => x.Id_OrdenDePreparacion == id).FirstOrDefault();
 
             if (orden != null)
             {
-                var cliente = CrearOrdnesDePreparacion_model.Clientes.Where(x => x.Id_Cliente == id).FirstOrDefault();
-                var mercaderia = CrearOrdnesDePreparacion_model.Mercaderias.Where(x => x.Id_Mercaderia == id).FirstOrDefault();
+                var cliente = Datos_model.Clientes.Where(x => x.Id_Cliente == id).FirstOrDefault();
+                var mercaderia = Datos_model.Mercaderias.Where(x => x.Id_Mercaderia == id).FirstOrDefault();
 
                 NombreCliente_textBox.Text = cliente?.NombreApellido ?? "";
                 DescripcionMercaderia_textBox.Text = mercaderia?.Descripcion_Mercaderia ?? "";
@@ -74,7 +74,7 @@ namespace GrupoF.Prototipo._5.Crear_Remito
             }
 
 
-            if (!CrearOrdenDeSeleccion_model.OrdenesDePreparacion.Any(o => o.Id_OrdenDePreparacion == int.Parse(Id_Orden)))
+            if (!Datos_model.OrdenesDePreparacion.Any(o => o.Id_OrdenDePreparacion == int.Parse(Id_Orden)))
             {
                 MessageBox.Show("Debes seleccionar una orden valida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 IngresarIDOP_textBox.Focus();

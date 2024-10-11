@@ -1,8 +1,10 @@
-﻿namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
+﻿using GrupoF.Prototipo.Base_de_Datos;
+
+namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 {
     partial class CrearOrdenDePreparacion_form
     {
-        private CrearOrdnesDePreparacion_model CrearOrdnesDePreparacion_model = new CrearOrdnesDePreparacion_model();
+        private Datos_model Datos_model = new Datos_model();
 
         private void CargarDepositos()
         {
@@ -10,7 +12,7 @@
             DescripcionDeposito_Combobox.Items.Clear();
 
             // Iteramos sobre la lista de depósitos y agregamos los nombres al ComboBox
-            foreach (var deposito in CrearOrdnesDePreparacion_model.Depositos)
+            foreach (var deposito in Datos_model.Depositos)
             {
                 DescripcionDeposito_Combobox.Items.Add(deposito.Nombre_Deposito);
             }
@@ -28,7 +30,7 @@
             DescripcionMercaderia_ComboBox.Items.Clear();
 
             // Iteramos sobre la lista de depósitos y agregamos los nombres al ComboBox
-            foreach (var mercaderia in CrearOrdnesDePreparacion_model.Mercaderias)
+            foreach (var mercaderia in Datos_model.Mercaderias)
             {
                 DescripcionMercaderia_ComboBox.Items.Add(mercaderia.Descripcion_Mercaderia);
             }

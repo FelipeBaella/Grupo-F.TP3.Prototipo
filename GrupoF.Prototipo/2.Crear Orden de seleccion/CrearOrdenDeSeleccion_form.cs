@@ -1,5 +1,6 @@
 ﻿using GrupoF.Prototipo._0.Menu;
 using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
+using GrupoF.Prototipo.Base_de_Datos;
 using GrupoF.Prototipo.Procesar_ordenes_de_preparacion;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 {
     public partial class CrearOrdenDeSeleccion_form : Form
     {
-        private CrearOrdenDeSeleccion_model _ordenesDeSeleccion_model = new CrearOrdenDeSeleccion_model();
+        private Datos_model Datos_model = new Datos_model();
 
         public CrearOrdenDeSeleccion_form()
         {
@@ -41,7 +42,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
                 return;
             }
 
-            if (!_ordenesDeSeleccion_model.OrdenesDePreparacion.Any(o => o.Id_OrdenDePreparacion == int.Parse(Id_Orden)))
+            if (!Datos_model.OrdenesDePreparacion.Any(o => o.Id_OrdenDePreparacion == int.Parse(Id_Orden)))
             {
                 MessageBox.Show("Debes seleccionar una orden valida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 IdOrden_textBox.Focus();

@@ -1,18 +1,6 @@
 ﻿using GrupoF.Prototipo._0.Menu;
-using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
 using GrupoF.Prototipo.Base_de_Datos;
-using GrupoF.Prototipo.Procesar_ordener_de_seleccion;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 {
@@ -24,7 +12,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         public CrearOrdenDePreparacion_form()
         {
             InitializeComponent();
-            CargarDepositos();     
+            CargarDepositos();
         }
 
         private void button_aceptar_click(object sender, EventArgs e)
@@ -245,7 +233,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             if (listView_MercaderiasOrdenes.Items.Count == 0)
             {
                 DescripcionDeposito_Combobox.Enabled = true;
-            }        
+            }
         }
     }
 }

@@ -104,10 +104,18 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             Cantidad_label = new Label();
             Descripcion_label = new Label();
             VolverAlMenu_button = new Button();
+<<<<<<< HEAD
             listView_MercaderiasOrdenes = new ListView();
             Mercaderia = new ColumnHeader();
             Cantidad = new ColumnHeader();
             groupBox1 = new GroupBox();
+=======
+            button1 = new Button();
+            listView1 = new ListView();
+            groupBox1 = new GroupBox();
+            Item = new ColumnHeader();
+            columnHeader1 = new ColumnHeader();
+>>>>>>> mas cambios
             button2 = new Button();
             Item = new ColumnHeader();
             DatosTransportistas_groupbox.SuspendLayout();
@@ -252,6 +260,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             DatosMercaderias_groupBox.TabStop = false;
             DatosMercaderias_groupBox.Text = "Datos Mercaderias";
             // 
+<<<<<<< HEAD
             // button1
             // 
             button1.Location = new Point(120, 152);
@@ -262,6 +271,8 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+=======
+>>>>>>> mas cambios
             // Cantidad_label
             // 
             Cantidad_label.AutoSize = true;
@@ -290,6 +301,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             VolverAlMenu_button.UseVisualStyleBackColor = true;
             VolverAlMenu_button.Click += VolverAlMenu_button_Click;
             // 
+<<<<<<< HEAD
             // listView_MercaderiasOrdenes
             // 
             listView_MercaderiasOrdenes.Columns.AddRange(new ColumnHeader[] { Mercaderia, Cantidad });
@@ -305,11 +317,30 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             // 
             Mercaderia.Text = "Mercaderia";
             Mercaderia.Width = 100;
+=======
+            // button1
+>>>>>>> mas cambios
             // 
-            // Cantidad
+            button1.Location = new Point(120, 152);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 13;
+            button1.Text = "Agregar ";
+            button1.UseVisualStyleBackColor = true;
             // 
+<<<<<<< HEAD
             Cantidad.Text = "Cantidad";
             Cantidad.Width = 100;
+=======
+            // listView1
+            // 
+            listView1.Columns.AddRange(new ColumnHeader[] { Item, columnHeader1 });
+            listView1.Location = new Point(6, 22);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(409, 252);
+            listView1.TabIndex = 13;
+            listView1.UseCompatibleStateImageBehavior = false;
+>>>>>>> mas cambios
             // 
             // groupBox1
             // 

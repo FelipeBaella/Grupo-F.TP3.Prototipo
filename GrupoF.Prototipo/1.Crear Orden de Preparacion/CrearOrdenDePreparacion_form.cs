@@ -178,18 +178,35 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
             string? depositoSeleccionado = DescripcionDeposito_Combobox.SelectedItem?.ToString();
 
+
+            int cantidadNueva = int.Parse(cantidad_textbox);
+            int cantidadExistente = 0;
+            int cantidadItem = 0;
+
+            foreach (ListViewItem item in listView_MercaderiasOrdenes.Items)
+            {
+                if (item.SubItems[0].Text == mercaderia.Descripcion_Mercaderia)
+                {
+                    cantidadItem = int.Parse(item.SubItems[1].Text);
+                    cantidadExistente += cantidadItem;
+                }
+            }
+
+            cantidadExistente += cantidadNueva;
+
+
             if (depositoSeleccionado == "---")
             {
-                MessageBox.Show("Debes seleccionar un depósito valido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debes seleccionar un depósito valido." , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 DescripcionDeposito_Combobox.Focus();
                 return;
             }
 
             else
             {
-                if (depositoMercaderia.Cantidad_DepositoMercaderias < int.Parse(cantidad_textbox))
+                if (depositoMercaderia.Cantidad_DepositoMercaderias < cantidadExistente)
                 {
-                    MessageBox.Show("El deposito no contiene la cantidad seleccionada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("El deposito no contiene la cantidad seleccionada. La cantidad total es: " + depositoMercaderia.Cantidad_DepositoMercaderias, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Cantidad_textbox.Focus();
                     return;
                 }
@@ -198,10 +215,10 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                 {
                     ListViewItem listViewItem = new ListViewItem(new string[] {
 
-                    mercaderia.Descripcion_Mercaderia.ToString(),
-                    cantidad_textbox.ToString(),
+                        mercaderia.Descripcion_Mercaderia.ToString(),
+                        cantidad_textbox.ToString(),
 
-                 }, -1);
+                    }, -1);
 
                     listView_MercaderiasOrdenes.Items.Add(listViewItem);
 

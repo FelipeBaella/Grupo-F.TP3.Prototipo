@@ -1,6 +1,7 @@
 ﻿using GrupoF.Prototipo._0._0.LogIn;
 using GrupoF.Prototipo._0.Menu;
 using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
+using GrupoF.Prototipo.Base_de_Datos;
 using GrupoF.Prototipo.Procesar_ordenes_de_preparacion;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace GrupoF.Prototipo._0._0.LogIn_form
 {
     public partial class LogIn_form : Form
     {
-        private LogIn_model LogIn_model = new LogIn_model();
+        private Datos_model Datos_model = new Datos_model();
 
         public LogIn_form()
         {
@@ -45,9 +46,9 @@ namespace GrupoF.Prototipo._0._0.LogIn_form
             }
 
 
-            if (LogIn_model.Usuarios.Any(o => o.LogIn_usuario.ToUpper() == usuario))
+            if (Datos_model.Usuarios.Any(o => o.LogIn_usuario.ToUpper() == usuario))
             {
-                contraseñaUsuario = LogIn_model.Usuarios
+                contraseñaUsuario = Datos_model.Usuarios
                  .Where(o => o.LogIn_usuario.ToUpper() == usuario)
                  .Select(o => o.Contrasena_usuario)
                  .FirstOrDefault();

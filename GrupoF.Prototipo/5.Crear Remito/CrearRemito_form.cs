@@ -28,6 +28,7 @@ namespace GrupoF.Prototipo._5.Crear_Remito
         private void CargarDatos(int id)
         {
             var orden = Datos_model.OrdenesDePreparacion.Where(x => x.Id_OrdenDePreparacion == id).FirstOrDefault();
+            var transpotistas = Datos_model.Transportistas.Where(x => x.Id_Transportista == id).FirstOrDefault();
 
             if (orden != null)
             {
@@ -40,8 +41,8 @@ namespace GrupoF.Prototipo._5.Crear_Remito
                 CUIT_textBox.Text = cliente?.Cuit.ToString();
                 Cantidad_textBox.Text = orden.Cantidad_OrdenDePreparacion.ToString();
                 Domicilio_textBox.Text = cliente?.Domicilio ?? "";
-                DNI_textBox.Text = orden.Dni_Transportista.ToString();
-                NombreApellido_textBox.Text = orden.NombreApellido_Transportista;
+                DNI_textBox.Text = transpotistas.Dni_Transportista.ToString();
+                NombreApellido_textBox.Text = transpotistas.NombreApellido_Transportista;
             }
         }
 

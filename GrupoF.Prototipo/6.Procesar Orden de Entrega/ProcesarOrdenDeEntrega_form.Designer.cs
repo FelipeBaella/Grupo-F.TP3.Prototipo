@@ -28,7 +28,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
                     mercaderia.Descripcion_Mercaderia,
                     OrdnesDePreparacion.Cantidad_OrdenDePreparacion.ToString(),
                     depositos.Nombre_Deposito,
-                    OrdnesDePreparacion.Dni_Transportista.ToString(),
+                    OrdnesDePreparacion.Id_Transportista.ToString(),
 
                 }, -1);
 

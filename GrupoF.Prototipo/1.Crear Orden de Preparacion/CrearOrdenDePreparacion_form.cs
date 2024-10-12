@@ -1,5 +1,6 @@
 ﻿using GrupoF.Prototipo._0.Menu;
 using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
+using GrupoF.Prototipo.Base_de_Datos;
 using GrupoF.Prototipo.Procesar_ordener_de_seleccion;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,9 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 {
     public partial class CrearOrdenDePreparacion_form : Form
     {
+        private Datos_model Datos_model = new Datos_model();
+        private CrearOrdnesDePreparacion_model CrearOrdnesDePreparacion_model = new CrearOrdnesDePreparacion_model();
+
         public CrearOrdenDePreparacion_form()
         {
             InitializeComponent();
@@ -159,5 +163,51 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         {
 
         }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string descripcionMercaderia_ComboBox = DescripcionMercaderia_ComboBox.Text.Trim();
+            string cantidad_textbox = Cantidad_textbox.Text.Trim();
+            string descripcionDeposito_Combobox = DescripcionDeposito_Combobox.Text.Trim();
+
+            var mercaderia = Datos_model.Mercaderias.Where(x => x.Descripcion_Mercaderia == descripcionMercaderia_ComboBox).FirstOrDefault();
+            var deposito = Datos_model.Depositos.Where(x => x.Nombre_Deposito == descripcionDeposito_Combobox).FirstOrDefault();
+
+            var depositoMercaderia = Datos_model.DepositoMercaderias.Where(x => x.Id_Deposito == deposito.Id_Deposito).FirstOrDefault();
+
+            string? depositoSeleccionado = DescripcionDeposito_Combobox.SelectedItem?.ToString();
+
+            if (depositoSeleccionado == "---")
+            {
+                MessageBox.Show("Debes seleccionar un depósito valido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DescripcionDeposito_Combobox.Focus();
+                return;
+            }
+
+            else
+            {
+                if (depositoMercaderia.Cantidad_DepositoMercaderias < int.Parse(cantidad_textbox))
+                {
+                    MessageBox.Show("El deposito no contiene la cantidad seleccionada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Cantidad_textbox.Focus();
+                    return;
+                }
+
+                else
+                {
+                    ListViewItem listViewItem = new ListViewItem(new string[] {
+
+                    mercaderia.Descripcion_Mercaderia.ToString(),
+                    cantidad_textbox.ToString(),
+
+                 }, -1);
+
+                    listView_MercaderiasOrdenes.Items.Add(listViewItem);
+
+                }
+            }
+        }
+
     }
 }

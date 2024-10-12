@@ -4,8 +4,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 {
     partial class CrearOrdenDePreparacion_form
     {
-        private Datos_model Datos_model = new Datos_model();
-
         private void CargarDepositos()
         {
             // Limpiamos el ComboBox por si ya tiene elementos cargados
@@ -85,14 +83,14 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             Deposito_label = new Label();
             IdCliente_label = new Label();
             DatosMercaderias_groupBox = new GroupBox();
+            button1 = new Button();
             Cantidad_label = new Label();
             Descripcion_label = new Label();
             VolverAlMenu_button = new Button();
-            button1 = new Button();
-            listView1 = new ListView();
+            listView_MercaderiasOrdenes = new ListView();
+            Mercaderia = new ColumnHeader();
+            Cantidad = new ColumnHeader();
             groupBox1 = new GroupBox();
-            Item = new ColumnHeader();
-            columnHeader1 = new ColumnHeader();
             button2 = new Button();
             DatosTransportistas_groupbox.SuspendLayout();
             DatosGenerales_groupBox.SuspendLayout();
@@ -236,6 +234,16 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             DatosMercaderias_groupBox.TabStop = false;
             DatosMercaderias_groupBox.Text = "Datos Mercaderias";
             // 
+            // button1
+            // 
+            button1.Location = new Point(120, 152);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 13;
+            button1.Text = "Agregar ";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // Cantidad_label
             // 
             Cantidad_label.AutoSize = true;
@@ -264,37 +272,35 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             VolverAlMenu_button.UseVisualStyleBackColor = true;
             VolverAlMenu_button.Click += VolverAlMenu_button_Click;
             // 
-            // button1
+            // listView_MercaderiasOrdenes
             // 
-            button1.Location = new Point(120, 152);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 13;
-            button1.Text = "Agregar ";
-            button1.UseVisualStyleBackColor = true;
+            listView_MercaderiasOrdenes.Columns.AddRange(new ColumnHeader[] { Mercaderia, Cantidad });
+            listView_MercaderiasOrdenes.Location = new Point(6, 22);
+            listView_MercaderiasOrdenes.Name = "listView_MercaderiasOrdenes";
+            listView_MercaderiasOrdenes.Size = new Size(409, 252);
+            listView_MercaderiasOrdenes.TabIndex = 13;
+            listView_MercaderiasOrdenes.UseCompatibleStateImageBehavior = false;
+            listView_MercaderiasOrdenes.View = View.Details;
             // 
-            // listView1
+            // Mercaderia
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { Item, columnHeader1 });
-            listView1.Location = new Point(6, 22);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(409, 252);
-            listView1.TabIndex = 13;
-            listView1.UseCompatibleStateImageBehavior = false;
+            Mercaderia.Text = "Mercaderia";
+            Mercaderia.Width = 100;
+            // 
+            // Cantidad
+            // 
+            Cantidad.Text = "Cantidad";
+            Cantidad.Width = 100;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(listView1);
+            groupBox1.Controls.Add(listView_MercaderiasOrdenes);
             groupBox1.Location = new Point(298, 197);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(446, 289);
             groupBox1.TabIndex = 14;
             groupBox1.TabStop = false;
             groupBox1.Text = "Items Orden de Preparacion";
-            // 
-            // Item
-            // 
-            Item.Text = "Item";
             // 
             // button2
             // 
@@ -351,10 +357,10 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         private Label Descripcion_label;
         private Button VolverAlMenu_button;
         private Button button1;
-        private ListView listView1;
+        private ListView listView_MercaderiasOrdenes;
         private GroupBox groupBox1;
-        private ColumnHeader Item;
-        private ColumnHeader columnHeader1;
+        private ColumnHeader Mercaderia;
+        private ColumnHeader Cantidad;
         private Button button2;
     }
 }

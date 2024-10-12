@@ -24,10 +24,8 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         public CrearOrdenDePreparacion_form()
         {
             InitializeComponent();
-            CargarDepositos();
-            CargarMercaderias();
+            CargarDepositos();     
         }
-
 
         private void button_aceptar_click(object sender, EventArgs e)
         {
@@ -161,9 +159,13 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
         private void DescripcionDeposito_Combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string? depositoSeleccionado = DescripcionDeposito_Combobox.SelectedItem?.ToString();
 
+            if (depositoSeleccionado != "---")
+            {
+                CargarMercaderias();
+            }
         }
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -197,7 +199,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
             if (depositoSeleccionado == "---")
             {
-                MessageBox.Show("Debes seleccionar un depósito valido." , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debes seleccionar un depósito valido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 DescripcionDeposito_Combobox.Focus();
                 return;
             }
@@ -213,6 +215,9 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
                 else
                 {
+                    var cantidadItems = listView_MercaderiasOrdenes.Items.Count;
+                    var numeroItem = cantidadItems + 1;
+
                     ListViewItem listViewItem = new ListViewItem(new string[] {
 
                         mercaderia.Descripcion_Mercaderia.ToString(),
@@ -222,9 +227,25 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
                     listView_MercaderiasOrdenes.Items.Add(listViewItem);
 
+                    DescripcionDeposito_Combobox.Enabled = false;
                 }
             }
         }
 
+        private void button_borrarItem_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in listView_MercaderiasOrdenes.Items)
+            {
+                if (item.Checked == true)
+                {
+                    listView_MercaderiasOrdenes.Items.Remove(item);
+                }
+            }
+
+            if (listView_MercaderiasOrdenes.Items.Count == 0)
+            {
+                DescripcionDeposito_Combobox.Enabled = true;
+            }        
+        }
     }
 }

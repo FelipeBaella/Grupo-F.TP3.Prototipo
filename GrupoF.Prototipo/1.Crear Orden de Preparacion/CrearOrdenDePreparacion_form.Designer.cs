@@ -24,13 +24,30 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
         private void CargarMercaderias()
         {
+            var deposito = Datos_model.Depositos.Where(x => x.Nombre_Deposito == DescripcionDeposito_Combobox.SelectedItem).FirstOrDefault();
+
+            var depositoMercaderias = Datos_model.DepositoMercaderias
+                .Where(x => x.Id_Deposito == deposito.Id_Deposito)
+                .Select(x => x.Id_Mercaderia) 
+                .Distinct()
+                .ToList();
+
+            var mercaderias = new List<string>();
+
+            foreach (var item in depositoMercaderias)
+            {
+                var mercaderia = Datos_model.Mercaderias.Where(x => x.Id_Mercaderia == item).FirstOrDefault();
+
+                mercaderias.Add(mercaderia.Descripcion_Mercaderia);
+            }
+
             // Limpiamos el ComboBox por si ya tiene elementos cargados
             DescripcionMercaderia_ComboBox.Items.Clear();
 
             // Iteramos sobre la lista de depósitos y agregamos los nombres al ComboBox
-            foreach (var mercaderia in Datos_model.Mercaderias)
+            foreach (var mercaderia in mercaderias)
             {
-                DescripcionMercaderia_ComboBox.Items.Add(mercaderia.Descripcion_Mercaderia);
+                DescripcionMercaderia_ComboBox.Items.Add(mercaderia);
             }
 
             // Si lo deseas, puedes seleccionar el primer elemento como predeterminado
@@ -92,6 +109,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             Cantidad = new ColumnHeader();
             groupBox1 = new GroupBox();
             button2 = new Button();
+            Item = new ColumnHeader();
             DatosTransportistas_groupbox.SuspendLayout();
             DatosGenerales_groupBox.SuspendLayout();
             DatosMercaderias_groupBox.SuspendLayout();
@@ -281,6 +299,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             listView_MercaderiasOrdenes.TabIndex = 13;
             listView_MercaderiasOrdenes.UseCompatibleStateImageBehavior = false;
             listView_MercaderiasOrdenes.View = View.Details;
+            listView_MercaderiasOrdenes.CheckBoxes = true;
             // 
             // Mercaderia
             // 
@@ -310,6 +329,11 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             button2.TabIndex = 15;
             button2.Text = "Borrar Item";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button_borrarItem_Click;
+            // 
+            // Item
+            // 
+            Item.Text = "Item";
             // 
             // CrearOrdenDePreparacion_form
             // 
@@ -362,5 +386,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         private ColumnHeader Mercaderia;
         private ColumnHeader Cantidad;
         private Button button2;
+        private ColumnHeader Item;
     }
 }

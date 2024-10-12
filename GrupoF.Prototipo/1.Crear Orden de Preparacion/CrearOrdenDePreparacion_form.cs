@@ -167,10 +167,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             }
         }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> mas cambios
         private void button1_Click(object sender, EventArgs e)
         {
             string descripcionMercaderia_ComboBox = DescripcionMercaderia_ComboBox.Text.Trim();
@@ -235,7 +231,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                 }
             }
         }
-<<<<<<< HEAD
 
         private void button_borrarItem_Click(object sender, EventArgs e)
         {
@@ -252,7 +247,5 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                 DescripcionDeposito_Combobox.Enabled = true;
             }        
         }
-=======
->>>>>>> mas cambios
     }
 }

@@ -60,16 +60,15 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
             CrearOrdenDeEntrega_label = new Label();
             OrdenesDePreparacion_listView = new ListView();
             Estado_OP = new ColumnHeader();
+            Deposito = new ColumnHeader();
             ID_OP = new ColumnHeader();
-            Prioridad_OP = new ColumnHeader();
-            Fecha_Emision_OP = new ColumnHeader();
+            ITEM_OP = new ColumnHeader();
             Descripcion_Mercaderia = new ColumnHeader();
             Cantidad = new ColumnHeader();
-            Deposito = new ColumnHeader();
-            CrearOrdenDeEntrega_button = new Button();
-            IdOrdenDePreparacion_label = new Label();
-            IdOrdenDePreparacion_textbox = new TextBox();
+            Lista_button = new Button();
             VolverAlMenu_button = new Button();
+            OPaEmpaquetar_groupBox1 = new GroupBox();
+            OPaEmpaquetar_groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // CrearOrdenDeEntrega_label
@@ -84,11 +83,12 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
             // 
             // OrdenesDePreparacion_listView
             // 
-            OrdenesDePreparacion_listView.Columns.AddRange(new ColumnHeader[] { Estado_OP, ID_OP, Prioridad_OP, Fecha_Emision_OP, Descripcion_Mercaderia, Cantidad, Deposito });
+            OrdenesDePreparacion_listView.CheckBoxes = true;
+            OrdenesDePreparacion_listView.Columns.AddRange(new ColumnHeader[] { Estado_OP, Deposito, ID_OP, ITEM_OP, Descripcion_Mercaderia, Cantidad });
             OrdenesDePreparacion_listView.Font = new Font("Segoe UI", 9F);
-            OrdenesDePreparacion_listView.Location = new Point(12, 33);
+            OrdenesDePreparacion_listView.Location = new Point(6, 28);
             OrdenesDePreparacion_listView.Name = "OrdenesDePreparacion_listView";
-            OrdenesDePreparacion_listView.Size = new Size(675, 255);
+            OrdenesDePreparacion_listView.Size = new Size(564, 375);
             OrdenesDePreparacion_listView.TabIndex = 1;
             OrdenesDePreparacion_listView.UseCompatibleStateImageBehavior = false;
             OrdenesDePreparacion_listView.View = View.Details;
@@ -98,19 +98,19 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
             Estado_OP.Text = "Estado OP";
             Estado_OP.Width = 90;
             // 
+            // Deposito
+            // 
+            Deposito.Text = "Deposito";
+            Deposito.Width = 100;
+            // 
             // ID_OP
             // 
             ID_OP.Text = "ID OP";
             // 
-            // Prioridad_OP
+            // ITEM_OP
             // 
-            Prioridad_OP.Text = "Prioridad OP";
-            Prioridad_OP.Width = 100;
-            // 
-            // Fecha_Emision_OP
-            // 
-            Fecha_Emision_OP.Text = "Fecha Emision OP";
-            Fecha_Emision_OP.Width = 120;
+            ITEM_OP.Text = "Item OP";
+            ITEM_OP.Width = 100;
             // 
             // Descripcion_Mercaderia
             // 
@@ -121,65 +121,52 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
             // 
             Cantidad.Text = "Cantidad";
             // 
-            // Deposito
+            // Lista_button
             // 
-            Deposito.Text = "Deposito";
-            Deposito.Width = 100;
-            // 
-            // CrearOrdenDeEntrega_button
-            // 
-            CrearOrdenDeEntrega_button.Font = new Font("Segoe UI", 9F);
-            CrearOrdenDeEntrega_button.Location = new Point(437, 318);
-            CrearOrdenDeEntrega_button.Name = "CrearOrdenDeEntrega_button";
-            CrearOrdenDeEntrega_button.Size = new Size(142, 36);
-            CrearOrdenDeEntrega_button.TabIndex = 2;
-            CrearOrdenDeEntrega_button.Text = "Crear Orden De Entrega";
-            CrearOrdenDeEntrega_button.UseVisualStyleBackColor = true;
-            CrearOrdenDeEntrega_button.Click += button_CrearOrdenDeEntrega_Click;
-            // 
-            // IdOrdenDePreparacion_label
-            // 
-            IdOrdenDePreparacion_label.AutoSize = true;
-            IdOrdenDePreparacion_label.Font = new Font("Segoe UI", 9F);
-            IdOrdenDePreparacion_label.Location = new Point(295, 307);
-            IdOrdenDePreparacion_label.Name = "IdOrdenDePreparacion_label";
-            IdOrdenDePreparacion_label.Size = new Size(136, 15);
-            IdOrdenDePreparacion_label.TabIndex = 3;
-            IdOrdenDePreparacion_label.Text = "Id Orden De Preparacion";
-            // 
-            // IdOrdenDePreparacion_textbox
-            // 
-            IdOrdenDePreparacion_textbox.Location = new Point(295, 325);
-            IdOrdenDePreparacion_textbox.Name = "IdOrdenDePreparacion_textbox";
-            IdOrdenDePreparacion_textbox.Size = new Size(136, 29);
-            IdOrdenDePreparacion_textbox.TabIndex = 4;
+            Lista_button.Font = new Font("Segoe UI", 9F);
+            Lista_button.Location = new Point(326, 409);
+            Lista_button.Name = "Lista_button";
+            Lista_button.Size = new Size(126, 36);
+            Lista_button.TabIndex = 2;
+            Lista_button.Text = "Lista";
+            Lista_button.UseVisualStyleBackColor = true;
+            Lista_button.Click += button_CrearOrdenDeEntrega_Click;
             // 
             // VolverAlMenu_button
             // 
             VolverAlMenu_button.Font = new Font("Segoe UI", 9F);
-            VolverAlMenu_button.Location = new Point(585, 318);
+            VolverAlMenu_button.Location = new Point(458, 409);
             VolverAlMenu_button.Name = "VolverAlMenu_button";
-            VolverAlMenu_button.Size = new Size(102, 36);
+            VolverAlMenu_button.Size = new Size(112, 36);
             VolverAlMenu_button.TabIndex = 5;
             VolverAlMenu_button.Text = "Volver Al Menu";
             VolverAlMenu_button.UseVisualStyleBackColor = true;
             VolverAlMenu_button.Click += VolverAlMenu_button_Click;
             // 
-            // CrearOrdenDeEntrega_Form
+            // OPaEmpaquetar_groupBox1
+            // 
+            OPaEmpaquetar_groupBox1.Controls.Add(OrdenesDePreparacion_listView);
+            OPaEmpaquetar_groupBox1.Controls.Add(VolverAlMenu_button);
+            OPaEmpaquetar_groupBox1.Controls.Add(Lista_button);
+            OPaEmpaquetar_groupBox1.Location = new Point(0, 0);
+            OPaEmpaquetar_groupBox1.Name = "OPaEmpaquetar_groupBox1";
+            OPaEmpaquetar_groupBox1.Size = new Size(592, 454);
+            OPaEmpaquetar_groupBox1.TabIndex = 6;
+            OPaEmpaquetar_groupBox1.TabStop = false;
+            OPaEmpaquetar_groupBox1.Text = "Ordenes de Preparacion a Empaquetar";
+            // 
+            // EmpaquetarMercaderias_form
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(699, 378);
-            Controls.Add(VolverAlMenu_button);
-            Controls.Add(IdOrdenDePreparacion_textbox);
-            Controls.Add(IdOrdenDePreparacion_label);
-            Controls.Add(CrearOrdenDeEntrega_button);
-            Controls.Add(OrdenesDePreparacion_listView);
+            ClientSize = new Size(606, 484);
+            Controls.Add(OPaEmpaquetar_groupBox1);
             Controls.Add(CrearOrdenDeEntrega_label);
             Font = new Font("Segoe UI", 12F);
             Margin = new Padding(4);
-            Name = "CrearOrdenDeEntrega_Form";
+            Name = "EmpaquetarMercaderias_form";
             Text = "Crear Orden De Entrega";
+            OPaEmpaquetar_groupBox1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -188,17 +175,15 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 
         private Label CrearOrdenDeEntrega_label;
         private ListView OrdenesDePreparacion_listView;
-        private Button CrearOrdenDeEntrega_button;
+        private Button Lista_button;
         private ColumnHeader Estado_OP;
         private ColumnHeader ID_OP;
-        private ColumnHeader Prioridad_OP;
-        private ColumnHeader Fecha_Emision_OP;
+        private ColumnHeader ITEM_OP;
         private ColumnHeader Deposito;
         private ColumnHeader Descripcion_Mercaderia;
         private ColumnHeader Cantidad;
-        private Label IdOrdenDePreparacion_label;
         private TextBox OrdenDePreparacion_textbox;
         private Button VolverAlMenu_button;
-        private TextBox IdOrdenDePreparacion_textbox;
+        private GroupBox OPaEmpaquetar_groupBox1;
     }
 }

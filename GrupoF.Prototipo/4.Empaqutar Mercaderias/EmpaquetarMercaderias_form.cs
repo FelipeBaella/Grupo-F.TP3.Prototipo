@@ -20,7 +20,7 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 
         public EmpaquetarMercaderias_form()
         {
-            InitializeComponent(); 
+            InitializeComponent();
             CargarOrdenesDePreparacion();
         }
 
@@ -35,6 +35,8 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 
         private void button_CrearOrdenDeEntrega_Click(object sender, EventArgs e)
         {
+             //se deberia quitar ya que no se utiliza
+            /*
             string Id_Orden = IdOrdenDePreparacion_textbox.Text.Trim();
 
             if (Id_Orden == "")
@@ -64,6 +66,12 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 
             Menu_form nuevaForma = new Menu_form();
             nuevaForma.Show();
+            */
+        }
+
+        private void IdOrdenDePreparacion_textbox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

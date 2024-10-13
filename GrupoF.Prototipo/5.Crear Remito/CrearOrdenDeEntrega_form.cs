@@ -96,5 +96,10 @@ namespace GrupoF.Prototipo._5.Crear_Remito
             Menu_form nuevaForma = new Menu_form();
             nuevaForma.Show();
         }
+
+        private void CrearOrdenDeEntrega_form_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -33,7 +33,7 @@
             ProcesarOrdenDeSeleccion_button = new Button();
             EmpaqutarMercaderias_button = new Button();
             CrearRemito_button = new Button();
-            ProcesarOrdenDeEntrega_button = new Button();
+            DespacharMercaderias_button = new Button();
             Salir_button = new Button();
             SuspendLayout();
             // 
@@ -87,15 +87,15 @@
             CrearRemito_button.UseVisualStyleBackColor = true;
             CrearRemito_button.Click += button_CrearRemito_Click;
             // 
-            // ProcesarOrdenDeEntrega_button
+            // DespacharMercaderias_button
             // 
-            ProcesarOrdenDeEntrega_button.Location = new Point(115, 360);
-            ProcesarOrdenDeEntrega_button.Name = "ProcesarOrdenDeEntrega_button";
-            ProcesarOrdenDeEntrega_button.Size = new Size(185, 50);
-            ProcesarOrdenDeEntrega_button.TabIndex = 5;
-            ProcesarOrdenDeEntrega_button.Text = "Procesar Orden de Entrega";
-            ProcesarOrdenDeEntrega_button.UseVisualStyleBackColor = true;
-            ProcesarOrdenDeEntrega_button.Click += button_ProcesarOrdenDeEntrega_Click;
+            DespacharMercaderias_button.Location = new Point(115, 360);
+            DespacharMercaderias_button.Name = "DespacharMercaderias_button";
+            DespacharMercaderias_button.Size = new Size(185, 50);
+            DespacharMercaderias_button.TabIndex = 5;
+            DespacharMercaderias_button.Text = "Despachar Mercaderias";
+            DespacharMercaderias_button.UseVisualStyleBackColor = true;
+            DespacharMercaderias_button.Click += button_ProcesarOrdenDeEntrega_Click;
             // 
             // Salir_button
             // 
@@ -113,7 +113,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(412, 450);
             Controls.Add(Salir_button);
-            Controls.Add(ProcesarOrdenDeEntrega_button);
+            Controls.Add(DespacharMercaderias_button);
             Controls.Add(CrearRemito_button);
             Controls.Add(EmpaqutarMercaderias_button);
             Controls.Add(ProcesarOrdenDeSeleccion_button);
@@ -131,7 +131,7 @@
         private Button ProcesarOrdenDeSeleccion_button;
         private Button EmpaqutarMercaderias_button;
         private Button CrearRemito_button;
-        private Button ProcesarOrdenDeEntrega_button;
+        private Button DespacharMercaderias_button;
         private Button Salir_button;
     }
 }

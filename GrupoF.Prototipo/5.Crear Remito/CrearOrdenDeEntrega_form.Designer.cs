@@ -325,7 +325,7 @@ namespace GrupoF.Prototipo._5.Crear_Remito
             Remito_groupBox.TabStop = false;
             Remito_groupBox.Text = "Remito";
             // 
-            // CrearRemito_form
+            // CrearOrdenDeEntrega_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -335,8 +335,9 @@ namespace GrupoF.Prototipo._5.Crear_Remito
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(OrdenDePreparacion_groupBox);
-            Name = "CrearRemito_form";
+            Name = "CrearOrdenDeEntrega_form";
             Text = "Crear Remito";
+            Load += CrearOrdenDeEntrega_form_Load;
             OrdenDePreparacion_groupBox.ResumeLayout(false);
             OrdenDePreparacion_groupBox.PerformLayout();
             groupBox2.ResumeLayout(false);

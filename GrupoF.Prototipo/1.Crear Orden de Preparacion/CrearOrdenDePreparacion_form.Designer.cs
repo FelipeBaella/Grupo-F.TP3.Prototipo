@@ -102,6 +102,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             FechaEntrega_label = new Label();
             label5 = new Label();
             DatosGenerales_groupBox = new GroupBox();
+            button_buscar = new Button();
             Deposito_label = new Label();
             IdCliente_label = new Label();
             DatosMercaderias_groupBox = new GroupBox();
@@ -142,6 +143,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             Dni_textbox.Name = "Dni_textbox";
             Dni_textbox.Size = new Size(238, 23);
             Dni_textbox.TabIndex = 3;
+            Dni_textbox.TextChanged += Dni_textbox_TextChanged;
             // 
             // DescripcionMercaderia_ComboBox
             // 
@@ -223,6 +225,15 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             DatosGenerales_groupBox.TabIndex = 10;
             DatosGenerales_groupBox.TabStop = false;
             DatosGenerales_groupBox.Text = "Datos Generales";
+            // 
+            // button_buscar
+            // 
+            button_buscar.Location = new Point(145, 39);
+            button_buscar.Name = "button_buscar";
+            button_buscar.Size = new Size(75, 23);
+            button_buscar.TabIndex = 12;
+            button_buscar.Text = "Buscar";
+            button_buscar.UseVisualStyleBackColor = true;
             // 
             // Deposito_label
             // 

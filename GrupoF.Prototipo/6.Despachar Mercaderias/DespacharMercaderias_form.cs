@@ -25,31 +25,31 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 
         private void ProcesarOrdenDeEntrega_button_Click(object sender, EventArgs e)
         {
-            string Id_Orden = IdOrdenDeEntrega_textBox.Text.Trim();
+            string Id_Transportista = IdOrdenDeEntrega_textBox.Text.Trim();
 
-            if (Id_Orden == "")
+            if (Id_Transportista == "")
             {
                 MessageBox.Show("Id no puede estar vacio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 IdOrdenDeEntrega_textBox.Focus();
                 return;
             }
 
-            if (!Id_Orden.All(char.IsDigit))
+            if (!Id_Transportista.All(char.IsDigit))
             {
                 MessageBox.Show("Id debe ser un numero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 IdOrdenDeEntrega_textBox.Focus();
                 return;
             }
 
-            if (!Datos_model.OrdenesDeEntrega.Any(o => o.Id_OrdenDeEntrega == int.Parse(Id_Orden)))
+            if (!Datos_model.Transportistas.Any(o => o.Dni_Transportista == int.Parse(Id_Transportista)))
             {
-                MessageBox.Show("Debes seleccionar una orden valida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debes seleccionar un Transportista valido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 IdOrdenDeEntrega_textBox.Focus();
                 return;
             }
 
             var Id_Remito = Datos_model.OrdenesDePreparacion
-            .Where(o => o.Id_OrdenDePreparacion == int.Parse(Id_Orden))
+            .Where(o => o.Id_OrdenDePreparacion == int.Parse(Id_Transportista))
             .Select(o => o.Id_Remito)
             .FirstOrDefault();
 
@@ -82,5 +82,9 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 
         }
 
+        private void DespacharMercaderias_form_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

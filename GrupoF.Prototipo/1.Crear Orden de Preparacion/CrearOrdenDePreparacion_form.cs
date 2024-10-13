@@ -15,6 +15,34 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             CargarDepositos();
         }
 
+<<<<<<< HEAD
+=======
+        private void button_buscar_click(object sender, EventArgs e)
+        {
+            string Id_Cliente = IdCliente_textbox.Text.Trim();
+
+            //CLIENTE
+            if (!Id_Cliente.All(char.IsDigit))
+            {
+                MessageBox.Show("El campo Cliente solo puede contener números.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                IdCliente_textbox.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(Id_Cliente))
+            {
+                MessageBox.Show("El campo Cliente no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                IdCliente_textbox.Focus();
+                return;
+            }
+
+            if (Id_Cliente != "")
+            {
+
+            }
+        }
+
+
+>>>>>>> mas cambios
         private void button_aceptar_click(object sender, EventArgs e)
         {
 
@@ -233,6 +261,11 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                     CargarMercaderias();
                 }
             }
+        }
+
+        private void Dni_textbox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

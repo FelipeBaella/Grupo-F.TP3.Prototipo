@@ -8,26 +8,22 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
     {
         private void CargarOrdenesDeEntrega()
         {
-            foreach (var orden in Datos_model.OrdenesDeEntrega)
+            foreach (var orden in Datos_model.OrdenesDePreparacion)
             {
-                var OrdnesDePreparacion = Datos_model.OrdenesDePreparacion.Where(x => x.Id_OrdenDePreparacion == orden.Id_OrdenDePreparacion).FirstOrDefault();
+                var OrdnesDePreparacion = Datos_model.OrdenesDePreparacion.Where(x => x.Id_Transportista == orden.Id_Transportista).FirstOrDefault();
 
-                var cliente = Datos_model.Clientes.Where(x => x.Id_Cliente == OrdnesDePreparacion.Id_Cliente).FirstOrDefault();
+                var Transportista = Datos_model.Transportistas.Where(x => x.Id_Transportista== OrdnesDePreparacion.Id_Transportista).FirstOrDefault();
                 var mercaderia = Datos_model.Mercaderias.Where(x => x.Id_Mercaderia == OrdnesDePreparacion.Id_Mercaderia).FirstOrDefault();
                 var depositos = Datos_model.Depositos.Where(x => x.Id_Deposito == OrdnesDePreparacion.Id_Deposito).FirstOrDefault();
 
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 
-                    orden.Id_OrdenDeEntrega.ToString(),
-                    orden.Emision_OrdenDeEntrega.ToString(),
-                    orden.Id_OrdenDePreparacion.ToString(),
-
-                    OrdnesDePreparacion.Prioridad_OrdenDePreparacion.ToString(),
-               
+                   
                     mercaderia.Descripcion_Mercaderia,
-                    OrdnesDePreparacion.Cantidad_OrdenDePreparacion.ToString(),
-                    depositos.Nombre_Deposito,
-                    OrdnesDePreparacion.Id_Transportista.ToString(),
+                    Transportista.Dni_Transportista.ToString(),
+
+                   // OrdnesDePreparacion.Prioridad_OrdenDePreparacion.ToString(),
+                  
 
                 }, -1);
 
@@ -193,6 +189,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
             Name = "DespacharMercaderias_form";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Despachar Mercaderias";
+            Load += DespacharMercaderias_form_Load;
             Datos_TrasnportistagroupBox1.ResumeLayout(false);
             Datos_TrasnportistagroupBox1.PerformLayout();
             OPaDespachar_groupBox2.ResumeLayout(false);

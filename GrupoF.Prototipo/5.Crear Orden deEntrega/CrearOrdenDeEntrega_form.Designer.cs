@@ -58,6 +58,7 @@
             Salir_button2.TabIndex = 2;
             Salir_button2.Text = "Volver al Menu";
             Salir_button2.UseVisualStyleBackColor = true;
+            Salir_button2.Click += Salir_button2_Click;
             // 
             // EnviadoADespacho_button1
             // 

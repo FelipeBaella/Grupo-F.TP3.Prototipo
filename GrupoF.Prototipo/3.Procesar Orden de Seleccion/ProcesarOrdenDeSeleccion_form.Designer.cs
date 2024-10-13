@@ -85,7 +85,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             ProcesarOrdenesDeSeleccion_listView.Columns.AddRange(new ColumnHeader[] { Estado_OS, Deposito, ID_OS, ID_OP, Item_OP, Coordenadas_Item_OP, Descripcion_Mercaderia, Cantidad });
             ProcesarOrdenesDeSeleccion_listView.Location = new Point(0, 24);
             ProcesarOrdenesDeSeleccion_listView.Name = "ProcesarOrdenesDeSeleccion_listView";
-            ProcesarOrdenesDeSeleccion_listView.Size = new Size(714, 362);
+            ProcesarOrdenesDeSeleccion_listView.Size = new Size(697, 362);
             ProcesarOrdenesDeSeleccion_listView.TabIndex = 1;
             ProcesarOrdenesDeSeleccion_listView.UseCompatibleStateImageBehavior = false;
             ProcesarOrdenesDeSeleccion_listView.View = View.Details;
@@ -132,7 +132,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             // 
             // ProcesarOrdenDeSeleccion_button
             // 
-            ProcesarOrdenDeSeleccion_button.Location = new Point(375, 426);
+            ProcesarOrdenDeSeleccion_button.Location = new Point(366, 426);
             ProcesarOrdenDeSeleccion_button.Name = "ProcesarOrdenDeSeleccion_button";
             ProcesarOrdenDeSeleccion_button.Size = new Size(197, 33);
             ProcesarOrdenDeSeleccion_button.TabIndex = 2;
@@ -142,7 +142,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             // 
             // VolverAlMenu_button
             // 
-            VolverAlMenu_button.Location = new Point(590, 426);
+            VolverAlMenu_button.Location = new Point(573, 426);
             VolverAlMenu_button.Name = "VolverAlMenu_button";
             VolverAlMenu_button.Size = new Size(124, 33);
             VolverAlMenu_button.TabIndex = 15;
@@ -160,7 +160,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             OS_groupBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             OS_groupBox1.Location = new Point(12, 21);
             OS_groupBox1.Name = "OS_groupBox1";
-            OS_groupBox1.Size = new Size(726, 465);
+            OS_groupBox1.Size = new Size(707, 465);
             OS_groupBox1.TabIndex = 18;
             OS_groupBox1.TabStop = false;
             OS_groupBox1.Text = "Ordenes de Seleccion a Procesar";
@@ -186,7 +186,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(748, 513);
+            ClientSize = new Size(725, 513);
             Controls.Add(OS_groupBox1);
             Name = "ProcesarOrdenDeSeleccion_form";
             StartPosition = FormStartPosition.CenterScreen;

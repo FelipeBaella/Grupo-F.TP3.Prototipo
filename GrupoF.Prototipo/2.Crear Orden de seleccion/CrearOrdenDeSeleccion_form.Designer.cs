@@ -65,11 +65,13 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             Deposito = new ColumnHeader();
             ID_OP = new ColumnHeader();
             Prioridad_cliente = new ColumnHeader();
-            Nombre_Cliente = new ColumnHeader();
             Fecha_Entrega_OP = new ColumnHeader();
+            Nombre_Cliente = new ColumnHeader();
             CrearOrden_button = new Button();
             VolverAlMenu_button = new Button();
             groupBox1 = new GroupBox();
+            filtrar_groupBox4 = new GroupBox();
+            comboBox1 = new ComboBox();
             Agregar_button1 = new Button();
             groupBox2 = new GroupBox();
             ItemsOP_listView2 = new ListView();
@@ -87,18 +89,26 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             Item = new ColumnHeader();
             Id_OP2 = new ColumnHeader();
             Nombre_Cliente1 = new ColumnHeader();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            button1 = new Button();
             groupBox1.SuspendLayout();
+            filtrar_groupBox4.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // OrdenesDePreparacion_ListView
             // 
+            OrdenesDePreparacion_ListView.BackColor = SystemColors.Window;
+            OrdenesDePreparacion_ListView.BackgroundImageTiled = true;
             OrdenesDePreparacion_ListView.CheckBoxes = true;
-            OrdenesDePreparacion_ListView.Columns.AddRange(new ColumnHeader[] { Estado_OP, Deposito, ID_OP, Prioridad_cliente, Nombre_Cliente, Fecha_Entrega_OP });
-            OrdenesDePreparacion_ListView.Location = new Point(11, 22);
+            OrdenesDePreparacion_ListView.Columns.AddRange(new ColumnHeader[] { Estado_OP, Deposito, ID_OP, Prioridad_cliente, Fecha_Entrega_OP, Nombre_Cliente });
+            OrdenesDePreparacion_ListView.FullRowSelect = true;
+            OrdenesDePreparacion_ListView.GridLines = true;
+            OrdenesDePreparacion_ListView.LabelEdit = true;
+            OrdenesDePreparacion_ListView.Location = new Point(3, 89);
             OrdenesDePreparacion_ListView.Name = "OrdenesDePreparacion_ListView";
-            OrdenesDePreparacion_ListView.Size = new Size(604, 288);
+            OrdenesDePreparacion_ListView.Size = new Size(602, 358);
             OrdenesDePreparacion_ListView.TabIndex = 0;
             OrdenesDePreparacion_ListView.UseCompatibleStateImageBehavior = false;
             OrdenesDePreparacion_ListView.View = View.Details;
@@ -106,7 +116,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // Estado_OP
             // 
             Estado_OP.Text = "Estado OP";
-            Estado_OP.Width = 70;
+            Estado_OP.Width = 80;
             // 
             // Deposito
             // 
@@ -122,19 +132,19 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             Prioridad_cliente.Text = "Prioridad Cliente";
             Prioridad_cliente.Width = 100;
             // 
-            // Nombre_Cliente
-            // 
-            Nombre_Cliente.Text = "Nombre Cliente";
-            Nombre_Cliente.Width = 140;
-            // 
             // Fecha_Entrega_OP
             // 
             Fecha_Entrega_OP.Text = "Fecha Entrega OP";
             Fecha_Entrega_OP.Width = 120;
             // 
+            // Nombre_Cliente
+            // 
+            Nombre_Cliente.Text = "Nombre Cliente";
+            Nombre_Cliente.Width = 140;
+            // 
             // CrearOrden_button
             // 
-            CrearOrden_button.Location = new Point(805, 568);
+            CrearOrden_button.Location = new Point(363, 568);
             CrearOrden_button.Name = "CrearOrden_button";
             CrearOrden_button.Size = new Size(168, 33);
             CrearOrden_button.TabIndex = 1;
@@ -144,7 +154,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // 
             // VolverAlMenu_button
             // 
-            VolverAlMenu_button.Location = new Point(1000, 568);
+            VolverAlMenu_button.Location = new Point(537, 568);
             VolverAlMenu_button.Name = "VolverAlMenu_button";
             VolverAlMenu_button.Size = new Size(101, 32);
             VolverAlMenu_button.TabIndex = 5;
@@ -154,25 +164,47 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(filtrar_groupBox4);
             groupBox1.Controls.Add(Agregar_button1);
             groupBox1.Controls.Add(OrdenesDePreparacion_ListView);
             groupBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(621, 348);
+            groupBox1.Size = new Size(611, 488);
             groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
             groupBox1.Text = "Ordenes de Preparacion Pendientes";
             // 
+            // filtrar_groupBox4
+            // 
+            filtrar_groupBox4.Controls.Add(button1);
+            filtrar_groupBox4.Controls.Add(comboBox1);
+            filtrar_groupBox4.Location = new Point(3, 21);
+            filtrar_groupBox4.Name = "filtrar_groupBox4";
+            filtrar_groupBox4.Size = new Size(355, 62);
+            filtrar_groupBox4.TabIndex = 8;
+            filtrar_groupBox4.TabStop = false;
+            filtrar_groupBox4.Text = "Filtros";
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "ID OP", "Prioridad Cliente ", "Fecha Entrega ", "Nombre Cliente" });
+            comboBox1.Location = new Point(3, 21);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(211, 25);
+            comboBox1.TabIndex = 0;
+            // 
             // Agregar_button1
             // 
             Agregar_button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Agregar_button1.Location = new Point(525, 316);
+            Agregar_button1.Location = new Point(517, 453);
             Agregar_button1.Name = "Agregar_button1";
             Agregar_button1.Size = new Size(90, 29);
             Agregar_button1.TabIndex = 7;
             Agregar_button1.Text = "Agregar";
             Agregar_button1.UseVisualStyleBackColor = true;
+            Agregar_button1.Click += Agregar_button1_Click;
             // 
             // groupBox2
             // 
@@ -239,7 +271,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // 
             groupBox3.Controls.Add(Remover_button1);
             groupBox3.Controls.Add(Items_OS_listView2);
-            groupBox3.Location = new Point(12, 366);
+            groupBox3.Location = new Point(651, 363);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(453, 242);
             groupBox3.TabIndex = 8;
@@ -281,6 +313,16 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             Nombre_Cliente1.Text = "Nombre Cliente";
             Nombre_Cliente1.Width = 120;
             // 
+            // button1
+            // 
+            button1.Location = new Point(242, 24);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 1;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // CrearOrdenDeSeleccion_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -295,6 +337,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Crear Orden de seleccion";
             groupBox1.ResumeLayout(false);
+            filtrar_groupBox4.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             ResumeLayout(false);
@@ -344,5 +387,9 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         private ColumnHeader Itm_OP;
         private ColumnHeader Descrip_merc1;
         private ColumnHeader Cant_Merc1;
+        private GroupBox filtrar_groupBox4;
+        private ComboBox comboBox1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Button button1;
     }
 }

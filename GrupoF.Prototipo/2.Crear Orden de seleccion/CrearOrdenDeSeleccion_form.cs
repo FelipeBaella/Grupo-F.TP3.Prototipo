@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 {
@@ -20,7 +21,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
         public CrearOrdenDeSeleccion_form()
         {
-            InitializeComponent(); 
+            InitializeComponent();
             CargarOrdenesDePreparacion();
         }
 
@@ -28,7 +29,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         {
             string Id_Orden = IdOrden_textBox.Text.Trim();
 
-            if(Id_Orden == "")
+            if (Id_Orden == "")
             {
                 MessageBox.Show("Id no puede estar vacio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 IdOrden_textBox.Focus();
@@ -64,6 +65,32 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             Menu_form nuevaForma = new Menu_form();
 
             nuevaForma.Show();
+        }
+
+        private void Agregar_button1_Click(object sender, EventArgs e)
+        {
+            {
+
+                foreach (ListViewItem item in OrdenesDePreparacion_ListView.Items)
+                {
+
+                    if (item.Checked)
+                    {
+
+                        ItemsOP_listView2.Items.Add((ListViewItem)item.Clone());
+
+
+                        OrdenesDePreparacion_ListView.Items.Remove(item);
+
+                        break;
+                    }
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -60,11 +60,11 @@ namespace GrupoF.Prototipo.Base_de_Datos
             
         };
 
-        public List<EstadoOP> EstadosOP { get; set; } = new List<EstadoOP>
+        public List<EstadosOS> EstadosOS { get; set; } = new List<EstadosOS>
         {
-            new EstadosOP {Id_Estado = 1, Descripcion_Estado = "PENDIENTE"},
-            new EstadosOP {Id_Estado = 2, Descripcion_Estado = "EMITIDA"},
-            new EstadosOP {Id_Estado = 3, Descripcion_Estado = "TERMINADO"},
+            new EstadosOS {Id_EstadoOS = 1, Descripcion_EstadoOS = "PENDIENTE"},
+            new EstadosOS {Id_EstadoOS = 2, Descripcion_EstadoOS = "EMITIDA"},
+            new EstadosOS {Id_EstadoOS = 3, Descripcion_EstadoOS = "TERMINADO"},
         };
 
 

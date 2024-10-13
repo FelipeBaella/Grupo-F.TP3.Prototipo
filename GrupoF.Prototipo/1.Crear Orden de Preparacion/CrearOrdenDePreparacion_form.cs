@@ -235,5 +235,10 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                 DescripcionDeposito_Combobox.Enabled = true;
             }
         }
+
+        private void CrearOrdenDePreparacion_form_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

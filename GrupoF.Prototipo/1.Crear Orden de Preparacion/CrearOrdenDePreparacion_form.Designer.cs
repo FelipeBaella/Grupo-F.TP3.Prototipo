@@ -292,6 +292,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             // 
             // listView_MercaderiasOrdenes
             // 
+            listView_MercaderiasOrdenes.CheckBoxes = true;
             listView_MercaderiasOrdenes.Columns.AddRange(new ColumnHeader[] { Mercaderia, Cantidad });
             listView_MercaderiasOrdenes.Location = new Point(6, 22);
             listView_MercaderiasOrdenes.Name = "listView_MercaderiasOrdenes";
@@ -299,7 +300,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             listView_MercaderiasOrdenes.TabIndex = 13;
             listView_MercaderiasOrdenes.UseCompatibleStateImageBehavior = false;
             listView_MercaderiasOrdenes.View = View.Details;
-            listView_MercaderiasOrdenes.CheckBoxes = true;
             // 
             // Mercaderia
             // 
@@ -349,6 +349,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             Controls.Add(CrearOP_button);
             Name = "CrearOrdenDePreparacion_form";
             Text = "Generar Orden de Preparacion";
+            Load += CrearOrdenDePreparacion_form_Load;
             DatosTransportistas_groupbox.ResumeLayout(false);
             DatosTransportistas_groupbox.PerformLayout();
             DatosGenerales_groupBox.ResumeLayout(false);

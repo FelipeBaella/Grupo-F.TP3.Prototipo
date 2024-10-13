@@ -62,27 +62,39 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         {
             OrdenesDePreparacion_ListView = new ListView();
             Estado_OP = new ColumnHeader();
-            Prioridad = new ColumnHeader();
-            ID_OP = new ColumnHeader();
-            ID_Cliente = new ColumnHeader();
-            Nombre_Cliente = new ColumnHeader();
-            Fecha_Emision = new ColumnHeader();
-            Descripcion_Mercaderia = new ColumnHeader();
-            Cantidad = new ColumnHeader();
             Deposito = new ColumnHeader();
+            ID_OP = new ColumnHeader();
+            Prioridad_cliente = new ColumnHeader();
+            Nombre_Cliente = new ColumnHeader();
+            Fecha_Entrega_OP = new ColumnHeader();
             CrearOrden_button = new Button();
-            OrdenesDePreparacion_label = new Label();
-            IdOrden_textBox = new TextBox();
-            label2 = new Label();
             VolverAlMenu_button = new Button();
+            groupBox1 = new GroupBox();
+            Agregar_button1 = new Button();
+            groupBox2 = new GroupBox();
+            ItemsOP_listView1 = new ListView();
+            ID_OP1 = new ColumnHeader();
+            Item_OP = new ColumnHeader();
+            Descrip_Merc = new ColumnHeader();
+            Cant_Merc = new ColumnHeader();
+            groupBox3 = new GroupBox();
+            Items_OS_listView2 = new ListView();
+            Item = new ColumnHeader();
+            Id_OP2 = new ColumnHeader();
+            Nombre_Cliente1 = new ColumnHeader();
+            Remover_button1 = new Button();
+            groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // OrdenesDePreparacion_ListView
             // 
-            OrdenesDePreparacion_ListView.Columns.AddRange(new ColumnHeader[] { Estado_OP, Prioridad, ID_OP, ID_Cliente, Nombre_Cliente, Fecha_Emision, Descripcion_Mercaderia, Cantidad, Deposito });
-            OrdenesDePreparacion_ListView.Location = new Point(12, 42);
+            OrdenesDePreparacion_ListView.CheckBoxes = true;
+            OrdenesDePreparacion_ListView.Columns.AddRange(new ColumnHeader[] { Estado_OP, Deposito, ID_OP, Prioridad_cliente, Nombre_Cliente, Fecha_Entrega_OP });
+            OrdenesDePreparacion_ListView.Location = new Point(11, 22);
             OrdenesDePreparacion_ListView.Name = "OrdenesDePreparacion_ListView";
-            OrdenesDePreparacion_ListView.Size = new Size(810, 207);
+            OrdenesDePreparacion_ListView.Size = new Size(604, 271);
             OrdenesDePreparacion_ListView.TabIndex = 0;
             OrdenesDePreparacion_ListView.UseCompatibleStateImageBehavior = false;
             OrdenesDePreparacion_ListView.View = View.Details;
@@ -92,46 +104,33 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             Estado_OP.Text = "Estado OP";
             Estado_OP.Width = 70;
             // 
-            // Prioridad
+            // Deposito
             // 
-            Prioridad.Text = "Prioridad";
+            Deposito.Text = "Deposito";
+            Deposito.Width = 100;
             // 
             // ID_OP
             // 
             ID_OP.Text = "ID OP";
             // 
-            // ID_Cliente
+            // Prioridad_cliente
             // 
-            ID_Cliente.Text = "ID Cliente";
-            ID_Cliente.Width = 70;
+            Prioridad_cliente.Text = "Prioridad Cliente";
+            Prioridad_cliente.Width = 100;
             // 
             // Nombre_Cliente
             // 
             Nombre_Cliente.Text = "Nombre Cliente";
             Nombre_Cliente.Width = 140;
             // 
-            // Fecha_Emision
+            // Fecha_Entrega_OP
             // 
-            Fecha_Emision.Text = "Fecha Emision";
-            Fecha_Emision.Width = 90;
-            // 
-            // Descripcion_Mercaderia
-            // 
-            Descripcion_Mercaderia.Text = "Descripcion Mercaderia";
-            Descripcion_Mercaderia.Width = 170;
-            // 
-            // Cantidad
-            // 
-            Cantidad.Text = "Cantidad";
-            // 
-            // Deposito
-            // 
-            Deposito.Text = "Deposito";
-            Deposito.Width = 100;
+            Fecha_Entrega_OP.Text = "Fecha Entrega OP";
+            Fecha_Entrega_OP.Width = 120;
             // 
             // CrearOrden_button
             // 
-            CrearOrden_button.Location = new Point(568, 314);
+            CrearOrden_button.Location = new Point(815, 578);
             CrearOrden_button.Name = "CrearOrden_button";
             CrearOrden_button.Size = new Size(158, 23);
             CrearOrden_button.TabIndex = 1;
@@ -139,35 +138,9 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             CrearOrden_button.UseVisualStyleBackColor = true;
             CrearOrden_button.Click += button_Crear_Orden_Click;
             // 
-            // OrdenesDePreparacion_label
-            // 
-            OrdenesDePreparacion_label.AutoSize = true;
-            OrdenesDePreparacion_label.Font = new Font("Segoe UI", 11F);
-            OrdenesDePreparacion_label.Location = new Point(12, 19);
-            OrdenesDePreparacion_label.Name = "OrdenesDePreparacion_label";
-            OrdenesDePreparacion_label.Size = new Size(169, 20);
-            OrdenesDePreparacion_label.TabIndex = 2;
-            OrdenesDePreparacion_label.Text = "Ordenes de preparacion";
-            // 
-            // IdOrden_textBox
-            // 
-            IdOrden_textBox.Location = new Point(462, 314);
-            IdOrden_textBox.Name = "IdOrden_textBox";
-            IdOrden_textBox.Size = new Size(100, 23);
-            IdOrden_textBox.TabIndex = 3;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(462, 290);
-            label2.Name = "label2";
-            label2.Size = new Size(135, 15);
-            label2.TabIndex = 4;
-            label2.Text = "Id Orden de Preparacion";
-            // 
             // VolverAlMenu_button
             // 
-            VolverAlMenu_button.Location = new Point(732, 313);
+            VolverAlMenu_button.Location = new Point(1000, 577);
             VolverAlMenu_button.Name = "VolverAlMenu_button";
             VolverAlMenu_button.Size = new Size(101, 23);
             VolverAlMenu_button.TabIndex = 5;
@@ -175,21 +148,128 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             VolverAlMenu_button.UseVisualStyleBackColor = true;
             VolverAlMenu_button.Click += VolverAlMenu_button_Click;
             // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(Agregar_button1);
+            groupBox1.Controls.Add(OrdenesDePreparacion_ListView);
+            groupBox1.Location = new Point(12, 12);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(619, 336);
+            groupBox1.TabIndex = 6;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Ordenes de Preparacion Pendientes";
+            // 
+            // Agregar_button1
+            // 
+            Agregar_button1.Location = new Point(538, 299);
+            Agregar_button1.Name = "Agregar_button1";
+            Agregar_button1.Size = new Size(75, 23);
+            Agregar_button1.TabIndex = 7;
+            Agregar_button1.Text = "Agregar";
+            Agregar_button1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(ItemsOP_listView1);
+            groupBox2.Location = new Point(645, 12);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(479, 336);
+            groupBox2.TabIndex = 7;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Items Orden de Preparacion";
+            // 
+            // ItemsOP_listView1
+            // 
+            ItemsOP_listView1.Columns.AddRange(new ColumnHeader[] { ID_OP1, Item_OP, Descrip_Merc, Cant_Merc });
+            ItemsOP_listView1.Location = new Point(6, 22);
+            ItemsOP_listView1.Name = "ItemsOP_listView1";
+            ItemsOP_listView1.Size = new Size(467, 308);
+            ItemsOP_listView1.TabIndex = 8;
+            ItemsOP_listView1.UseCompatibleStateImageBehavior = false;
+            ItemsOP_listView1.View = View.Details;
+            // 
+            // ID_OP1
+            // 
+            ID_OP1.Text = "ID OP";
+            ID_OP1.Width = 70;
+            // 
+            // Item_OP
+            // 
+            Item_OP.Text = "Item OP";
+            Item_OP.Width = 100;
+            // 
+            // Descrip_Merc
+            // 
+            Descrip_Merc.Text = "Descripcion Mercaderia";
+            Descrip_Merc.Width = 140;
+            // 
+            // Cant_Merc
+            // 
+            Cant_Merc.Text = "Cantidad Mercaderia";
+            Cant_Merc.Width = 130;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(Remover_button1);
+            groupBox3.Controls.Add(Items_OS_listView2);
+            groupBox3.Location = new Point(12, 366);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(453, 242);
+            groupBox3.TabIndex = 8;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Items Orden de Seleccion";
+            // 
+            // Items_OS_listView2
+            // 
+            Items_OS_listView2.CheckBoxes = true;
+            Items_OS_listView2.Columns.AddRange(new ColumnHeader[] { Item, Id_OP2, Nombre_Cliente1 });
+            Items_OS_listView2.Location = new Point(11, 21);
+            Items_OS_listView2.Name = "Items_OS_listView2";
+            Items_OS_listView2.Size = new Size(348, 214);
+            Items_OS_listView2.TabIndex = 1;
+            Items_OS_listView2.UseCompatibleStateImageBehavior = false;
+            Items_OS_listView2.View = View.Details;
+            // 
+            // Item
+            // 
+            Item.Text = "Item";
+            Item.Width = 70;
+            // 
+            // Id_OP2
+            // 
+            Id_OP2.Text = "ID OP";
+            Id_OP2.Width = 100;
+            // 
+            // Nombre_Cliente1
+            // 
+            Nombre_Cliente1.Text = "Nombre Cliente";
+            Nombre_Cliente1.Width = 120;
+            // 
+            // Remover_button1
+            // 
+            Remover_button1.Location = new Point(365, 211);
+            Remover_button1.Name = "Remover_button1";
+            Remover_button1.Size = new Size(82, 24);
+            Remover_button1.TabIndex = 2;
+            Remover_button1.Text = "Remover";
+            Remover_button1.UseVisualStyleBackColor = true;
+            // 
             // CrearOrdenDeSeleccion_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(836, 375);
+            ClientSize = new Size(1188, 612);
+            Controls.Add(groupBox3);
+            Controls.Add(groupBox2);
+            Controls.Add(groupBox1);
             Controls.Add(VolverAlMenu_button);
-            Controls.Add(label2);
-            Controls.Add(IdOrden_textBox);
-            Controls.Add(OrdenesDePreparacion_label);
             Controls.Add(CrearOrden_button);
-            Controls.Add(OrdenesDePreparacion_ListView);
             Name = "CrearOrdenDeSeleccion_form";
             Text = "Crear Orden de seleccion";
+            groupBox1.ResumeLayout(false);
+            groupBox2.ResumeLayout(false);
+            groupBox3.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
 
@@ -198,16 +278,12 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
         private ListView OrdenesDePreparacion_ListView;
         private ColumnHeader Estado_OP;
-        private ColumnHeader Prioridad;
+        private ColumnHeader Prioridad_cliente;
         private ColumnHeader ID_OP;
-        private ColumnHeader ID_Cliente;
         private ColumnHeader Nombre_Cliente;
-        private ColumnHeader Fecha_Emision;
-        private ColumnHeader Descripcion_Mercaderia;
-        private ColumnHeader Cantidad;
+        private ColumnHeader Fecha_Entrega_OP;
         private ColumnHeader Deposito;
         private Button CrearOrden_button;
-        private Label OrdenesDePreparacion_label;
         private TextBox textBox1;
         private TextBox prueba6;
         private TextBox textBox3;
@@ -218,5 +294,22 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         private TextBox IdOrden_textBox;
         private Label label2;
         private Button VolverAlMenu_button;
+        private GroupBox groupBox1;
+        private Button Agregar_button1;
+        private GroupBox groupBox2;
+
+        public ListView ItemsOP_listView1 { get; private set; }
+
+        private ListView listView1;
+        private ColumnHeader ID_OP1;
+        private ColumnHeader Item_OP;
+        private ColumnHeader Descrip_Merc;
+        private ColumnHeader Cant_Merc;
+        private GroupBox groupBox3;
+        private ListView Items_OS_listView2;
+        private ColumnHeader Item;
+        private ColumnHeader Id_OP2;
+        private ColumnHeader Nombre_Cliente1;
+        private Button Remover_button1;
     }
 }

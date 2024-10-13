@@ -6,31 +6,42 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
 
     partial class CrearOrdenDeSeleccion_form
-    {    
-        private void CargarOrdenesDePreparacion()
+    {
+        private void CargarOrdenesDePreparacion(List<OrdenesDePreparacion> ordenes)
         {
-            foreach (var orden in Datos_model.OrdenesDePreparacion)
+            OrdenesDePreparacion_ListView.Items.Clear();
+
+            foreach (var orden in ordenes)
             {
                 var cliente = Datos_model.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
                 var mercaderia = Datos_model.Mercaderias.Where(x => x.Id_Mercaderia == orden.Id_Mercaderia).FirstOrDefault();
                 var depositos = Datos_model.Depositos.Where(x => x.Id_Deposito == orden.Id_Deposito).FirstOrDefault();
 
+                var prioridad = "";
+
+                if (orden.Prioridad_OrdenDePreparacion == true)
+                {
+                    prioridad = "Si";
+                }
+                else
+                {
+                    prioridad = "No";
+                }
 
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 
-                    orden.Emision_OrdenDePreparacion.ToString(),
-                    orden.Prioridad_OrdenDePreparacion.ToString(),
-                    orden.Id_OrdenDePreparacion.ToString(),
-                    orden.Id_Cliente.ToString(),
-                    cliente.NombreApellido,
-                    orden.Emision_OrdenDePreparacion.ToString(),
-                    mercaderia.Descripcion_Mercaderia,
-                    orden.Cantidad_OrdenDePreparacion.ToString(),
-                    depositos.Nombre_Deposito,
+                        orden.Emision_OrdenDePreparacion.ToString(),
+                        depositos.Nombre_Deposito,
+                        orden.Id_OrdenDePreparacion.ToString(),
+                        prioridad,
+                        orden.Emision_OrdenDePreparacion.ToString(),
+                        cliente.NombreApellido,
+
                 }, -1);
 
                 OrdenesDePreparacion_ListView.Items.Add(listViewItem);
             }
+
         }
 
 
@@ -199,7 +210,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "ID OP", "Prioridad Cliente ", "Fecha Entrega ", "Nombre Cliente" });
+            comboBox1.Items.AddRange(new object[] { "---", "ID OP", "Prioridad Cliente ", "Fecha Entrega ", "Nombre Cliente" });
             comboBox1.Location = new Point(3, 21);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(211, 25);

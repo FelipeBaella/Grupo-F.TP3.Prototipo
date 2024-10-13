@@ -7,12 +7,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Windows.Forms;
+
 
 namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 {
@@ -22,8 +25,10 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
         public CrearOrdenDeSeleccion_form()
         {
+            var listview = Datos_model.OrdenesDePreparacion.Where(x => x.Id_Estado == 2).ToList(); 
+
             InitializeComponent();
-            CargarOrdenesDePreparacion();
+            CargarOrdenesDePreparacion(listview);
         }
 
         private void button_Crear_Orden_Click(object sender, EventArgs e)
@@ -91,33 +96,80 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedIndex == 0)
+            //if (comboBox1.SelectedIndex == 0)
+            //{
+            //     OrdenesDePreparacion_ListView.ListViewItemSorter = new ListViewNumberComparer(2);  
+            //     OrdenesDePreparacion_ListView.Sort();
+            //}
+
+            var listview = Datos_model.OrdenesDePreparacion.Where(x => x.Id_Estado == 2).ToList();
+
+            if (comboBox1.SelectedIndex == 1)
             {
-                 OrdenesDePreparacion_ListView.ListViewItemSorter = new ListViewNumberComparer(2);  
-                 OrdenesDePreparacion_ListView.Sort();
+                listview = listview.OrderBy(x => x.Id_OrdenDePreparacion).ToList();
             }
+
+            else if (comboBox1.SelectedIndex == 2)
+            {
+                listview = listview.OrderByDescending(x => x.Prioridad_OrdenDePreparacion).ToList();
+            }
+
+            else if (comboBox1.SelectedIndex == 3)
+            {
+                listview = listview.OrderBy(x => x.Emision_OrdenDePreparacion).ToList();
+            }
+
+            if (comboBox1.SelectedIndex == 4)
+            {
+                var nombres = new List<(string, string, string, string, string, string)>();
+
+                foreach (ListViewItem item in OrdenesDePreparacion_ListView.Items)
+                {
+                    var nombre = item.SubItems[5].Text;
+
+                    nombres.Add((item.SubItems[0].Text, item.SubItems[1].Text, item.SubItems[2].Text, item.SubItems[3].Text, item.SubItems[4].Text, item.SubItems[5].Text));
+                }
+
+                nombres = nombres.OrderBy(nombre => nombre.Item6).ToList();
+
+                OrdenesDePreparacion_ListView.Items.Clear();
+
+                foreach (var orden in nombres)
+                {
+                    ListViewItem listViewItem = new ListViewItem(new string[] {
+
+                        orden.Item1.ToString(),
+                        orden.Item2.ToString(),
+                        orden.Item3.ToString(),
+                        orden.Item4.ToString(),
+                        orden.Item5.ToString(),
+                        orden.Item6.ToString(),
+
+                }, -1);
+
+                    OrdenesDePreparacion_ListView.Items.Add(listViewItem);
+                }
+            }
+
+            if (comboBox1.SelectedIndex != 4)
+            {
+                CargarOrdenesDePreparacion(listview);
+            }
+
+      
         }
-        public class ListViewNumberComparer : IComparer
+
+        public class ListViewItemComparer : IComparer
         {
             private int col;
-
-            public ListViewNumberComparer(int column)
+            public ListViewItemComparer(int column)
             {
                 col = column;
             }
 
             public int Compare(object x, object y)
             {
-               
-                ListViewItem item1 = x as ListViewItem;
-                ListViewItem item2 = y as ListViewItem;
-
-               
-                int number1 = int.Parse(item1.SubItems[col].Text);
-                int number2 = int.Parse(item2.SubItems[col].Text);
-
-               
-                return number1.CompareTo(number2);
+                return String.Compare(((ListViewItem)x).SubItems[col].Text, ((ListViewItem)y).SubItems[col].Text);
             }
         }
     }

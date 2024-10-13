@@ -94,7 +94,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             DescripcionDeposito_Combobox = new ComboBox();
             CrearOP_button = new Button();
             DatosTransportistas_groupbox = new GroupBox();
-            NombreApellido_label = new Label();
+            FechaEntrega_label = new Label();
             label5 = new Label();
             DatosGenerales_groupBox = new GroupBox();
             Deposito_label = new Label();
@@ -177,7 +177,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             // 
             // DatosTransportistas_groupbox
             // 
-            DatosTransportistas_groupbox.Controls.Add(NombreApellido_label);
+            DatosTransportistas_groupbox.Controls.Add(FechaEntrega_label);
             DatosTransportistas_groupbox.Controls.Add(label5);
             DatosTransportistas_groupbox.Controls.Add(NombreApellido_TextBox);
             DatosTransportistas_groupbox.Controls.Add(Dni_textbox);
@@ -188,14 +188,14 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             DatosTransportistas_groupbox.TabStop = false;
             DatosTransportistas_groupbox.Text = "Datos Transportistas";
             // 
-            // NombreApellido_label
+            // FechaEntrega_label
             // 
-            NombreApellido_label.AutoSize = true;
-            NombreApellido_label.Location = new Point(6, 69);
-            NombreApellido_label.Name = "NombreApellido_label";
-            NombreApellido_label.Size = new Size(177, 15);
-            NombreApellido_label.TabIndex = 5;
-            NombreApellido_label.Text = "Nombre y Apellido Transportista";
+            FechaEntrega_label.AutoSize = true;
+            FechaEntrega_label.Location = new Point(6, 78);
+            FechaEntrega_label.Name = "FechaEntrega_label";
+            FechaEntrega_label.Size = new Size(199, 15);
+            FechaEntrega_label.TabIndex = 5;
+            FechaEntrega_label.Text = "Fecha Entrega Orden de Preparacion";
             // 
             // label5
             // 
@@ -375,7 +375,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         private GroupBox DatosTransportistas_groupbox;
         private GroupBox DatosGenerales_groupBox;
         private GroupBox DatosMercaderias_groupBox;
-        private Label NombreApellido_label;
+        private Label FechaEntrega_label;
         private Label label5;
         private Label Deposito_label;
         private Label IdCliente_label;

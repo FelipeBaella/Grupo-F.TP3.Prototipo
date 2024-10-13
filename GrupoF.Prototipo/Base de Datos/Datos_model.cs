@@ -53,10 +53,17 @@ namespace GrupoF.Prototipo.Base_de_Datos
         };
 
 
-        public List<Estados> Estados { get; set; } = new List<Estados>
+        public List<Estados> EstadosOp { get; set; } = new List<Estados>
         {
             new Estados {Id_Estado = 1, Descripcion_Estado = "PENDIENTE"},
-            new Estados {Id_Estado = 2, Descripcion_Estado = "EN PROCESO"},
+            new Estados {Id_Estado = 2, Descripcion_Estado = "EMITIDA"},
+            new Estados {Id_Estado = 3, Descripcion_Estado = "TERMINADO"},
+        };
+
+        public List<Estados> EstadosOs { get; set; } = new List<Estados>
+        {
+            new Estados {Id_Estado = 1, Descripcion_Estado = "PENDIENTE"},
+            new Estados {Id_Estado = 2, Descripcion_Estado = "EMITIDA"},
             new Estados {Id_Estado = 3, Descripcion_Estado = "TERMINADO"},
         };
 
@@ -72,8 +79,10 @@ namespace GrupoF.Prototipo.Base_de_Datos
 
         public List<OrdenesDePreparacion> OrdenesDePreparacion { get; set; } = new List<OrdenesDePreparacion>
         {
-            new OrdenesDePreparacion {Id_Estado = 1, Id_OrdenDePreparacion = 2, Prioridad_OrdenDePreparacion = true, Id_Cliente = 1, Emision_OrdenDePreparacion = DateTime.Now,  Id_Mercaderia = 1, Cantidad_OrdenDePreparacion = 10, Id_Deposito = 1, Id_Transportista = 1, Id_Remito = 1},
+            new OrdenesDePreparacion {Id_Estado = 1, Id_OrdenDePreparacion = 2, Prioridad_OrdenDePreparacion = true, Id_Cliente = 1, Emision_OrdenDePreparacion = DateTime.Now.AddMonths(2),  Id_Mercaderia = 1, Cantidad_OrdenDePreparacion = 10, Id_Deposito = 1, Id_Transportista = 1, Id_Remito = 1},
             new OrdenesDePreparacion {Id_Estado = 2, Id_OrdenDePreparacion = 1, Prioridad_OrdenDePreparacion = true, Id_Cliente = 2, Emision_OrdenDePreparacion = DateTime.Now.AddMonths(1),  Id_Mercaderia = 2, Cantidad_OrdenDePreparacion = 20, Id_Deposito = 2, Id_Transportista = 2, Id_Remito = null},
+            new OrdenesDePreparacion {Id_Estado = 2, Id_OrdenDePreparacion = 3, Prioridad_OrdenDePreparacion = true, Id_Cliente = 1, Emision_OrdenDePreparacion = DateTime.Now, Id_Mercaderia = 2, Cantidad_OrdenDePreparacion = 20, Id_Deposito = 2, Id_Transportista = 2, Id_Remito = null},
+            new OrdenesDePreparacion {Id_Estado = 2, Id_OrdenDePreparacion = 3, Prioridad_OrdenDePreparacion = false, Id_Cliente = 2, Emision_OrdenDePreparacion = DateTime.Now.AddDays(13), Id_Mercaderia = 2, Cantidad_OrdenDePreparacion = 20, Id_Deposito = 2, Id_Transportista = 2, Id_Remito = null},
         };
 
         public List<OrdenesDeSeleccion> OrdenesDeSeleccion { get; set; } = new List<OrdenesDeSeleccion>
@@ -88,6 +97,11 @@ namespace GrupoF.Prototipo.Base_de_Datos
             new OrdenesDeEntrega {Id_OrdenDeEntrega = 1, Id_Estado = 1, Id_OrdenDePreparacion = 1, Emision_OrdenDeEntrega = DateTime.Now},
             new OrdenesDeEntrega {Id_OrdenDeEntrega = 2, Id_Estado = 2, Id_OrdenDePreparacion = 2, Emision_OrdenDeEntrega = DateTime.Now.AddMonths(1)},
         };
+
+
+
+
+
 
     }
 }

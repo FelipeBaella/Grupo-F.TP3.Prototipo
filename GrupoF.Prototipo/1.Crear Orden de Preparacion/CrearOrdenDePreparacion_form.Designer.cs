@@ -26,8 +26,16 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         {
             var deposito = Datos_model.Depositos.Where(x => x.Nombre_Deposito == DescripcionDeposito_Combobox.SelectedItem).FirstOrDefault();
 
+            var cliente = 0;
+
+            if (IdCliente_textbox.Text != "")
+            {
+                cliente = int.Parse(IdCliente_textbox.Text);
+            }     
+
             var depositoMercaderias = Datos_model.DepositoMercaderias
                 .Where(x => x.Id_Deposito == deposito.Id_Deposito)
+                .Where(x => x.Id_Cliente == cliente)
                 .Select(x => x.Id_Mercaderia) 
                 .Distinct()
                 .ToList();
@@ -41,16 +49,13 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                 mercaderias.Add(mercaderia.Descripcion_Mercaderia);
             }
 
-            // Limpiamos el ComboBox por si ya tiene elementos cargados
             DescripcionMercaderia_ComboBox.Items.Clear();
 
-            // Iteramos sobre la lista de depósitos y agregamos los nombres al ComboBox
             foreach (var mercaderia in mercaderias)
             {
                 DescripcionMercaderia_ComboBox.Items.Add(mercaderia);
             }
 
-            // Si lo deseas, puedes seleccionar el primer elemento como predeterminado
             if (DescripcionMercaderia_ComboBox.Items.Count > 0)
             {
                 DescripcionMercaderia_ComboBox.SelectedIndex = 0;
@@ -100,7 +105,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             Deposito_label = new Label();
             IdCliente_label = new Label();
             DatosMercaderias_groupBox = new GroupBox();
-            button1 = new Button();
+            button_agregar = new Button();
             Cantidad_label = new Label();
             Descripcion_label = new Label();
             VolverAlMenu_button = new Button();
@@ -110,7 +115,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             groupBox1 = new GroupBox();
             button2 = new Button();
             Item = new ColumnHeader();
-            button_buscar = new Button();
             DatosTransportistas_groupbox.SuspendLayout();
             DatosGenerales_groupBox.SuspendLayout();
             DatosMercaderias_groupBox.SuspendLayout();
@@ -123,6 +127,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             IdCliente_textbox.Name = "IdCliente_textbox";
             IdCliente_textbox.Size = new Size(121, 23);
             IdCliente_textbox.TabIndex = 0;
+            IdCliente_textbox.TextChanged += IdCliente_textbox_TextChanged;
             // 
             // Cantidad_textbox
             // 
@@ -150,6 +155,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             // DescripcionDeposito_Combobox
             // 
             DescripcionDeposito_Combobox.DropDownStyle = ComboBoxStyle.DropDownList;
+            DescripcionDeposito_Combobox.Enabled = false;
             DescripcionDeposito_Combobox.FormattingEnabled = true;
             DescripcionDeposito_Combobox.Location = new Point(19, 107);
             DescripcionDeposito_Combobox.Name = "DescripcionDeposito_Combobox";
@@ -207,7 +213,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             // 
             // DatosGenerales_groupBox
             // 
-            DatosGenerales_groupBox.Controls.Add(button_buscar);
             DatosGenerales_groupBox.Controls.Add(Deposito_label);
             DatosGenerales_groupBox.Controls.Add(IdCliente_label);
             DatosGenerales_groupBox.Controls.Add(DescripcionDeposito_Combobox);
@@ -227,7 +232,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             Deposito_label.Size = new Size(119, 15);
             Deposito_label.TabIndex = 11;
             Deposito_label.Text = "Descripcion Deposito";
-            Deposito_label.Click += Deposito_label_Click;
             // 
             // IdCliente_label
             // 
@@ -240,7 +244,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             // 
             // DatosMercaderias_groupBox
             // 
-            DatosMercaderias_groupBox.Controls.Add(button1);
+            DatosMercaderias_groupBox.Controls.Add(button_agregar);
             DatosMercaderias_groupBox.Controls.Add(Cantidad_label);
             DatosMercaderias_groupBox.Controls.Add(Descripcion_label);
             DatosMercaderias_groupBox.Controls.Add(DescripcionMercaderia_ComboBox);
@@ -252,15 +256,15 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             DatosMercaderias_groupBox.TabStop = false;
             DatosMercaderias_groupBox.Text = "Datos Mercaderias";
             // 
-            // button1
+            // button_agregar
             // 
-            button1.Location = new Point(120, 152);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 13;
-            button1.Text = "Agregar ";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            button_agregar.Location = new Point(120, 152);
+            button_agregar.Name = "button_agregar";
+            button_agregar.Size = new Size(75, 23);
+            button_agregar.TabIndex = 13;
+            button_agregar.Text = "Agregar ";
+            button_agregar.UseVisualStyleBackColor = true;
+            button_agregar.Click += button_agregar_Click;
             // 
             // Cantidad_label
             // 
@@ -335,15 +339,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             // 
             Item.Text = "Item";
             // 
-            // button_buscar
-            // 
-            button_buscar.Location = new Point(145, 39);
-            button_buscar.Name = "button_buscar";
-            button_buscar.Size = new Size(75, 23);
-            button_buscar.TabIndex = 12;
-            button_buscar.Text = "Buscar";
-            button_buscar.UseVisualStyleBackColor = true;
-            // 
             // CrearOrdenDePreparacion_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -359,7 +354,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             Name = "CrearOrdenDePreparacion_form";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Generar Orden de Preparacion";
-            Load += CrearOrdenDePreparacion_form_Load;
             DatosTransportistas_groupbox.ResumeLayout(false);
             DatosTransportistas_groupbox.PerformLayout();
             DatosGenerales_groupBox.ResumeLayout(false);
@@ -390,7 +384,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         private Label Cantidad_label;
         private Label Descripcion_label;
         private Button VolverAlMenu_button;
-        private Button button1;
+        private Button button_agregar;
         private ListView listView_MercaderiasOrdenes;
         private GroupBox groupBox1;
         private ColumnHeader Mercaderia;
@@ -398,6 +392,5 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         private Button button2;
         private ColumnHeader Item;
         private DateTimePicker dateTimePicker_fecha;
-        private Button button_buscar;
     }
 }

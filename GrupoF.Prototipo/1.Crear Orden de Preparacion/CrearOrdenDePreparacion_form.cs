@@ -15,34 +15,9 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             CargarDepositos();
         }
 
-        private void button_buscar_click(object sender, EventArgs e)
-        {
-            string Id_Cliente = IdCliente_textbox.Text.Trim();
-
-            //CLIENTE
-            if (!Id_Cliente.All(char.IsDigit))
-            {
-                MessageBox.Show("El campo Cliente solo puede contener números.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                IdCliente_textbox.Focus();
-                return;
-            }
-            if (string.IsNullOrEmpty(Id_Cliente))
-            {
-                MessageBox.Show("El campo Cliente no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                IdCliente_textbox.Focus();
-                return;
-            }
-
-            if (Id_Cliente != "")
-            {
-                
-            }
-        }
-
-
         private void button_aceptar_click(object sender, EventArgs e)
         {
-          
+
             string Cantidad = Cantidad_textbox.Text.Trim();
             string Dni = Dni_textbox.Text.Trim();
 
@@ -64,7 +39,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                 MessageBox.Show("El campo Dni debe ser tener 8 caracteres", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Cantidad_textbox.Focus();
                 return;
-            }           
+            }
             if (string.IsNullOrEmpty(Dni))
             {
                 MessageBox.Show("El campo Dni no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -133,11 +108,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             nuevaForma.Show();
         }
 
-        private void Deposito_label_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void DescripcionDeposito_Combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
             string? depositoSeleccionado = DescripcionDeposito_Combobox.SelectedItem?.ToString();
@@ -148,7 +118,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_agregar_Click(object sender, EventArgs e)
         {
             string descripcionMercaderia_ComboBox = DescripcionMercaderia_ComboBox.Text.Trim();
             string cantidad_textbox = Cantidad_textbox.Text.Trim();
@@ -160,7 +130,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             var depositoMercaderia = Datos_model.DepositoMercaderias.Where(x => x.Id_Deposito == deposito.Id_Deposito).FirstOrDefault();
 
             string? depositoSeleccionado = DescripcionDeposito_Combobox.SelectedItem?.ToString();
-
 
             int cantidadNueva = int.Parse(cantidad_textbox);
             int cantidadExistente = 0;
@@ -209,6 +178,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                     listView_MercaderiasOrdenes.Items.Add(listViewItem);
 
                     DescripcionDeposito_Combobox.Enabled = false;
+                    IdCliente_textbox.Enabled = false;
                 }
             }
         }
@@ -226,12 +196,43 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             if (listView_MercaderiasOrdenes.Items.Count == 0)
             {
                 DescripcionDeposito_Combobox.Enabled = true;
+                IdCliente_textbox.Enabled = true;
             }
         }
 
-        private void CrearOrdenDePreparacion_form_Load(object sender, EventArgs e)
+        private void IdCliente_textbox_TextChanged(object sender, EventArgs e)
         {
+            string Id_Cliente = IdCliente_textbox.Text.Trim();
 
+            //CLIENTE
+            if (string.IsNullOrEmpty(Id_Cliente))
+            {
+                CargarMercaderias();
+                return;
+            }
+            if (!Id_Cliente.All(char.IsDigit))
+            {
+                MessageBox.Show("El campo Cliente solo puede contener números.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                IdCliente_textbox.Focus();
+                return;
+            }
+            else
+            {
+                var clientes = Datos_model.Clientes.Where(x => x.Id_Cliente == int.Parse(Id_Cliente)).FirstOrDefault();
+
+                if (clientes == null)
+                {
+                    MessageBox.Show("No existe un cliente con ese ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    IdCliente_textbox.Focus();
+                    return;
+                }
+                else
+                {
+                    IdCliente_textbox.Text = Id_Cliente;
+                    DescripcionDeposito_Combobox.Enabled = true;
+                    CargarMercaderias();
+                }
+            }
         }
     }
 }

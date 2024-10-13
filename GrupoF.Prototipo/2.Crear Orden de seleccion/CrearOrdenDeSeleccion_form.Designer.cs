@@ -178,16 +178,6 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             groupBox2.TabStop = false;
             groupBox2.Text = "Items Orden de Preparacion";
             // 
-            // ItemsOP_listView1
-            // 
-            ItemsOP_listView1.Columns.AddRange(new ColumnHeader[] { ID_OP1, Item_OP, Descrip_Merc, Cant_Merc });
-            ItemsOP_listView1.Location = new Point(6, 22);
-            ItemsOP_listView1.Name = "ItemsOP_listView1";
-            ItemsOP_listView1.Size = new Size(467, 308);
-            ItemsOP_listView1.TabIndex = 8;
-            ItemsOP_listView1.UseCompatibleStateImageBehavior = false;
-            ItemsOP_listView1.View = View.Details;
-            // 
             // ID_OP1
             // 
             ID_OP1.Text = "ID OP";
@@ -245,15 +235,6 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             Nombre_Cliente1.Text = "Nombre Cliente";
             Nombre_Cliente1.Width = 120;
             // 
-            // Remover_button1
-            // 
-            Remover_button1.Location = new Point(365, 211);
-            Remover_button1.Name = "Remover_button1";
-            Remover_button1.Size = new Size(82, 24);
-            Remover_button1.TabIndex = 2;
-            Remover_button1.Text = "Remover";
-            Remover_button1.UseVisualStyleBackColor = true;
-            // 
             // CrearOrdenDeSeleccion_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -267,7 +248,6 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             Name = "CrearOrdenDeSeleccion_form";
             Text = "Crear Orden de seleccion";
             groupBox1.ResumeLayout(false);
-            groupBox2.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             ResumeLayout(false);
         }

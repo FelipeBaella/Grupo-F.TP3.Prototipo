@@ -196,8 +196,6 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
         }
 
         #endregion
-
-        private Label OrdenesDeSeleccionLabel;
         private ListView ProcesarOrdenesDeSeleccion_listView;
         private ColumnHeader Estado_OS;
         private ColumnHeader ID_OS;

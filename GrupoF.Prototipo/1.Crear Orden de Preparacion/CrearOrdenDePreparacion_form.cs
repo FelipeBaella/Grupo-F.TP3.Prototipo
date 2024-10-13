@@ -15,8 +15,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             CargarDepositos();
         }
 
-<<<<<<< HEAD
-=======
+
         private void button_buscar_click(object sender, EventArgs e)
         {
             string Id_Cliente = IdCliente_textbox.Text.Trim();
@@ -42,7 +41,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         }
 
 
->>>>>>> mas cambios
         private void button_aceptar_click(object sender, EventArgs e)
         {
 

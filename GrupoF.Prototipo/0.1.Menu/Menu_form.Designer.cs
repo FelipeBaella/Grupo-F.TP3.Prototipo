@@ -31,7 +31,7 @@
             CrearOrdenDePreparacion_button = new Button();
             CrearOrdenDeSeleccion_button = new Button();
             ProcesarOrdenDeSeleccion_button = new Button();
-            CrearOrdenDeEntrega_button = new Button();
+            EmpaqutarMercaderias_button = new Button();
             CrearRemito_button = new Button();
             ProcesarOrdenDeEntrega_button = new Button();
             Salir_button = new Button();
@@ -67,15 +67,15 @@
             ProcesarOrdenDeSeleccion_button.UseVisualStyleBackColor = true;
             ProcesarOrdenDeSeleccion_button.Click += button_ProcesarOrdenDeSeleccion_Click;
             // 
-            // CrearOrdenDeEntrega_button
+            // EmpaqutarMercaderias_button
             // 
-            CrearOrdenDeEntrega_button.Location = new Point(115, 220);
-            CrearOrdenDeEntrega_button.Name = "CrearOrdenDeEntrega_button";
-            CrearOrdenDeEntrega_button.Size = new Size(185, 50);
-            CrearOrdenDeEntrega_button.TabIndex = 3;
-            CrearOrdenDeEntrega_button.Text = "Crear Orden de Entrega";
-            CrearOrdenDeEntrega_button.UseVisualStyleBackColor = true;
-            CrearOrdenDeEntrega_button.Click += button_CrearOrdenDeEntrega_Click;
+            EmpaqutarMercaderias_button.Location = new Point(115, 220);
+            EmpaqutarMercaderias_button.Name = "EmpaqutarMercaderias_button";
+            EmpaqutarMercaderias_button.Size = new Size(185, 50);
+            EmpaqutarMercaderias_button.TabIndex = 3;
+            EmpaqutarMercaderias_button.Text = "Empaquetar Mercaderias";
+            EmpaqutarMercaderias_button.UseVisualStyleBackColor = true;
+            EmpaqutarMercaderias_button.Click += button_CrearOrdenDeEntrega_Click;
             // 
             // CrearRemito_button
             // 
@@ -115,7 +115,7 @@
             Controls.Add(Salir_button);
             Controls.Add(ProcesarOrdenDeEntrega_button);
             Controls.Add(CrearRemito_button);
-            Controls.Add(CrearOrdenDeEntrega_button);
+            Controls.Add(EmpaqutarMercaderias_button);
             Controls.Add(ProcesarOrdenDeSeleccion_button);
             Controls.Add(CrearOrdenDeSeleccion_button);
             Controls.Add(CrearOrdenDePreparacion_button);
@@ -129,7 +129,7 @@
         private Button CrearOrdenDePreparacion_button;
         private Button CrearOrdenDeSeleccion_button;
         private Button ProcesarOrdenDeSeleccion_button;
-        private Button CrearOrdenDeEntrega_button;
+        private Button EmpaqutarMercaderias_button;
         private Button CrearRemito_button;
         private Button ProcesarOrdenDeEntrega_button;
         private Button Salir_button;

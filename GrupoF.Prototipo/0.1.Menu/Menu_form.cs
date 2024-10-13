@@ -51,7 +51,7 @@ namespace GrupoF.Prototipo._0.Menu
         {
             this.Hide();
 
-            CrearOrdenDeEntrega_Form nuevaForma = new CrearOrdenDeEntrega_Form();
+            EmpaquetarMercaderias_form nuevaForma = new EmpaquetarMercaderias_form();
             nuevaForma.Show();
         }
 

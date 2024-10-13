@@ -4,7 +4,7 @@ using GrupoF.Prototipo.Procesar_ordenes_de_preparacion;
 
 namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 {
-    partial class CrearOrdenDeEntrega_Form
+    partial class EmpaquetarMercaderias_form
     {
         private void CargarOrdenesDePreparacion()
         {

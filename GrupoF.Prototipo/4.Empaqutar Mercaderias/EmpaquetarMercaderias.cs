@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 {
-    internal class CrearOrdenDeEntrega_model
+    internal class EmpaquetarMercaderias
     {
 
     }

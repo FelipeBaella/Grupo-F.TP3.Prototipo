@@ -14,11 +14,11 @@ using System.Windows.Forms;
 
 namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 {
-    public partial class CrearOrdenDeEntrega_Form : Form
+    public partial class EmpaquetarMercaderias_form : Form
     {
         private Datos_model Datos_model = new Datos_model();
 
-        public CrearOrdenDeEntrega_Form()
+        public EmpaquetarMercaderias_form()
         {
             InitializeComponent(); 
             CargarOrdenesDePreparacion();

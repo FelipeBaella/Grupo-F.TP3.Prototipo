@@ -78,7 +78,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
                     if (item.Checked)
                     {
 
-                        ItemsOP_listView2.Items.Add((ListViewItem)item.Clone());
+                        Items_OS_listView2.Items.Add((ListViewItem)item.Clone());
 
 
                         OrdenesDePreparacion_ListView.Items.Remove(item);

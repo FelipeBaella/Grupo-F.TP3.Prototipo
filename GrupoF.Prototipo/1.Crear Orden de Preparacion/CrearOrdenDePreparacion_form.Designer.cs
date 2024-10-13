@@ -110,6 +110,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             groupBox1 = new GroupBox();
             button2 = new Button();
             Item = new ColumnHeader();
+            button_buscar = new Button();
             DatosTransportistas_groupbox.SuspendLayout();
             DatosGenerales_groupBox.SuspendLayout();
             DatosMercaderias_groupBox.SuspendLayout();
@@ -206,6 +207,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             // 
             // DatosGenerales_groupBox
             // 
+            DatosGenerales_groupBox.Controls.Add(button_buscar);
             DatosGenerales_groupBox.Controls.Add(Deposito_label);
             DatosGenerales_groupBox.Controls.Add(IdCliente_label);
             DatosGenerales_groupBox.Controls.Add(DescripcionDeposito_Combobox);
@@ -333,6 +335,15 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             // 
             Item.Text = "Item";
             // 
+            // button_buscar
+            // 
+            button_buscar.Location = new Point(145, 39);
+            button_buscar.Name = "button_buscar";
+            button_buscar.Size = new Size(75, 23);
+            button_buscar.TabIndex = 12;
+            button_buscar.Text = "Buscar";
+            button_buscar.UseVisualStyleBackColor = true;
+            // 
             // CrearOrdenDePreparacion_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -387,5 +398,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         private Button button2;
         private ColumnHeader Item;
         private DateTimePicker dateTimePicker_fecha;
+        private Button button_buscar;
     }
 }

@@ -15,17 +15,9 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             CargarDepositos();
         }
 
-        private void button_aceptar_click(object sender, EventArgs e)
+        private void button_buscar_click(object sender, EventArgs e)
         {
             string Id_Cliente = IdCliente_textbox.Text.Trim();
-            string Cantidad = Cantidad_textbox.Text.Trim();
-            string Dni = Dni_textbox.Text.Trim();
-
-            string fecha = dateTimePicker_fecha.Text;
-
-            string? depositoSeleccionado = DescripcionDeposito_Combobox.SelectedItem?.ToString();
-            string? mercaderiaSeleccionada = DescripcionMercaderia_ComboBox.SelectedItem?.ToString();
-
 
             //CLIENTE
             if (!Id_Cliente.All(char.IsDigit))
@@ -41,7 +33,23 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                 return;
             }
 
+            if (Id_Cliente != "")
+            {
+                
+            }
+        }
 
+
+        private void button_aceptar_click(object sender, EventArgs e)
+        {
+          
+            string Cantidad = Cantidad_textbox.Text.Trim();
+            string Dni = Dni_textbox.Text.Trim();
+
+            string fecha = dateTimePicker_fecha.Text;
+
+            string? depositoSeleccionado = DescripcionDeposito_Combobox.SelectedItem?.ToString();
+            string? mercaderiaSeleccionada = DescripcionMercaderia_ComboBox.SelectedItem?.ToString();
 
             //DNI
 

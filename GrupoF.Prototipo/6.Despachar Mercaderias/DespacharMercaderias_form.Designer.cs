@@ -18,7 +18,6 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 
-                    orden.Id_Estado.ToString(),
                     orden.Id_OrdenDeEntrega.ToString(),
                     orden.Emision_OrdenDeEntrega.ToString(),
                     orden.Id_OrdenDePreparacion.ToString(),

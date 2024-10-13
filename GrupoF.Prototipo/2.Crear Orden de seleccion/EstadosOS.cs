@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace GrupoF.Prototipo._2.Crear_Orden_de_seleccion
 {
-    internal class Estados
+    internal class EstadosOS
     {
-        public int Id_Estado { get; set; }
-        public string Descripcion_Estado { get; set; }
+        public int Id_EstadoOS { get; set; }
+        public string Descripcion_EstadoOS { get; set; }
 
 
     }

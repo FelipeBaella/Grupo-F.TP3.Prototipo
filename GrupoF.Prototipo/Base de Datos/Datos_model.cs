@@ -53,18 +53,18 @@ namespace GrupoF.Prototipo.Base_de_Datos
         };
 
 
-        public List<Estados> EstadosOp { get; set; } = new List<Estados>
+        public List<EstadosOS> EstadosOp { get; set; } = new List<EstadosOS>
         {
-            new Estados {Id_Estado = 1, Descripcion_Estado = "PENDIENTE"},
-            new Estados {Id_Estado = 2, Descripcion_Estado = "EMITIDA"},
-            new Estados {Id_Estado = 3, Descripcion_Estado = "TERMINADO"},
+            new EstadosOS {Id_Estado = 1, Descripcion_Estado = "PENDIENTE"},
+            new EstadosOS {Id_Estado = 2, Descripcion_Estado = "EMITIDA"},
+            new EstadosOS {Id_Estado = 3, Descripcion_Estado = "TERMINADO"},
         };
 
-        public List<Estados> EstadosOs { get; set; } = new List<Estados>
+        public List<EstadosOS> EstadosOs { get; set; } = new List<EstadosOS>
         {
-            new Estados {Id_Estado = 1, Descripcion_Estado = "PENDIENTE"},
-            new Estados {Id_Estado = 2, Descripcion_Estado = "EMITIDA"},
-            new Estados {Id_Estado = 3, Descripcion_Estado = "TERMINADO"},
+            new EstadosOS {Id_Estado = 1, Descripcion_Estado = "PENDIENTE"},
+            new EstadosOS {Id_Estado = 2, Descripcion_Estado = "EMITIDA"},
+            new EstadosOS {Id_Estado = 3, Descripcion_Estado = "TERMINADO"},
         };
 
 

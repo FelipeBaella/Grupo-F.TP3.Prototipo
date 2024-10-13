@@ -165,6 +165,7 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
             Font = new Font("Segoe UI", 12F);
             Margin = new Padding(4);
             Name = "EmpaquetarMercaderias_form";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Crear Orden De Entrega";
             OPaEmpaquetar_groupBox1.ResumeLayout(false);
             ResumeLayout(false);

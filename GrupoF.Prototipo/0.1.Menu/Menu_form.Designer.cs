@@ -120,6 +120,7 @@
             Controls.Add(CrearOrdenDeSeleccion_button);
             Controls.Add(CrearOrdenDePreparacion_button);
             Name = "Menu_form";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Menu";
             ResumeLayout(false);
         }

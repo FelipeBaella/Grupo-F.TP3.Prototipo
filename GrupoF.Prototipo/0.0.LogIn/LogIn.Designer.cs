@@ -88,6 +88,7 @@
             Controls.Add(Contrasena_textbox);
             Controls.Add(Usuario_textBox);
             Name = "LogIn_form";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();

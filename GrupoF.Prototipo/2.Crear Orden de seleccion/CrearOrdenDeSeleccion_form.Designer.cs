@@ -292,6 +292,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             Controls.Add(VolverAlMenu_button);
             Controls.Add(CrearOrden_button);
             Name = "CrearOrdenDeSeleccion_form";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Crear Orden de seleccion";
             groupBox1.ResumeLayout(false);
             groupBox2.ResumeLayout(false);

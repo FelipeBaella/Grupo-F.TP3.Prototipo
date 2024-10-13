@@ -348,6 +348,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             Controls.Add(DatosTransportistas_groupbox);
             Controls.Add(CrearOP_button);
             Name = "CrearOrdenDePreparacion_form";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Generar Orden de Preparacion";
             Load += CrearOrdenDePreparacion_form_Load;
             DatosTransportistas_groupbox.ResumeLayout(false);

@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             OPPreparadasgroupBox1 = new GroupBox();
+            Salir_button2 = new Button();
+            EnviadoADespacho_button1 = new Button();
             listView1 = new ListView();
             Estado_OP = new ColumnHeader();
             Deposito = new ColumnHeader();
             ID_OP = new ColumnHeader();
-            EnviadoADespacho_button1 = new Button();
-            Salir_button2 = new Button();
             OPPreparadasgroupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -49,6 +49,25 @@
             OPPreparadasgroupBox1.TabIndex = 0;
             OPPreparadasgroupBox1.TabStop = false;
             OPPreparadasgroupBox1.Text = "Ordenes de Preparacion Preparadas";
+            // 
+            // Salir_button2
+            // 
+            Salir_button2.Location = new Point(169, 371);
+            Salir_button2.Name = "Salir_button2";
+            Salir_button2.Size = new Size(94, 29);
+            Salir_button2.TabIndex = 2;
+            Salir_button2.Text = "Volver al Menu";
+            Salir_button2.UseVisualStyleBackColor = true;
+            // 
+            // EnviadoADespacho_button1
+            // 
+            EnviadoADespacho_button1.Location = new Point(32, 371);
+            EnviadoADespacho_button1.Name = "EnviadoADespacho_button1";
+            EnviadoADespacho_button1.Size = new Size(131, 29);
+            EnviadoADespacho_button1.TabIndex = 1;
+            EnviadoADespacho_button1.Text = "Enviado a Despacho";
+            EnviadoADespacho_button1.UseVisualStyleBackColor = true;
+            EnviadoADespacho_button1.Click += EnviadoADespacho_button1_Click;
             // 
             // listView1
             // 
@@ -75,25 +94,6 @@
             ID_OP.Text = "ID OP";
             ID_OP.Width = 70;
             // 
-            // EnviadoADespacho_button1
-            // 
-            EnviadoADespacho_button1.Location = new Point(32, 371);
-            EnviadoADespacho_button1.Name = "EnviadoADespacho_button1";
-            EnviadoADespacho_button1.Size = new Size(131, 29);
-            EnviadoADespacho_button1.TabIndex = 1;
-            EnviadoADespacho_button1.Text = "Enviado a Despacho";
-            EnviadoADespacho_button1.UseVisualStyleBackColor = true;
-            EnviadoADespacho_button1.Click += EnviadoADespacho_button1_Click;
-            // 
-            // Salir_button2
-            // 
-            Salir_button2.Location = new Point(169, 371);
-            Salir_button2.Name = "Salir_button2";
-            Salir_button2.Size = new Size(94, 29);
-            Salir_button2.TabIndex = 2;
-            Salir_button2.Text = "Volver al Menu";
-            Salir_button2.UseVisualStyleBackColor = true;
-            // 
             // CrearOrdenDeEntrega_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -101,7 +101,8 @@
             ClientSize = new Size(290, 423);
             Controls.Add(OPPreparadasgroupBox1);
             Name = "CrearOrdenDeEntrega_form";
-            Text = "CrearOrdenDeEntrega_form";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Crear Orden De Entrega";
             OPPreparadasgroupBox1.ResumeLayout(false);
             ResumeLayout(false);
         }

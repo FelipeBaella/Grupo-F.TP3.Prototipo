@@ -192,6 +192,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
             Controls.Add(OPaDespachar_groupBox2);
             Controls.Add(Datos_TrasnportistagroupBox1);
             Name = "DespacharMercaderias_form";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Despachar Mercaderias";
             Datos_TrasnportistagroupBox1.ResumeLayout(false);
             Datos_TrasnportistagroupBox1.PerformLayout();

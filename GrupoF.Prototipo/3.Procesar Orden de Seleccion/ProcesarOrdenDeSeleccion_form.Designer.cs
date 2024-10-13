@@ -189,6 +189,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             ClientSize = new Size(748, 513);
             Controls.Add(OS_groupBox1);
             Name = "ProcesarOrdenDeSeleccion_form";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Procesar Orden de Seleccion";
             Load += ProcesarOrdenDeSeleccion_form_Load;
             OS_groupBox1.ResumeLayout(false);

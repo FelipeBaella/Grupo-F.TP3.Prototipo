@@ -35,7 +35,7 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 
         private void button_CrearOrdenDeEntrega_Click(object sender, EventArgs e)
         {
-             //se deberia quitar ya que no se utiliza
+            //se deberia quitar ya que no se utiliza
             /*
             string Id_Orden = IdOrdenDePreparacion_textbox.Text.Trim();
 
@@ -70,6 +70,11 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
         }
 
         private void IdOrdenDePreparacion_textbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EmpaquetarMercaderias_form_Load(object sender, EventArgs e)
         {
 
         }

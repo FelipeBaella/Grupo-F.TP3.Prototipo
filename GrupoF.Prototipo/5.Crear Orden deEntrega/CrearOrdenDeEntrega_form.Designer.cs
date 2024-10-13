@@ -104,6 +104,7 @@
             Name = "CrearOrdenDeEntrega_form";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Crear Orden De Entrega";
+            Load += CrearOrdenDeEntrega_form_Load;
             OPPreparadasgroupBox1.ResumeLayout(false);
             ResumeLayout(false);
         }

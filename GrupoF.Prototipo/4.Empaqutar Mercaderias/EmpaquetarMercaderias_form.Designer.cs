@@ -167,6 +167,7 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
             Name = "EmpaquetarMercaderias_form";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Crear Orden De Entrega";
+            Load += EmpaquetarMercaderias_form_Load;
             OPaEmpaquetar_groupBox1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

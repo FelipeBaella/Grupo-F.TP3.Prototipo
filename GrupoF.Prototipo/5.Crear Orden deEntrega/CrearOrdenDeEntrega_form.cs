@@ -31,5 +31,10 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
 
             nuevaForma.Show();
         }
+
+        private void CrearOrdenDeEntrega_form_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

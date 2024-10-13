@@ -15,11 +15,11 @@ using System.Windows.Forms;
 
 namespace GrupoF.Prototipo._5.Crear_Remito
 {
-    public partial class CrearOrdenDeEntrega_form : Form
+    public partial class Crearremito_form : Form
     {
         private Datos_model Datos_model = new Datos_model();
 
-        public CrearOrdenDeEntrega_form(int id = 0)
+        public Crearremito_form(int id = 0)
         {
             InitializeComponent();
             CargarDatos(id);
@@ -83,7 +83,7 @@ namespace GrupoF.Prototipo._5.Crear_Remito
             }
 
             this.Hide();
-            CrearOrdenDeEntrega_form nuevaForma = new CrearOrdenDeEntrega_form(int.Parse(Id_Orden));
+            Crearremito_form nuevaForma = new Crearremito_form(int.Parse(Id_Orden));
             nuevaForma.Show();
         }
 

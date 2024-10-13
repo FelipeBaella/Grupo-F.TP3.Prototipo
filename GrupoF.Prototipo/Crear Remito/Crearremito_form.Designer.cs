@@ -3,7 +3,7 @@ using GrupoF.Prototipo.Procesar_ordenes_de_preparacion;
 
 namespace GrupoF.Prototipo._5.Crear_Remito
 {
-    partial class CrearOrdenDeEntrega_form
+    partial class Crearremito_form
     {
         private void CargarOrdenesDePreparacion()
         {

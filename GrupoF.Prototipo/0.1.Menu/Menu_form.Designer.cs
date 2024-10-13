@@ -32,7 +32,7 @@
             CrearOrdenDeSeleccion_button = new Button();
             ProcesarOrdenDeSeleccion_button = new Button();
             EmpaqutarMercaderias_button = new Button();
-            CrearRemito_button = new Button();
+            CrearOE_button = new Button();
             DespacharMercaderias_button = new Button();
             Salir_button = new Button();
             SuspendLayout();
@@ -77,15 +77,15 @@
             EmpaqutarMercaderias_button.UseVisualStyleBackColor = true;
             EmpaqutarMercaderias_button.Click += button_CrearOrdenDeEntrega_Click;
             // 
-            // CrearRemito_button
+            // CrearOE_button
             // 
-            CrearRemito_button.Location = new Point(115, 290);
-            CrearRemito_button.Name = "CrearRemito_button";
-            CrearRemito_button.Size = new Size(185, 50);
-            CrearRemito_button.TabIndex = 4;
-            CrearRemito_button.Text = "Crear Remito";
-            CrearRemito_button.UseVisualStyleBackColor = true;
-            CrearRemito_button.Click += button_CrearRemito_Click;
+            CrearOE_button.Location = new Point(115, 290);
+            CrearOE_button.Name = "CrearOE_button";
+            CrearOE_button.Size = new Size(185, 50);
+            CrearOE_button.TabIndex = 4;
+            CrearOE_button.Text = "Crear Orden de entrega";
+            CrearOE_button.UseVisualStyleBackColor = true;
+            CrearOE_button.Click += button_CrearRemito_Click;
             // 
             // DespacharMercaderias_button
             // 
@@ -114,7 +114,7 @@
             ClientSize = new Size(412, 450);
             Controls.Add(Salir_button);
             Controls.Add(DespacharMercaderias_button);
-            Controls.Add(CrearRemito_button);
+            Controls.Add(CrearOE_button);
             Controls.Add(EmpaqutarMercaderias_button);
             Controls.Add(ProcesarOrdenDeSeleccion_button);
             Controls.Add(CrearOrdenDeSeleccion_button);
@@ -130,7 +130,7 @@
         private Button CrearOrdenDeSeleccion_button;
         private Button ProcesarOrdenDeSeleccion_button;
         private Button EmpaqutarMercaderias_button;
-        private Button CrearRemito_button;
+        private Button CrearOE_button;
         private Button DespacharMercaderias_button;
         private Button Salir_button;
     }

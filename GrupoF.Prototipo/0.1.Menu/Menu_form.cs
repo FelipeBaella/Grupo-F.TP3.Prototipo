@@ -59,7 +59,7 @@ namespace GrupoF.Prototipo._0.Menu
         {
             this.Hide();
 
-            CrearRemito_form nuevaForma = new CrearRemito_form();
+            CrearOrdenDeEntrega_form nuevaForma = new CrearOrdenDeEntrega_form();
             nuevaForma.Show();
         }
 
@@ -67,7 +67,7 @@ namespace GrupoF.Prototipo._0.Menu
         {
             this.Hide();
 
-            ProcesarOrdenDeEntrega_form nuevaForma = new ProcesarOrdenDeEntrega_form();
+            DespacharMercaderias_form nuevaForma = new DespacharMercaderias_form();
             nuevaForma.Show();
         }
 

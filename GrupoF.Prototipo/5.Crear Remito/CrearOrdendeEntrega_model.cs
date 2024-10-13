@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GrupoF.Prototipo._5.Crear_Remito
 {
-    internal class CrearRemito_model
+    internal class CrearOrdendeEntrega_model
     {
 
     }

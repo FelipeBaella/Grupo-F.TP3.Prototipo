@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 {
-    public partial class ProcesarOrdenDeEntrega_form : Form
+    public partial class DespacharMercaderias_form : Form
     {
         private Datos_model Datos_model = new Datos_model();
 
-        public ProcesarOrdenDeEntrega_form()
+        public DespacharMercaderias_form()
         {
             InitializeComponent();
             CargarOrdenesDeEntrega();

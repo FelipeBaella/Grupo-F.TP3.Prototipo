@@ -18,7 +18,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
                 var estado = Datos_model.OrdenesDePreparacion.Where(x => x.Id_Estado == orden.Id_Estado).FirstOrDefault();
 
 
-                ListViewItem listViewItem = new ListViewItem(new string[] {
+                ListViewItem listViewItem1 = new ListViewItem(new string[] {
 
                     estado.Id_Estado.ToString(),
                     orden.Id_OrdenDeSeleccion.ToString(),
@@ -32,7 +32,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
                  
                 }, -1);
 
-                ProcesarOrdenesDeSeleccion_listView.Items.Add(listViewItem);
+                ProcesarOrdenesDeSeleccion_listView.Items.Add(listViewItem1);
             }
         }
 
@@ -62,39 +62,30 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
         /// </summary>
         private void InitializeComponent()
         {
-            OrdenesDeSeleccionLabel = new Label();
             ProcesarOrdenesDeSeleccion_listView = new ListView();
             Estado_OS = new ColumnHeader();
+            Deposito = new ColumnHeader();
             ID_OS = new ColumnHeader();
             ID_OP = new ColumnHeader();
-            Prioridad_OP = new ColumnHeader();
-            Fecha_Emision = new ColumnHeader();
-            Deposito = new ColumnHeader();
+            Item_OP = new ColumnHeader();
+            Coordenadas_Item_OP = new ColumnHeader();
             Descripcion_Mercaderia = new ColumnHeader();
             Cantidad = new ColumnHeader();
-            Coordenadas = new ColumnHeader();
             ProcesarOrdenDeSeleccion_button = new Button();
             VolverAlMenu_button = new Button();
-            IdOrdenDeSeleccion_textbox = new TextBox();
-            label_Id_OrdenDeSeleccion = new Label();
+            OS_groupBox1 = new GroupBox();
+            label1 = new Label();
+            OS_Pendientes_comboBox1 = new ComboBox();
+            OS_groupBox1.SuspendLayout();
             SuspendLayout();
-            // 
-            // OrdenesDeSeleccionLabel
-            // 
-            OrdenesDeSeleccionLabel.AutoSize = true;
-            OrdenesDeSeleccionLabel.Font = new Font("Segoe UI", 12F);
-            OrdenesDeSeleccionLabel.Location = new Point(12, 9);
-            OrdenesDeSeleccionLabel.Name = "OrdenesDeSeleccionLabel";
-            OrdenesDeSeleccionLabel.Size = new Size(159, 21);
-            OrdenesDeSeleccionLabel.TabIndex = 0;
-            OrdenesDeSeleccionLabel.Text = "Ordenes de Seleccion";
             // 
             // ProcesarOrdenesDeSeleccion_listView
             // 
-            ProcesarOrdenesDeSeleccion_listView.Columns.AddRange(new ColumnHeader[] { Estado_OS, ID_OS, ID_OP, Prioridad_OP, Fecha_Emision, Deposito, Descripcion_Mercaderia, Cantidad, Coordenadas });
-            ProcesarOrdenesDeSeleccion_listView.Location = new Point(12, 33);
+            ProcesarOrdenesDeSeleccion_listView.CheckBoxes = true;
+            ProcesarOrdenesDeSeleccion_listView.Columns.AddRange(new ColumnHeader[] { Estado_OS, Deposito, ID_OS, ID_OP, Item_OP, Coordenadas_Item_OP, Descripcion_Mercaderia, Cantidad });
+            ProcesarOrdenesDeSeleccion_listView.Location = new Point(0, 24);
             ProcesarOrdenesDeSeleccion_listView.Name = "ProcesarOrdenesDeSeleccion_listView";
-            ProcesarOrdenesDeSeleccion_listView.Size = new Size(714, 268);
+            ProcesarOrdenesDeSeleccion_listView.Size = new Size(714, 362);
             ProcesarOrdenesDeSeleccion_listView.TabIndex = 1;
             ProcesarOrdenesDeSeleccion_listView.UseCompatibleStateImageBehavior = false;
             ProcesarOrdenesDeSeleccion_listView.View = View.Details;
@@ -103,6 +94,11 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             // 
             Estado_OS.Text = "Estado OS";
             Estado_OS.Width = 80;
+            // 
+            // Deposito
+            // 
+            Deposito.Text = "Deposito";
+            Deposito.Width = 80;
             // 
             // ID_OS
             // 
@@ -114,37 +110,29 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             ID_OP.Text = "ID OP";
             ID_OP.Width = 50;
             // 
-            // Prioridad_OP
+            // Item_OP
             // 
-            Prioridad_OP.Text = "Prioridad OP";
-            Prioridad_OP.Width = 80;
+            Item_OP.Text = "Item OP";
+            Item_OP.Width = 80;
             // 
-            // Fecha_Emision
+            // Coordenadas_Item_OP
             // 
-            Fecha_Emision.Text = "Fecha Emision";
-            Fecha_Emision.Width = 90;
-            // 
-            // Deposito
-            // 
-            Deposito.Text = "Deposito";
+            Coordenadas_Item_OP.Text = "Coordenadas Item OP";
+            Coordenadas_Item_OP.Width = 120;
             // 
             // Descripcion_Mercaderia
             // 
             Descripcion_Mercaderia.Text = "Descripcion Mercaderia";
-            Descripcion_Mercaderia.Width = 150;
+            Descripcion_Mercaderia.Width = 160;
             // 
             // Cantidad
             // 
             Cantidad.Text = "Cantidad";
-            // 
-            // Coordenadas
-            // 
-            Coordenadas.Text = "Coordenadas";
-            Coordenadas.Width = 90;
+            Cantidad.Width = 70;
             // 
             // ProcesarOrdenDeSeleccion_button
             // 
-            ProcesarOrdenDeSeleccion_button.Location = new Point(387, 312);
+            ProcesarOrdenDeSeleccion_button.Location = new Point(375, 426);
             ProcesarOrdenDeSeleccion_button.Name = "ProcesarOrdenDeSeleccion_button";
             ProcesarOrdenDeSeleccion_button.Size = new Size(197, 33);
             ProcesarOrdenDeSeleccion_button.TabIndex = 2;
@@ -154,7 +142,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             // 
             // VolverAlMenu_button
             // 
-            VolverAlMenu_button.Location = new Point(590, 312);
+            VolverAlMenu_button.Location = new Point(590, 426);
             VolverAlMenu_button.Name = "VolverAlMenu_button";
             VolverAlMenu_button.Size = new Size(124, 33);
             VolverAlMenu_button.TabIndex = 15;
@@ -162,37 +150,50 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             VolverAlMenu_button.UseVisualStyleBackColor = true;
             VolverAlMenu_button.Click += VolverAlMenu_button_Click;
             // 
-            // IdOrdenDeSeleccion_textbox
+            // OS_groupBox1
             // 
-            IdOrdenDeSeleccion_textbox.Location = new Point(259, 321);
-            IdOrdenDeSeleccion_textbox.Name = "IdOrdenDeSeleccion_textbox";
-            IdOrdenDeSeleccion_textbox.Size = new Size(100, 23);
-            IdOrdenDeSeleccion_textbox.TabIndex = 16;
+            OS_groupBox1.Controls.Add(label1);
+            OS_groupBox1.Controls.Add(OS_Pendientes_comboBox1);
+            OS_groupBox1.Controls.Add(ProcesarOrdenesDeSeleccion_listView);
+            OS_groupBox1.Controls.Add(VolverAlMenu_button);
+            OS_groupBox1.Controls.Add(ProcesarOrdenDeSeleccion_button);
+            OS_groupBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            OS_groupBox1.Location = new Point(12, 21);
+            OS_groupBox1.Name = "OS_groupBox1";
+            OS_groupBox1.Size = new Size(726, 465);
+            OS_groupBox1.TabIndex = 18;
+            OS_groupBox1.TabStop = false;
+            OS_groupBox1.Text = "Ordenes de Seleccion a Procesar";
             // 
-            // label_Id_OrdenDeSeleccion
+            // label1
             // 
-            label_Id_OrdenDeSeleccion.AutoSize = true;
-            label_Id_OrdenDeSeleccion.Location = new Point(257, 303);
-            label_Id_OrdenDeSeleccion.Name = "label_Id_OrdenDeSeleccion";
-            label_Id_OrdenDeSeleccion.Size = new Size(122, 15);
-            label_Id_OrdenDeSeleccion.TabIndex = 17;
-            label_Id_OrdenDeSeleccion.Text = "Id Orden de Seleccion";
+            label1.AutoSize = true;
+            label1.Location = new Point(6, 400);
+            label1.Name = "label1";
+            label1.Size = new Size(202, 17);
+            label1.TabIndex = 19;
+            label1.Text = "Ordenes de Seleccion Pendientes";
+            // 
+            // OS_Pendientes_comboBox1
+            // 
+            OS_Pendientes_comboBox1.FormattingEnabled = true;
+            OS_Pendientes_comboBox1.Location = new Point(6, 431);
+            OS_Pendientes_comboBox1.Name = "OS_Pendientes_comboBox1";
+            OS_Pendientes_comboBox1.Size = new Size(337, 25);
+            OS_Pendientes_comboBox1.TabIndex = 19;
             // 
             // ProcesarOrdenDeSeleccion_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(734, 361);
-            Controls.Add(label_Id_OrdenDeSeleccion);
-            Controls.Add(IdOrdenDeSeleccion_textbox);
-            Controls.Add(VolverAlMenu_button);
-            Controls.Add(ProcesarOrdenDeSeleccion_button);
-            Controls.Add(ProcesarOrdenesDeSeleccion_listView);
-            Controls.Add(OrdenesDeSeleccionLabel);
+            ClientSize = new Size(748, 513);
+            Controls.Add(OS_groupBox1);
             Name = "ProcesarOrdenDeSeleccion_form";
             Text = "Procesar Orden de Seleccion";
+            Load += ProcesarOrdenDeSeleccion_form_Load;
+            OS_groupBox1.ResumeLayout(false);
+            OS_groupBox1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -200,15 +201,15 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
         private ColumnHeader Estado_OS;
         private ColumnHeader ID_OS;
         private ColumnHeader ID_OP;
-        private ColumnHeader Prioridad_OP;
-        private ColumnHeader Fecha_Emision;
+        private ColumnHeader Item_OP;
         private ColumnHeader Descripcion_Mercaderia;
         private ColumnHeader Cantidad;
-        private ColumnHeader Coordenadas;
+        private ColumnHeader Coordenadas_Item_OP;
         private ColumnHeader Deposito;
         private Button ProcesarOrdenDeSeleccion_button;
         private Button VolverAlMenu_button;
-        private TextBox IdOrdenDeSeleccion_textbox;
-        private Label label_Id_OrdenDeSeleccion;
+        private GroupBox OS_groupBox1;
+        private Label label1;
+        private ComboBox OS_Pendientes_comboBox1;
     }
 }

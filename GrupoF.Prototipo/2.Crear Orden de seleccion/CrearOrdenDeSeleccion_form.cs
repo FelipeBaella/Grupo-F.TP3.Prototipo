@@ -3,6 +3,7 @@ using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
 using GrupoF.Prototipo.Base_de_Datos;
 using GrupoF.Prototipo.Procesar_ordenes_de_preparacion;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -90,7 +91,34 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (comboBox1.SelectedIndex == 0)
+            {
+                 OrdenesDePreparacion_ListView.ListViewItemSorter = new ListViewNumberComparer(2);  
+                 OrdenesDePreparacion_ListView.Sort();
+            }
+        }
+        public class ListViewNumberComparer : IComparer
+        {
+            private int col;
 
+            public ListViewNumberComparer(int column)
+            {
+                col = column;
+            }
+
+            public int Compare(object x, object y)
+            {
+               
+                ListViewItem item1 = x as ListViewItem;
+                ListViewItem item2 = y as ListViewItem;
+
+               
+                int number1 = int.Parse(item1.SubItems[col].Text);
+                int number2 = int.Parse(item2.SubItems[col].Text);
+
+               
+                return number1.CompareTo(number2);
+            }
         }
     }
 }

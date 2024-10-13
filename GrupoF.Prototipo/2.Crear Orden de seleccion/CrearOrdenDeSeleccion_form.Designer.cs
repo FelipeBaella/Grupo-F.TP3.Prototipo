@@ -71,6 +71,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             VolverAlMenu_button = new Button();
             groupBox1 = new GroupBox();
             filtrar_groupBox4 = new GroupBox();
+            button1 = new Button();
             comboBox1 = new ComboBox();
             Agregar_button1 = new Button();
             groupBox2 = new GroupBox();
@@ -90,7 +91,6 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             Id_OP2 = new ColumnHeader();
             Nombre_Cliente1 = new ColumnHeader();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            button1 = new Button();
             groupBox1.SuspendLayout();
             filtrar_groupBox4.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -185,6 +185,16 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             filtrar_groupBox4.TabIndex = 8;
             filtrar_groupBox4.TabStop = false;
             filtrar_groupBox4.Text = "Filtros";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(234, 21);
+            button1.Name = "button1";
+            button1.Size = new Size(83, 25);
+            button1.TabIndex = 1;
+            button1.Text = "Aplicar";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // comboBox1
             // 
@@ -312,16 +322,6 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // 
             Nombre_Cliente1.Text = "Nombre Cliente";
             Nombre_Cliente1.Width = 120;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(242, 24);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 1;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // CrearOrdenDeSeleccion_form
             // 

@@ -88,12 +88,12 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         {
             IdCliente_textbox = new TextBox();
             Cantidad_textbox = new TextBox();
-            NombreApellido_TextBox = new TextBox();
             Dni_textbox = new TextBox();
             DescripcionMercaderia_ComboBox = new ComboBox();
             DescripcionDeposito_Combobox = new ComboBox();
             CrearOP_button = new Button();
             DatosTransportistas_groupbox = new GroupBox();
+            dateTimePicker_fecha = new DateTimePicker();
             FechaEntrega_label = new Label();
             label5 = new Label();
             DatosGenerales_groupBox = new GroupBox();
@@ -120,10 +120,8 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             // 
             IdCliente_textbox.Location = new Point(19, 39);
             IdCliente_textbox.Name = "IdCliente_textbox";
-            IdCliente_textbox.ReadOnly = true;
             IdCliente_textbox.Size = new Size(121, 23);
             IdCliente_textbox.TabIndex = 0;
-            IdCliente_textbox.Text = "1";
             // 
             // Cantidad_textbox
             // 
@@ -131,13 +129,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             Cantidad_textbox.Name = "Cantidad_textbox";
             Cantidad_textbox.Size = new Size(186, 23);
             Cantidad_textbox.TabIndex = 1;
-            // 
-            // NombreApellido_TextBox
-            // 
-            NombreApellido_TextBox.Location = new Point(6, 98);
-            NombreApellido_TextBox.Name = "NombreApellido_TextBox";
-            NombreApellido_TextBox.Size = new Size(238, 23);
-            NombreApellido_TextBox.TabIndex = 2;
             // 
             // Dni_textbox
             // 
@@ -177,9 +168,9 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             // 
             // DatosTransportistas_groupbox
             // 
+            DatosTransportistas_groupbox.Controls.Add(dateTimePicker_fecha);
             DatosTransportistas_groupbox.Controls.Add(FechaEntrega_label);
             DatosTransportistas_groupbox.Controls.Add(label5);
-            DatosTransportistas_groupbox.Controls.Add(NombreApellido_TextBox);
             DatosTransportistas_groupbox.Controls.Add(Dni_textbox);
             DatosTransportistas_groupbox.Location = new Point(298, 23);
             DatosTransportistas_groupbox.Name = "DatosTransportistas_groupbox";
@@ -187,6 +178,13 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             DatosTransportistas_groupbox.TabIndex = 8;
             DatosTransportistas_groupbox.TabStop = false;
             DatosTransportistas_groupbox.Text = "Datos Transportistas";
+            // 
+            // dateTimePicker_fecha
+            // 
+            dateTimePicker_fecha.Location = new Point(6, 96);
+            dateTimePicker_fecha.Name = "dateTimePicker_fecha";
+            dateTimePicker_fecha.Size = new Size(287, 23);
+            dateTimePicker_fecha.TabIndex = 6;
             // 
             // FechaEntrega_label
             // 
@@ -367,7 +365,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
         private TextBox IdCliente_textbox;
         private TextBox Cantidad_textbox;
-        private TextBox NombreApellido_TextBox;
         private TextBox Dni_textbox;
         private ComboBox DescripcionMercaderia_ComboBox;
         private ComboBox DescripcionDeposito_Combobox;
@@ -389,5 +386,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         private ColumnHeader Cantidad;
         private Button button2;
         private ColumnHeader Item;
+        private DateTimePicker dateTimePicker_fecha;
     }
 }

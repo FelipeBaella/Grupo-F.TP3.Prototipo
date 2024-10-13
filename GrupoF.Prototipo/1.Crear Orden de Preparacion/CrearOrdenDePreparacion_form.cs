@@ -19,13 +19,69 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         {
             string Id_Cliente = IdCliente_textbox.Text.Trim();
             string Cantidad = Cantidad_textbox.Text.Trim();
-            string NombreApellido = NombreApellido_TextBox.Text.Trim();
             string Dni = Dni_textbox.Text.Trim();
+
+            string fecha = dateTimePicker_fecha.Text;
 
             string? depositoSeleccionado = DescripcionDeposito_Combobox.SelectedItem?.ToString();
             string? mercaderiaSeleccionada = DescripcionMercaderia_ComboBox.SelectedItem?.ToString();
 
 
+            //CLIENTE
+            if (!Id_Cliente.All(char.IsDigit))
+            {
+                MessageBox.Show("El campo Cliente solo puede contener números.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                IdCliente_textbox.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(Id_Cliente))
+            {
+                MessageBox.Show("El campo Cliente no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                IdCliente_textbox.Focus();
+                return;
+            }
+
+
+
+            //DNI
+
+            if (!Dni.All(char.IsDigit))
+            {
+                MessageBox.Show("El campo Dni solo puede contener números.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Cantidad_textbox.Focus();
+                return;
+            }
+            if (Dni.Length != 8)
+            {
+                MessageBox.Show("El campo Dni debe ser tener 8 caracteres", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Cantidad_textbox.Focus();
+                return;
+            }           
+            if (string.IsNullOrEmpty(Dni))
+            {
+                MessageBox.Show("El campo Dni no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Dni_textbox.Focus();
+                return;
+            }
+
+
+            //FECHA
+            if (string.IsNullOrEmpty(fecha))
+            {
+                MessageBox.Show("El campo Fecha, no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dateTimePicker_fecha.Focus();
+                return;
+            }
+
+            if (DateTime.Parse(fecha) < DateTime.Now.Date)
+            {
+                MessageBox.Show("El campo Fecha, no puede ser menor al dia de hoy.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dateTimePicker_fecha.Focus();
+                return;
+            }
+
+
+            //DEPOSITO
             if (depositoSeleccionado == "---")
             {
                 MessageBox.Show("Debes seleccionar un depósito valido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -34,86 +90,15 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             }
 
 
-            if (mercaderiaSeleccionada == "---")
-            {
-                MessageBox.Show("Debes seleccionar una mercadería valida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                DescripcionMercaderia_ComboBox.Focus();
-                return;
-            }
 
-
-            if (string.IsNullOrEmpty(Cantidad))
+            //LISTA
+            if (listView_MercaderiasOrdenes.Items.Count < 1)
             {
-                MessageBox.Show("El campo Cantidad no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe seleccionar al menos 1 item para la Orden de Preparacion.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Cantidad_textbox.Focus();
                 return;
             }
 
-            if (!Cantidad.All(char.IsDigit))
-            {
-                MessageBox.Show("El campo Cantidad solo puede contener números.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Cantidad_textbox.Focus();
-                return;
-            }
-
-
-            int dni;
-
-            if (!int.TryParse(Dni, out dni))
-            {
-                MessageBox.Show("El campo Dni debe ser un numero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Cantidad_textbox.Focus();
-                return;
-            }
-
-            if (Dni.Length != 8)
-            {
-                MessageBox.Show("El campo Dni debe ser tener 8 caracteres", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Cantidad_textbox.Focus();
-                return;
-            }
-
-            if (!Dni.All(char.IsDigit))
-            {
-                MessageBox.Show("El campo Dni solo puede contener números.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Cantidad_textbox.Focus();
-                return;
-            }
-
-            if (!Cantidad.All(char.IsDigit))
-            {
-                MessageBox.Show("El campo Cantidad debe ser un numero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Cantidad_textbox.Focus();
-                return;
-            }
-
-            if (string.IsNullOrEmpty(NombreApellido))
-            {
-                MessageBox.Show("El campo Nombre y Apellido no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                NombreApellido_TextBox.Focus();
-                return;
-            }
-
-            if (NombreApellido.Any(char.IsDigit))
-            {
-                MessageBox.Show("El campo Nombre y Apellido no puede contener numeros", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Cantidad_textbox.Focus();
-                return;
-            }
-
-            if (string.IsNullOrEmpty(NombreApellido))
-            {
-                MessageBox.Show("El campo Nombre y Apellido no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                NombreApellido_TextBox.Focus();
-                return;
-            }
-
-            if (string.IsNullOrEmpty(Dni))
-            {
-                MessageBox.Show("El campo Dni no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Dni_textbox.Focus();
-                return;
-            }
 
 
             MessageBox.Show("Se creo la orden de preparacion con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -241,7 +226,4 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
         }
     }
-
-
-
 }

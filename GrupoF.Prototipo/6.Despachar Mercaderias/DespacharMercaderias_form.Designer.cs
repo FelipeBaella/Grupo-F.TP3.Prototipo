@@ -8,7 +8,20 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
     {
         private void CargarOrdenesDeEntrega()
         {
-            foreach (var orden in Datos_model.OrdenesDePreparacion)
+            listView_OrdenesDeEntrega.Items.Clear();
+
+            var ordenes = Datos_model.OrdenesDePreparacion.Where(x => x.Id_Transportista == 0).ToList();
+
+            var dni_Transportista = DniTransportista_textBox.Text;
+
+            if(dni_Transportista != "")
+            {
+                var transportista = Datos_model.Transportistas.Where(x => x.Dni_Transportista == int.Parse(dni_Transportista)).FirstOrDefault();
+
+                ordenes = Datos_model.OrdenesDePreparacion.Where(x => x.Id_Transportista == transportista.Id_Transportista).ToList();
+            }
+   
+            foreach (var orden in ordenes) 
             {
                 var OrdnesDePreparacion = Datos_model.OrdenesDePreparacion.Where(x => x.Id_Transportista == orden.Id_Transportista).FirstOrDefault();
 
@@ -18,13 +31,12 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 
-                   
+                    OrdnesDePreparacion.Id_Estado.ToString(),
                     mercaderia.Descripcion_Mercaderia,
                     Transportista.Dni_Transportista.ToString(),
-
-                   // OrdnesDePreparacion.Prioridad_OrdenDePreparacion.ToString(),
-                  
-
+                    OrdnesDePreparacion.Emision_OrdenDePreparacion.ToString(),
+                    OrdnesDePreparacion.Id_OrdenDePreparacion.ToString(),
+              
                 }, -1);
 
                 listView_OrdenesDeEntrega.Items.Add(listViewItem);
@@ -64,7 +76,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
             Fecha_Entrega_OP = new ColumnHeader();
             ID_OP = new ColumnHeader();
             IdOrdenDeEntrega_label = new Label();
-            IdOrdenDeEntrega_textBox = new TextBox();
+            DniTransportista_textBox = new TextBox();
             BuscarDNI_button = new Button();
             VolverAlMenu_button = new Button();
             Datos_TrasnportistagroupBox1 = new GroupBox();
@@ -117,12 +129,12 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
             IdOrdenDeEntrega_label.TabIndex = 2;
             IdOrdenDeEntrega_label.Text = "DNI Transportista";
             // 
-            // IdOrdenDeEntrega_textBox
+            // DniTransportista_textBox
             // 
-            IdOrdenDeEntrega_textBox.Location = new Point(9, 46);
-            IdOrdenDeEntrega_textBox.Name = "IdOrdenDeEntrega_textBox";
-            IdOrdenDeEntrega_textBox.Size = new Size(231, 23);
-            IdOrdenDeEntrega_textBox.TabIndex = 3;
+            DniTransportista_textBox.Location = new Point(9, 46);
+            DniTransportista_textBox.Name = "DniTransportista_textBox";
+            DniTransportista_textBox.Size = new Size(231, 23);
+            DniTransportista_textBox.TabIndex = 3;
             // 
             // BuscarDNI_button
             // 
@@ -150,7 +162,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
             // 
             Datos_TrasnportistagroupBox1.Controls.Add(VolverAlMenu_button);
             Datos_TrasnportistagroupBox1.Controls.Add(BuscarDNI_button);
-            Datos_TrasnportistagroupBox1.Controls.Add(IdOrdenDeEntrega_textBox);
+            Datos_TrasnportistagroupBox1.Controls.Add(DniTransportista_textBox);
             Datos_TrasnportistagroupBox1.Controls.Add(IdOrdenDeEntrega_label);
             Datos_TrasnportistagroupBox1.Location = new Point(22, 33);
             Datos_TrasnportistagroupBox1.Name = "Datos_TrasnportistagroupBox1";
@@ -178,6 +190,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
             EmitirRemito_button1.TabIndex = 1;
             EmitirRemito_button1.Text = "Emitir Remito";
             EmitirRemito_button1.UseVisualStyleBackColor = true;
+            EmitirRemito_button1.Click += EmitirRemito_button1_Click;
             // 
             // DespacharMercaderias_form
             // 
@@ -206,7 +219,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
         private ColumnHeader Descripcion_Mercaderia;
         private ColumnHeader DNI_Transportista;
         private Label IdOrdenDeEntrega_label;
-        private TextBox IdOrdenDeEntrega_textBox;
+        private TextBox DniTransportista_textBox;
         private Button BuscarDNI_button;
         private Button VolverAlMenu_button;
         private GroupBox Datos_TrasnportistagroupBox1;

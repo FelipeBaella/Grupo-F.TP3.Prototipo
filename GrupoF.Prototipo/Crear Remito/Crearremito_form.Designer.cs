@@ -15,7 +15,7 @@ namespace GrupoF.Prototipo._5.Crear_Remito
 
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 
-                    orden.Id_Estado.ToString(),
+                    orden.Id_EstadoOP.ToString(),
                     orden.Id_OrdenDePreparacion.ToString(),
                     orden.Prioridad_OrdenDePreparacion.ToString(),
                     orden.Emision_OrdenDePreparacion.ToString(),

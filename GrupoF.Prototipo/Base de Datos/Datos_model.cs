@@ -1,4 +1,5 @@
-﻿using GrupoF.Prototipo._2.Crear_Orden_de_seleccion;
+﻿using GrupoF.Prototipo._1.Crear_Orden_de_Preparacion;
+using GrupoF.Prototipo._2.Crear_Orden_de_seleccion;
 using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
 using GrupoF.Prototipo.Procesar_ordenes_de_preparacion;
 using System;
@@ -52,21 +53,26 @@ namespace GrupoF.Prototipo.Base_de_Datos
             new DepositoMercaderias { Id_DepositoMercaderias = 1, Id_Cliente = 2, Id_Deposito = 2, Id_Mercaderia = 2, Cantidad_DepositoMercaderias = 300, Coordenadas_DepositoMercaderias = "15-32-7"},
         };
 
+        public List<EstadosOP> EstadosOP { get; set; } = new List<EstadosOP>
+        {
+            new EstadosOP {Id_EstadoOP = 1, Descripcion_EstadoOP = "EMITIDA"},
+            new EstadosOP {Id_EstadoOP = 2, Descripcion_EstadoOP = "SELECCIONADA"},
+            new EstadosOP {Id_EstadoOP = 3, Descripcion_EstadoOP = "EN PREPARACION"},
+            new EstadosOP {Id_EstadoOP = 4, Descripcion_EstadoOP = "PREPARADA"},
+            new EstadosOP {Id_EstadoOP = 5, Descripcion_EstadoOP = "EN DESPACHO"},
+            new EstadosOP {Id_EstadoOP = 6, Descripcion_EstadoOP = "DESPACHADA "},
 
-        public List<EstadosOS> EstadosOs { get; set; } = new List<EstadosOS>
+        };
+
+
+        public List<EstadosOS> EstadosOS { get; set; } = new List<EstadosOS>
         {
             new EstadosOS {Id_EstadoOS = 1, Descripcion_EstadoOS = "EMITIDA"},
             new EstadosOS {Id_EstadoOS = 2, Descripcion_EstadoOS = "CUMPLIDA"},
             
         };
 
-        public List<EstadosOS> EstadosOS { get; set; } = new List<EstadosOS>
-        {
-            new EstadosOS {Id_EstadoOS = 1, Descripcion_EstadoOS = "PENDIENTE"},
-            new EstadosOS {Id_EstadoOS = 2, Descripcion_EstadoOS = "EMITIDA"},
-            new EstadosOS {Id_EstadoOS = 3, Descripcion_EstadoOS = "TERMINADO"},
-        };
-
+      
 
         public List<Usuarios> Usuarios { get; set; } = new List<Usuarios>
         {
@@ -79,23 +85,33 @@ namespace GrupoF.Prototipo.Base_de_Datos
 
         public List<OrdenesDePreparacion> OrdenesDePreparacion { get; set; } = new List<OrdenesDePreparacion>
         {
-            new OrdenesDePreparacion {Id_Estado = 1, Id_OrdenDePreparacion = 2, Prioridad_OrdenDePreparacion = true, Id_Cliente = 1, Emision_OrdenDePreparacion = DateTime.Now.AddMonths(2),  Id_Mercaderia = 1, Cantidad_OrdenDePreparacion = 10, Id_Deposito = 1, Id_Transportista = 1, Id_Remito = 1},
-            new OrdenesDePreparacion {Id_Estado = 2, Id_OrdenDePreparacion = 1, Prioridad_OrdenDePreparacion = true, Id_Cliente = 2, Emision_OrdenDePreparacion = DateTime.Now.AddMonths(1),  Id_Mercaderia = 2, Cantidad_OrdenDePreparacion = 20, Id_Deposito = 2, Id_Transportista = 2, Id_Remito = null},
-            new OrdenesDePreparacion {Id_Estado = 2, Id_OrdenDePreparacion = 3, Prioridad_OrdenDePreparacion = true, Id_Cliente = 1, Emision_OrdenDePreparacion = DateTime.Now, Id_Mercaderia = 2, Cantidad_OrdenDePreparacion = 20, Id_Deposito = 2, Id_Transportista = 2, Id_Remito = null},
-            new OrdenesDePreparacion {Id_Estado = 2, Id_OrdenDePreparacion = 3, Prioridad_OrdenDePreparacion = false, Id_Cliente = 2, Emision_OrdenDePreparacion = DateTime.Now.AddDays(13), Id_Mercaderia = 2, Cantidad_OrdenDePreparacion = 20, Id_Deposito = 2, Id_Transportista = 2, Id_Remito = null},
+            new OrdenesDePreparacion {Id_EstadoOP = 1, Id_OrdenDePreparacion = 2, Prioridad_OrdenDePreparacion = true, Id_Cliente = 1, Emision_OrdenDePreparacion = DateTime.Now.AddMonths(2),  Id_Mercaderia = 1, Cantidad_OrdenDePreparacion = 10, Id_Deposito = 1, Id_Transportista = 1, Id_OrdenDeEntrega = 1, Id_OrdenDeSeleccion = 1, Id_Remito = 1},
+            new OrdenesDePreparacion {Id_EstadoOP = 2, Id_OrdenDePreparacion = 1, Prioridad_OrdenDePreparacion = true, Id_Cliente = 2, Emision_OrdenDePreparacion = DateTime.Now.AddMonths(1),  Id_Mercaderia = 2, Cantidad_OrdenDePreparacion = 20, Id_Deposito = 2, Id_Transportista = 2, Id_OrdenDeEntrega = 1, Id_OrdenDeSeleccion = 1, Id_Remito = null},
+            new OrdenesDePreparacion {Id_EstadoOP = 2, Id_OrdenDePreparacion = 3, Prioridad_OrdenDePreparacion = true, Id_Cliente = 1, Emision_OrdenDePreparacion = DateTime.Now, Id_Mercaderia = 2, Cantidad_OrdenDePreparacion = 20, Id_Deposito = 2, Id_Transportista = 2, Id_OrdenDeEntrega = 1, Id_OrdenDeSeleccion = 1, Id_Remito = null},
+            new OrdenesDePreparacion {Id_EstadoOP = 2, Id_OrdenDePreparacion = 4, Prioridad_OrdenDePreparacion = false, Id_Cliente = 2, Emision_OrdenDePreparacion = DateTime.Now.AddDays(13), Id_Mercaderia = 2, Cantidad_OrdenDePreparacion = 20, Id_Deposito = 2, Id_Transportista = 2, Id_OrdenDeEntrega = 1, Id_OrdenDeSeleccion = 1, Id_Remito = null},
         };
+
+
+        public List<OrdenesDePreparacionMercaderias> OrdenesDePreparacionMercaderias { get; set; } = new List<OrdenesDePreparacionMercaderias>
+        {
+            new OrdenesDePreparacionMercaderias {Id_OrdenDePreparacionMercaderia = 1, Id_OrdenDePreparacion = 1, Id_Mercaderia = 1, Cantidad_Mercaderia = 250},
+            new OrdenesDePreparacionMercaderias {Id_OrdenDePreparacionMercaderia = 2, Id_OrdenDePreparacion = 4, Id_Mercaderia = 2, Cantidad_Mercaderia = 120},
+            new OrdenesDePreparacionMercaderias {Id_OrdenDePreparacionMercaderia = 3, Id_OrdenDePreparacion = 2, Id_Mercaderia = 3, Cantidad_Mercaderia = 210},
+            new OrdenesDePreparacionMercaderias {Id_OrdenDePreparacionMercaderia = 4, Id_OrdenDePreparacion = 3, Id_Mercaderia = 2, Cantidad_Mercaderia = 370},
+        };
+
 
         public List<OrdenesDeSeleccion> OrdenesDeSeleccion { get; set; } = new List<OrdenesDeSeleccion>
         {
-            new OrdenesDeSeleccion {Id_Estado = 1, Id_OrdenDeSeleccion = 1, Id_OrdenDePreparacion = 1, Emision_OrdenDeSeleccion = DateTime.Now},
-            new OrdenesDeSeleccion {Id_Estado = 2, Id_OrdenDeSeleccion = 2, Id_OrdenDePreparacion = 2, Emision_OrdenDeSeleccion = DateTime.Now.AddMonths(1)},
+            new OrdenesDeSeleccion {Id_EstadoOS = 1, Id_OrdenDeSeleccion = 1, Emision_OrdenDeSeleccion = DateTime.Now},
+            new OrdenesDeSeleccion {Id_EstadoOS = 2, Id_OrdenDeSeleccion = 2, Emision_OrdenDeSeleccion = DateTime.Now.AddMonths(1)},
         };
 
 
         public List<OrdenesDeEntrega> OrdenesDeEntrega { get; set; } = new List<OrdenesDeEntrega>
         {
-            new OrdenesDeEntrega {Id_OrdenDeEntrega = 1, Id_OrdenDePreparacion = 1, Emision_OrdenDeEntrega = DateTime.Now},
-            new OrdenesDeEntrega {Id_OrdenDeEntrega = 2, Id_OrdenDePreparacion = 2, Emision_OrdenDeEntrega = DateTime.Now.AddMonths(1)},
+            new OrdenesDeEntrega {Id_OrdenDeEntrega = 1, Emision_OrdenDeEntrega = DateTime.Now, Procesado_OrdenDeEntrega  = false},
+            new OrdenesDeEntrega {Id_OrdenDeEntrega = 2, Emision_OrdenDeEntrega = DateTime.Now.AddMonths(1), Procesado_OrdenDeEntrega = true},
         };
 
 

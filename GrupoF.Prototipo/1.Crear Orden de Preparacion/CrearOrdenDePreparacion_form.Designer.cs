@@ -224,6 +224,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             DatosGenerales_groupBox.TabIndex = 10;
             DatosGenerales_groupBox.TabStop = false;
             DatosGenerales_groupBox.Text = "Datos Generales";
+            // 
             // Deposito_label
             // 
             Deposito_label.AutoSize = true;

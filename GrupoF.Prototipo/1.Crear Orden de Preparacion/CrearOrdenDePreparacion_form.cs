@@ -15,32 +15,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             CargarDepositos();
         }
 
-
-        private void button_buscar_click(object sender, EventArgs e)
-        {
-            string Id_Cliente = IdCliente_textbox.Text.Trim();
-
-            //CLIENTE
-            if (!Id_Cliente.All(char.IsDigit))
-            {
-                MessageBox.Show("El campo Cliente solo puede contener números.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                IdCliente_textbox.Focus();
-                return;
-            }
-            if (string.IsNullOrEmpty(Id_Cliente))
-            {
-                MessageBox.Show("El campo Cliente no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                IdCliente_textbox.Focus();
-                return;
-            }
-
-            if (Id_Cliente != "")
-            {
-
-            }
-        }
-
-
         private void button_aceptar_click(object sender, EventArgs e)
         {
 
@@ -119,12 +93,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
         }
 
-        private void button_salir_click(object sender, EventArgs e)
-        {
-
-
-        }
-
         private void VolverAlMenu_button_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -180,6 +148,13 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                 return;
             }
 
+            if (descripcionMercaderia_ComboBox == "")
+            {
+                MessageBox.Show("Debes seleccionar una mercaderia valida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DescripcionDeposito_Combobox.Focus();
+                return;
+            }
+
             else
             {
                 if (depositoMercaderia.Cantidad_DepositoMercaderias < cantidadExistente)
@@ -205,6 +180,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
                     DescripcionDeposito_Combobox.Enabled = false;
                     IdCliente_textbox.Enabled = false;
+                    Cantidad_textbox.Text = "";
                 }
             }
         }
@@ -228,34 +204,23 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
         private void IdCliente_textbox_TextChanged(object sender, EventArgs e)
         {
+            DescripcionDeposito_Combobox.SelectedItem = "---";
+            DescripcionMercaderia_ComboBox.Items.Remove(DescripcionMercaderia_ComboBox.SelectedItem);
+            Cantidad_textbox.Enabled = false;
+            Cantidad_textbox.Text = "";
+
             string Id_Cliente = IdCliente_textbox.Text.Trim();
 
             //CLIENTE
-            if (string.IsNullOrEmpty(Id_Cliente))
-            {
-                CargarMercaderias();
-                return;
-            }
-            if (!Id_Cliente.All(char.IsDigit))
-            {
-                MessageBox.Show("El campo Cliente solo puede contener números.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                IdCliente_textbox.Focus();
-                return;
-            }
-            else
+            if (Id_Cliente.All(char.IsDigit) && !string.IsNullOrEmpty(Id_Cliente))
             {
                 var clientes = Datos_model.Clientes.Where(x => x.Id_Cliente == int.Parse(Id_Cliente)).FirstOrDefault();
 
-                if (clientes == null)
-                {
-                    MessageBox.Show("No existe un cliente con ese ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    IdCliente_textbox.Focus();
-                    return;
-                }
-                else
+                if (clientes != null)
                 {
                     IdCliente_textbox.Text = Id_Cliente;
                     DescripcionDeposito_Combobox.Enabled = true;
+                    Cantidad_textbox.Enabled = true;
                     CargarMercaderias();
                 }
             }
@@ -263,7 +228,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
         private void Dni_textbox_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
     }
 }

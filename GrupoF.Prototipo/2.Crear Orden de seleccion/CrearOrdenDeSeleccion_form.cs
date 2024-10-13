@@ -25,7 +25,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
         public CrearOrdenDeSeleccion_form()
         {
-            var listview = Datos_model.OrdenesDePreparacion.Where(x => x.Id_Estado == 2).ToList(); 
+            var listview = Datos_model.OrdenesDePreparacion.Where(x => x.Id_EstadoOP == 2).ToList();
 
             InitializeComponent();
             CargarOrdenesDePreparacion(listview);
@@ -75,34 +75,100 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
         private void Agregar_button1_Click(object sender, EventArgs e)
         {
+            int cantidad = Items_OS_listView2.Items.Count;
+
+            var i = 1;
+
+            foreach (ListViewItem item in OrdenesDePreparacion_ListView.Items)
             {
-
-                foreach (ListViewItem item in OrdenesDePreparacion_ListView.Items)
+                if (item.Checked)
                 {
+                    var nuevo = cantidad + 1;
 
-                    if (item.Checked)
-                    {
+                    ListViewItem listViewItem = new ListViewItem(new string[] {
 
-                        Items_OS_listView2.Items.Add((ListViewItem)item.Clone());
+                        (cantidad + i).ToString(), //0
+                        item.SubItems[0].Text, //1
+                        item.SubItems[3].Text,//2
 
 
-                        OrdenesDePreparacion_ListView.Items.Remove(item);
+                        item.SubItems[1].Text, //3
+                        item.SubItems[2].Text, //4
 
-                        break;
-                    }
+                    }, -1);
+
+                    Items_OS_listView2.Items.Add(listViewItem);
+
+                    OrdenesDePreparacion_ListView.Items.Remove(item);
+
+                    i++;
                 }
             }
         }
 
+        private void Remover_button_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in Items_OS_listView2.Items)
+            {
+                if (item.Checked)
+                {
+                    ListViewItem listViewItem = new ListViewItem(new string[] {
+
+                        item.SubItems[1].Text, //0
+                        item.SubItems[3].Text, //1
+                        item.SubItems[4].Text, //2
+                        item.SubItems[2].Text, //3
+
+                    }, -1);
+
+                    OrdenesDePreparacion_ListView.Items.Add(listViewItem);
+
+                    Items_OS_listView2.Items.Remove(item);
+                }
+            }
+        }
+
+        private void Ver_button_Click(object sender, EventArgs e)
+        {
+            var cantidad = 0;
+
+            foreach (ListViewItem item in OrdenesDePreparacion_ListView.Items)
+            {
+                if (item.Checked)
+                {
+                    cantidad++;
+                }
+            }
+
+            if (cantidad < 1)
+            {
+                MessageBox.Show("Debe seleccionar una Orden de preparacion.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            else if (cantidad > 1)
+            {
+                MessageBox.Show("No debe seleccionar mas de una Orden de preparacion.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                foreach (ListViewItem item in OrdenesDePreparacion_ListView.Items)
+                {
+                    if (item.Checked)
+                    {
+                        CargarItemsOrdenesDePreparacion(int.Parse(item.SubItems[0].Text));
+                        break;
+                    }
+                }             
+            }
+        }
+
+
+
         private void button1_Click(object sender, EventArgs e)
         {
-            //if (comboBox1.SelectedIndex == 0)
-            //{
-            //     OrdenesDePreparacion_ListView.ListViewItemSorter = new ListViewNumberComparer(2);  
-            //     OrdenesDePreparacion_ListView.Sort();
-            //}
-
-            var listview = Datos_model.OrdenesDePreparacion.Where(x => x.Id_Estado == 2).ToList();
+            var listview = Datos_model.OrdenesDePreparacion.Where(x => x.Id_EstadoOP == 2).ToList();
 
             if (comboBox1.SelectedIndex == 1)
             {
@@ -121,16 +187,16 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
             if (comboBox1.SelectedIndex == 4)
             {
-                var nombres = new List<(string, string, string, string, string, string)>();
+                var nombres = new List<(string, string, string, string)>();
 
                 foreach (ListViewItem item in OrdenesDePreparacion_ListView.Items)
                 {
-                    var nombre = item.SubItems[5].Text;
+                    var nombre = item.SubItems[3].Text;
 
-                    nombres.Add((item.SubItems[0].Text, item.SubItems[1].Text, item.SubItems[2].Text, item.SubItems[3].Text, item.SubItems[4].Text, item.SubItems[5].Text));
+                    nombres.Add((item.SubItems[0].Text, item.SubItems[1].Text, item.SubItems[2].Text, item.SubItems[3].Text));
                 }
 
-                nombres = nombres.OrderBy(nombre => nombre.Item6).ToList();
+                nombres = nombres.OrderBy(nombre => nombre.Item4).ToList();
 
                 OrdenesDePreparacion_ListView.Items.Clear();
 
@@ -142,8 +208,6 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
                         orden.Item2.ToString(),
                         orden.Item3.ToString(),
                         orden.Item4.ToString(),
-                        orden.Item5.ToString(),
-                        orden.Item6.ToString(),
 
                 }, -1);
 
@@ -156,21 +220,12 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
                 CargarOrdenesDePreparacion(listview);
             }
 
-      
+
         }
 
-        public class ListViewItemComparer : IComparer
+        private void button2_Click(object sender, EventArgs e)
         {
-            private int col;
-            public ListViewItemComparer(int column)
-            {
-                col = column;
-            }
 
-            public int Compare(object x, object y)
-            {
-                return String.Compare(((ListViewItem)x).SubItems[col].Text, ((ListViewItem)y).SubItems[col].Text);
-            }
         }
     }
 }

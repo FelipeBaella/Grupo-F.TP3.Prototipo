@@ -7,7 +7,11 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
     {
         private void CargarOrdenesDePreparacion()
         {
-            foreach (var orden in Datos_model.OrdenesDeSeleccion)
+            var OrdenesDeSeleccion = Datos_model.OrdenesDeSeleccion.First();
+
+            var ordenes = Datos_model.OrdenesDePreparacion.Where(x => x.Id_OrdenDeSeleccion == OrdenesDeSeleccion.Id_OrdenDeSeleccion).ToList();
+
+            foreach (var orden in ordenes)
             {
                 var OrdenDePreparacion = Datos_model.OrdenesDePreparacion.Where(x => x.Id_OrdenDePreparacion == orden.Id_OrdenDePreparacion).FirstOrDefault();
 
@@ -15,17 +19,8 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
                 var mercaderia = Datos_model.Mercaderias.Where(x => x.Id_Mercaderia == OrdenDePreparacion.Id_Mercaderia).FirstOrDefault();
                 var depositos = Datos_model.Depositos.Where(x => x.Id_Deposito == OrdenDePreparacion.Id_Deposito).FirstOrDefault();   
                 
-                var estado = Datos_model.OrdenesDePreparacion.Where(x => x.Id_Estado == orden.Id_Estado).FirstOrDefault();
-
-
                 ListViewItem listViewItem1 = new ListViewItem(new string[] {
-
-                    estado.Id_Estado.ToString(),
-                    orden.Id_OrdenDeSeleccion.ToString(),
-                    OrdenDePreparacion.Id_OrdenDePreparacion.ToString(),
-                    OrdenDePreparacion.Prioridad_OrdenDePreparacion.ToString(),
-                    OrdenDePreparacion.Emision_OrdenDePreparacion.ToString(),
-                    depositos.Nombre_Deposito,              
+            
                     mercaderia.Descripcion_Mercaderia,
                     OrdenDePreparacion.Cantidad_OrdenDePreparacion.ToString(),
                     depositos.Coordenadas_Deposito.ToString(),
@@ -63,11 +58,6 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
         private void InitializeComponent()
         {
             ProcesarOrdenesDeSeleccion_listView = new ListView();
-            Estado_OS = new ColumnHeader();
-            Deposito = new ColumnHeader();
-            ID_OS = new ColumnHeader();
-            ID_OP = new ColumnHeader();
-            Item_OP = new ColumnHeader();
             Coordenadas_Item_OP = new ColumnHeader();
             Descripcion_Mercaderia = new ColumnHeader();
             Cantidad = new ColumnHeader();
@@ -82,38 +72,13 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             // ProcesarOrdenesDeSeleccion_listView
             // 
             ProcesarOrdenesDeSeleccion_listView.CheckBoxes = true;
-            ProcesarOrdenesDeSeleccion_listView.Columns.AddRange(new ColumnHeader[] { Estado_OS, Deposito, ID_OS, ID_OP, Item_OP, Coordenadas_Item_OP, Descripcion_Mercaderia, Cantidad });
+            ProcesarOrdenesDeSeleccion_listView.Columns.AddRange(new ColumnHeader[] { Coordenadas_Item_OP, Descripcion_Mercaderia, Cantidad });
             ProcesarOrdenesDeSeleccion_listView.Location = new Point(0, 24);
             ProcesarOrdenesDeSeleccion_listView.Name = "ProcesarOrdenesDeSeleccion_listView";
             ProcesarOrdenesDeSeleccion_listView.Size = new Size(697, 362);
             ProcesarOrdenesDeSeleccion_listView.TabIndex = 1;
             ProcesarOrdenesDeSeleccion_listView.UseCompatibleStateImageBehavior = false;
             ProcesarOrdenesDeSeleccion_listView.View = View.Details;
-            // 
-            // Estado_OS
-            // 
-            Estado_OS.Text = "Estado OS";
-            Estado_OS.Width = 80;
-            // 
-            // Deposito
-            // 
-            Deposito.Text = "Deposito";
-            Deposito.Width = 80;
-            // 
-            // ID_OS
-            // 
-            ID_OS.Text = "ID OS";
-            ID_OS.Width = 50;
-            // 
-            // ID_OP
-            // 
-            ID_OP.Text = "ID OP";
-            ID_OP.Width = 50;
-            // 
-            // Item_OP
-            // 
-            Item_OP.Text = "Item OP";
-            Item_OP.Width = 80;
             // 
             // Coordenadas_Item_OP
             // 

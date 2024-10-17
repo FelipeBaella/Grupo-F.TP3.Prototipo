@@ -11,19 +11,14 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
             foreach (var orden in Datos_model.OrdenesDePreparacion)
             {
                 var cliente = Datos_model.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
-                var mercaderia = Datos_model.Mercaderias.Where(x => x.Id_Mercaderia == orden.Id_Mercaderia).FirstOrDefault();
-                var depositos = Datos_model.Depositos.Where(x => x.Id_Deposito == orden.Id_Deposito).FirstOrDefault();
+                var OrdenesDePreparacionItems = Datos_model.OrdenesDePreparacionItems.Where(x => x.Id_OrdenDePreparacion == orden.Id_OrdenDePreparacion).FirstOrDefault();
+                var DepositoMercaderias = Datos_model.DepositoMercaderias.Where(x => x.Id_DepositoMercaderias == OrdenesDePreparacionItems.Id_DepositoMercaderias).FirstOrDefault();
+                var mercaderia = Datos_model.Mercaderias.Where(x => x.Id_Mercaderia == DepositoMercaderias.Id_Mercaderia).FirstOrDefault();
 
                 ListViewItem listViewItem = new ListViewItem(new string[] {
-
-                    orden.Id_EstadoOP.ToString(),
-                    orden.Id_OrdenDePreparacion.ToString(),
-                    orden.Prioridad_OrdenDePreparacion.ToString(),
-                    orden.Emision_OrdenDePreparacion.ToString(),
                
                     mercaderia.Descripcion_Mercaderia,
-                    orden.Cantidad_OrdenDePreparacion.ToString(),
-                    depositos.Nombre_Deposito,
+                    OrdenesDePreparacionItems.Cantidad_Mercaderia.ToString(),   
 
                 }, -1);
 
@@ -59,10 +54,6 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
         {
             CrearOrdenDeEntrega_label = new Label();
             OrdenesDePreparacion_listView = new ListView();
-            Estado_OP = new ColumnHeader();
-            Deposito = new ColumnHeader();
-            ID_OP = new ColumnHeader();
-            ITEM_OP = new ColumnHeader();
             Descripcion_Mercaderia = new ColumnHeader();
             Cantidad = new ColumnHeader();
             Lista_button = new Button();
@@ -83,8 +74,7 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
             // 
             // OrdenesDePreparacion_listView
             // 
-            OrdenesDePreparacion_listView.CheckBoxes = true;
-            OrdenesDePreparacion_listView.Columns.AddRange(new ColumnHeader[] { Estado_OP, Deposito, ID_OP, ITEM_OP, Descripcion_Mercaderia, Cantidad });
+            OrdenesDePreparacion_listView.Columns.AddRange(new ColumnHeader[] { Descripcion_Mercaderia, Cantidad });
             OrdenesDePreparacion_listView.Font = new Font("Segoe UI", 9F);
             OrdenesDePreparacion_listView.Location = new Point(6, 28);
             OrdenesDePreparacion_listView.Name = "OrdenesDePreparacion_listView";
@@ -92,25 +82,6 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
             OrdenesDePreparacion_listView.TabIndex = 1;
             OrdenesDePreparacion_listView.UseCompatibleStateImageBehavior = false;
             OrdenesDePreparacion_listView.View = View.Details;
-            // 
-            // Estado_OP
-            // 
-            Estado_OP.Text = "Estado OP";
-            Estado_OP.Width = 90;
-            // 
-            // Deposito
-            // 
-            Deposito.Text = "Deposito";
-            Deposito.Width = 100;
-            // 
-            // ID_OP
-            // 
-            ID_OP.Text = "ID OP";
-            // 
-            // ITEM_OP
-            // 
-            ITEM_OP.Text = "Item OP";
-            ITEM_OP.Width = 100;
             // 
             // Descripcion_Mercaderia
             // 
@@ -166,7 +137,7 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
             Margin = new Padding(4);
             Name = "EmpaquetarMercaderias_form";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Crear Orden De Entrega";
+            Text = "Empaquetar Mercaderias";
             Load += EmpaquetarMercaderias_form_Load;
             OPaEmpaquetar_groupBox1.ResumeLayout(false);
             ResumeLayout(false);

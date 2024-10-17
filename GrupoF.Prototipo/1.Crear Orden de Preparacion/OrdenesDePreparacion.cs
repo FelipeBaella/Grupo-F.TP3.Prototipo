@@ -13,7 +13,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         public bool Prioridad_OrdenDePreparacion { get; set; }
         public int Id_Cliente { get; set; }
         public DateTime Emision_OrdenDePreparacion { get; set; }
-        public int Id_Mercaderia { get; set; }
         public int Cantidad_OrdenDePreparacion { get; set; }
         public int Id_Deposito { get; set; }
         public int Id_Transportista { get; set; }

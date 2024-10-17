@@ -7,23 +7,23 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
     {
         private void CargarOrdenesDePreparacion()
         {
-            var OrdenesDeSeleccion = Datos_model.OrdenesDeSeleccion.First();
+            var OrdenesDeSeleccion = Datos_model.OrdenesDeSeleccion.Where(x => x.Id_EstadoOS == 1).First();
 
             var ordenes = Datos_model.OrdenesDePreparacion.Where(x => x.Id_OrdenDeSeleccion == OrdenesDeSeleccion.Id_OrdenDeSeleccion).ToList();
 
             foreach (var orden in ordenes)
             {
                 var OrdenDePreparacion = Datos_model.OrdenesDePreparacion.Where(x => x.Id_OrdenDePreparacion == orden.Id_OrdenDePreparacion).FirstOrDefault();
+                var OrdenesDePreparacionItems = Datos_model.OrdenesDePreparacionItems.Where(x => x.Id_OrdenDePreparacion == orden.Id_OrdenDePreparacion).FirstOrDefault();
+                var DepositoMercaderias = Datos_model.DepositoMercaderias.Where(x => x.Id_DepositoMercaderias == OrdenesDePreparacionItems.Id_DepositoMercaderias).FirstOrDefault();
+                var mercaderia = Datos_model.Mercaderias.Where(x => x.Id_Mercaderia == DepositoMercaderias.Id_Mercaderia).FirstOrDefault();
 
-                var cliente = Datos_model.Clientes.Where(x => x.Id_Cliente == OrdenDePreparacion.Id_Cliente).FirstOrDefault();
-                var mercaderia = Datos_model.Mercaderias.Where(x => x.Id_Mercaderia == OrdenDePreparacion.Id_Mercaderia).FirstOrDefault();
-                var depositos = Datos_model.Depositos.Where(x => x.Id_Deposito == OrdenDePreparacion.Id_Deposito).FirstOrDefault();   
-                
                 ListViewItem listViewItem1 = new ListViewItem(new string[] {
-            
+
+                    DepositoMercaderias.Coordenadas_DepositoMercaderias.ToString(),
                     mercaderia.Descripcion_Mercaderia,
                     OrdenDePreparacion.Cantidad_OrdenDePreparacion.ToString(),
-                    depositos.Coordenadas_Deposito.ToString(),
+                   
                  
                 }, -1);
 
@@ -71,7 +71,6 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             // 
             // ProcesarOrdenesDeSeleccion_listView
             // 
-            ProcesarOrdenesDeSeleccion_listView.CheckBoxes = true;
             ProcesarOrdenesDeSeleccion_listView.Columns.AddRange(new ColumnHeader[] { Coordenadas_Item_OP, Descripcion_Mercaderia, Cantidad });
             ProcesarOrdenesDeSeleccion_listView.Location = new Point(0, 24);
             ProcesarOrdenesDeSeleccion_listView.Name = "ProcesarOrdenesDeSeleccion_listView";
@@ -156,7 +155,6 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             Name = "ProcesarOrdenDeSeleccion_form";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Procesar Orden de Seleccion";
-            Load += ProcesarOrdenDeSeleccion_form_Load;
             OS_groupBox1.ResumeLayout(false);
             OS_groupBox1.PerformLayout();
             ResumeLayout(false);

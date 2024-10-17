@@ -11,7 +11,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         public int Id_Cliente { get; set; }
         public int Dni { get; set; }
         public string NombreApellido { get; set; }
-        public int Cuit { get; set; }
+        public long Cuit { get; set; }
         public string Domicilio { get; set; }
         public string CondIva { get; set; }
     }

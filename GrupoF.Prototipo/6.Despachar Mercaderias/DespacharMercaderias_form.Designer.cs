@@ -25,16 +25,8 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
             {
                 var OrdnesDePreparacion = Datos_model.OrdenesDePreparacion.Where(x => x.Id_Transportista == orden.Id_Transportista).FirstOrDefault();
 
-                var Transportista = Datos_model.Transportistas.Where(x => x.Id_Transportista== OrdnesDePreparacion.Id_Transportista).FirstOrDefault();
-                var mercaderia = Datos_model.Mercaderias.Where(x => x.Id_Mercaderia == OrdnesDePreparacion.Id_Mercaderia).FirstOrDefault();
-                var depositos = Datos_model.Depositos.Where(x => x.Id_Deposito == OrdnesDePreparacion.Id_Deposito).FirstOrDefault();
-
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 
-                    OrdnesDePreparacion.Id_EstadoOP.ToString(),
-                    mercaderia.Descripcion_Mercaderia,
-                    Transportista.Dni_Transportista.ToString(),
-                    OrdnesDePreparacion.Emision_OrdenDePreparacion.ToString(),
                     OrdnesDePreparacion.Id_OrdenDePreparacion.ToString(),
               
                 }, -1);
@@ -70,10 +62,6 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
         private void InitializeComponent()
         {
             listView_OrdenesDeEntrega = new ListView();
-            Estado_OP = new ColumnHeader();
-            Descripcion_Mercaderia = new ColumnHeader();
-            DNI_Transportista = new ColumnHeader();
-            Fecha_Entrega_OP = new ColumnHeader();
             ID_OP = new ColumnHeader();
             IdOrdenDeEntrega_label = new Label();
             DniTransportista_textBox = new TextBox();
@@ -88,33 +76,13 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
             // 
             // listView_OrdenesDeEntrega
             // 
-            listView_OrdenesDeEntrega.Columns.AddRange(new ColumnHeader[] { Estado_OP, Descripcion_Mercaderia, DNI_Transportista, Fecha_Entrega_OP, ID_OP });
+            listView_OrdenesDeEntrega.Columns.AddRange(new ColumnHeader[] { ID_OP });
             listView_OrdenesDeEntrega.Location = new Point(6, 22);
             listView_OrdenesDeEntrega.Name = "listView_OrdenesDeEntrega";
             listView_OrdenesDeEntrega.Size = new Size(537, 391);
             listView_OrdenesDeEntrega.TabIndex = 0;
             listView_OrdenesDeEntrega.UseCompatibleStateImageBehavior = false;
             listView_OrdenesDeEntrega.View = View.Details;
-            // 
-            // Estado_OP
-            // 
-            Estado_OP.Text = "Estado OP";
-            Estado_OP.Width = 80;
-            // 
-            // Descripcion_Mercaderia
-            // 
-            Descripcion_Mercaderia.Text = "Descripcion Mercaderia";
-            Descripcion_Mercaderia.Width = 150;
-            // 
-            // DNI_Transportista
-            // 
-            DNI_Transportista.Text = "DNI Transportista";
-            DNI_Transportista.Width = 130;
-            // 
-            // Fecha_Entrega_OP
-            // 
-            Fecha_Entrega_OP.Text = "Fecha Entrega OP";
-            Fecha_Entrega_OP.Width = 110;
             // 
             // ID_OP
             // 

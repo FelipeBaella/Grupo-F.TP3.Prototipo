@@ -15,7 +15,6 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             foreach (var orden in ordenes)
             {
                 var cliente = Datos_model.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
-                var mercaderia = Datos_model.Mercaderias.Where(x => x.Id_Mercaderia == orden.Id_Mercaderia).FirstOrDefault();
 
                 var prioridad = "";
 
@@ -46,11 +45,13 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         {
             ItemsOP_listView2.Items.Clear();
 
-            var listado = Datos_model.OrdenesDePreparacionMercaderias.Where(x => x.Id_OrdenDePreparacion == Id_ordenDePrparacion).ToList();
+            var listado = Datos_model.OrdenesDePreparacionItems.Where(x => x.Id_OrdenDePreparacion == Id_ordenDePrparacion).ToList();
 
             foreach (var item in listado)
             {
-                var mercaderia = Datos_model.Mercaderias.Where(x => x.Id_Mercaderia == item.Id_Mercaderia).FirstOrDefault();
+                var DepositoMercaderias = Datos_model.DepositoMercaderias.Where(x => x.Id_DepositoMercaderias == item.Id_DepositoMercaderias).FirstOrDefault();
+
+                var mercaderia = Datos_model.Mercaderias.Where(x => x.Id_Mercaderia == DepositoMercaderias.Id_Mercaderia).FirstOrDefault();
 
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 
@@ -116,7 +117,6 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             groupBox3 = new GroupBox();
             Remover_button = new Button();
             Items_OS_listView2 = new ListView();
-            Item = new ColumnHeader();
             Id_OP2 = new ColumnHeader();
             Nombre_Cliente1 = new ColumnHeader();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -333,18 +333,13 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // Items_OS_listView2
             // 
             Items_OS_listView2.CheckBoxes = true;
-            Items_OS_listView2.Columns.AddRange(new ColumnHeader[] { Item, Id_OP2, Nombre_Cliente1 });
+            Items_OS_listView2.Columns.AddRange(new ColumnHeader[] { Id_OP2, Nombre_Cliente1 });
             Items_OS_listView2.Location = new Point(11, 21);
             Items_OS_listView2.Name = "Items_OS_listView2";
             Items_OS_listView2.Size = new Size(348, 214);
             Items_OS_listView2.TabIndex = 1;
             Items_OS_listView2.UseCompatibleStateImageBehavior = false;
             Items_OS_listView2.View = View.Details;
-            // 
-            // Item
-            // 
-            Item.Text = "Item";
-            Item.Width = 70;
             // 
             // Id_OP2
             // 

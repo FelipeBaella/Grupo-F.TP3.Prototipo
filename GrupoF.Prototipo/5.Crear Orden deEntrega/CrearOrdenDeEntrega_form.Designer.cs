@@ -1,7 +1,31 @@
-﻿namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
+﻿using GrupoF.Prototipo.Base_de_Datos;
+using GrupoF.Prototipo.Procesar_ordenes_de_preparacion;
+
+namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
 {
     partial class CrearOrdenDeEntrega_form
     {
+        private void CargarOrdenesDePreparacion()
+        {
+            var ordenes = Datos_model.OrdenesDePreparacion.Where(x => x.Id_EstadoOP == 4).ToList();
+
+            OrdenesDePreparacion_ListView.Items.Clear();
+
+            foreach (var orden in ordenes)
+            {
+                var cliente = Datos_model.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
+
+                ListViewItem listViewItem = new ListViewItem(new string[] {
+
+                        orden.Id_OrdenDePreparacion.ToString(),
+
+                }, -1);
+
+                OrdenesDePreparacion_ListView.Items.Add(listViewItem);
+            }
+
+        }
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -31,9 +55,7 @@
             OPPreparadasgroupBox1 = new GroupBox();
             Salir_button2 = new Button();
             EnviadoADespacho_button1 = new Button();
-            listView1 = new ListView();
-            Estado_OP = new ColumnHeader();
-            Deposito = new ColumnHeader();
+            OrdenesDePreparacion_ListView = new ListView();
             ID_OP = new ColumnHeader();
             OPPreparadasgroupBox1.SuspendLayout();
             SuspendLayout();
@@ -42,7 +64,7 @@
             // 
             OPPreparadasgroupBox1.Controls.Add(Salir_button2);
             OPPreparadasgroupBox1.Controls.Add(EnviadoADespacho_button1);
-            OPPreparadasgroupBox1.Controls.Add(listView1);
+            OPPreparadasgroupBox1.Controls.Add(OrdenesDePreparacion_ListView);
             OPPreparadasgroupBox1.Location = new Point(0, 0);
             OPPreparadasgroupBox1.Name = "OPPreparadasgroupBox1";
             OPPreparadasgroupBox1.Size = new Size(275, 410);
@@ -70,25 +92,15 @@
             EnviadoADespacho_button1.UseVisualStyleBackColor = true;
             EnviadoADespacho_button1.Click += EnviadoADespacho_button1_Click;
             // 
-            // listView1
+            // OrdenesDePreparacion_ListView
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { Estado_OP, Deposito, ID_OP });
-            listView1.Location = new Point(6, 22);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(257, 343);
-            listView1.TabIndex = 0;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
-            // 
-            // Estado_OP
-            // 
-            Estado_OP.Text = "Estado OP";
-            Estado_OP.Width = 80;
-            // 
-            // Deposito
-            // 
-            Deposito.Text = "Deposito";
-            Deposito.Width = 80;
+            OrdenesDePreparacion_ListView.Columns.AddRange(new ColumnHeader[] { ID_OP });
+            OrdenesDePreparacion_ListView.Location = new Point(6, 22);
+            OrdenesDePreparacion_ListView.Name = "OrdenesDePreparacion_ListView";
+            OrdenesDePreparacion_ListView.Size = new Size(257, 343);
+            OrdenesDePreparacion_ListView.TabIndex = 0;
+            OrdenesDePreparacion_ListView.UseCompatibleStateImageBehavior = false;
+            OrdenesDePreparacion_ListView.View = View.Details;
             // 
             // ID_OP
             // 
@@ -118,5 +130,8 @@
         private ColumnHeader Estado_OP;
         private ColumnHeader Deposito;
         private ColumnHeader ID_OP;
+        private ListView listView;
+        private ListView OrdenesDePreparacion_listView;
+        private ListView OrdenesDePreparacion_ListView;
     }
 }

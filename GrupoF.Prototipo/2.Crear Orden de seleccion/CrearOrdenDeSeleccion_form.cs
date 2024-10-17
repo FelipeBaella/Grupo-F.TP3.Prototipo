@@ -33,28 +33,14 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
         private void button_Crear_Orden_Click(object sender, EventArgs e)
         {
-            string Id_Orden = IdOrden_textBox.Text.Trim();
+            var items = Items_OS_listView2.Items.Count;
 
-            if (Id_Orden == "")
+            if(items < 1)
             {
-                MessageBox.Show("Id no puede estar vacio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                IdOrden_textBox.Focus();
+                MessageBox.Show("Seleccione al menos 1 item para la orden de seleccion.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Items_OS_listView2.Focus();
                 return;
-            }
-
-            if (!Id_Orden.All(char.IsDigit))
-            {
-                MessageBox.Show("Id debe ser un numero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                IdOrden_textBox.Focus();
-                return;
-            }
-
-            if (!Datos_model.OrdenesDePreparacion.Any(o => o.Id_OrdenDePreparacion == int.Parse(Id_Orden)))
-            {
-                MessageBox.Show("Debes seleccionar una orden valida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                IdOrden_textBox.Focus();
-                return;
-            }
+            }      
 
             MessageBox.Show("Se creo la orden de seleccion con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -83,11 +69,8 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             {
                 if (item.Checked)
                 {
-                    var nuevo = cantidad + 1;
-
                     ListViewItem listViewItem = new ListViewItem(new string[] {
 
-                        (cantidad + i).ToString(), //0
                         item.SubItems[0].Text, //1
                         item.SubItems[3].Text,//2
 
@@ -114,10 +97,10 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
                 {
                     ListViewItem listViewItem = new ListViewItem(new string[] {
 
-                        item.SubItems[1].Text, //0
-                        item.SubItems[3].Text, //1
-                        item.SubItems[4].Text, //2
-                        item.SubItems[2].Text, //3
+                        item.SubItems[0].Text, //0
+                        item.SubItems[2].Text, //1
+                        item.SubItems[3].Text, //2
+                        item.SubItems[1].Text, //3
 
                     }, -1);
 

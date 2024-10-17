@@ -33,30 +33,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
         }
 
         private void button_ProcesarOrdenDeSeleccion_Click(object sender, EventArgs e)
-        {
-            string Id_Orden = OS_Pendientes_comboBox1.Text.Trim();
-
-            if (Id_Orden == "")
-            {
-                MessageBox.Show("Id no puede estar vacio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                OS_Pendientes_comboBox1.Focus();
-                return;
-            }
-
-            if (!Id_Orden.All(char.IsDigit))
-            {
-                MessageBox.Show("Id debe ser un numero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                OS_Pendientes_comboBox1.Focus();
-                return;
-            }
-
-            if (!Datos_model.OrdenesDeSeleccion.Any(o => o.Id_OrdenDeSeleccion == int.Parse(Id_Orden)))
-            {
-                MessageBox.Show("Debes seleccionar una orden valida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                OS_Pendientes_comboBox1.Focus();
-                return;
-            }
-
+        {      
             MessageBox.Show("Se creo la orden de seleccion con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             this.Hide();
@@ -65,9 +42,6 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             nuevaForma.Show();
         }
 
-        private void ProcesarOrdenDeSeleccion_form_Load(object sender, EventArgs e)
-        {
 
-        }
     }
 }

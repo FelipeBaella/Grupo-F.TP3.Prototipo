@@ -31,22 +31,79 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             CargarOrdenesDePreparacion(listview);
         }
 
+        private void CargarOrdenesDePreparacion(List<OrdenesDePreparacion> ordenes)
+        {
+            OrdenesDePreparacion_ListView.Items.Clear();
+
+            foreach (var orden in ordenes)
+            {
+                var cliente = Datos_model.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
+
+                var prioridad = "";
+
+                if (orden.Prioridad_OrdenDePreparacion == true)
+                {
+                    prioridad = "Si";
+                }
+                else
+                {
+                    prioridad = "No";
+                }
+
+                ListViewItem listViewItem = new ListViewItem(new string[] {
+
+                        orden.Id_OrdenDePreparacion.ToString(),
+                        prioridad,
+                        orden.Emision_OrdenDePreparacion.ToString(),
+                        cliente.NombreApellido,
+
+                }, -1);
+
+                OrdenesDePreparacion_ListView.Items.Add(listViewItem);
+            }
+
+        }
+
+        private void CargarItemsOrdenesDePreparacion(int Id_ordenDePrparacion)
+        {
+            ItemsOP_listView2.Items.Clear();
+
+            var listado = Datos_model.OrdenesDePreparacionItems.Where(x => x.Id_OrdenDePreparacion == Id_ordenDePrparacion).ToList();
+
+            foreach (var item in listado)
+            {
+                var DepositoMercaderias = Datos_model.DepositoMercaderias.Where(x => x.Id_DepositoMercaderias == item.Id_DepositoMercaderias).FirstOrDefault();
+
+                var mercaderia = Datos_model.Mercaderias.Where(x => x.Id_Mercaderia == DepositoMercaderias.Id_Mercaderia).FirstOrDefault();
+
+                ListViewItem listViewItem = new ListViewItem(new string[] {
+
+                        item.Id_OrdenDePreparacionMercaderia.ToString(),
+                        mercaderia.Descripcion_Mercaderia,
+                        item.Cantidad_Mercaderia.ToString(),
+
+                }, -1);
+
+                ItemsOP_listView2.Items.Add(listViewItem);
+            }
+        }
+
         private void button_Crear_Orden_Click(object sender, EventArgs e)
         {
             var items = Items_OS_listView2.Items.Count;
 
-            if(items < 1)
+            if (items < 1)
             {
                 MessageBox.Show("Seleccione al menos 1 item para la orden de seleccion.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Items_OS_listView2.Focus();
                 return;
-            }      
+            }
 
             MessageBox.Show("Se creo la orden de seleccion con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             this.Hide();
 
-            Menu_form nuevaForma = new Menu_form();
+            CrearOrdenDeSeleccion_form nuevaForma = new CrearOrdenDeSeleccion_form();
             nuevaForma.Show();
         }
 
@@ -59,7 +116,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             nuevaForma.Show();
         }
 
-        private void Agregar_button1_Click(object sender, EventArgs e)
+        private void Agregar_button_Click(object sender, EventArgs e)
         {
             int cantidad = Items_OS_listView2.Items.Count;
 
@@ -143,13 +200,13 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
                         CargarItemsOrdenesDePreparacion(int.Parse(item.SubItems[0].Text));
                         break;
                     }
-                }             
+                }
             }
         }
 
 
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_Click(object sender, EventArgs e)
         {
             var listview = Datos_model.OrdenesDePreparacion.Where(x => x.Id_EstadoOP == 2).ToList();
 
@@ -206,9 +263,25 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void agregarTodo_button_Click(object sender, EventArgs e)
         {
+            foreach (ListViewItem item in OrdenesDePreparacion_ListView.Items)
+            {
+                ListViewItem listViewItem = new ListViewItem(new string[] {
 
+                        item.SubItems[0].Text, //1
+                        item.SubItems[3].Text,//2
+
+
+                        item.SubItems[1].Text, //3
+                        item.SubItems[2].Text, //4
+
+                    }, -1);
+
+                Items_OS_listView2.Items.Add(listViewItem);
+
+                OrdenesDePreparacion_ListView.Items.Remove(item);
+            }
         }
     }
 }

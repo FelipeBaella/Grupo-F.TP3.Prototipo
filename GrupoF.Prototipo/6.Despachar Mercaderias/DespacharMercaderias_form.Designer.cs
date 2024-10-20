@@ -6,35 +6,6 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 {
     partial class DespacharMercaderias_form
     {
-        private void CargarOrdenesDeEntrega()
-        {
-            listView_OrdenesDeEntrega.Items.Clear();
-
-            var ordenes = Datos_model.OrdenesDePreparacion.Where(x => x.Id_Transportista == 0).ToList();
-
-            var dni_Transportista = DniTransportista_textBox.Text;
-
-            if(dni_Transportista != "")
-            {
-                var transportista = Datos_model.Transportistas.Where(x => x.Dni_Transportista == int.Parse(dni_Transportista)).FirstOrDefault();
-
-                ordenes = Datos_model.OrdenesDePreparacion.Where(x => x.Id_Transportista == transportista.Id_Transportista).ToList();
-            }
-   
-            foreach (var orden in ordenes) 
-            {
-                var OrdnesDePreparacion = Datos_model.OrdenesDePreparacion.Where(x => x.Id_Transportista == orden.Id_Transportista).FirstOrDefault();
-
-                ListViewItem listViewItem = new ListViewItem(new string[] {
-
-                    OrdnesDePreparacion.Id_OrdenDePreparacion.ToString(),
-              
-                }, -1);
-
-                listView_OrdenesDeEntrega.Items.Add(listViewItem);
-            }
-        }
-
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -69,7 +40,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
             VolverAlMenu_button = new Button();
             Datos_TrasnportistagroupBox1 = new GroupBox();
             OPaDespachar_groupBox2 = new GroupBox();
-            EmitirRemito_button1 = new Button();
+            EmitirRemito_button = new Button();
             Datos_TrasnportistagroupBox1.SuspendLayout();
             OPaDespachar_groupBox2.SuspendLayout();
             SuspendLayout();
@@ -141,7 +112,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
             // 
             // OPaDespachar_groupBox2
             // 
-            OPaDespachar_groupBox2.Controls.Add(EmitirRemito_button1);
+            OPaDespachar_groupBox2.Controls.Add(EmitirRemito_button);
             OPaDespachar_groupBox2.Controls.Add(listView_OrdenesDeEntrega);
             OPaDespachar_groupBox2.Location = new Point(318, 33);
             OPaDespachar_groupBox2.Name = "OPaDespachar_groupBox2";
@@ -150,15 +121,15 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
             OPaDespachar_groupBox2.TabStop = false;
             OPaDespachar_groupBox2.Text = "Ordenes de Preparacion a Despachar";
             // 
-            // EmitirRemito_button1
+            // EmitirRemito_button
             // 
-            EmitirRemito_button1.Location = new Point(398, 419);
-            EmitirRemito_button1.Name = "EmitirRemito_button1";
-            EmitirRemito_button1.Size = new Size(145, 23);
-            EmitirRemito_button1.TabIndex = 1;
-            EmitirRemito_button1.Text = "Emitir Remito";
-            EmitirRemito_button1.UseVisualStyleBackColor = true;
-            EmitirRemito_button1.Click += EmitirRemito_button1_Click;
+            EmitirRemito_button.Location = new Point(398, 419);
+            EmitirRemito_button.Name = "EmitirRemito_button";
+            EmitirRemito_button.Size = new Size(145, 23);
+            EmitirRemito_button.TabIndex = 1;
+            EmitirRemito_button.Text = "Emitir Remito";
+            EmitirRemito_button.UseVisualStyleBackColor = true;
+            EmitirRemito_button.Click += EmitirRemito_button_Click;
             // 
             // DespacharMercaderias_form
             // 
@@ -170,7 +141,6 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
             Name = "DespacharMercaderias_form";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Despachar Mercaderias";
-            Load += DespacharMercaderias_form_Load;
             Datos_TrasnportistagroupBox1.ResumeLayout(false);
             Datos_TrasnportistagroupBox1.PerformLayout();
             OPaDespachar_groupBox2.ResumeLayout(false);
@@ -192,6 +162,6 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
         private Button VolverAlMenu_button;
         private GroupBox Datos_TrasnportistagroupBox1;
         private GroupBox OPaDespachar_groupBox2;
-        private Button EmitirRemito_button1;
+        private Button EmitirRemito_button;
     }
 }

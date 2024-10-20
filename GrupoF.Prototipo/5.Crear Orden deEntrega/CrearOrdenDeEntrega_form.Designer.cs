@@ -5,27 +5,6 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
 {
     partial class CrearOrdenDeEntrega_form
     {
-        private void CargarOrdenesDePreparacion()
-        {
-            var ordenes = Datos_model.OrdenesDePreparacion.Where(x => x.Id_EstadoOP == 4).ToList();
-
-            OrdenesDePreparacion_ListView.Items.Clear();
-
-            foreach (var orden in ordenes)
-            {
-                var cliente = Datos_model.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
-
-                ListViewItem listViewItem = new ListViewItem(new string[] {
-
-                        orden.Id_OrdenDePreparacion.ToString(),
-
-                }, -1);
-
-                OrdenesDePreparacion_ListView.Items.Add(listViewItem);
-            }
-
-        }
-
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -54,7 +33,7 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
         {
             OPPreparadasgroupBox1 = new GroupBox();
             Salir_button2 = new Button();
-            EnviadoADespacho_button1 = new Button();
+            EnviadoADespacho_button = new Button();
             OrdenesDePreparacion_ListView = new ListView();
             ID_OP = new ColumnHeader();
             OPPreparadasgroupBox1.SuspendLayout();
@@ -63,7 +42,7 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
             // OPPreparadasgroupBox1
             // 
             OPPreparadasgroupBox1.Controls.Add(Salir_button2);
-            OPPreparadasgroupBox1.Controls.Add(EnviadoADespacho_button1);
+            OPPreparadasgroupBox1.Controls.Add(EnviadoADespacho_button);
             OPPreparadasgroupBox1.Controls.Add(OrdenesDePreparacion_ListView);
             OPPreparadasgroupBox1.Location = new Point(0, 0);
             OPPreparadasgroupBox1.Name = "OPPreparadasgroupBox1";
@@ -82,15 +61,15 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
             Salir_button2.UseVisualStyleBackColor = true;
             Salir_button2.Click += Salir_button2_Click;
             // 
-            // EnviadoADespacho_button1
+            // EnviadoADespacho_button
             // 
-            EnviadoADespacho_button1.Location = new Point(32, 371);
-            EnviadoADespacho_button1.Name = "EnviadoADespacho_button1";
-            EnviadoADespacho_button1.Size = new Size(131, 29);
-            EnviadoADespacho_button1.TabIndex = 1;
-            EnviadoADespacho_button1.Text = "Enviado a Despacho";
-            EnviadoADespacho_button1.UseVisualStyleBackColor = true;
-            EnviadoADespacho_button1.Click += EnviadoADespacho_button1_Click;
+            EnviadoADespacho_button.Location = new Point(32, 371);
+            EnviadoADespacho_button.Name = "EnviadoADespacho_button";
+            EnviadoADespacho_button.Size = new Size(131, 29);
+            EnviadoADespacho_button.TabIndex = 1;
+            EnviadoADespacho_button.Text = "Enviado a Despacho";
+            EnviadoADespacho_button.UseVisualStyleBackColor = true;
+            EnviadoADespacho_button.Click += EnviadoADespacho_button_Click;
             // 
             // OrdenesDePreparacion_ListView
             // 
@@ -126,7 +105,7 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
         private GroupBox OPPreparadasgroupBox1;
         private ListView listView1;
         private Button Salir_button2;
-        private Button EnviadoADespacho_button1;
+        private Button EnviadoADespacho_button;
         private ColumnHeader Estado_OP;
         private ColumnHeader Deposito;
         private ColumnHeader ID_OP;

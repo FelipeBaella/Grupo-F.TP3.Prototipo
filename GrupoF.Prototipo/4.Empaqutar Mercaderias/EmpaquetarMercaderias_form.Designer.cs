@@ -6,26 +6,6 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 {
     partial class EmpaquetarMercaderias_form
     {
-        private void CargarOrdenesDePreparacion()
-        {
-            foreach (var orden in Datos_model.OrdenesDePreparacion)
-            {
-                var cliente = Datos_model.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
-                var OrdenesDePreparacionItems = Datos_model.OrdenesDePreparacionItems.Where(x => x.Id_OrdenDePreparacion == orden.Id_OrdenDePreparacion).FirstOrDefault();
-                var DepositoMercaderias = Datos_model.DepositoMercaderias.Where(x => x.Id_DepositoMercaderias == OrdenesDePreparacionItems.Id_DepositoMercaderias).FirstOrDefault();
-                var mercaderia = Datos_model.Mercaderias.Where(x => x.Id_Mercaderia == DepositoMercaderias.Id_Mercaderia).FirstOrDefault();
-
-                ListViewItem listViewItem = new ListViewItem(new string[] {
-               
-                    mercaderia.Descripcion_Mercaderia,
-                    OrdenesDePreparacionItems.Cantidad_Mercaderia.ToString(),   
-
-                }, -1);
-
-                OrdenesDePreparacion_listView.Items.Add(listViewItem);
-            }
-        }
-
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -101,7 +81,7 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
             Lista_button.TabIndex = 2;
             Lista_button.Text = "Lista";
             Lista_button.UseVisualStyleBackColor = true;
-            Lista_button.Click += button_CrearOrdenDeEntrega_Click;
+            Lista_button.Click += button_empaquetar_Click;
             // 
             // VolverAlMenu_button
             // 

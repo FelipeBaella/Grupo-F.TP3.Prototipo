@@ -8,63 +8,6 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
     partial class CrearOrdenDeSeleccion_form
     {
-        private void CargarOrdenesDePreparacion(List<OrdenesDePreparacion> ordenes)
-        {
-            OrdenesDePreparacion_ListView.Items.Clear();
-
-            foreach (var orden in ordenes)
-            {
-                var cliente = Datos_model.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
-
-                var prioridad = "";
-
-                if (orden.Prioridad_OrdenDePreparacion == true)
-                {
-                    prioridad = "Si";
-                }
-                else
-                {
-                    prioridad = "No";
-                }
-
-                ListViewItem listViewItem = new ListViewItem(new string[] {
-
-                        orden.Id_OrdenDePreparacion.ToString(),
-                        prioridad,
-                        orden.Emision_OrdenDePreparacion.ToString(),
-                        cliente.NombreApellido,
-
-                }, -1);
-
-                OrdenesDePreparacion_ListView.Items.Add(listViewItem);
-            }
-
-        }
-
-        private void CargarItemsOrdenesDePreparacion(int Id_ordenDePrparacion)
-        {
-            ItemsOP_listView2.Items.Clear();
-
-            var listado = Datos_model.OrdenesDePreparacionItems.Where(x => x.Id_OrdenDePreparacion == Id_ordenDePrparacion).ToList();
-
-            foreach (var item in listado)
-            {
-                var DepositoMercaderias = Datos_model.DepositoMercaderias.Where(x => x.Id_DepositoMercaderias == item.Id_DepositoMercaderias).FirstOrDefault();
-
-                var mercaderia = Datos_model.Mercaderias.Where(x => x.Id_Mercaderia == DepositoMercaderias.Id_Mercaderia).FirstOrDefault();
-
-                ListViewItem listViewItem = new ListViewItem(new string[] {
-
-                        item.Id_OrdenDePreparacionMercaderia.ToString(),
-                        mercaderia.Descripcion_Mercaderia,
-                        item.Cantidad_Mercaderia.ToString(),
-
-                }, -1);
-
-                ItemsOP_listView2.Items.Add(listViewItem);
-            }
-        }
-
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -99,10 +42,10 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             CrearOrden_button = new Button();
             VolverAlMenu_button = new Button();
             groupBox1 = new GroupBox();
-            seleccionarTodo_button = new Button();
+            agregarTodo_button = new Button();
             Ver_button = new Button();
             filtrar_groupBox4 = new GroupBox();
-            button1 = new Button();
+            button = new Button();
             comboBox1 = new ComboBox();
             Agregar_button = new Button();
             groupBox2 = new GroupBox();
@@ -183,7 +126,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(seleccionarTodo_button);
+            groupBox1.Controls.Add(agregarTodo_button);
             groupBox1.Controls.Add(Ver_button);
             groupBox1.Controls.Add(filtrar_groupBox4);
             groupBox1.Controls.Add(Agregar_button);
@@ -196,18 +139,18 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             groupBox1.TabStop = false;
             groupBox1.Text = "Ordenes de Preparacion Pendientes";
             // 
-            // seleccionarTodo_button
+            // agregarTodo_button
             // 
-            seleccionarTodo_button.Location = new Point(3, 453);
-            seleccionarTodo_button.Name = "seleccionarTodo_button";
-            seleccionarTodo_button.Size = new Size(132, 29);
-            seleccionarTodo_button.TabIndex = 9;
-            seleccionarTodo_button.Text = "Seleccionar Todo";
-            seleccionarTodo_button.Click += button2_Click;
+            agregarTodo_button.Location = new Point(502, 453);
+            agregarTodo_button.Name = "agregarTodo_button";
+            agregarTodo_button.Size = new Size(103, 29);
+            agregarTodo_button.TabIndex = 9;
+            agregarTodo_button.Text = "Agregar Todo";
+            agregarTodo_button.Click += agregarTodo_button_Click;
             // 
             // Ver_button
             // 
-            Ver_button.Location = new Point(427, 453);
+            Ver_button.Location = new Point(316, 453);
             Ver_button.Name = "Ver_button";
             Ver_button.Size = new Size(84, 29);
             Ver_button.TabIndex = 2;
@@ -216,7 +159,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // 
             // filtrar_groupBox4
             // 
-            filtrar_groupBox4.Controls.Add(button1);
+            filtrar_groupBox4.Controls.Add(button);
             filtrar_groupBox4.Controls.Add(comboBox1);
             filtrar_groupBox4.Location = new Point(3, 21);
             filtrar_groupBox4.Name = "filtrar_groupBox4";
@@ -225,15 +168,15 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             filtrar_groupBox4.TabStop = false;
             filtrar_groupBox4.Text = "Filtros";
             // 
-            // button1
+            // button
             // 
-            button1.Location = new Point(234, 21);
-            button1.Name = "button1";
-            button1.Size = new Size(83, 25);
-            button1.TabIndex = 1;
-            button1.Text = "Aplicar";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            button.Location = new Point(234, 21);
+            button.Name = "button";
+            button.Size = new Size(83, 25);
+            button.TabIndex = 1;
+            button.Text = "Aplicar";
+            button.UseVisualStyleBackColor = true;
+            button.Click += button_Click;
             // 
             // comboBox1
             // 
@@ -247,13 +190,13 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // Agregar_button
             // 
             Agregar_button.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Agregar_button.Location = new Point(517, 453);
+            Agregar_button.Location = new Point(406, 453);
             Agregar_button.Name = "Agregar_button";
             Agregar_button.Size = new Size(90, 29);
             Agregar_button.TabIndex = 7;
             Agregar_button.Text = "Agregar";
             Agregar_button.UseVisualStyleBackColor = true;
-            Agregar_button.Click += Agregar_button1_Click;
+            Agregar_button.Click += Agregar_button_Click;
             // 
             // groupBox2
             // 
@@ -417,9 +360,9 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         private GroupBox filtrar_groupBox4;
         private ComboBox comboBox1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private Button button1;
+        private Button button;
         private ColumnHeader VER;
         private Button Ver_button;
-        private Button seleccionarTodo_button;
+        private Button agregarTodo_button;
     }
 }

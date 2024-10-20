@@ -23,6 +23,35 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
             CargarOrdenesDeEntrega();
         }
 
+        private void CargarOrdenesDeEntrega()
+        {
+            listView_OrdenesDeEntrega.Items.Clear();
+
+            var ordenes = Datos_model.OrdenesDePreparacion.Where(x => x.Id_Transportista == 0).ToList();
+
+            var dni_Transportista = DniTransportista_textBox.Text;
+
+            if (dni_Transportista != "")
+            {
+                var transportista = Datos_model.Transportistas.Where(x => x.Dni_Transportista == int.Parse(dni_Transportista)).FirstOrDefault();
+
+                ordenes = Datos_model.OrdenesDePreparacion.Where(x => x.Id_Transportista == transportista.Id_Transportista).ToList();
+            }
+
+            foreach (var orden in ordenes)
+            {
+                var OrdnesDePreparacion = Datos_model.OrdenesDePreparacion.Where(x => x.Id_Transportista == orden.Id_Transportista).FirstOrDefault();
+
+                ListViewItem listViewItem = new ListViewItem(new string[] {
+
+                    OrdnesDePreparacion.Id_OrdenDePreparacion.ToString(),
+
+                }, -1);
+
+                listView_OrdenesDeEntrega.Items.Add(listViewItem);
+            }
+        }
+
         private void ProcesarOrdenDeEntrega_button_Click(object sender, EventArgs e)
         {
             string Id_Transportista = DniTransportista_textBox.Text.Trim();
@@ -60,37 +89,15 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
             nuevaForma.Show();
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DespacharMercaderias_form_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void EmitirRemito_button1_Click(object sender, EventArgs e)
+        private void EmitirRemito_button_Click(object sender, EventArgs e)
         {
             string Id_Transportista = DniTransportista_textBox.Text.Trim();
 
-            var Id_Remito = Datos_model.OrdenesDePreparacion
-           .Where(o => o.Id_OrdenDePreparacion == int.Parse(Id_Transportista))
-           .Select(o => o.Id_Remito)
-           .FirstOrDefault();
-
-            if (Id_Remito == null)
-            {
-                MessageBox.Show("Para procesar la Orden de Entrega, primero se le deberá crear un remito a la Orden de Preparación asociada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                DniTransportista_textBox.Focus();
-                return;
-            }
-
-            MessageBox.Show("Se creo la orden de seleccion con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Se emitio el remito con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             this.Hide();
 
-            Menu_form nuevaForma = new Menu_form();
+            DespacharMercaderias_form nuevaForma = new DespacharMercaderias_form();
             nuevaForma.Show();
         }
     }

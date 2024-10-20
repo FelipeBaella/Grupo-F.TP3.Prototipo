@@ -5,32 +5,6 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 {
     partial class ProcesarOrdenDeSeleccion_form
     {
-        private void CargarOrdenesDePreparacion()
-        {
-            var OrdenesDeSeleccion = Datos_model.OrdenesDeSeleccion.Where(x => x.Id_EstadoOS == 1).First();
-
-            var ordenes = Datos_model.OrdenesDePreparacion.Where(x => x.Id_OrdenDeSeleccion == OrdenesDeSeleccion.Id_OrdenDeSeleccion).ToList();
-
-            foreach (var orden in ordenes)
-            {
-                var OrdenDePreparacion = Datos_model.OrdenesDePreparacion.Where(x => x.Id_OrdenDePreparacion == orden.Id_OrdenDePreparacion).FirstOrDefault();
-                var OrdenesDePreparacionItems = Datos_model.OrdenesDePreparacionItems.Where(x => x.Id_OrdenDePreparacion == orden.Id_OrdenDePreparacion).FirstOrDefault();
-                var DepositoMercaderias = Datos_model.DepositoMercaderias.Where(x => x.Id_DepositoMercaderias == OrdenesDePreparacionItems.Id_DepositoMercaderias).FirstOrDefault();
-                var mercaderia = Datos_model.Mercaderias.Where(x => x.Id_Mercaderia == DepositoMercaderias.Id_Mercaderia).FirstOrDefault();
-
-                ListViewItem listViewItem1 = new ListViewItem(new string[] {
-
-                    DepositoMercaderias.Coordenadas_DepositoMercaderias.ToString(),
-                    mercaderia.Descripcion_Mercaderia,
-                    OrdenDePreparacion.Cantidad_OrdenDePreparacion.ToString(),
-                   
-                 
-                }, -1);
-
-                ProcesarOrdenesDeSeleccion_listView.Items.Add(listViewItem1);
-            }
-        }
-
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -65,7 +39,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             VolverAlMenu_button = new Button();
             OS_groupBox1 = new GroupBox();
             label1 = new Label();
-            OS_Pendientes_comboBox1 = new ComboBox();
+            OS_Pendientes_comboBox = new ComboBox();
             OS_groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -117,7 +91,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             // OS_groupBox1
             // 
             OS_groupBox1.Controls.Add(label1);
-            OS_groupBox1.Controls.Add(OS_Pendientes_comboBox1);
+            OS_groupBox1.Controls.Add(OS_Pendientes_comboBox);
             OS_groupBox1.Controls.Add(ProcesarOrdenesDeSeleccion_listView);
             OS_groupBox1.Controls.Add(VolverAlMenu_button);
             OS_groupBox1.Controls.Add(ProcesarOrdenDeSeleccion_button);
@@ -138,13 +112,14 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             label1.TabIndex = 19;
             label1.Text = "Ordenes de Seleccion Pendientes";
             // 
-            // OS_Pendientes_comboBox1
+            // OS_Pendientes_comboBox
             // 
-            OS_Pendientes_comboBox1.FormattingEnabled = true;
-            OS_Pendientes_comboBox1.Location = new Point(6, 431);
-            OS_Pendientes_comboBox1.Name = "OS_Pendientes_comboBox1";
-            OS_Pendientes_comboBox1.Size = new Size(337, 25);
-            OS_Pendientes_comboBox1.TabIndex = 19;
+            OS_Pendientes_comboBox.FormattingEnabled = true;
+            OS_Pendientes_comboBox.Location = new Point(6, 431);
+            OS_Pendientes_comboBox.Name = "OS_Pendientes_comboBox";
+            OS_Pendientes_comboBox.Size = new Size(337, 25);
+            OS_Pendientes_comboBox.TabIndex = 19;
+            OS_Pendientes_comboBox.SelectedIndexChanged += OS_Pendientes_comboBox1_SelectedIndexChanged;
             // 
             // ProcesarOrdenDeSeleccion_form
             // 
@@ -174,6 +149,6 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
         private Button VolverAlMenu_button;
         private GroupBox OS_groupBox1;
         private Label label1;
-        private ComboBox OS_Pendientes_comboBox1;
+        private ComboBox OS_Pendientes_comboBox;
     }
 }

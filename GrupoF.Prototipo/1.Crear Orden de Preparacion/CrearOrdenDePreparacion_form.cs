@@ -15,6 +15,65 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             CargarDepositos();
         }
 
+        private void CargarDepositos()
+        {
+            // Limpiamos el ComboBox por si ya tiene elementos cargados
+            DescripcionDeposito_Combobox.Items.Clear();
+
+            // Iteramos sobre la lista de depósitos y agregamos los nombres al ComboBox
+            foreach (var deposito in Datos_model.Depositos)
+            {
+                DescripcionDeposito_Combobox.Items.Add(deposito.Nombre_Deposito);
+            }
+
+            // Si lo deseas, puedes seleccionar el primer elemento como predeterminado
+            if (DescripcionDeposito_Combobox.Items.Count > 0)
+            {
+                DescripcionDeposito_Combobox.SelectedIndex = 0;
+            }
+        }
+
+        private void CargarMercaderias()
+        {
+            var deposito = Datos_model.Depositos.Where(x => x.Nombre_Deposito == DescripcionDeposito_Combobox.SelectedItem).FirstOrDefault();
+
+            var cliente = 0;
+
+            if (IdCliente_textbox.Text != "")
+            {
+                cliente = int.Parse(IdCliente_textbox.Text);
+            }
+
+            var depositoMercaderias = Datos_model.DepositoMercaderias
+                .Where(x => x.Id_Deposito == deposito.Id_Deposito)
+                .Where(x => x.Id_Cliente == cliente)
+                .Select(x => x.Id_Mercaderia)
+                .Distinct()
+                .ToList();
+
+            var mercaderias = new List<string>();
+
+            foreach (var item in depositoMercaderias)
+            {
+                var mercaderia = Datos_model.Mercaderias.Where(x => x.Id_Mercaderia == item).FirstOrDefault();
+
+                mercaderias.Add(mercaderia.Descripcion_Mercaderia);
+            }
+
+            DescripcionMercaderia_ComboBox.Items.Clear();
+
+            foreach (var mercaderia in mercaderias)
+            {
+                DescripcionMercaderia_ComboBox.Items.Add(mercaderia);
+            }
+
+            if (DescripcionMercaderia_ComboBox.Items.Count > 0)
+            {
+                DescripcionMercaderia_ComboBox.SelectedIndex = 0;
+            }
+        }
+
+
         private void button_aceptar_click(object sender, EventArgs e)
         {
 
@@ -86,9 +145,9 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
             MessageBox.Show("Se creo la orden de preparacion con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            this.Hide();
+            this.Refresh();
 
-            Menu_form nuevaForma = new Menu_form();
+            CrearOrdenDePreparacion_form nuevaForma = new CrearOrdenDePreparacion_form();
             nuevaForma.Show();
 
         }

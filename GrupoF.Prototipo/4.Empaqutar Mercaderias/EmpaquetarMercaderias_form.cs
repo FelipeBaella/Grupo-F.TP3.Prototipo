@@ -24,6 +24,26 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
             CargarOrdenesDePreparacion();
         }
 
+        private void CargarOrdenesDePreparacion()
+        {
+            foreach (var orden in Datos_model.OrdenesDePreparacion)
+            {
+                var cliente = Datos_model.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
+                var OrdenesDePreparacionItems = Datos_model.OrdenesDePreparacionItems.Where(x => x.Id_OrdenDePreparacion == orden.Id_OrdenDePreparacion).FirstOrDefault();
+                var DepositoMercaderias = Datos_model.DepositoMercaderias.Where(x => x.Id_DepositoMercaderias == OrdenesDePreparacionItems.Id_DepositoMercaderias).FirstOrDefault();
+                var mercaderia = Datos_model.Mercaderias.Where(x => x.Id_Mercaderia == DepositoMercaderias.Id_Mercaderia).FirstOrDefault();
+
+                ListViewItem listViewItem = new ListViewItem(new string[] {
+
+                    mercaderia.Descripcion_Mercaderia,
+                    OrdenesDePreparacionItems.Cantidad_Mercaderia.ToString(),
+
+                }, -1);
+
+                OrdenesDePreparacion_listView.Items.Add(listViewItem);
+            }
+        }
+
         private void VolverAlMenu_button_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -33,40 +53,14 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
             nuevaForma.Show();
         }
 
-        private void button_CrearOrdenDeEntrega_Click(object sender, EventArgs e)
+        private void button_empaquetar_Click(object sender, EventArgs e)
         {
-            //se deberia quitar ya que no se utiliza
-            /*
-            string Id_Orden = IdOrdenDePreparacion_textbox.Text.Trim();
-
-            if (Id_Orden == "")
-            {
-                MessageBox.Show("Id no puede estar vacio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                IdOrdenDePreparacion_textbox.Focus();
-                return;
-            }
-
-            if (!Id_Orden.All(char.IsDigit))
-            {
-                MessageBox.Show("Id debe ser un numero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                IdOrdenDePreparacion_textbox.Focus();
-                return;
-            }
-
-            if (!Datos_model.OrdenesDeSeleccion.Any(o => o.Id_OrdenDeSeleccion == int.Parse(Id_Orden)))
-            {
-                MessageBox.Show("Debes seleccionar una orden valida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                IdOrdenDePreparacion_textbox.Focus();
-                return;
-            }
-
             MessageBox.Show("Se creo la orden de seleccion con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             this.Hide();
 
-            Menu_form nuevaForma = new Menu_form();
+            EmpaquetarMercaderias_form nuevaForma = new EmpaquetarMercaderias_form();
             nuevaForma.Show();
-            */
         }
 
         private void IdOrdenDePreparacion_textbox_TextChanged(object sender, EventArgs e)

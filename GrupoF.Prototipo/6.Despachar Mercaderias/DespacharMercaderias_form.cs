@@ -1,6 +1,6 @@
 ﻿using GrupoF.Prototipo._0.Menu;
 using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
-using GrupoF.Prototipo.Base_de_Datos;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +15,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 {
     public partial class DespacharMercaderias_form : Form
     {
-        private Datos_model Datos_model = new Datos_model();
+        private DespacharMercaderias_model DespacharMercaderias_model = new DespacharMercaderias_model();
 
         public DespacharMercaderias_form()
         {
@@ -27,20 +27,20 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
         {
             listView_OrdenesDeEntrega.Items.Clear();
 
-            var ordenes = Datos_model.OrdenesDePreparacion.Where(x => x.Id_Transportista == 0).ToList();
+            var ordenes = DespacharMercaderias_model.OrdenesDePreparacion.Where(x => x.Id_Transportista == 0).ToList();
 
             var dni_Transportista = DniTransportista_textBox.Text;
 
             if (dni_Transportista != "")
             {
-                var transportista = Datos_model.Transportistas.Where(x => x.Dni_Transportista == int.Parse(dni_Transportista)).FirstOrDefault();
+                var transportista = DespacharMercaderias_model.Transportistas.Where(x => x.Dni_Transportista == int.Parse(dni_Transportista)).FirstOrDefault();
 
-                ordenes = Datos_model.OrdenesDePreparacion.Where(x => x.Id_Transportista == transportista.Id_Transportista).ToList();
+                ordenes = DespacharMercaderias_model.OrdenesDePreparacion.Where(x => x.Id_Transportista == transportista.Id_Transportista).ToList();
             }
 
             foreach (var orden in ordenes)
             {
-                var OrdnesDePreparacion = Datos_model.OrdenesDePreparacion.Where(x => x.Id_Transportista == orden.Id_Transportista).FirstOrDefault();
+                var OrdnesDePreparacion = DespacharMercaderias_model.OrdenesDePreparacion.Where(x => x.Id_Transportista == orden.Id_Transportista).FirstOrDefault();
 
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 
@@ -70,7 +70,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
                 return;
             }
 
-            if (!Datos_model.Transportistas.Any(o => o.Dni_Transportista == int.Parse(Id_Transportista)))
+            if (!DespacharMercaderias_model.Transportistas.Any(o => o.Dni_Transportista == int.Parse(Id_Transportista)))
             {
                 MessageBox.Show("Debes seleccionar un Transportista valido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 DniTransportista_textBox.Focus();

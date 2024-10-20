@@ -1,6 +1,6 @@
 ﻿using GrupoF.Prototipo._0.Menu;
 using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
-using GrupoF.Prototipo.Base_de_Datos;
+
 using GrupoF.Prototipo.Procesar_ordener_de_seleccion;
 using System;
 using System.Collections.Generic;
@@ -16,7 +16,7 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 {
     public partial class EmpaquetarMercaderias_form : Form
     {
-        private Datos_model Datos_model = new Datos_model();
+        private EmpaquetarMercaderias_model EmpaquetarMercaderias_model = new EmpaquetarMercaderias_model();
 
         public EmpaquetarMercaderias_form()
         {
@@ -26,12 +26,12 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 
         private void CargarOrdenesDePreparacion()
         {
-            foreach (var orden in Datos_model.OrdenesDePreparacion)
+            foreach (var orden in EmpaquetarMercaderias_model.OrdenesDePreparacion)
             {
-                var cliente = Datos_model.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
-                var OrdenesDePreparacionItems = Datos_model.OrdenesDePreparacionItems.Where(x => x.Id_OrdenDePreparacion == orden.Id_OrdenDePreparacion).FirstOrDefault();
-                var DepositoMercaderias = Datos_model.DepositoMercaderias.Where(x => x.Id_DepositoMercaderias == OrdenesDePreparacionItems.Id_DepositoMercaderias).FirstOrDefault();
-                var mercaderia = Datos_model.Mercaderias.Where(x => x.Id_Mercaderia == DepositoMercaderias.Id_Mercaderia).FirstOrDefault();
+                var cliente = EmpaquetarMercaderias_model.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
+                var OrdenesDePreparacionItems = EmpaquetarMercaderias_model.OrdenesDePreparacionItems.Where(x => x.Id_OrdenDePreparacion == orden.Id_OrdenDePreparacion).FirstOrDefault();
+                var DepositoMercaderias = EmpaquetarMercaderias_model.DepositoMercaderias.Where(x => x.Id_DepositoMercaderias == OrdenesDePreparacionItems.Id_DepositoMercaderias).FirstOrDefault();
+                var mercaderia = EmpaquetarMercaderias_model.Mercaderias.Where(x => x.Id_Mercaderia == DepositoMercaderias.Id_Mercaderia).FirstOrDefault();
 
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 

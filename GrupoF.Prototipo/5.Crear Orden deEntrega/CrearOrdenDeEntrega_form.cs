@@ -1,6 +1,6 @@
 ﻿using GrupoF.Prototipo._0.Menu;
 using GrupoF.Prototipo._4.Crear_Orden_de_Entrega;
-using GrupoF.Prototipo.Base_de_Datos;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +15,7 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
 {
     public partial class CrearOrdenDeEntrega_form : Form
     {
-        private Datos_model Datos_model = new Datos_model();
+        private CrearOrdenDeEntrega_model CrearOrdenDeEntrega_model = new CrearOrdenDeEntrega_model();
 
         public CrearOrdenDeEntrega_form()
         {
@@ -25,13 +25,13 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
 
         private void CargarOrdenesDePreparacion()
         {
-            var ordenes = Datos_model.OrdenesDePreparacion.Where(x => x.Id_EstadoOP == 4).ToList();
+            var ordenes = CrearOrdenDeEntrega_model.OrdenesDePreparacion.Where(x => x.Id_EstadoOP == 4).ToList();
 
             OrdenesDePreparacion_ListView.Items.Clear();
 
             foreach (var orden in ordenes)
             {
-                var cliente = Datos_model.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
+                var cliente = CrearOrdenDeEntrega_model.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
 
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 

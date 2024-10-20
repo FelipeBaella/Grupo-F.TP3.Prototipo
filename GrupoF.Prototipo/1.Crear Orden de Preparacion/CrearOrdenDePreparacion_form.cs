@@ -1,12 +1,11 @@
 ﻿using GrupoF.Prototipo._0.Menu;
-using GrupoF.Prototipo.Base_de_Datos;
+
 using System.Data;
 
 namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 {
     public partial class CrearOrdenDePreparacion_form : Form
     {
-        private Datos_model Datos_model = new Datos_model();
         private CrearOrdnesDePreparacion_model CrearOrdnesDePreparacion_model = new CrearOrdnesDePreparacion_model();
 
         public CrearOrdenDePreparacion_form()
@@ -21,7 +20,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             DescripcionDeposito_Combobox.Items.Clear();
 
             // Iteramos sobre la lista de depósitos y agregamos los nombres al ComboBox
-            foreach (var deposito in Datos_model.Depositos)
+            foreach (var deposito in CrearOrdnesDePreparacion_model.Depositos)
             {
                 DescripcionDeposito_Combobox.Items.Add(deposito.Nombre_Deposito);
             }
@@ -35,7 +34,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
         private void CargarMercaderias()
         {
-            var deposito = Datos_model.Depositos.Where(x => x.Nombre_Deposito == DescripcionDeposito_Combobox.SelectedItem).FirstOrDefault();
+            var deposito = CrearOrdnesDePreparacion_model.Depositos.Where(x => x.Nombre_Deposito == DescripcionDeposito_Combobox.SelectedItem).FirstOrDefault();
 
             var cliente = 0;
 
@@ -44,7 +43,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                 cliente = int.Parse(IdCliente_textbox.Text);
             }
 
-            var depositoMercaderias = Datos_model.DepositoMercaderias
+            var depositoMercaderias = CrearOrdnesDePreparacion_model.DepositoMercaderias
                 .Where(x => x.Id_Deposito == deposito.Id_Deposito)
                 .Where(x => x.Id_Cliente == cliente)
                 .Select(x => x.Id_Mercaderia)
@@ -55,7 +54,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
             foreach (var item in depositoMercaderias)
             {
-                var mercaderia = Datos_model.Mercaderias.Where(x => x.Id_Mercaderia == item).FirstOrDefault();
+                var mercaderia = CrearOrdnesDePreparacion_model.Mercaderias.Where(x => x.Id_Mercaderia == item).FirstOrDefault();
 
                 mercaderias.Add(mercaderia.Descripcion_Mercaderia);
             }
@@ -177,10 +176,10 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             string cantidad_textbox = Cantidad_textbox.Text.Trim();
             string descripcionDeposito_Combobox = DescripcionDeposito_Combobox.Text.Trim();
 
-            var mercaderia = Datos_model.Mercaderias.Where(x => x.Descripcion_Mercaderia == descripcionMercaderia_ComboBox).FirstOrDefault();
-            var deposito = Datos_model.Depositos.Where(x => x.Nombre_Deposito == descripcionDeposito_Combobox).FirstOrDefault();
+            var mercaderia = CrearOrdnesDePreparacion_model.Mercaderias.Where(x => x.Descripcion_Mercaderia == descripcionMercaderia_ComboBox).FirstOrDefault();
+            var deposito = CrearOrdnesDePreparacion_model.Depositos.Where(x => x.Nombre_Deposito == descripcionDeposito_Combobox).FirstOrDefault();
 
-            var depositoMercaderia = Datos_model.DepositoMercaderias.Where(x => x.Id_Deposito == deposito.Id_Deposito).FirstOrDefault();
+            var depositoMercaderia = CrearOrdnesDePreparacion_model.DepositoMercaderias.Where(x => x.Id_Deposito == deposito.Id_Deposito).FirstOrDefault();
 
             string? depositoSeleccionado = DescripcionDeposito_Combobox.SelectedItem?.ToString();
 
@@ -273,7 +272,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             //CLIENTE
             if (Id_Cliente.All(char.IsDigit) && !string.IsNullOrEmpty(Id_Cliente))
             {
-                var clientes = Datos_model.Clientes.Where(x => x.Id_Cliente == int.Parse(Id_Cliente)).FirstOrDefault();
+                var clientes = CrearOrdnesDePreparacion_model.Clientes.Where(x => x.Id_Cliente == int.Parse(Id_Cliente)).FirstOrDefault();
 
                 if (clientes != null)
                 {

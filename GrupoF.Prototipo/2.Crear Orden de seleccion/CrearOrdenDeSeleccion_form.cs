@@ -1,6 +1,6 @@
 ﻿using GrupoF.Prototipo._0.Menu;
 using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
-using GrupoF.Prototipo.Base_de_Datos;
+
 using GrupoF.Prototipo.Procesar_ordenes_de_preparacion;
 using System;
 using System.Collections;
@@ -21,11 +21,11 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 {
     public partial class CrearOrdenDeSeleccion_form : Form
     {
-        private Datos_model Datos_model = new Datos_model();
+        private CrearOrdenDeSeleccion_model CrearOrdenDeSeleccion_model = new CrearOrdenDeSeleccion_model();
 
         public CrearOrdenDeSeleccion_form()
         {
-            var listview = Datos_model.OrdenesDePreparacion.Where(x => x.Id_EstadoOP == 2).ToList();
+            var listview = CrearOrdenDeSeleccion_model.OrdenesDePreparacion.Where(x => x.Id_EstadoOP == 2).ToList();
 
             InitializeComponent();
             CargarOrdenesDePreparacion(listview);
@@ -37,7 +37,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
             foreach (var orden in ordenes)
             {
-                var cliente = Datos_model.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
+                var cliente = CrearOrdenDeSeleccion_model.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
 
                 var prioridad = "";
 
@@ -68,13 +68,13 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         {
             ItemsOP_listView2.Items.Clear();
 
-            var listado = Datos_model.OrdenesDePreparacionItems.Where(x => x.Id_OrdenDePreparacion == Id_ordenDePrparacion).ToList();
+            var listado = CrearOrdenDeSeleccion_model.OrdenesDePreparacionItems.Where(x => x.Id_OrdenDePreparacion == Id_ordenDePrparacion).ToList();
 
             foreach (var item in listado)
             {
-                var DepositoMercaderias = Datos_model.DepositoMercaderias.Where(x => x.Id_DepositoMercaderias == item.Id_DepositoMercaderias).FirstOrDefault();
+                var DepositoMercaderias = CrearOrdenDeSeleccion_model.DepositoMercaderias.Where(x => x.Id_DepositoMercaderias == item.Id_DepositoMercaderias).FirstOrDefault();
 
-                var mercaderia = Datos_model.Mercaderias.Where(x => x.Id_Mercaderia == DepositoMercaderias.Id_Mercaderia).FirstOrDefault();
+                var mercaderia = CrearOrdenDeSeleccion_model.Mercaderias.Where(x => x.Id_Mercaderia == DepositoMercaderias.Id_Mercaderia).FirstOrDefault();
 
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 
@@ -208,7 +208,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
         private void button_Click(object sender, EventArgs e)
         {
-            var listview = Datos_model.OrdenesDePreparacion.Where(x => x.Id_EstadoOP == 2).ToList();
+            var listview = CrearOrdenDeSeleccion_model.OrdenesDePreparacion.Where(x => x.Id_EstadoOP == 2).ToList();
 
             if (comboBox1.SelectedIndex == 1)
             {

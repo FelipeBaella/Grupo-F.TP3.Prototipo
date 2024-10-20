@@ -1,6 +1,5 @@
 ﻿using GrupoF.Prototipo._1.Crear_Orden_de_Preparacion;
 using GrupoF.Prototipo._2.Crear_Orden_de_seleccion;
-using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
 using GrupoF.Prototipo.Procesar_ordenes_de_preparacion;
 using System;
 using System.Collections.Generic;
@@ -8,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GrupoF.Prototipo.Base_de_Datos
+namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 {
-    internal class Datos_model
+    internal class EmpaquetarMercaderias_model
     {
         public List<Cliente> Clientes { get; set; } = new List<Cliente>
         {
@@ -46,7 +45,7 @@ namespace GrupoF.Prototipo.Base_de_Datos
             new Deposito { Id_Deposito = 2, Nombre_Deposito = "GBAS 2" }
         };
 
-    
+
 
         public List<EstadosOP> EstadosOP { get; set; } = new List<EstadosOP>
         {
@@ -58,7 +57,7 @@ namespace GrupoF.Prototipo.Base_de_Datos
             new EstadosOP {Id_EstadoOP = 6, Descripcion_EstadoOP = "DESPACHADA "},
 
         };
-  
+
 
         public List<Usuarios> Usuarios { get; set; } = new List<Usuarios>
         {
@@ -113,11 +112,5 @@ namespace GrupoF.Prototipo.Base_de_Datos
             new OrdenesDeEntrega {Id_OrdenDeEntrega = 1, Emision_OrdenDeEntrega = DateTime.Now, Procesado_OrdenDeEntrega  = false},
             new OrdenesDeEntrega {Id_OrdenDeEntrega = 2, Emision_OrdenDeEntrega = DateTime.Now.AddMonths(1), Procesado_OrdenDeEntrega = true},
         };
-
-
-
-
-
-
     }
 }

@@ -72,12 +72,24 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 
         private void button_ProcesarOrdenDeSeleccion_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Se creo la orden de seleccion con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string OS_Pendientes = OS_Pendientes_comboBox.Text;
 
-            this.Hide();
+            if (OS_Pendientes != "")
+            {
+                MessageBox.Show("Se proceso la orden de seleccion con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            ProcesarOrdenDeSeleccion_form nuevaForma = new ProcesarOrdenDeSeleccion_form();
-            nuevaForma.Show();
+                this.Hide();
+
+                ProcesarOrdenDeSeleccion_form nuevaForma = new ProcesarOrdenDeSeleccion_form();
+                nuevaForma.Show();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una orden de seleccion.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                OS_Pendientes_comboBox.Focus();
+                return;
+            }
+
         }
 
         private void OS_Pendientes_comboBox1_SelectedIndexChanged(object sender, EventArgs e)

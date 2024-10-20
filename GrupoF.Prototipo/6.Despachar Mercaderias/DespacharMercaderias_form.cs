@@ -91,14 +91,24 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 
         private void EmitirRemito_button_Click(object sender, EventArgs e)
         {
-            string Id_Transportista = DniTransportista_textBox.Text.Trim();
+            int OrdenesDeEntrega = listView_OrdenesDeEntrega.Items.Count;
 
-            MessageBox.Show("Se emitio el remito con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if(OrdenesDeEntrega > 0)
+            {
+                MessageBox.Show("Se emitio el remito con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            this.Hide();
+                this.Hide();
 
-            DespacharMercaderias_form nuevaForma = new DespacharMercaderias_form();
-            nuevaForma.Show();
+                DespacharMercaderias_form nuevaForma = new DespacharMercaderias_form();
+                nuevaForma.Show();
+            }
+            else 
+            {
+                MessageBox.Show("El listado de ordenes de preparacion no puede estar vacio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                listView_OrdenesDeEntrega.Focus();
+                return;
+            }
+
         }
     }
 }

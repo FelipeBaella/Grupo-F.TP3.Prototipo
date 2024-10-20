@@ -55,7 +55,7 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 
         private void button_empaquetar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Se creo la orden de seleccion con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Se listo con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             this.Hide();
 

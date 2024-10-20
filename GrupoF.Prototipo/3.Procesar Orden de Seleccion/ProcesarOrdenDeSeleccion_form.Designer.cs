@@ -114,6 +114,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             // 
             // OS_Pendientes_comboBox
             // 
+            OS_Pendientes_comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             OS_Pendientes_comboBox.FormattingEnabled = true;
             OS_Pendientes_comboBox.Location = new Point(6, 431);
             OS_Pendientes_comboBox.Name = "OS_Pendientes_comboBox";

@@ -38,12 +38,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             new Deposito { Id_Deposito = 2, Nombre_Deposito = "GBAS 2" }
         };
 
-        public List<Transportista> Transportistas { get; set; } = new List<Transportista>
-        {
-            new Transportista {Id_Transportista = 1, Id_Ciente = 1, Dni_Transportista = 37119134, NombreApellido_Transportista = "Carlos Lopez"},
-
-            new Transportista {Id_Transportista = 2, Id_Ciente = 2, Dni_Transportista = 31102237, NombreApellido_Transportista = "Matias Tallone"}
-        };
 
         public List<EstadosOP> EstadosOP { get; set; } = new List<EstadosOP>
         {
@@ -74,7 +68,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             var Id_Cliente = ordenDePreparacion.Id_Cliente;
             var Emision_OrdenDePreparacion = ordenDePreparacion.Emision_OrdenDePreparacion;
             var Id_Deposito = ordenDePreparacion.Id_Deposito;
-            var Id_Transportista = ordenDePreparacion.Id_Transportista;
+            var Dni_transportista = ordenDePreparacion.Dni_transportista;
 
             OrdenesDePreparacion.Add(ordenDePreparacion);
 

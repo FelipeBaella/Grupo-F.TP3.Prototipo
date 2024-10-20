@@ -99,6 +99,38 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
                 return;
             }
 
+
+            //var deposito = CrearOrdenDeSeleccion_model.Depositos.Where(x => x.Nombre_Deposito == DescripcionDeposito_Combobox.Text).FirstOrDefault();
+
+            //var ordenDePreparacion = new OrdenesDePreparacion();
+
+            //ordenDePreparacion.Id_EstadoOP = 1;
+            //ordenDePreparacion.Prioridad_OrdenDePreparacion = true;
+            //ordenDePreparacion.Id_Cliente = int.Parse(cliente);
+            //ordenDePreparacion.Emision_OrdenDePreparacion = DateTime.Now;
+            //ordenDePreparacion.Id_Deposito = deposito.Id_Deposito;
+            //ordenDePreparacion.Dni_transportista = tranpostista.Dni_transportista;
+
+            //CrearOrdenDeSeleccion_model.CrearOrdenesDePreparacion(ordenDePreparacion);
+
+
+
+
+            //var ordenesDePreparacionItems = new OrdenesDePreparacionItems();
+
+            //foreach (ListViewItem item in listView_MercaderiasOrdenes.Items)
+            //{
+            //    var mercaderia = CrearOrdenDeSeleccion_model.Mercaderias.Where(x => x.Descripcion_Mercaderia == item.SubItems[0].Text).FirstOrDefault();
+
+            //    var depositoMercaderias = CrearOrdenDeSeleccion_model.DepositoMercaderias.Where(x => x.Id_Deposito == deposito.Id_Deposito && x.Id_Mercaderia == mercaderia.Id_Mercaderia);
+
+            //    ordenesDePreparacionItems.Id_DepositoMercaderias = 0;
+            //    ordenesDePreparacionItems.Cantidad_Mercaderia = int.Parse(item.SubItems[1].Text);
+
+            //    CrearOrdenDeSeleccion_model.CrearOrdenesDePreparacionItem(ordenesDePreparacionItems);
+            //}
+
+
             MessageBox.Show("Se creo la orden de seleccion con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             this.Hide();

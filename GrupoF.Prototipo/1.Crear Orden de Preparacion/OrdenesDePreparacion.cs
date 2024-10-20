@@ -14,7 +14,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         public int Id_Cliente { get; set; }
         public DateTime Emision_OrdenDePreparacion { get; set; }
         public int Id_Deposito { get; set; }
-        public int Id_Transportista { get; set; }
+        public int Dni_transportista { get; set; }
         public int? Id_OrdenDeEntrega { get; set; }
         public int? Id_OrdenDeSeleccion { get; set; }
         public int? Id_Remito { get; set; }

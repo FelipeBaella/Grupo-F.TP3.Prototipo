@@ -27,20 +27,18 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
         {
             listView_OrdenesDeEntrega.Items.Clear();
 
-            var ordenes = DespacharMercaderias_model.OrdenesDePreparacion.Where(x => x.Id_Transportista == 0).ToList();
+            var ordenes = DespacharMercaderias_model.OrdenesDePreparacion.Where(x => x.Dni_transportista == 0).ToList();
 
             var dni_Transportista = DniTransportista_textBox.Text;
 
             if (dni_Transportista != "")
             {
-                var transportista = DespacharMercaderias_model.Transportistas.Where(x => x.Dni_Transportista == int.Parse(dni_Transportista)).FirstOrDefault();
-
-                ordenes = DespacharMercaderias_model.OrdenesDePreparacion.Where(x => x.Id_Transportista == transportista.Id_Transportista).ToList();
+                ordenes = DespacharMercaderias_model.OrdenesDePreparacion.Where(x => x.Dni_transportista == int.Parse(dni_Transportista)).ToList();
             }
 
             foreach (var orden in ordenes)
             {
-                var OrdnesDePreparacion = DespacharMercaderias_model.OrdenesDePreparacion.Where(x => x.Id_Transportista == orden.Id_Transportista).FirstOrDefault();
+                var OrdnesDePreparacion = DespacharMercaderias_model.OrdenesDePreparacion.Where(x => x.Dni_transportista == orden.Dni_transportista).FirstOrDefault();
 
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 
@@ -54,25 +52,18 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 
         private void ProcesarOrdenDeEntrega_button_Click(object sender, EventArgs e)
         {
-            string Id_Transportista = DniTransportista_textBox.Text.Trim();
+            string Dni_transportista = DniTransportista_textBox.Text.Trim();
 
-            if (Id_Transportista == "")
+            if (Dni_transportista == "")
             {
                 MessageBox.Show("Id no puede estar vacio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 DniTransportista_textBox.Focus();
                 return;
             }
 
-            if (!Id_Transportista.All(char.IsDigit))
+            if (!Dni_transportista.All(char.IsDigit))
             {
                 MessageBox.Show("Id debe ser un numero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                DniTransportista_textBox.Focus();
-                return;
-            }
-
-            if (!DespacharMercaderias_model.Transportistas.Any(o => o.Dni_Transportista == int.Parse(Id_Transportista)))
-            {
-                MessageBox.Show("Debes seleccionar un Transportista valido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 DniTransportista_textBox.Focus();
                 return;
             }

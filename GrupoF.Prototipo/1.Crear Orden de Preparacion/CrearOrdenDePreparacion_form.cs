@@ -142,7 +142,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
 
             var deposito = CrearOrdnesDePreparacion_model.Depositos.Where(x => x.Nombre_Deposito == DescripcionDeposito_Combobox.Text).FirstOrDefault();
-            var tranpostista = CrearOrdnesDePreparacion_model.Transportistas.Where(x => x.Dni_Transportista == int.Parse(Dni_textbox.Text)).FirstOrDefault();
 
             var ordenDePreparacion = new OrdenesDePreparacion();
 
@@ -151,7 +150,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             ordenDePreparacion.Id_Cliente = int.Parse(cliente);
             ordenDePreparacion.Emision_OrdenDePreparacion = DateTime.Now;
             ordenDePreparacion.Id_Deposito = deposito.Id_Deposito;
-            ordenDePreparacion.Id_Transportista = tranpostista.Id_Transportista;
+            ordenDePreparacion.Dni_transportista = int.Parse(Dni_textbox.Text);
 
             CrearOrdnesDePreparacion_model.CrearOrdenesDePreparacion(ordenDePreparacion);
 
@@ -174,8 +173,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
 
             MessageBox.Show("Se creo la orden de preparacion con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            this.Refresh();
 
             CrearOrdenDePreparacion_form nuevaForma = new CrearOrdenDePreparacion_form();
             nuevaForma.Show();

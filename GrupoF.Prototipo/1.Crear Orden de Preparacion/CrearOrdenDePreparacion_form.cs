@@ -75,7 +75,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
         private void button_aceptar_click(object sender, EventArgs e)
         {
-
+            var cliente = IdCliente_textbox.Text.Trim();
             string Cantidad = Cantidad_textbox.Text.Trim();
             string Dni = Dni_textbox.Text.Trim();
 
@@ -131,7 +131,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             }
 
 
-
             //LISTA
             if (listView_MercaderiasOrdenes.Items.Count < 1)
             {
@@ -140,6 +139,38 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                 return;
             }
 
+
+
+            var deposito = CrearOrdnesDePreparacion_model.Depositos.Where(x => x.Nombre_Deposito == DescripcionDeposito_Combobox.Text).FirstOrDefault();
+            var tranpostista = CrearOrdnesDePreparacion_model.Transportistas.Where(x => x.Dni_Transportista == int.Parse(Dni_textbox.Text)).FirstOrDefault();
+
+            var ordenDePreparacion = new OrdenesDePreparacion();
+
+            ordenDePreparacion.Id_EstadoOP = 1;
+            ordenDePreparacion.Prioridad_OrdenDePreparacion = true;
+            ordenDePreparacion.Id_Cliente = int.Parse(cliente);
+            ordenDePreparacion.Emision_OrdenDePreparacion = DateTime.Now;
+            ordenDePreparacion.Id_Deposito = deposito.Id_Deposito;
+            ordenDePreparacion.Id_Transportista = tranpostista.Id_Transportista;
+
+            CrearOrdnesDePreparacion_model.CrearOrdenesDePreparacion(ordenDePreparacion);
+
+
+            
+
+            var ordenesDePreparacionItems = new OrdenesDePreparacionItems();
+
+            foreach (ListViewItem item in listView_MercaderiasOrdenes.Items)
+            {
+                var mercaderia = CrearOrdnesDePreparacion_model.Mercaderias.Where(x => x.Descripcion_Mercaderia == item.SubItems[0].Text).FirstOrDefault();
+
+                var depositoMercaderias = CrearOrdnesDePreparacion_model.DepositoMercaderias.Where(x => x.Id_Deposito == deposito.Id_Deposito && x.Id_Mercaderia == mercaderia.Id_Mercaderia);
+
+                ordenesDePreparacionItems.Id_DepositoMercaderias = 0;
+                ordenesDePreparacionItems.Cantidad_Mercaderia = int.Parse(item.SubItems[1].Text);
+
+                CrearOrdnesDePreparacion_model.CrearOrdenesDePreparacionItem(ordenesDePreparacionItems);
+            }
 
 
             MessageBox.Show("Se creo la orden de preparacion con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);

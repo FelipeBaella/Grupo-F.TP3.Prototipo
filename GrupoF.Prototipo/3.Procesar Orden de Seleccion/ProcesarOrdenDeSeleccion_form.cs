@@ -44,7 +44,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 
                     DepositoMercaderias.Coordenadas_DepositoMercaderias.ToString(),
                     mercaderia.Descripcion_Mercaderia,
-                    OrdenDePreparacion.Cantidad_OrdenDePreparacion.ToString(),
+                    //OrdenDePreparacion.Cantidad_OrdenDePreparacion.ToString(),
 
 
                 }, -1);

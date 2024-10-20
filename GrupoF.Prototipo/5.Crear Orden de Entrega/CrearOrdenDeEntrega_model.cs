@@ -101,10 +101,32 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
         };
 
 
-        public List<OrdenesDeEntrega> OrdenesDeEntrega { get; set; } = new List<OrdenesDeEntrega>
+        public List<OrdenesDeEntrega> OrdenesDeEntrega = new();
+        public string CrearOrdenesDeEntrega(OrdenesDeEntrega ordenesDeEntrega)
         {
-            new OrdenesDeEntrega {Id_OrdenDeEntrega = 1, Emision_OrdenDeEntrega = DateTime.Now, Procesado_OrdenDeEntrega  = false},
-            new OrdenesDeEntrega {Id_OrdenDeEntrega = 2, Emision_OrdenDeEntrega = DateTime.Now.AddMonths(1), Procesado_OrdenDeEntrega = true},
-        };
+            var Id_OrdenDeEntrega = ordenesDeEntrega.Id_OrdenDeEntrega;
+            var Id_OrdenDePreparacionMercaderia = ordenesDeEntrega.Emision_OrdenDeEntrega;
+            var Id_EstadoOP = ordenesDeEntrega.Procesado_OrdenDeEntrega;
+
+            OrdenesDeEntrega.Add(ordenesDeEntrega);
+
+            return null;
+        }
+
+
+        public string EditarEstadoOP(int id)
+        {
+            var ordenesDePreparacion = OrdenesDePreparacion.Where(x => x.Id_OrdenDeSeleccion == id && x.Id_EstadoOP == 4).ToList();
+
+            foreach (var item in ordenesDePreparacion)
+            {
+                item.Id_EstadoOP = 5;
+                item.Id_OrdenDeEntrega = OrdenesDeEntrega.Last().Id_OrdenDeEntrega;
+            }
+
+            return null;
+        }
+
+
     }
 }

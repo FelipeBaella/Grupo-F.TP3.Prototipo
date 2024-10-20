@@ -101,10 +101,30 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
         };
 
 
-        public List<OrdenesDeEntrega> OrdenesDeEntrega { get; set; } = new List<OrdenesDeEntrega>
+
+        public string EditarEstadoOS(int id)
         {
-            new OrdenesDeEntrega {Id_OrdenDeEntrega = 1, Emision_OrdenDeEntrega = DateTime.Now, Procesado_OrdenDeEntrega  = false},
-            new OrdenesDeEntrega {Id_OrdenDeEntrega = 2, Emision_OrdenDeEntrega = DateTime.Now.AddMonths(1), Procesado_OrdenDeEntrega = true},
-        };
+            var ordenesDeSeleccion = OrdenesDeSeleccion.Where(x => x.Id_OrdenDeSeleccion == id).SingleOrDefault();
+
+            ordenesDeSeleccion.Id_EstadoOS = 2;
+
+            return null;
+        }
+
+
+        public string EditarEstadoOP(int id)
+        {
+            var ordenesDePreparacion = OrdenesDePreparacion.Where(x => x.Id_OrdenDeSeleccion == id).ToList();
+
+            foreach (var item in ordenesDePreparacion)
+            {
+                item.Id_EstadoOP = 3;
+            }
+
+            return null;
+        }
+
+
+
     }
 }

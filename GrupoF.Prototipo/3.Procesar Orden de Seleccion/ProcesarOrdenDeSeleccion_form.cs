@@ -31,7 +31,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 
             var OrdenesDeSeleccion = ProcesarOrdenDeSeleccion_model.OrdenesDeSeleccion.Where(x => x.Id_OrdenDeSeleccion == int.Parse(id)).FirstOrDefault();
 
-            var ordenes = ProcesarOrdenDeSeleccion_model.OrdenesDePreparacion.Where(x => x.Id_OrdenDeSeleccion == OrdenesDeSeleccion.Id_OrdenDeSeleccion).ToList();
+            var ordenes = ProcesarOrdenDeSeleccion_model.OrdenesDePreparacion.Where(x => x.Id_OrdenDeSeleccion == OrdenesDeSeleccion.Id_OrdenDeSeleccion && x.Id_EstadoOP == 2).ToList();
 
             foreach (var orden in ordenes)
             {
@@ -44,7 +44,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 
                     DepositoMercaderias.Coordenadas_DepositoMercaderias.ToString(),
                     mercaderia.Descripcion_Mercaderia,
-                    //OrdenDePreparacion.Cantidad_OrdenDePreparacion.ToString(),
+                    OrdenesDePreparacionItems.Cantidad_Mercaderia.ToString(),
 
 
                 }, -1);
@@ -78,6 +78,12 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 
             if (OS_Pendientes != "")
             {
+                var id = int.Parse(OS_Pendientes);
+
+                ProcesarOrdenDeSeleccion_model.EditarEstadoOS(id);
+
+                ProcesarOrdenDeSeleccion_model.EditarEstadoOP(id);
+
                 MessageBox.Show("Se proceso la orden de seleccion con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.Hide();

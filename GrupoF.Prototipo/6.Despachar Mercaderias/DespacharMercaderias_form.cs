@@ -33,7 +33,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 
             if (dni_Transportista != "")
             {
-                ordenes = DespacharMercaderias_model.OrdenesDePreparacion.Where(x => x.Dni_transportista == int.Parse(dni_Transportista)).ToList();
+                ordenes = DespacharMercaderias_model.OrdenesDePreparacion.Where(x => x.Dni_transportista == int.Parse(dni_Transportista) && x.Id_EstadoOP == 5).ToList();
             }
 
             foreach (var orden in ordenes)
@@ -86,6 +86,15 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 
             if(OrdenesDeEntrega > 0)
             {
+                var ordenesDePreparacion = new List<int>();
+
+                foreach (ListViewItem item in listView_OrdenesDeEntrega.Items)
+                {
+                    ordenesDePreparacion.Add(int.Parse(item.SubItems[0].Text));
+                }
+
+                DespacharMercaderias_model.EditarEstadoOP(ordenesDePreparacion);
+
                 MessageBox.Show("Se emitio el remito con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.Hide();

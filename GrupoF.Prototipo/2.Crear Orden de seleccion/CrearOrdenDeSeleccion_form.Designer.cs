@@ -59,7 +59,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             Cant_Merc = new ColumnHeader();
             groupBox3 = new GroupBox();
             Remover_button = new Button();
-            Items_OS_listView2 = new ListView();
+            Items_OS_listView = new ListView();
             Id_OP2 = new ColumnHeader();
             Nombre_Cliente1 = new ColumnHeader();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -256,7 +256,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // groupBox3
             // 
             groupBox3.Controls.Add(Remover_button);
-            groupBox3.Controls.Add(Items_OS_listView2);
+            groupBox3.Controls.Add(Items_OS_listView);
             groupBox3.Location = new Point(651, 363);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(453, 242);
@@ -273,16 +273,16 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             Remover_button.Text = "Remover";
             Remover_button.Click += Remover_button_Click;
             // 
-            // Items_OS_listView2
+            // Items_OS_listView
             // 
-            Items_OS_listView2.CheckBoxes = true;
-            Items_OS_listView2.Columns.AddRange(new ColumnHeader[] { Id_OP2, Nombre_Cliente1 });
-            Items_OS_listView2.Location = new Point(11, 21);
-            Items_OS_listView2.Name = "Items_OS_listView2";
-            Items_OS_listView2.Size = new Size(348, 214);
-            Items_OS_listView2.TabIndex = 1;
-            Items_OS_listView2.UseCompatibleStateImageBehavior = false;
-            Items_OS_listView2.View = View.Details;
+            Items_OS_listView.CheckBoxes = true;
+            Items_OS_listView.Columns.AddRange(new ColumnHeader[] { Id_OP2, Nombre_Cliente1 });
+            Items_OS_listView.Location = new Point(11, 21);
+            Items_OS_listView.Name = "Items_OS_listView";
+            Items_OS_listView.Size = new Size(348, 214);
+            Items_OS_listView.TabIndex = 1;
+            Items_OS_listView.UseCompatibleStateImageBehavior = false;
+            Items_OS_listView.View = View.Details;
             // 
             // Id_OP2
             // 
@@ -348,7 +348,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         private ColumnHeader Descrip_Merc;
         private ColumnHeader Cant_Merc;
         private GroupBox groupBox3;
-        private ListView Items_OS_listView2;
+        private ListView Items_OS_listView;
         private ColumnHeader Item;
         private ColumnHeader Id_OP2;
         private ColumnHeader Nombre_Cliente1;

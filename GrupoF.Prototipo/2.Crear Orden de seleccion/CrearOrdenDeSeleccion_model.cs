@@ -95,18 +95,36 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             new EstadosOS {Id_EstadoOS = 2, Descripcion_EstadoOS = "CUMPLIDA"},
         };
 
-        public List<OrdenesDeSeleccion> OrdenesDeSeleccion { get; set; } = new List<OrdenesDeSeleccion>
+
+        public List<OrdenesDeSeleccion> OrdenesDeSeleccion = new();
+        public string CrearOrdenesDePreparacion(OrdenesDeSeleccion ordenesDeSeleccion)
         {
-            new OrdenesDeSeleccion {Id_EstadoOS = 1, Id_OrdenDeSeleccion = 1, Emision_OrdenDeSeleccion = DateTime.Now},
-            new OrdenesDeSeleccion {Id_EstadoOS = 1, Id_OrdenDeSeleccion = 2, Emision_OrdenDeSeleccion = DateTime.Now.AddMonths(1)},
-        };
+            var Id_OrdenDeSeleccion = OrdenesDeSeleccion.Count + 1;
+            var Id_OrdenDePreparacionMercaderia = OrdenesDePreparacionItems.Count + 1;
+            var Id_EstadoOP = ordenesDeSeleccion.Id_EstadoOS;
+            var Prioridad_OrdenDePreparacion = ordenesDeSeleccion.Emision_OrdenDeSeleccion;
+            var AcualizacionEstado_OrdenDeSeleccion = ordenesDeSeleccion.AcualizacionEstado_OrdenDeSeleccion;
+
+            OrdenesDeSeleccion.Add(ordenesDeSeleccion);
+
+            return null;
+        }
+
+        public string EditarEstadoOP(List<int> ordenesDePreparacion)
+        {
+            foreach (var item in ordenesDePreparacion)
+            {
+                var ordenDePreparacion = OrdenesDePreparacion.Where(x => x.Id_OrdenDePreparacion == item).SingleOrDefault();
+
+                ordenDePreparacion.Id_EstadoOP = 2;
+                ordenDePreparacion.Id_OrdenDeSeleccion = OrdenesDeSeleccion.Last().Id_OrdenDeSeleccion;
+            }
+
+            return null;
+        }
 
 
-        public List<OrdenesDeEntrega> OrdenesDeEntrega { get; set; } = new List<OrdenesDeEntrega>
-        {
-            new OrdenesDeEntrega {Id_OrdenDeEntrega = 1, Emision_OrdenDeEntrega = DateTime.Now, Procesado_OrdenDeEntrega  = false},
-            new OrdenesDeEntrega {Id_OrdenDeEntrega = 2, Emision_OrdenDeEntrega = DateTime.Now.AddMonths(1), Procesado_OrdenDeEntrega = true},
-        };
+
     }
 
 }

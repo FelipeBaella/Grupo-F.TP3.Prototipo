@@ -25,7 +25,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
         public CrearOrdenDeSeleccion_form()
         {
-            var listview = CrearOrdenDeSeleccion_model.OrdenesDePreparacion.Where(x => x.Id_EstadoOP == 2).ToList();
+            var listview = CrearOrdenDeSeleccion_model.OrdenesDePreparacion.Where(x => x.Id_EstadoOP == 1).ToList();
 
             InitializeComponent();
             CargarOrdenesDePreparacion(listview);
@@ -90,45 +90,35 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
         private void button_Crear_Orden_Click(object sender, EventArgs e)
         {
-            var items = Items_OS_listView2.Items.Count;
+            var items = Items_OS_listView.Items.Count;
 
             if (items < 1)
             {
                 MessageBox.Show("Seleccione al menos 1 item para la orden de seleccion.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Items_OS_listView2.Focus();
+                Items_OS_listView.Focus();
                 return;
             }
 
+            var ordenesDeSeleccion = new OrdenesDeSeleccion();
 
-            //var deposito = CrearOrdenDeSeleccion_model.Depositos.Where(x => x.Nombre_Deposito == DescripcionDeposito_Combobox.Text).FirstOrDefault();
+            var Id_OrdenDeSeleccion = CrearOrdenDeSeleccion_model.OrdenesDeSeleccion.Count + 1;
 
-            //var ordenDePreparacion = new OrdenesDePreparacion();
+            ordenesDeSeleccion.Id_OrdenDeSeleccion = Id_OrdenDeSeleccion;
+            ordenesDeSeleccion.Id_EstadoOS = 1;
+            ordenesDeSeleccion.Emision_OrdenDeSeleccion = DateTime.Now;
+            ordenesDeSeleccion.AcualizacionEstado_OrdenDeSeleccion = DateTime.Now;
 
-            //ordenDePreparacion.Id_EstadoOP = 1;
-            //ordenDePreparacion.Prioridad_OrdenDePreparacion = true;
-            //ordenDePreparacion.Id_Cliente = int.Parse(cliente);
-            //ordenDePreparacion.Emision_OrdenDePreparacion = DateTime.Now;
-            //ordenDePreparacion.Id_Deposito = deposito.Id_Deposito;
-            //ordenDePreparacion.Dni_transportista = tranpostista.Dni_transportista;
-
-            //CrearOrdenDeSeleccion_model.CrearOrdenesDePreparacion(ordenDePreparacion);
+            CrearOrdenDeSeleccion_model.CrearOrdenesDePreparacion(ordenesDeSeleccion);
 
 
+            var ordenesDePreparacion = new List<int>();
 
+            foreach (ListViewItem item in Items_OS_listView.Items)
+            {
+                ordenesDePreparacion.Add(int.Parse(item.SubItems[0].Text));
+            }
 
-            //var ordenesDePreparacionItems = new OrdenesDePreparacionItems();
-
-            //foreach (ListViewItem item in listView_MercaderiasOrdenes.Items)
-            //{
-            //    var mercaderia = CrearOrdenDeSeleccion_model.Mercaderias.Where(x => x.Descripcion_Mercaderia == item.SubItems[0].Text).FirstOrDefault();
-
-            //    var depositoMercaderias = CrearOrdenDeSeleccion_model.DepositoMercaderias.Where(x => x.Id_Deposito == deposito.Id_Deposito && x.Id_Mercaderia == mercaderia.Id_Mercaderia);
-
-            //    ordenesDePreparacionItems.Id_DepositoMercaderias = 0;
-            //    ordenesDePreparacionItems.Cantidad_Mercaderia = int.Parse(item.SubItems[1].Text);
-
-            //    CrearOrdenDeSeleccion_model.CrearOrdenesDePreparacionItem(ordenesDePreparacionItems);
-            //}
+            CrearOrdenDeSeleccion_model.EditarEstadoOP(ordenesDePreparacion);
 
 
             MessageBox.Show("Se creo la orden de seleccion con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -150,7 +140,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
         private void Agregar_button_Click(object sender, EventArgs e)
         {
-            int cantidad = Items_OS_listView2.Items.Count;
+            int cantidad = Items_OS_listView.Items.Count;
 
             var i = 1;
 
@@ -169,7 +159,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
                     }, -1);
 
-                    Items_OS_listView2.Items.Add(listViewItem);
+                    Items_OS_listView.Items.Add(listViewItem);
 
                     OrdenesDePreparacion_ListView.Items.Remove(item);
 
@@ -178,9 +168,30 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             }
         }
 
+        private void agregarTodo_button_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in OrdenesDePreparacion_ListView.Items)
+            {
+                ListViewItem listViewItem = new ListViewItem(new string[] {
+
+                        item.SubItems[0].Text, //1
+                        item.SubItems[3].Text,//2
+
+
+                        item.SubItems[1].Text, //3
+                        item.SubItems[2].Text, //4
+
+                    }, -1);
+
+                Items_OS_listView.Items.Add(listViewItem);
+
+                OrdenesDePreparacion_ListView.Items.Remove(item);
+            }
+        }
+
         private void Remover_button_Click(object sender, EventArgs e)
         {
-            foreach (ListViewItem item in Items_OS_listView2.Items)
+            foreach (ListViewItem item in Items_OS_listView.Items)
             {
                 if (item.Checked)
                 {
@@ -195,7 +206,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
                     OrdenesDePreparacion_ListView.Items.Add(listViewItem);
 
-                    Items_OS_listView2.Items.Remove(item);
+                    Items_OS_listView.Items.Remove(item);
                 }
             }
         }
@@ -235,8 +246,6 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
                 }
             }
         }
-
-
 
         private void button_Click(object sender, EventArgs e)
         {
@@ -281,7 +290,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
                         orden.Item3.ToString(),
                         orden.Item4.ToString(),
 
-                }, -1);
+                    }, -1);
 
                     OrdenesDePreparacion_ListView.Items.Add(listViewItem);
                 }
@@ -295,25 +304,6 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
         }
 
-        private void agregarTodo_button_Click(object sender, EventArgs e)
-        {
-            foreach (ListViewItem item in OrdenesDePreparacion_ListView.Items)
-            {
-                ListViewItem listViewItem = new ListViewItem(new string[] {
-
-                        item.SubItems[0].Text, //1
-                        item.SubItems[3].Text,//2
-
-
-                        item.SubItems[1].Text, //3
-                        item.SubItems[2].Text, //4
-
-                    }, -1);
-
-                Items_OS_listView2.Items.Add(listViewItem);
-
-                OrdenesDePreparacion_ListView.Items.Remove(item);
-            }
-        }
+     
     }
 }

@@ -1,4 +1,5 @@
 ﻿using GrupoF.Prototipo._0.Menu;
+using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
 using GrupoF.Prototipo._4.Crear_Orden_de_Entrega;
 
 using System;
@@ -46,6 +47,22 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
 
         private void EnviadoADespacho_button_Click(object sender, EventArgs e)
         {
+            var ordenesDeEntrega = new OrdenesDeEntrega();
+
+            var Id_OrdenDeEntrega = CrearOrdenDeEntrega_model.OrdenesDeEntrega.Count + 1;
+
+            ordenesDeEntrega.Id_OrdenDeEntrega = Id_OrdenDeEntrega;
+            ordenesDeEntrega.Emision_OrdenDeEntrega = DateTime.Now;
+            ordenesDeEntrega.Procesado_OrdenDeEntrega = true;
+
+            CrearOrdenDeEntrega_model.CrearOrdenesDeEntrega(ordenesDeEntrega);
+
+
+            var id = CrearOrdenDeEntrega_model.OrdenesDePreparacion.First().Id_OrdenDePreparacion;
+
+            CrearOrdenDeEntrega_model.EditarEstadoOP(id);
+
+
             MessageBox.Show("Se envio a despacho con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             this.Hide();

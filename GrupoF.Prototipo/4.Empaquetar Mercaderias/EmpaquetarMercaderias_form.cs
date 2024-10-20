@@ -29,19 +29,23 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
         {
             var ordenes = EmpaquetarMercaderias_model.OrdenesDePreparacion.Where(X => X.Id_EstadoOP == 3).First();
 
-            var cliente = EmpaquetarMercaderias_model.Clientes.Where(x => x.Id_Cliente == ordenes.Id_Cliente).FirstOrDefault();
-            var OrdenesDePreparacionItems = EmpaquetarMercaderias_model.OrdenesDePreparacionItems.Where(x => x.Id_OrdenDePreparacion == ordenes.Id_OrdenDePreparacion).FirstOrDefault();
-            var DepositoMercaderias = EmpaquetarMercaderias_model.DepositoMercaderias.Where(x => x.Id_DepositoMercaderias == OrdenesDePreparacionItems.Id_DepositoMercaderias).FirstOrDefault();
-            var mercaderia = EmpaquetarMercaderias_model.Mercaderias.Where(x => x.Id_Mercaderia == DepositoMercaderias.Id_Mercaderia).FirstOrDefault();
+            var OrdenesDePreparacionItems = EmpaquetarMercaderias_model.OrdenesDePreparacionItems.Where(X => X.Id_OrdenDePreparacion == ordenes.Id_OrdenDePreparacion).ToList();
 
-            ListViewItem listViewItem = new ListViewItem(new string[] {
+            foreach (var orden in OrdenesDePreparacionItems) 
+            {
+                var cliente = EmpaquetarMercaderias_model.Clientes.Where(x => x.Id_Cliente == ordenes.Id_Cliente).FirstOrDefault();
+                var DepositoMercaderias = EmpaquetarMercaderias_model.DepositoMercaderias.Where(x => x.Id_DepositoMercaderias == orden.Id_DepositoMercaderias).FirstOrDefault();
+                var mercaderia = EmpaquetarMercaderias_model.Mercaderias.Where(x => x.Id_Mercaderia == DepositoMercaderias.Id_Mercaderia).FirstOrDefault();
+
+                ListViewItem listViewItem = new ListViewItem(new string[] {
 
                     mercaderia.Descripcion_Mercaderia,
-                    OrdenesDePreparacionItems.Cantidad_Mercaderia.ToString(),
+                    orden.Cantidad_Mercaderia.ToString(),
 
                 }, -1);
 
-            OrdenesDePreparacion_listView.Items.Add(listViewItem);
+                OrdenesDePreparacion_listView.Items.Add(listViewItem);
+            }     
         }
 
         private void VolverAlMenu_button_Click(object sender, EventArgs e)

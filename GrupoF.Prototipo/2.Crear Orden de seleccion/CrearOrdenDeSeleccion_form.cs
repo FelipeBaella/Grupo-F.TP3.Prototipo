@@ -249,7 +249,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
         private void button_Click(object sender, EventArgs e)
         {
-            var listview = CrearOrdenDeSeleccion_model.OrdenesDePreparacion.Where(x => x.Id_EstadoOP == 2).ToList();
+            var listview = CrearOrdenDeSeleccion_model.OrdenesDePreparacion.Where(x => x.Id_EstadoOP == 1).ToList();
 
             if (comboBox1.SelectedIndex == 1)
             {

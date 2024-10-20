@@ -38,11 +38,9 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 
             foreach (var orden in ordenes)
             {
-                var OrdnesDePreparacion = DespacharMercaderias_model.OrdenesDePreparacion.Where(x => x.Dni_transportista == orden.Dni_transportista).FirstOrDefault();
-
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 
-                    OrdnesDePreparacion.Id_OrdenDePreparacion.ToString(),
+                    orden.Id_OrdenDePreparacion.ToString(),
 
                 }, -1);
 

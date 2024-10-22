@@ -141,6 +141,21 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             var Id_Deposito = ordenDePreparacion.Id_Deposito;
             var Dni_transportista = ordenDePreparacion.Dni_transportista;
 
+            if (Dni_transportista < 10_000_000 || Dni_transportista > 99_999_999)
+            {
+
+
+                return "El DNI ingresado debe tener 8 dígitos.";
+            }
+
+            //if (DateTime.Parse(fecha) < DateTime.Now.Date)
+            //{
+            //    MessageBox.Show("El campo Fecha, no puede ser menor al dia de hoy.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    dateTimePicker_fecha.Focus();
+            //    return;
+            //}
+
+
             OrdenesDePreparacion.Add(ordenDePreparacion);
 
             return null;

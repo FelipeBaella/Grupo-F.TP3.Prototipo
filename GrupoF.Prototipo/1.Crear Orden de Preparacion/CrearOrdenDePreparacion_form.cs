@@ -107,7 +107,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         {
             var cliente = IdCliente_textbox.Text.Trim();
             string Cantidad = Cantidad_textbox.Text.Trim();
-            string Dni = Dni_textbox.Text.Trim();
 
             string fecha = dateTimePicker_fecha.Text;
 
@@ -115,32 +114,19 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             string? mercaderiaSeleccionada = DescripcionMercaderia_ComboBox.SelectedItem?.ToString();
 
             //DNI
+            if (!int.TryParse(Dni_textbox.Text, out int Dni))
+            {
 
-            if (!Dni.All(char.IsDigit))
-            {
                 MessageBox.Show("El campo Dni solo puede contener números.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Cantidad_textbox.Focus();
-                return;
-            }
-            if (Dni.Length != 8)
-            {
-                MessageBox.Show("El campo Dni debe ser tener 8 caracteres", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Cantidad_textbox.Focus();
-                return;
-            }
-            if (string.IsNullOrEmpty(Dni))
-            {
-                MessageBox.Show("El campo Dni no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Dni_textbox.Focus();
                 return;
             }
 
 
             //FECHA
-            if (string.IsNullOrEmpty(fecha))
+            if (!DateTime.TryParse(dateTimePicker_fecha.Text, out DateTime Fecha))
             {
-                MessageBox.Show("El campo Fecha, no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                dateTimePicker_fecha.Focus();
+                MessageBox.Show("El campo Fecha no corresponde a un formato válido.");
                 return;
             }
 
@@ -180,7 +166,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             ordenDePreparacion.Id_Cliente = int.Parse(cliente);
             ordenDePreparacion.Emision_OrdenDePreparacion = DateTime.Now;
             ordenDePreparacion.Id_Deposito = deposito.Id_Deposito;
-            ordenDePreparacion.Dni_transportista = int.Parse(Dni_textbox.Text);
+            ordenDePreparacion.Dni_transportista = Dni;
 
             CrearOrdnesDePreparacion_model.CrearOrdenesDePreparacion(ordenDePreparacion);
 

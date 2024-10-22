@@ -28,15 +28,18 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
         private void CargarOrdenesDePreparacion()
         {
             var ordenes = EmpaquetarMercaderias_model.OrdenesDePreparacion
-                .Where(x => x.Id_EstadoOP == 3)
-                .OrderBy(r => Guid.NewGuid()) 
-                .FirstOrDefault();
+             .Where(x => x.Id_EstadoOP == 3)
+             .OrderBy(r => Guid.NewGuid())
+             .ToList();
 
-            var OrdenesDePreparacionItems = EmpaquetarMercaderias_model.OrdenesDePreparacionItems.Where(X => X.Id_OrdenDePreparacion == ordenes.Id_OrdenDePreparacion).ToList();
+            var ordenIds = ordenes.Select(o => o.Id_OrdenDePreparacion).ToList();
+
+            var OrdenesDePreparacionItems = EmpaquetarMercaderias_model.OrdenesDePreparacionItems
+                .Where(x => ordenIds.Contains(x.Id_OrdenDePreparacion))
+                .ToList();
 
             foreach (var orden in OrdenesDePreparacionItems) 
             {
-                var cliente = EmpaquetarMercaderias_model.Clientes.Where(x => x.Id_Cliente == ordenes.Id_Cliente).FirstOrDefault();
                 var DepositoMercaderias = EmpaquetarMercaderias_model.DepositoMercaderias.Where(x => x.Id_DepositoMercaderias == orden.Id_DepositoMercaderias).FirstOrDefault();
                 var mercaderia = EmpaquetarMercaderias_model.Mercaderias.Where(x => x.Id_Mercaderia == DepositoMercaderias.Id_Mercaderia).FirstOrDefault();
 
@@ -74,14 +77,6 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
             nuevaForma.Show();
         }
 
-        private void IdOrdenDePreparacion_textbox_TextChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void EmpaquetarMercaderias_form_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

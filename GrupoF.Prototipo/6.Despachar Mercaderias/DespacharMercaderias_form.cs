@@ -23,17 +23,15 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
             CargarOrdenesDeEntrega();
         }
 
-        private void CargarOrdenesDeEntrega()
+        private void CargarOrdenesDeEntrega(int dniTransportista = 0)
         {
             listView_OrdenesDeEntrega.Items.Clear();
 
             var ordenes = DespacharMercaderias_model.OrdenesDePreparacion.Where(x => x.Dni_transportista == 0).ToList();
 
-            var dni_Transportista = DniTransportista_textBox.Text;
-
-            if (dni_Transportista != "")
+            if (dniTransportista != 0)
             {
-                ordenes = DespacharMercaderias_model.OrdenesDePreparacion.Where(x => x.Dni_transportista == int.Parse(dni_Transportista) && x.Id_EstadoOP == 5).ToList();
+                ordenes = DespacharMercaderias_model.OrdenesDePreparacion.Where(x => x.Dni_transportista == dniTransportista && x.Id_EstadoOP == 5).ToList();
             }
 
             foreach (var orden in ordenes)
@@ -50,23 +48,15 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 
         private void ProcesarOrdenDeEntrega_button_Click(object sender, EventArgs e)
         {
-            string Dni_transportista = DniTransportista_textBox.Text.Trim();
 
-            if (Dni_transportista == "")
+            if (!int.TryParse(DniTransportista_textBox.Text, out int dniTransportista))
             {
-                MessageBox.Show("Id no puede estar vacio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El campo transportista solo puede contener números.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 DniTransportista_textBox.Focus();
                 return;
             }
 
-            if (!Dni_transportista.All(char.IsDigit))
-            {
-                MessageBox.Show("Id debe ser un numero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                DniTransportista_textBox.Focus();
-                return;
-            }
-
-            CargarOrdenesDeEntrega();
+            CargarOrdenesDeEntrega(dniTransportista);
         }
 
         private void VolverAlMenu_button_Click(object sender, EventArgs e)

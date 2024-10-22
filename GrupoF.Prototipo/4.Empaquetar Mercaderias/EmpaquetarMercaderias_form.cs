@@ -36,6 +36,7 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 
             var OrdenesDePreparacionItems = EmpaquetarMercaderias_model.OrdenesDePreparacionItems
                 .Where(x => ordenIds.Contains(x.Id_OrdenDePreparacion))
+                .OrderBy(r => Guid.NewGuid())
                 .ToList();
 
             foreach (var orden in OrdenesDePreparacionItems) 

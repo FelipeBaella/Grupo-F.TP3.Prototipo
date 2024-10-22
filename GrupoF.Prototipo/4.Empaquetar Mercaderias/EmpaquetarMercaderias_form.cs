@@ -27,7 +27,10 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 
         private void CargarOrdenesDePreparacion()
         {
-            var ordenes = EmpaquetarMercaderias_model.OrdenesDePreparacion.Where(X => X.Id_EstadoOP == 3).First();
+            var ordenes = EmpaquetarMercaderias_model.OrdenesDePreparacion
+                .Where(x => x.Id_EstadoOP == 3)
+                .OrderBy(r => Guid.NewGuid()) 
+                .FirstOrDefault();
 
             var OrdenesDePreparacionItems = EmpaquetarMercaderias_model.OrdenesDePreparacionItems.Where(X => X.Id_OrdenDePreparacion == ordenes.Id_OrdenDePreparacion).ToList();
 

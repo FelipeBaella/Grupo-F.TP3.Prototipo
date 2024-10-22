@@ -16,11 +16,38 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
         private void CargarDepositos()
         {
+            var cliente = 0;
+
+            if (IdCliente_textbox.Text != "")
+            {
+                cliente = int.Parse(IdCliente_textbox.Text);
+            }
+
             // Limpiamos el ComboBox por si ya tiene elementos cargados
-            DescripcionDeposito_Combobox.Items.Clear();
+          
+            var depositos = CrearOrdnesDePreparacion_model.Depositos.ToList();
+
+            var depositosAEliminar = new List<Deposito>();
+
+            foreach (var deposito in depositos)
+            {
+                var depositoMercaderias = CrearOrdnesDePreparacion_model.DepositoMercaderias
+                .Where(x => x.Id_Cliente == cliente && x.Id_Deposito == deposito.Id_Deposito)
+                .FirstOrDefault();
+
+                if (depositoMercaderias == null)
+                {
+                    depositosAEliminar.Add(deposito);
+                }
+            }
+
+            foreach (var deposito in depositosAEliminar)
+            {
+                depositos.Remove(deposito);
+            }
 
             // Iteramos sobre la lista de depósitos y agregamos los nombres al ComboBox
-            foreach (var deposito in CrearOrdnesDePreparacion_model.Depositos)
+            foreach (var deposito in depositos)
             {
                 DescripcionDeposito_Combobox.Items.Add(deposito.Nombre_Deposito);
             }
@@ -38,37 +65,40 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
             var cliente = 0;
 
-            if (IdCliente_textbox.Text != "")
+            if (deposito != null)
             {
-                cliente = int.Parse(IdCliente_textbox.Text);
-            }
+                if (IdCliente_textbox.Text != "")
+                {
+                    cliente = int.Parse(IdCliente_textbox.Text);
+                }
 
-            var depositoMercaderias = CrearOrdnesDePreparacion_model.DepositoMercaderias
-                .Where(x => x.Id_Deposito == deposito.Id_Deposito)
-                .Where(x => x.Id_Cliente == cliente)
-                .Select(x => x.Id_Mercaderia)
-                .Distinct()
-                .ToList();
+                var depositoMercaderias = CrearOrdnesDePreparacion_model.DepositoMercaderias
+                    .Where(x => x.Id_Deposito == deposito.Id_Deposito)
+                    .Where(x => x.Id_Cliente == cliente)
+                    .Select(x => x.Id_Mercaderia)
+                    .Distinct()
+                    .ToList();
 
-            var mercaderias = new List<string>();
+                var mercaderias = new List<string>();
 
-            foreach (var item in depositoMercaderias)
-            {
-                var mercaderia = CrearOrdnesDePreparacion_model.Mercaderias.Where(x => x.Id_Mercaderia == item).FirstOrDefault();
+                foreach (var item in depositoMercaderias)
+                {
+                    var mercaderia = CrearOrdnesDePreparacion_model.Mercaderias.Where(x => x.Id_Mercaderia == item).FirstOrDefault();
 
-                mercaderias.Add(mercaderia.Descripcion_Mercaderia);
-            }
+                    mercaderias.Add(mercaderia.Id_Mercaderia + " - " + mercaderia.Descripcion_Mercaderia);
+                }
 
-            DescripcionMercaderia_ComboBox.Items.Clear();
+                DescripcionMercaderia_ComboBox.Items.Clear();
 
-            foreach (var mercaderia in mercaderias)
-            {
-                DescripcionMercaderia_ComboBox.Items.Add(mercaderia);
-            }
+                foreach (var mercaderia in mercaderias)
+                {
+                    DescripcionMercaderia_ComboBox.Items.Add(mercaderia);
+                }
 
-            if (DescripcionMercaderia_ComboBox.Items.Count > 0)
-            {
-                DescripcionMercaderia_ComboBox.SelectedIndex = 0;
+                if (DescripcionMercaderia_ComboBox.Items.Count > 0)
+                {
+                    DescripcionMercaderia_ComboBox.SelectedIndex = 0;
+                }
             }
         }
 
@@ -155,7 +185,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             CrearOrdnesDePreparacion_model.CrearOrdenesDePreparacion(ordenDePreparacion);
 
 
-            
+
 
             var ordenesDePreparacionItems = new OrdenesDePreparacionItems();
 
@@ -200,24 +230,40 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
         private void button_agregar_Click(object sender, EventArgs e)
         {
-            string descripcionMercaderia_ComboBox = DescripcionMercaderia_ComboBox.Text.Trim();
-            string cantidad_textbox = Cantidad_textbox.Text.Trim();
+            string descripcionMercaderia_ComboBox_Completo = DescripcionMercaderia_ComboBox.Text.Trim();
+
+            string descripcionMercaderia_ComboBox = descripcionMercaderia_ComboBox_Completo.Split('-')[1];
+
+            int cantidad;
             string descripcionDeposito_Combobox = DescripcionDeposito_Combobox.Text.Trim();
 
-            var mercaderia = CrearOrdnesDePreparacion_model.Mercaderias.Where(x => x.Descripcion_Mercaderia == descripcionMercaderia_ComboBox).FirstOrDefault();
+            var mercaderia = CrearOrdnesDePreparacion_model.Mercaderias.Where(x => x.Descripcion_Mercaderia == descripcionMercaderia_ComboBox.Trim()).FirstOrDefault();
             var deposito = CrearOrdnesDePreparacion_model.Depositos.Where(x => x.Nombre_Deposito == descripcionDeposito_Combobox).FirstOrDefault();
 
             var depositoMercaderia = CrearOrdnesDePreparacion_model.DepositoMercaderias.Where(x => x.Id_Deposito == deposito.Id_Deposito).FirstOrDefault();
 
             string? depositoSeleccionado = DescripcionDeposito_Combobox.SelectedItem?.ToString();
 
-            int cantidadNueva = int.Parse(cantidad_textbox);
+
+            if (!int.TryParse(Cantidad_textbox.Text.Trim(), out cantidad))
+            {
+                MessageBox.Show("Cantidad debe ser un numero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DescripcionDeposito_Combobox.Focus();
+                return;
+            }
+
+            int cantidadNueva = cantidad;
             int cantidadExistente = 0;
             int cantidadItem = 0;
 
+
             foreach (ListViewItem item in listView_MercaderiasOrdenes.Items)
             {
-                if (item.SubItems[0].Text == mercaderia.Descripcion_Mercaderia)
+                string SubItems_Completo = item.SubItems[0].Text;
+
+                string SubItems = SubItems_Completo.Split('-')[1];
+
+                if (SubItems.Trim() == mercaderia.Descripcion_Mercaderia)
                 {
                     cantidadItem = int.Parse(item.SubItems[1].Text);
                     cantidadExistente += cantidadItem;
@@ -257,8 +303,8 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
                     ListViewItem listViewItem = new ListViewItem(new string[] {
 
-                        mercaderia.Descripcion_Mercaderia.ToString(),
-                        cantidad_textbox.ToString(),
+                        mercaderia.Id_Mercaderia + " - "+ mercaderia.Descripcion_Mercaderia,
+                        Cantidad_textbox.Text.ToString(),
 
                     }, -1);
 
@@ -290,8 +336,9 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
         private void IdCliente_textbox_TextChanged(object sender, EventArgs e)
         {
-            DescripcionDeposito_Combobox.SelectedItem = "---";
-            DescripcionMercaderia_ComboBox.Items.Remove(DescripcionMercaderia_ComboBox.SelectedItem);
+            DescripcionDeposito_Combobox.Items.Clear();
+            DescripcionMercaderia_ComboBox.Items.Clear();
+
             Cantidad_textbox.Enabled = false;
             Cantidad_textbox.Text = "";
 
@@ -307,6 +354,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                     IdCliente_textbox.Text = Id_Cliente;
                     DescripcionDeposito_Combobox.Enabled = true;
                     Cantidad_textbox.Enabled = true;
+                    CargarDepositos();
                     CargarMercaderias();
                 }
             }
@@ -314,7 +362,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
         private void Dni_textbox_TextChanged(object sender, EventArgs e)
         {
-           
+
         }
     }
 }

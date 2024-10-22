@@ -88,12 +88,8 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 
         private void button_ProcesarOrdenDeSeleccion_Click(object sender, EventArgs e)
         {
-            string OS_Pendientes = OS_Pendientes_comboBox.Text;
-
-            if (OS_Pendientes != "")
-            {
-                var id = int.Parse(OS_Pendientes);
-
+            if (!int.TryParse(OS_Pendientes_comboBox.Text, out int id))
+            {                        
                 ProcesarOrdenDeSeleccion_model.EditarEstadoOS(id);
 
                 ProcesarOrdenDeSeleccion_model.EditarEstadoOP(id);

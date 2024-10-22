@@ -281,8 +281,18 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             var Id_OrdenDeSeleccion = OrdenesDeSeleccion.Count + 1;
             var Id_OrdenDePreparacionMercaderia = OrdenesDePreparacionItems.Count + 1;
             var Id_EstadoOP = ordenesDeSeleccion.Id_EstadoOS;
-            var Prioridad_OrdenDePreparacion = ordenesDeSeleccion.Emision_OrdenDeSeleccion;
+            var Emision_OrdenDeSeleccion = ordenesDeSeleccion.Emision_OrdenDeSeleccion;
             var AcualizacionEstado_OrdenDeSeleccion = ordenesDeSeleccion.AcualizacionEstado_OrdenDeSeleccion;
+
+            if (Emision_OrdenDeSeleccion < DateTime.Now.Date)
+            {
+                return "La fecha de emision no puede ser menor al dia de hoy.";
+            }
+
+            if (AcualizacionEstado_OrdenDeSeleccion < DateTime.Now.Date)
+            {
+                return "La fecha de actualizacion de estado no puede ser menor al dia de hoy.";
+            }
 
             OrdenesDeSeleccion.Add(ordenesDeSeleccion);
 

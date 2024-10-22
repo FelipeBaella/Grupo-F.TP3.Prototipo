@@ -63,13 +63,13 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         {
             var deposito = CrearOrdnesDePreparacion_model.Depositos.Where(x => x.Nombre_Deposito == DescripcionDeposito_Combobox.SelectedItem).FirstOrDefault();
 
-            var cliente = 0;
-
             if (deposito != null)
             {
-                if (IdCliente_textbox.Text != "")
+                if (!int.TryParse(IdCliente_textbox.Text, out int cliente))
                 {
-                    cliente = int.Parse(IdCliente_textbox.Text);
+                    MessageBox.Show("El campo Cliente solo puede contener números.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Dni_textbox.Focus();
+                    return;
                 }
 
                 var depositoMercaderias = CrearOrdnesDePreparacion_model.DepositoMercaderias
@@ -105,23 +105,24 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
         private void button_aceptar_click(object sender, EventArgs e)
         {
-            var cliente = IdCliente_textbox.Text.Trim();
             string Cantidad = Cantidad_textbox.Text.Trim();
-
             string fecha = dateTimePicker_fecha.Text;
 
-            string? depositoSeleccionado = DescripcionDeposito_Combobox.SelectedItem?.ToString();
-            string? mercaderiaSeleccionada = DescripcionMercaderia_ComboBox.SelectedItem?.ToString();
+            //CLIENTE
+            if ((!int.TryParse(IdCliente_textbox.Text, out int cliente)))
+            {
+                MessageBox.Show("Cliente debe ser un numero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DescripcionDeposito_Combobox.Focus();
+                return;
+            }
 
             //DNI
             if (!int.TryParse(Dni_textbox.Text, out int Dni))
             {
-
                 MessageBox.Show("El campo Dni solo puede contener números.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Dni_textbox.Focus();
                 return;
             }
-
 
             //FECHA
             if (!DateTime.TryParse(dateTimePicker_fecha.Text, out DateTime Fecha))
@@ -136,16 +137,14 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                 dateTimePicker_fecha.Focus();
                 return;
             }
-
-
+            
             //DEPOSITO
-            if (depositoSeleccionado == "---")
+            if (string.IsNullOrEmpty(DescripcionDeposito_Combobox.SelectedItem?.ToString()))
             {
                 MessageBox.Show("Debes seleccionar un depósito valido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 DescripcionDeposito_Combobox.Focus();
                 return;
             }
-
 
             //LISTA
             if (listView_MercaderiasOrdenes.Items.Count < 1)
@@ -156,14 +155,13 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             }
 
 
-
             var deposito = CrearOrdnesDePreparacion_model.Depositos.Where(x => x.Nombre_Deposito == DescripcionDeposito_Combobox.Text).FirstOrDefault();
 
             var ordenDePreparacion = new OrdenesDePreparacion();
 
             ordenDePreparacion.Id_EstadoOP = 1;
             ordenDePreparacion.Prioridad_OrdenDePreparacion = true;
-            ordenDePreparacion.Id_Cliente = int.Parse(cliente);
+            ordenDePreparacion.Id_Cliente = cliente;
             ordenDePreparacion.Emision_OrdenDePreparacion = DateTime.Now;
             ordenDePreparacion.Id_Deposito = deposito.Id_Deposito;
             ordenDePreparacion.Dni_transportista = Dni;

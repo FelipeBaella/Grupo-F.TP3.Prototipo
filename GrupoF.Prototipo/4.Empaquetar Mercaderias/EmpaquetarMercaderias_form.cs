@@ -22,10 +22,10 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
         public EmpaquetarMercaderias_form()
         {
             InitializeComponent();
-            CargarOrdenesDePreparacion();
+            CargarOrdenesDePreparacionItems();
         }
 
-        private void CargarOrdenesDePreparacion()
+        private void CargarOrdenesDePreparacionItems()
         {
             var ordenes = EmpaquetarMercaderias_model.OrdenesDePreparacion
              .Where(x => x.Id_EstadoOP == 3)

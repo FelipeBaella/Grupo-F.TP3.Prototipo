@@ -85,7 +85,7 @@
             CrearOE_button.TabIndex = 4;
             CrearOE_button.Text = "Crear Orden de entrega";
             CrearOE_button.UseVisualStyleBackColor = true;
-            CrearOE_button.Click += button_CrearRemito_Click;
+            CrearOE_button.Click += button_DesacharMercaderias_Click;
             // 
             // DespacharMercaderias_button
             // 

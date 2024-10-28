@@ -45,6 +45,14 @@ namespace GrupoF.Prototipo._0.Menu
 
             ProcesarOrdenDeSeleccion_form nuevaForma = new ProcesarOrdenDeSeleccion_form();
             nuevaForma.Show();
+        }      
+
+        private void button_ProcesarOrdenDeEntrega_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            DespacharMercaderias_form nuevaForma = new DespacharMercaderias_form();
+            nuevaForma.Show();
         }
 
         private void button_CrearOrdenDeEntrega_Click(object sender, EventArgs e)
@@ -55,7 +63,7 @@ namespace GrupoF.Prototipo._0.Menu
             nuevaForma.Show();
         }
 
-        private void button_CrearRemito_Click(object sender, EventArgs e)
+        private void button_DesacharMercaderias_Click(object sender, EventArgs e)
         {
             this.Hide();
 
@@ -63,13 +71,6 @@ namespace GrupoF.Prototipo._0.Menu
             nuevaForma.Show();
         }
 
-        private void button_ProcesarOrdenDeEntrega_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-
-            DespacharMercaderias_form nuevaForma = new DespacharMercaderias_form();
-            nuevaForma.Show();
-        }
 
         private void button_Salir_Click(object sender, EventArgs e)
         {

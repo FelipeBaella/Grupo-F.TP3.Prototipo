@@ -32,7 +32,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
         /// </summary>
         private void InitializeComponent()
         {
-            listView_OrdenesDeEntrega = new ListView();
+            listView_OrdenesDePreparacion = new ListView();
             ID_OP = new ColumnHeader();
             IdOrdenDeEntrega_label = new Label();
             DniTransportista_textBox = new TextBox();
@@ -45,15 +45,15 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
             OPaDespachar_groupBox2.SuspendLayout();
             SuspendLayout();
             // 
-            // listView_OrdenesDeEntrega
+            // listView_OrdenesDePreparacion
             // 
-            listView_OrdenesDeEntrega.Columns.AddRange(new ColumnHeader[] { ID_OP });
-            listView_OrdenesDeEntrega.Location = new Point(6, 22);
-            listView_OrdenesDeEntrega.Name = "listView_OrdenesDeEntrega";
-            listView_OrdenesDeEntrega.Size = new Size(537, 391);
-            listView_OrdenesDeEntrega.TabIndex = 0;
-            listView_OrdenesDeEntrega.UseCompatibleStateImageBehavior = false;
-            listView_OrdenesDeEntrega.View = View.Details;
+            listView_OrdenesDePreparacion.Columns.AddRange(new ColumnHeader[] { ID_OP });
+            listView_OrdenesDePreparacion.Location = new Point(6, 22);
+            listView_OrdenesDePreparacion.Name = "listView_OrdenesDePreparacion";
+            listView_OrdenesDePreparacion.Size = new Size(537, 391);
+            listView_OrdenesDePreparacion.TabIndex = 0;
+            listView_OrdenesDePreparacion.UseCompatibleStateImageBehavior = false;
+            listView_OrdenesDePreparacion.View = View.Details;
             // 
             // ID_OP
             // 
@@ -85,7 +85,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
             BuscarDNI_button.TabIndex = 4;
             BuscarDNI_button.Text = "Buscar";
             BuscarDNI_button.UseVisualStyleBackColor = true;
-            BuscarDNI_button.Click += ProcesarOrdenDeEntrega_button_Click;
+            BuscarDNI_button.Click += Button_Buscar_OP_Transportista_Click;
             // 
             // VolverAlMenu_button
             // 
@@ -113,7 +113,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
             // OPaDespachar_groupBox2
             // 
             OPaDespachar_groupBox2.Controls.Add(EmitirRemito_button);
-            OPaDespachar_groupBox2.Controls.Add(listView_OrdenesDeEntrega);
+            OPaDespachar_groupBox2.Controls.Add(listView_OrdenesDePreparacion);
             OPaDespachar_groupBox2.Location = new Point(318, 33);
             OPaDespachar_groupBox2.Name = "OPaDespachar_groupBox2";
             OPaDespachar_groupBox2.Size = new Size(552, 448);
@@ -129,7 +129,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
             EmitirRemito_button.TabIndex = 1;
             EmitirRemito_button.Text = "Emitir Remito";
             EmitirRemito_button.UseVisualStyleBackColor = true;
-            EmitirRemito_button.Click += EmitirRemito_button_Click;
+            EmitirRemito_button.Click += Button_EmitirRemito_Click;
             // 
             // DespacharMercaderias_form
             // 
@@ -149,7 +149,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 
         #endregion
 
-        private ListView listView_OrdenesDeEntrega;
+        private ListView listView_OrdenesDePreparacion;
         private Label OrdenesDeEntrega_label;
         private ColumnHeader Estado_OP;
         private ColumnHeader Fecha_Entrega_OP;

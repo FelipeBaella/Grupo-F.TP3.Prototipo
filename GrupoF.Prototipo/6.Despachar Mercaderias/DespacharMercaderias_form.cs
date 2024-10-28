@@ -20,12 +20,12 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
         public DespacharMercaderias_form()
         {
             InitializeComponent();
-            CargarOrdenesDeEntrega();
+            CargarOrdenesDePreparacion();
         }
 
-        private void CargarOrdenesDeEntrega(int dniTransportista = 0)
+        private void CargarOrdenesDePreparacion(int dniTransportista = 0)
         {
-            listView_OrdenesDeEntrega.Items.Clear();
+            listView_OrdenesDePreparacion.Items.Clear();
 
             var ordenes = DespacharMercaderias_model.OrdenesDePreparacion.Where(x => x.Dni_transportista == 0).ToList();
 
@@ -42,11 +42,11 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 
                 }, -1);
 
-                listView_OrdenesDeEntrega.Items.Add(listViewItem);
+                listView_OrdenesDePreparacion.Items.Add(listViewItem);
             }
         }
 
-        private void ProcesarOrdenDeEntrega_button_Click(object sender, EventArgs e)
+        private void Button_Buscar_OP_Transportista_Click(object sender, EventArgs e)
         {
 
             if (!int.TryParse(DniTransportista_textBox.Text, out int dniTransportista))
@@ -56,7 +56,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
                 return;
             }
 
-            CargarOrdenesDeEntrega(dniTransportista);
+            CargarOrdenesDePreparacion(dniTransportista);
         }
 
         private void VolverAlMenu_button_Click(object sender, EventArgs e)
@@ -68,15 +68,15 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
             nuevaForma.Show();
         }
 
-        private void EmitirRemito_button_Click(object sender, EventArgs e)
+        private void Button_EmitirRemito_Click(object sender, EventArgs e)
         {
-            int OrdenesDeEntrega = listView_OrdenesDeEntrega.Items.Count;
+            int OrdenesDeEntrega = listView_OrdenesDePreparacion.Items.Count;
 
-            if(OrdenesDeEntrega > 0)
+            if (OrdenesDeEntrega > 0)
             {
                 var ordenesDePreparacion = new List<int>();
 
-                foreach (ListViewItem item in listView_OrdenesDeEntrega.Items)
+                foreach (ListViewItem item in listView_OrdenesDePreparacion.Items)
                 {
                     ordenesDePreparacion.Add(int.Parse(item.SubItems[0].Text));
                 }
@@ -93,7 +93,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
             else 
             {
                 MessageBox.Show("El listado de ordenes de preparacion no puede estar vacio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                listView_OrdenesDeEntrega.Focus();
+                listView_OrdenesDePreparacion.Focus();
                 return;
             }
 

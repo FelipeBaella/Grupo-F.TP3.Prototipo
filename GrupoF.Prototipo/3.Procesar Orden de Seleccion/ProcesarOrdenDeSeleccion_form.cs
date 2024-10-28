@@ -22,10 +22,10 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
         public ProcesarOrdenDeSeleccion_form()
         {
             InitializeComponent();
-            CargarOrdenesDePreparacionLista();
+            CargarOrdenesDeSeleccion();
         }
 
-        private void CargarOrdenesDePreparacion(string id)
+        private void CargarOrdenesDePreparacionItems(string id)
         {
             ProcesarOrdenesDeSeleccion_listView.Items.Clear();
 
@@ -76,7 +76,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             nuevaForma.Show();
         }
 
-        private void CargarOrdenesDePreparacionLista()
+        private void CargarOrdenesDeSeleccion()
         {
             var OrdenesDeSeleccion = ProcesarOrdenDeSeleccion_model.OrdenesDeSeleccion.Where(x => x.Id_EstadoOS == 1).Select(x => x.Id_OrdenDeSeleccion).ToList();
 
@@ -114,7 +114,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
         {
             string id = OS_Pendientes_comboBox.Text;
 
-            CargarOrdenesDePreparacion(id);
+            CargarOrdenesDePreparacionItems(id);
         }
     }
 }

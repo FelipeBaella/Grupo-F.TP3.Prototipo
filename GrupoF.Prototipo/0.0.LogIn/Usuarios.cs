@@ -8,8 +8,8 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 {
     internal class Usuarios
     {
-        public int Id_Usuario{ get; set; }
-        public int Id_Cliente{ get; set; }
+        public int ID_Usuario{ get; set; }
+        public int ID_Cliente{ get; set; }
         public string LogIn_usuario { get; set; }
         public string Contrasena_usuario { get; set; }
     }

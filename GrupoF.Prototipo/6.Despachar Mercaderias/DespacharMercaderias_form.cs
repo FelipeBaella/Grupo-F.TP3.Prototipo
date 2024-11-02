@@ -31,14 +31,14 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 
             if (dniTransportista != 0)
             {
-                ordenes = DespacharMercaderias_model.OrdenesDePreparacion.Where(x => x.Dni_transportista == dniTransportista && x.Id_EstadoOP == 5).ToList();
+                ordenes = DespacharMercaderias_model.OrdenesDePreparacion.Where(x => x.Dni_transportista == dniTransportista && x.Estado_OP == GrupoF.Prototipo._1.Crear_Orden_de_Preparacion.EstadoOPEnum.EN_DESPACHO).ToList();
             }
 
             foreach (var orden in ordenes)
             {
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 
-                    orden.Id_OrdenDePreparacion.ToString(),
+                    orden.ID_OP.ToString(),
 
                 }, -1);
 

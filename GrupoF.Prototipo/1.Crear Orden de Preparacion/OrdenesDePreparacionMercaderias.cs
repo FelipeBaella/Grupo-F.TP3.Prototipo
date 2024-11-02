@@ -8,9 +8,9 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 {
     internal class OrdenesDePreparacionItems
     {
-        public int? Id_OrdenDePreparacionMercaderia { get; set; }
-        public int Id_OrdenDePreparacion { get; set; }
-        public int Id_DepositoMercaderias { get; set; }
+        public int? ID_OPMercaderia { get; set; }
+        public int ID_OP { get; set; }
+        public int ID_DepositoMercaderias { get; set; }
         public int Cantidad_Mercaderia { get; set; }
     }
 }

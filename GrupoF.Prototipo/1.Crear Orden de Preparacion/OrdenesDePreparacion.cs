@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GrupoF.Prototipo._1.Crear_Orden_de_Preparacion;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,15 +9,17 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 {
     internal class OrdenesDePreparacion
     {
-        public int Id_OrdenDePreparacion { get; set; }
-        public int Id_EstadoOP { get; set; }
-        public bool Prioridad_OrdenDePreparacion { get; set; }
-        public int Id_Cliente { get; set; }
-        public DateTime Emision_OrdenDePreparacion { get; set; }
-        public int Id_Deposito { get; set; }
-        public int Dni_transportista { get; set; }
-        public int? Id_OrdenDeEntrega { get; set; }
-        public int? Id_OrdenDeSeleccion { get; set; }
-        public int? Id_Remito { get; set; }
+        public int ID_OP { get; set; }
+        public bool Prioridad_OP { get; set; }  
+        public int ID_Cliente { get; set; }
+        public DateTime FechaEmision_OP { get; set; }
+        public DateTime FechaEntrega_OP { get; set; }
+        public int ID_Deposito { get; set; }
+        public int Dni_transportista { get; set; }  
+        public int? ID_OE { get; set; }
+        public int? ID_OS { get; set; }
+        public int? ID_Remito { get; set; }
+        public EstadoOPEnum Estado_OP { get; set; }
+        public DateTime FechaActualizacionEstado_OP { get; set; }
     }
 }

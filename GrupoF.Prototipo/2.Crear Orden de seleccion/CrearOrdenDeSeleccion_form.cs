@@ -15,6 +15,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Windows.Forms;
+using GrupoF.Prototipo._1.Crear_Orden_de_Preparacion;
+using GrupoF.Prototipo._2.Crear_Orden_de_seleccion;
+
+
 
 
 namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
@@ -25,7 +29,8 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
         public CrearOrdenDeSeleccion_form()
         {
-            var listview = CrearOrdenDeSeleccion_model.OrdenesDePreparacion.Where(x => x.Id_EstadoOP == 1).ToList();
+            var listview = CrearOrdenDeSeleccion_model.OrdenesDePreparacion
+                .Where(x => x.Estado_OP == GrupoF.Prototipo._1.Crear_Orden_de_Preparacion.EstadoOPEnum.EMITIDA).ToList();
 
             InitializeComponent();
             CargarOrdenesDePreparacion(listview);
@@ -37,11 +42,11 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
             foreach (var orden in ordenes)
             {
-                var cliente = CrearOrdenDeSeleccion_model.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
+                var cliente = CrearOrdenDeSeleccion_model.Clientes.Where(x => x.ID_Cliente == orden.ID_Cliente).FirstOrDefault();
 
                 var prioridad = "";
 
-                if (orden.Prioridad_OrdenDePreparacion == true)
+                if (orden.Prioridad_OP == true)
                 {
                     prioridad = "Si";
                 }
@@ -52,9 +57,9 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 
-                        orden.Id_OrdenDePreparacion.ToString(),
+                        orden.ID_OP.ToString(),
                         prioridad,
-                        orden.Emision_OrdenDePreparacion.ToString(),
+                        orden.FechaEmision_OP.ToString(),
                         cliente.NombreApellido,
 
                 }, -1);
@@ -64,21 +69,21 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
         }
 
-        private void CargarItemsOrdenesDePreparacion(int Id_ordenDePrparacion)
+        private void CargarItemsOrdenesDePreparacion(int ID_ordenDePrparacion)
         {
             ItemsOP_listView2.Items.Clear();
 
-            var listado = CrearOrdenDeSeleccion_model.OrdenesDePreparacionItems.Where(x => x.Id_OrdenDePreparacion == Id_ordenDePrparacion).ToList();
+            var listado = CrearOrdenDeSeleccion_model.OrdenesDePreparacionItems.Where(x => x.ID_OP == ID_ordenDePrparacion).ToList();
 
             foreach (var item in listado)
             {
-                var DepositoMercaderias = CrearOrdenDeSeleccion_model.DepositoMercaderias.Where(x => x.Id_DepositoMercaderias == item.Id_DepositoMercaderias).FirstOrDefault();
+                var DepositoMercaderias = CrearOrdenDeSeleccion_model.DepositoMercaderias.Where(x => x.ID_DepositoMercaderias == item.ID_DepositoMercaderias).FirstOrDefault();
 
-                var mercaderia = CrearOrdenDeSeleccion_model.Mercaderias.Where(x => x.Id_Mercaderia == DepositoMercaderias.Id_Mercaderia).FirstOrDefault();
+                var mercaderia = CrearOrdenDeSeleccion_model.Mercaderias.Where(x => x.ID_Mercaderia == DepositoMercaderias.ID_Mercaderia).FirstOrDefault();
 
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 
-                        item.Id_OrdenDePreparacionMercaderia.ToString(),
+                        item.ID_OPMercaderia.ToString(),
                         mercaderia.Descripcion_Mercaderia,
                         item.Cantidad_Mercaderia.ToString(),
 
@@ -101,10 +106,10 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
             var ordenesDeSeleccion = new OrdenesDeSeleccion();
 
-            var Id_OrdenDeSeleccion = CrearOrdenDeSeleccion_model.OrdenesDeSeleccion.Count + 1;
+            var ID_OS = CrearOrdenDeSeleccion_model.OrdenesDeSeleccion.Count + 1;
 
-            ordenesDeSeleccion.Id_OrdenDeSeleccion = Id_OrdenDeSeleccion;
-            ordenesDeSeleccion.Id_EstadoOS = 1;
+            ordenesDeSeleccion.ID_OS = ID_OS;
+            ordenesDeSeleccion.Estado_OS = EstadoOSEnum.EMITIDA;
             ordenesDeSeleccion.Emision_OrdenDeSeleccion = DateTime.Now;
             ordenesDeSeleccion.AcualizacionEstado_OrdenDeSeleccion = DateTime.Now;
 
@@ -249,21 +254,21 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
         private void button_Click(object sender, EventArgs e)
         {
-            var listview = CrearOrdenDeSeleccion_model.OrdenesDePreparacion.Where(x => x.Id_EstadoOP == 1).ToList();
+            var listview = CrearOrdenDeSeleccion_model.OrdenesDePreparacion.Where(x => x.Estado_OP == GrupoF.Prototipo._1.Crear_Orden_de_Preparacion.EstadoOPEnum.EN_PREPARACION).ToList();
 
             if (comboBox1.SelectedIndex == 1)
             {
-                listview = listview.OrderBy(x => x.Id_OrdenDePreparacion).ToList();
+                listview = listview.OrderBy(x => x.ID_OP).ToList();
             }
 
             else if (comboBox1.SelectedIndex == 2)
             {
-                listview = listview.OrderByDescending(x => x.Prioridad_OrdenDePreparacion).ToList();
+                listview = listview.OrderByDescending(x => x.Prioridad_OP).ToList();
             }
 
             else if (comboBox1.SelectedIndex == 3)
             {
-                listview = listview.OrderBy(x => x.Emision_OrdenDePreparacion).ToList();
+                listview = listview.OrderBy(x => x.FechaEmision_OP).ToList();
             }
 
             if (comboBox1.SelectedIndex == 4)

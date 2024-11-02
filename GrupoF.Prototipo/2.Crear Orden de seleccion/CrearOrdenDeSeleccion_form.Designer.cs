@@ -60,7 +60,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             groupBox3 = new GroupBox();
             Remover_button = new Button();
             Items_OS_listView = new ListView();
-            Id_OP2 = new ColumnHeader();
+            ID_OP2 = new ColumnHeader();
             Nombre_Cliente1 = new ColumnHeader();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             groupBox1.SuspendLayout();
@@ -276,7 +276,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // Items_OS_listView
             // 
             Items_OS_listView.CheckBoxes = true;
-            Items_OS_listView.Columns.AddRange(new ColumnHeader[] { Id_OP2, Nombre_Cliente1 });
+            Items_OS_listView.Columns.AddRange(new ColumnHeader[] { ID_OP2, Nombre_Cliente1 });
             Items_OS_listView.Location = new Point(11, 21);
             Items_OS_listView.Name = "Items_OS_listView";
             Items_OS_listView.Size = new Size(348, 214);
@@ -284,10 +284,10 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             Items_OS_listView.UseCompatibleStateImageBehavior = false;
             Items_OS_listView.View = View.Details;
             // 
-            // Id_OP2
+            // ID_OP2
             // 
-            Id_OP2.Text = "ID OP";
-            Id_OP2.Width = 100;
+            ID_OP2.Text = "ID OP";
+            ID_OP2.Width = 100;
             // 
             // Nombre_Cliente1
             // 
@@ -350,7 +350,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         private GroupBox groupBox3;
         private ListView Items_OS_listView;
         private ColumnHeader Item;
-        private ColumnHeader Id_OP2;
+        private ColumnHeader ID_OP2;
         private ColumnHeader Nombre_Cliente1;
         private Button Remover_button;
         private ListView ItemsOP_listView2;

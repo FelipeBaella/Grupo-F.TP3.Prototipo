@@ -1,5 +1,5 @@
 ﻿using GrupoF.Prototipo._0.Menu;
-
+using GrupoF.Prototipo._1.Crear_Orden_de_Preparacion;
 using System.Data;
 
 namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
@@ -32,7 +32,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             foreach (var deposito in depositos)
             {
                 var depositoMercaderias = CrearOrdnesDePreparacion_model.DepositoMercaderias
-                .Where(x => x.Id_Cliente == cliente && x.Id_Deposito == deposito.Id_Deposito)
+                .Where(x => x.ID_Cliente == cliente && x.ID_Deposito == deposito.ID_Deposito)
                 .FirstOrDefault();
 
                 if (depositoMercaderias == null)
@@ -73,9 +73,9 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                 }
 
                 var depositoMercaderias = CrearOrdnesDePreparacion_model.DepositoMercaderias
-                    .Where(x => x.Id_Deposito == deposito.Id_Deposito)
-                    .Where(x => x.Id_Cliente == cliente)
-                    .Select(x => x.Id_Mercaderia)
+                    .Where(x => x.ID_Deposito == deposito.ID_Deposito)
+                    .Where(x => x.ID_Cliente == cliente)
+                    .Select(x => x.ID_Mercaderia)
                     .Distinct()
                     .ToList();
 
@@ -83,9 +83,9 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
                 foreach (var item in depositoMercaderias)
                 {
-                    var mercaderia = CrearOrdnesDePreparacion_model.Mercaderias.Where(x => x.Id_Mercaderia == item).FirstOrDefault();
+                    var mercaderia = CrearOrdnesDePreparacion_model.Mercaderias.Where(x => x.ID_Mercaderia == item).FirstOrDefault();
 
-                    mercaderias.Add(mercaderia.Id_Mercaderia + " - " + mercaderia.Descripcion_Mercaderia);
+                    mercaderias.Add(mercaderia.ID_Mercaderia + " - " + mercaderia.Descripcion_Mercaderia);
                 }
 
                 DescripcionMercaderia_ComboBox.Items.Clear();
@@ -159,11 +159,11 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
             var ordenDePreparacion = new OrdenesDePreparacion();
 
-            ordenDePreparacion.Id_EstadoOP = 1;
-            ordenDePreparacion.Prioridad_OrdenDePreparacion = true;
-            ordenDePreparacion.Id_Cliente = cliente;
-            ordenDePreparacion.Emision_OrdenDePreparacion = DateTime.Now;
-            ordenDePreparacion.Id_Deposito = deposito.Id_Deposito;
+            ordenDePreparacion.Estado_OP = EstadoOPEnum.EMITIDA;
+            ordenDePreparacion.Prioridad_OP = true;
+            ordenDePreparacion.ID_Cliente = cliente;
+            ordenDePreparacion.FechaEmision_OP = DateTime.Now;
+            ordenDePreparacion.ID_Deposito = deposito.ID_Deposito;
             ordenDePreparacion.Dni_transportista = Dni;
 
             CrearOrdnesDePreparacion_model.CrearOrdenesDePreparacion(ordenDePreparacion);
@@ -177,9 +177,9 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             {
                 var mercaderia = CrearOrdnesDePreparacion_model.Mercaderias.Where(x => x.Descripcion_Mercaderia == item.SubItems[0].Text).FirstOrDefault();
 
-                var depositoMercaderias = CrearOrdnesDePreparacion_model.DepositoMercaderias.Where(x => x.Id_Deposito == deposito.Id_Deposito && x.Id_Mercaderia == mercaderia.Id_Mercaderia);
+                var depositoMercaderias = CrearOrdnesDePreparacion_model.DepositoMercaderias.Where(x => x.ID_Deposito == deposito.ID_Deposito && x.ID_Mercaderia == mercaderia.ID_Mercaderia);
 
-                ordenesDePreparacionItems.Id_DepositoMercaderias = 0;
+                ordenesDePreparacionItems.ID_DepositoMercaderias = 0;
                 ordenesDePreparacionItems.Cantidad_Mercaderia = int.Parse(item.SubItems[1].Text);
 
                 CrearOrdnesDePreparacion_model.CrearOrdenesDePreparacionItem(ordenesDePreparacionItems);
@@ -224,7 +224,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             var mercaderia = CrearOrdnesDePreparacion_model.Mercaderias.Where(x => x.Descripcion_Mercaderia == descripcionMercaderia_ComboBox.Trim()).FirstOrDefault();
             var deposito = CrearOrdnesDePreparacion_model.Depositos.Where(x => x.Nombre_Deposito == descripcionDeposito_Combobox).FirstOrDefault();
 
-            var depositoMercaderia = CrearOrdnesDePreparacion_model.DepositoMercaderias.Where(x => x.Id_Deposito == deposito.Id_Deposito).FirstOrDefault();
+            var depositoMercaderia = CrearOrdnesDePreparacion_model.DepositoMercaderias.Where(x => x.ID_Deposito == deposito.ID_Deposito).FirstOrDefault();
 
             string? depositoSeleccionado = DescripcionDeposito_Combobox.SelectedItem?.ToString();
 
@@ -287,7 +287,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
                     ListViewItem listViewItem = new ListViewItem(new string[] {
 
-                        mercaderia.Id_Mercaderia + " - "+ mercaderia.Descripcion_Mercaderia,
+                        mercaderia.ID_Mercaderia + " - "+ mercaderia.Descripcion_Mercaderia,
                         Cantidad_textbox.Text.ToString(),
 
                     }, -1);
@@ -326,16 +326,16 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             Cantidad_textbox.Enabled = false;
             Cantidad_textbox.Text = "";
 
-            string Id_Cliente = IdCliente_textbox.Text.Trim();
+            string ID_Cliente = IdCliente_textbox.Text.Trim();
 
             //CLIENTE
-            if (Id_Cliente.All(char.IsDigit) && !string.IsNullOrEmpty(Id_Cliente))
+            if (ID_Cliente.All(char.IsDigit) && !string.IsNullOrEmpty(ID_Cliente))
             {
-                var clientes = CrearOrdnesDePreparacion_model.Clientes.Where(x => x.Id_Cliente == int.Parse(Id_Cliente)).FirstOrDefault();
+                var clientes = CrearOrdnesDePreparacion_model.Clientes.Where(x => x.ID_Cliente == int.Parse(ID_Cliente)).FirstOrDefault();
 
                 if (clientes != null)
                 {
-                    IdCliente_textbox.Text = Id_Cliente;
+                    IdCliente_textbox.Text = ID_Cliente;
                     DescripcionDeposito_Combobox.Enabled = true;
                     Cantidad_textbox.Enabled = true;
                     CargarDepositos();

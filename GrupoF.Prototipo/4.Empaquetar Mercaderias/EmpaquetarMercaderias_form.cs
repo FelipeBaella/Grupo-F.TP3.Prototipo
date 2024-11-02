@@ -28,21 +28,21 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
         private void CargarOrdenesDePreparacionItems()
         {
             var ordenes = EmpaquetarMercaderias_model.OrdenesDePreparacion
-             .Where(x => x.Id_EstadoOP == 3)
+             .Where(x => x.Estado_OP == GrupoF.Prototipo._1.Crear_Orden_de_Preparacion.EstadoOPEnum.EN_PREPARACION)
              .OrderBy(r => Guid.NewGuid())
              .ToList();
 
-            var ordenIds = ordenes.Select(o => o.Id_OrdenDePreparacion).ToList();
+            var ordenIds = ordenes.Select(o => o.ID_OP).ToList();
 
             var OrdenesDePreparacionItems = EmpaquetarMercaderias_model.OrdenesDePreparacionItems
-                .Where(x => ordenIds.Contains(x.Id_OrdenDePreparacion))
+                .Where(x => ordenIds.Contains(x.ID_OP))
                 .OrderBy(r => Guid.NewGuid())
                 .ToList();
 
             foreach (var orden in OrdenesDePreparacionItems) 
             {
-                var DepositoMercaderias = EmpaquetarMercaderias_model.DepositoMercaderias.Where(x => x.Id_DepositoMercaderias == orden.Id_DepositoMercaderias).FirstOrDefault();
-                var mercaderia = EmpaquetarMercaderias_model.Mercaderias.Where(x => x.Id_Mercaderia == DepositoMercaderias.Id_Mercaderia).FirstOrDefault();
+                var DepositoMercaderias = EmpaquetarMercaderias_model.DepositoMercaderias.Where(x => x.ID_DepositoMercaderias == orden.ID_DepositoMercaderias).FirstOrDefault();
+                var mercaderia = EmpaquetarMercaderias_model.Mercaderias.Where(x => x.ID_Mercaderia == DepositoMercaderias.ID_Mercaderia).FirstOrDefault();
 
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 
@@ -66,7 +66,7 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 
         private void button_empaquetar_Click(object sender, EventArgs e)
         {
-            var id = EmpaquetarMercaderias_model.OrdenesDePreparacion.First().Id_OrdenDePreparacion;
+            var id = EmpaquetarMercaderias_model.OrdenesDePreparacion.First().ID_OP;
 
             EmpaquetarMercaderias_model.EditarEstadoOP(id);
 

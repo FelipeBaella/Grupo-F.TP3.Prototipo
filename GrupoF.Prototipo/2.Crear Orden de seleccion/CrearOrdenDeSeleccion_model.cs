@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 {
     internal class CrearOrdenDeSeleccion_model
@@ -15,10 +16,10 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         public List<Cliente> Clientes { get; set; } = new List<Cliente>
         {
             // SET DE DATOS DE 3 CLIENTES:
-            new Cliente { Id_Cliente = 0, Dni = 0, NombreApellido = "---"},
-            new Cliente { Id_Cliente = 1, Dni = 3456789, NombreApellido = "Juan Pérez", Cuit = 20345678901, Domicilio = "Calle Falsa 123, Ciudad", CondIva = "Si" },
-            new Cliente { Id_Cliente = 2, Dni = 45678901, NombreApellido = "María Gómez", Cuit = 27456789012, Domicilio = "Av. Siempre Viva 456, Provincia", CondIva = "No" },
-            new Cliente { Id_Cliente = 3, Dni = 5678901, NombreApellido = "Carlos López", Cuit = 20567890123, Domicilio = "Calle del Sol 789, Capital Federal", CondIva = "Si" },
+            new Cliente { ID_Cliente = 0, Dni = 0, NombreApellido = "---"},
+            new Cliente { ID_Cliente = 1, Dni = 3456789, NombreApellido = "Juan Pérez", Cuit = 20345678901, Domicilio = "Calle Falsa 123, Ciudad", CondIva = "Si" },
+            new Cliente { ID_Cliente = 2, Dni = 45678901, NombreApellido = "María Gómez", Cuit = 27456789012, Domicilio = "Av. Siempre Viva 456, Provincia", CondIva = "No" },
+            new Cliente { ID_Cliente = 3, Dni = 5678901, NombreApellido = "Carlos López", Cuit = 20567890123, Domicilio = "Calle del Sol 789, Capital Federal", CondIva = "Si" },
 
         };
 
@@ -26,13 +27,13 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         public List<Mercaderia> Mercaderias { get; set; } = new List<Mercaderia>
         {
             // SET DE DATOS DE 6 TIPOS DE MERCADERÍAS:
-            new Mercaderia { Id_Mercaderia = 0, Descripcion_Mercaderia = "---"},
-            new Mercaderia { Id_Mercaderia = 1, Descripcion_Mercaderia = "Termos Negros" },
-            new Mercaderia { Id_Mercaderia = 2, Descripcion_Mercaderia = "Mates Aluminio" },
-            new Mercaderia { Id_Mercaderia = 3, Descripcion_Mercaderia = "Remeras Gris" },
-            new Mercaderia { Id_Mercaderia = 4, Descripcion_Mercaderia = "Zapatillas Adidas" },
-            new Mercaderia { Id_Mercaderia = 5, Descripcion_Mercaderia = "Buzos Blancos" },
-            new Mercaderia { Id_Mercaderia = 6, Descripcion_Mercaderia = "Yerba" },
+            new Mercaderia { ID_Mercaderia = 0, Descripcion_Mercaderia = "---"},
+            new Mercaderia { ID_Mercaderia = 1, Descripcion_Mercaderia = "Termos Negros" },
+            new Mercaderia { ID_Mercaderia = 2, Descripcion_Mercaderia = "Mates Aluminio" },
+            new Mercaderia { ID_Mercaderia = 3, Descripcion_Mercaderia = "Remeras Gris" },
+            new Mercaderia { ID_Mercaderia = 4, Descripcion_Mercaderia = "Zapatillas Adidas" },
+            new Mercaderia { ID_Mercaderia = 5, Descripcion_Mercaderia = "Buzos Blancos" },
+            new Mercaderia { ID_Mercaderia = 6, Descripcion_Mercaderia = "Yerba" },
 
         };
 
@@ -40,46 +41,32 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         {
 
             // SET DE DATOS DE LOS 12 DEPÓSITOS:
-            new Deposito { Id_Deposito = 0, Nombre_Deposito = "---" },
-            new Deposito { Id_Deposito = 1, Nombre_Deposito = "GBAS 1" },
-            new Deposito { Id_Deposito = 2, Nombre_Deposito = "GBAS 2" },
-            new Deposito { Id_Deposito = 3, Nombre_Deposito = "GBAN 1" },
-            new Deposito { Id_Deposito = 4, Nombre_Deposito = "GBAN 2" },
-            new Deposito { Id_Deposito = 5, Nombre_Deposito = "ROS" },
-            new Deposito { Id_Deposito = 6, Nombre_Deposito = "CBA" },
-            new Deposito { Id_Deposito = 7, Nombre_Deposito = "MDZ" },
-            new Deposito { Id_Deposito = 8, Nombre_Deposito = "BHB" },
-            new Deposito { Id_Deposito = 9, Nombre_Deposito = "USH" },
-            new Deposito { Id_Deposito = 10, Nombre_Deposito = "STA" },
-            new Deposito { Id_Deposito = 11, Nombre_Deposito = "NQN" },
-            new Deposito { Id_Deposito = 12, Nombre_Deposito = "MSN" }
-        };
-
-
-
-        public List<EstadosOP> EstadosOP { get; set; } = new List<EstadosOP>
-        {
-            new EstadosOP {Id_EstadoOP = 1, Descripcion_EstadoOP = "EMITIDA"},
-            new EstadosOP {Id_EstadoOP = 2, Descripcion_EstadoOP = "SELECCIONADA"},
-            new EstadosOP {Id_EstadoOP = 3, Descripcion_EstadoOP = "EN PREPARACION"},
-            new EstadosOP {Id_EstadoOP = 4, Descripcion_EstadoOP = "PREPARADA"},
-            new EstadosOP {Id_EstadoOP = 5, Descripcion_EstadoOP = "EN DESPACHO"},
-            new EstadosOP {Id_EstadoOP = 6, Descripcion_EstadoOP = "DESPACHADA "},
-
-
+            new Deposito { ID_Deposito = 0, Nombre_Deposito = "---" },
+            new Deposito { ID_Deposito = 1, Nombre_Deposito = "GBAS 1" },
+            new Deposito { ID_Deposito = 2, Nombre_Deposito = "GBAS 2" },
+            new Deposito { ID_Deposito = 3, Nombre_Deposito = "GBAN 1" },
+            new Deposito { ID_Deposito = 4, Nombre_Deposito = "GBAN 2" },
+            new Deposito { ID_Deposito = 5, Nombre_Deposito = "ROS" },
+            new Deposito { ID_Deposito = 6, Nombre_Deposito = "CBA" },
+            new Deposito { ID_Deposito = 7, Nombre_Deposito = "MDZ" },
+            new Deposito { ID_Deposito = 8, Nombre_Deposito = "BHB" },
+            new Deposito { ID_Deposito = 9, Nombre_Deposito = "USH" },
+            new Deposito { ID_Deposito = 10, Nombre_Deposito = "STA" },
+            new Deposito { ID_Deposito = 11, Nombre_Deposito = "NQN" },
+            new Deposito { ID_Deposito = 12, Nombre_Deposito = "MSN" }
         };
 
 
         public List<Usuarios> Usuarios { get; set; } = new List<Usuarios>
         {
-            new Usuarios {Id_Cliente = 0, Id_Usuario = 0, LogIn_usuario = "Admin", Contrasena_usuario = "123"},
+            new Usuarios {ID_Cliente = 0, ID_Usuario = 0, LogIn_usuario = "Admin", Contrasena_usuario = "123"},
 
-            new Usuarios {Id_Cliente = 1, Id_Usuario = 1, LogIn_usuario = "Usuario1", Contrasena_usuario = "123"},
+            new Usuarios {ID_Cliente = 1, ID_Usuario = 1, LogIn_usuario = "Usuario1", Contrasena_usuario = "123"},
 
 
             // CREO QUE ESTA LISTA NO ES NECESARIA ACÁ, PERO TE DEJO LOS USUARIOS QUE USASTE PARA EL LOGGIN PARA DEJARLO HOMOGENEO EN TODO CASO.
-            // new Usuarios {Id_Cliente = 0, Id_Usuario = 0, LogIn_usuario = "1", Contrasena_usuario = "1"},
-            // new Usuarios {Id_Cliente = 1, Id_Usuario = 1, LogIn_usuario = "Usuario1", Contrasena_usuario = "123"},
+            // new Usuarios {ID_Cliente = 0, ID_Usuario = 0, LogIn_usuario = "1", Contrasena_usuario = "1"},
+            // new Usuarios {ID_Cliente = 1, ID_Usuario = 1, LogIn_usuario = "Usuario1", Contrasena_usuario = "123"},
 
         };
 
@@ -88,17 +75,17 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         {
 
            //   SET DE DATOS DE 11 Ordenes de Preparación asociadas a 3 Clientes:
-            new OrdenesDePreparacion { Id_OrdenDePreparacion = 1, Id_EstadoOP = 1, Prioridad_OrdenDePreparacion = true, Id_Cliente = 1, Emision_OrdenDePreparacion = DateTime.Now.AddDays(1), Id_Deposito = 2, Dni_transportista = 11111111, Id_OrdenDeEntrega = null, Id_OrdenDeSeleccion = null, Id_Remito = null },
-            new OrdenesDePreparacion { Id_OrdenDePreparacion = 2, Id_EstadoOP = 1, Prioridad_OrdenDePreparacion = false, Id_Cliente = 2, Emision_OrdenDePreparacion = DateTime.Now.AddDays(2), Id_Deposito = 3, Dni_transportista = 22222222, Id_OrdenDeEntrega = null, Id_OrdenDeSeleccion = null, Id_Remito = null },
-            new OrdenesDePreparacion { Id_OrdenDePreparacion = 3, Id_EstadoOP = 1, Prioridad_OrdenDePreparacion = true, Id_Cliente = 3, Emision_OrdenDePreparacion = DateTime.Now.AddDays(3), Id_Deposito = 1, Dni_transportista = 11111111, Id_OrdenDeEntrega = null, Id_OrdenDeSeleccion = null, Id_Remito = null },
-            new OrdenesDePreparacion { Id_OrdenDePreparacion = 4, Id_EstadoOP = 1, Prioridad_OrdenDePreparacion = false, Id_Cliente = 1, Emision_OrdenDePreparacion = DateTime.Now.AddDays(4), Id_Deposito = 2, Dni_transportista = 22222222, Id_OrdenDeEntrega = null, Id_OrdenDeSeleccion = null, Id_Remito = null },
-            new OrdenesDePreparacion { Id_OrdenDePreparacion = 5, Id_EstadoOP = 1, Prioridad_OrdenDePreparacion = true, Id_Cliente = 2, Emision_OrdenDePreparacion = DateTime.Now.AddDays(5), Id_Deposito = 3, Dni_transportista = 11111111, Id_OrdenDeEntrega = null, Id_OrdenDeSeleccion = null, Id_Remito = null },
-            new OrdenesDePreparacion { Id_OrdenDePreparacion = 6, Id_EstadoOP = 1, Prioridad_OrdenDePreparacion = false, Id_Cliente = 3, Emision_OrdenDePreparacion = DateTime.Now.AddDays(1), Id_Deposito = 1, Dni_transportista = 22222222, Id_OrdenDeEntrega = null, Id_OrdenDeSeleccion = null, Id_Remito = null },
-            new OrdenesDePreparacion { Id_OrdenDePreparacion = 7, Id_EstadoOP = 1, Prioridad_OrdenDePreparacion = true, Id_Cliente = 1, Emision_OrdenDePreparacion = DateTime.Now.AddDays(2), Id_Deposito = 2, Dni_transportista = 11111111, Id_OrdenDeEntrega = null, Id_OrdenDeSeleccion = null, Id_Remito = null },
-            new OrdenesDePreparacion { Id_OrdenDePreparacion = 8, Id_EstadoOP = 1, Prioridad_OrdenDePreparacion = false, Id_Cliente = 2, Emision_OrdenDePreparacion = DateTime.Now.AddDays(3), Id_Deposito = 3, Dni_transportista = 22222222, Id_OrdenDeEntrega = null, Id_OrdenDeSeleccion = null, Id_Remito = null },
-            new OrdenesDePreparacion { Id_OrdenDePreparacion = 9, Id_EstadoOP = 1, Prioridad_OrdenDePreparacion = true, Id_Cliente = 3, Emision_OrdenDePreparacion = DateTime.Now.AddDays(4), Id_Deposito = 1, Dni_transportista = 11111111, Id_OrdenDeEntrega = null, Id_OrdenDeSeleccion = null, Id_Remito = null },
-            new OrdenesDePreparacion { Id_OrdenDePreparacion = 10, Id_EstadoOP = 1, Prioridad_OrdenDePreparacion = false, Id_Cliente = 1, Emision_OrdenDePreparacion = DateTime.Now.AddDays(5), Id_Deposito = 2, Dni_transportista = 22222222, Id_OrdenDeEntrega = null, Id_OrdenDeSeleccion = null, Id_Remito = null },
-            new OrdenesDePreparacion { Id_OrdenDePreparacion = 11, Id_EstadoOP = 1, Prioridad_OrdenDePreparacion = true, Id_Cliente = 2, Emision_OrdenDePreparacion = DateTime.Now.AddDays(1), Id_Deposito = 3, Dni_transportista = 11111111, Id_OrdenDeEntrega = null, Id_OrdenDeSeleccion = null, Id_Remito = null },
+            new OrdenesDePreparacion { ID_OP = 1, Estado_OP = EstadoOPEnum.EMITIDA, Prioridad_OP = true, ID_Cliente = 1, FechaEmision_OP = DateTime.Now.AddDays(1), ID_Deposito = 2, Dni_transportista = 11111111, ID_OE = null, ID_OS = null, ID_Remito = null },
+            new OrdenesDePreparacion { ID_OP = 2, Estado_OP = EstadoOPEnum.EMITIDA, Prioridad_OP = false, ID_Cliente = 2, FechaEmision_OP = DateTime.Now.AddDays(2), ID_Deposito = 3, Dni_transportista = 22222222, ID_OE = null, ID_OS = null, ID_Remito = null },
+            new OrdenesDePreparacion { ID_OP = 3, Estado_OP = EstadoOPEnum.EMITIDA, Prioridad_OP = true, ID_Cliente = 3, FechaEmision_OP = DateTime.Now.AddDays(3), ID_Deposito = 1, Dni_transportista = 11111111, ID_OE = null, ID_OS = null, ID_Remito = null },
+            new OrdenesDePreparacion { ID_OP = 4, Estado_OP = EstadoOPEnum.EMITIDA, Prioridad_OP = false, ID_Cliente = 1, FechaEmision_OP = DateTime.Now.AddDays(4), ID_Deposito = 2, Dni_transportista = 22222222, ID_OE = null, ID_OS = null, ID_Remito = null },
+            new OrdenesDePreparacion { ID_OP = 5, Estado_OP = EstadoOPEnum.EMITIDA, Prioridad_OP = true, ID_Cliente = 2, FechaEmision_OP = DateTime.Now.AddDays(5), ID_Deposito = 3, Dni_transportista = 11111111, ID_OE = null, ID_OS = null, ID_Remito = null },
+            new OrdenesDePreparacion { ID_OP = 6, Estado_OP = EstadoOPEnum.EMITIDA, Prioridad_OP = false, ID_Cliente = 3, FechaEmision_OP = DateTime.Now.AddDays(1), ID_Deposito = 1, Dni_transportista = 22222222, ID_OE = null, ID_OS = null, ID_Remito = null },
+            new OrdenesDePreparacion { ID_OP = 7, Estado_OP = EstadoOPEnum.EMITIDA, Prioridad_OP = true, ID_Cliente = 1, FechaEmision_OP = DateTime.Now.AddDays(2), ID_Deposito = 2, Dni_transportista = 11111111, ID_OE = null, ID_OS = null, ID_Remito = null },
+            new OrdenesDePreparacion { ID_OP = 8, Estado_OP = EstadoOPEnum.EMITIDA, Prioridad_OP = false, ID_Cliente = 2, FechaEmision_OP = DateTime.Now.AddDays(3), ID_Deposito = 3, Dni_transportista = 22222222, ID_OE = null, ID_OS = null, ID_Remito = null },
+            new OrdenesDePreparacion { ID_OP = 9, Estado_OP = EstadoOPEnum.EMITIDA, Prioridad_OP = true, ID_Cliente = 3, FechaEmision_OP = DateTime.Now.AddDays(4), ID_Deposito = 1, Dni_transportista = 11111111, ID_OE = null, ID_OS = null, ID_Remito = null },
+            new OrdenesDePreparacion { ID_OP = 10, Estado_OP = EstadoOPEnum.EMITIDA, Prioridad_OP = false, ID_Cliente = 1, FechaEmision_OP = DateTime.Now.AddDays(5), ID_Deposito = 2, Dni_transportista = 22222222, ID_OE = null, ID_OS = null, ID_Remito = null },
+            new OrdenesDePreparacion { ID_OP = 11, Estado_OP = EstadoOPEnum.EMITIDA, Prioridad_OP = true, ID_Cliente = 2, FechaEmision_OP = DateTime.Now.AddDays(1), ID_Deposito = 3, Dni_transportista = 11111111, ID_OE = null, ID_OS = null, ID_Remito = null },
 
         };
 
@@ -106,181 +93,174 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         {
 
             // SET DE DATOS DE 100 ITEMS de OP distrubidos entre 11 OPS.
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 1, Id_OrdenDePreparacion = 1, Id_DepositoMercaderias = 5, Cantidad_Mercaderia = 10 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 2, Id_OrdenDePreparacion = 2, Id_DepositoMercaderias = 12, Cantidad_Mercaderia = 3 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 3, Id_OrdenDePreparacion = 3, Id_DepositoMercaderias = 18, Cantidad_Mercaderia = 7 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 4, Id_OrdenDePreparacion = 4, Id_DepositoMercaderias = 25, Cantidad_Mercaderia = 15 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 5, Id_OrdenDePreparacion = 5, Id_DepositoMercaderias = 30, Cantidad_Mercaderia = 2 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 6, Id_OrdenDePreparacion = 6, Id_DepositoMercaderias = 4, Cantidad_Mercaderia = 11 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 7, Id_OrdenDePreparacion = 7, Id_DepositoMercaderias = 8, Cantidad_Mercaderia = 9 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 8, Id_OrdenDePreparacion = 8, Id_DepositoMercaderias = 15, Cantidad_Mercaderia = 13 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 9, Id_OrdenDePreparacion = 9, Id_DepositoMercaderias = 22, Cantidad_Mercaderia = 6 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 10, Id_OrdenDePreparacion = 10, Id_DepositoMercaderias = 28, Cantidad_Mercaderia = 20 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 11, Id_OrdenDePreparacion = 11, Id_DepositoMercaderias = 35, Cantidad_Mercaderia = 1 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 12, Id_OrdenDePreparacion = 1, Id_DepositoMercaderias = 42, Cantidad_Mercaderia = 5 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 13, Id_OrdenDePreparacion = 2, Id_DepositoMercaderias = 14, Cantidad_Mercaderia = 10 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 14, Id_OrdenDePreparacion = 3, Id_DepositoMercaderias = 11, Cantidad_Mercaderia = 8 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 15, Id_OrdenDePreparacion = 4, Id_DepositoMercaderias = 19, Cantidad_Mercaderia = 4 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 16, Id_OrdenDePreparacion = 5, Id_DepositoMercaderias = 27, Cantidad_Mercaderia = 12 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 17, Id_OrdenDePreparacion = 6, Id_DepositoMercaderias = 33, Cantidad_Mercaderia = 18 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 18, Id_OrdenDePreparacion = 7, Id_DepositoMercaderias = 2, Cantidad_Mercaderia = 15 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 19, Id_OrdenDePreparacion = 8, Id_DepositoMercaderias = 6, Cantidad_Mercaderia = 3 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 20, Id_OrdenDePreparacion = 9, Id_DepositoMercaderias = 9, Cantidad_Mercaderia = 9 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 21, Id_OrdenDePreparacion = 10, Id_DepositoMercaderias = 31, Cantidad_Mercaderia = 6 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 22, Id_OrdenDePreparacion = 11, Id_DepositoMercaderias = 7, Cantidad_Mercaderia = 2 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 23, Id_OrdenDePreparacion = 1, Id_DepositoMercaderias = 15, Cantidad_Mercaderia = 17 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 24, Id_OrdenDePreparacion = 2, Id_DepositoMercaderias = 25, Cantidad_Mercaderia = 14 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 25, Id_OrdenDePreparacion = 3, Id_DepositoMercaderias = 38, Cantidad_Mercaderia = 1 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 26, Id_OrdenDePreparacion = 4, Id_DepositoMercaderias = 1, Cantidad_Mercaderia = 20 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 27, Id_OrdenDePreparacion = 5, Id_DepositoMercaderias = 29, Cantidad_Mercaderia = 11 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 28, Id_OrdenDePreparacion = 6, Id_DepositoMercaderias = 36, Cantidad_Mercaderia = 8 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 29, Id_OrdenDePreparacion = 7, Id_DepositoMercaderias = 44, Cantidad_Mercaderia = 4 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 30, Id_OrdenDePreparacion = 8, Id_DepositoMercaderias = 3, Cantidad_Mercaderia = 10 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 31, Id_OrdenDePreparacion = 9, Id_DepositoMercaderias = 18, Cantidad_Mercaderia = 19 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 32, Id_OrdenDePreparacion = 10, Id_DepositoMercaderias = 12, Cantidad_Mercaderia = 7 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 33, Id_OrdenDePreparacion = 11, Id_DepositoMercaderias = 40, Cantidad_Mercaderia = 16 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 34, Id_OrdenDePreparacion = 1, Id_DepositoMercaderias = 5, Cantidad_Mercaderia = 10 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 35, Id_OrdenDePreparacion = 2, Id_DepositoMercaderias = 9, Cantidad_Mercaderia = 3 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 36, Id_OrdenDePreparacion = 3, Id_DepositoMercaderias = 22, Cantidad_Mercaderia = 6 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 37, Id_OrdenDePreparacion = 4, Id_DepositoMercaderias = 11, Cantidad_Mercaderia = 17 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 38, Id_OrdenDePreparacion = 5, Id_DepositoMercaderias = 33, Cantidad_Mercaderia = 14 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 39, Id_OrdenDePreparacion = 6, Id_DepositoMercaderias = 14, Cantidad_Mercaderia = 12 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 40, Id_OrdenDePreparacion = 7, Id_DepositoMercaderias = 37, Cantidad_Mercaderia = 20 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 41, Id_OrdenDePreparacion = 8, Id_DepositoMercaderias = 15, Cantidad_Mercaderia = 2 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 42, Id_OrdenDePreparacion = 9, Id_DepositoMercaderias = 3, Cantidad_Mercaderia = 1 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 43, Id_OrdenDePreparacion = 10, Id_DepositoMercaderias = 8, Cantidad_Mercaderia = 9 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 44, Id_OrdenDePreparacion = 11, Id_DepositoMercaderias = 19, Cantidad_Mercaderia = 11 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 45, Id_OrdenDePreparacion = 1, Id_DepositoMercaderias = 26, Cantidad_Mercaderia = 4 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 46, Id_OrdenDePreparacion = 2, Id_DepositoMercaderias = 42, Cantidad_Mercaderia = 18 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 47, Id_OrdenDePreparacion = 3, Id_DepositoMercaderias = 1, Cantidad_Mercaderia = 13 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 48, Id_OrdenDePreparacion = 4, Id_DepositoMercaderias = 7, Cantidad_Mercaderia = 15 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 49, Id_OrdenDePreparacion = 5, Id_DepositoMercaderias = 38, Cantidad_Mercaderia = 10 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 50, Id_OrdenDePreparacion = 6, Id_DepositoMercaderias = 24, Cantidad_Mercaderia = 8 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 51, Id_OrdenDePreparacion = 7, Id_DepositoMercaderias = 36, Cantidad_Mercaderia = 5 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 52, Id_OrdenDePreparacion = 8, Id_DepositoMercaderias = 43, Cantidad_Mercaderia = 17 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 53, Id_OrdenDePreparacion = 9, Id_DepositoMercaderias = 4, Cantidad_Mercaderia = 1 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 54, Id_OrdenDePreparacion = 10, Id_DepositoMercaderias = 32, Cantidad_Mercaderia = 9 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 55, Id_OrdenDePreparacion = 11, Id_DepositoMercaderias = 10, Cantidad_Mercaderia = 14 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 56, Id_OrdenDePreparacion = 1, Id_DepositoMercaderias = 28, Cantidad_Mercaderia = 12 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 57, Id_OrdenDePreparacion = 2, Id_DepositoMercaderias = 11, Cantidad_Mercaderia = 3 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 58, Id_OrdenDePreparacion = 3, Id_DepositoMercaderias = 29, Cantidad_Mercaderia = 6 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 59, Id_OrdenDePreparacion = 4, Id_DepositoMercaderias = 30, Cantidad_Mercaderia = 18 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 60, Id_OrdenDePreparacion = 5, Id_DepositoMercaderias = 15, Cantidad_Mercaderia = 14 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 61, Id_OrdenDePreparacion = 6, Id_DepositoMercaderias = 20, Cantidad_Mercaderia = 5 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 62, Id_OrdenDePreparacion = 7, Id_DepositoMercaderias = 7, Cantidad_Mercaderia = 8 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 63, Id_OrdenDePreparacion = 8, Id_DepositoMercaderias = 17, Cantidad_Mercaderia = 19 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 64, Id_OrdenDePreparacion = 9, Id_DepositoMercaderias = 39, Cantidad_Mercaderia = 2 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 65, Id_OrdenDePreparacion = 10, Id_DepositoMercaderias = 18, Cantidad_Mercaderia = 3 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 66, Id_OrdenDePreparacion = 11, Id_DepositoMercaderias = 22, Cantidad_Mercaderia = 15 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 67, Id_OrdenDePreparacion = 1, Id_DepositoMercaderias = 10, Cantidad_Mercaderia = 9 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 68, Id_OrdenDePreparacion = 2, Id_DepositoMercaderias = 34, Cantidad_Mercaderia = 12 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 69, Id_OrdenDePreparacion = 3, Id_DepositoMercaderias = 28, Cantidad_Mercaderia = 4 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 70, Id_OrdenDePreparacion = 4, Id_DepositoMercaderias = 2, Cantidad_Mercaderia = 13 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 71, Id_OrdenDePreparacion = 5, Id_DepositoMercaderias = 48, Cantidad_Mercaderia = 11 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 72, Id_OrdenDePreparacion = 6, Id_DepositoMercaderias = 50, Cantidad_Mercaderia = 7 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 73, Id_OrdenDePreparacion = 7, Id_DepositoMercaderias = 13, Cantidad_Mercaderia = 5 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 74, Id_OrdenDePreparacion = 8, Id_DepositoMercaderias = 16, Cantidad_Mercaderia = 2 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 75, Id_OrdenDePreparacion = 9, Id_DepositoMercaderias = 24, Cantidad_Mercaderia = 6 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 76, Id_OrdenDePreparacion = 10, Id_DepositoMercaderias = 5, Cantidad_Mercaderia = 18 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 77, Id_OrdenDePreparacion = 11, Id_DepositoMercaderias = 40, Cantidad_Mercaderia = 14 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 78, Id_OrdenDePreparacion = 1, Id_DepositoMercaderias = 3, Cantidad_Mercaderia = 8 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 79, Id_OrdenDePreparacion = 2, Id_DepositoMercaderias = 39, Cantidad_Mercaderia = 10 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 80, Id_OrdenDePreparacion = 3, Id_DepositoMercaderias = 12, Cantidad_Mercaderia = 3 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 81, Id_OrdenDePreparacion = 4, Id_DepositoMercaderias = 45, Cantidad_Mercaderia = 11 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 82, Id_OrdenDePreparacion = 5, Id_DepositoMercaderias = 6, Cantidad_Mercaderia = 14 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 83, Id_OrdenDePreparacion = 6, Id_DepositoMercaderias = 8, Cantidad_Mercaderia = 5 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 84, Id_OrdenDePreparacion = 7, Id_DepositoMercaderias = 10, Cantidad_Mercaderia = 2 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 85, Id_OrdenDePreparacion = 8, Id_DepositoMercaderias = 21, Cantidad_Mercaderia = 9 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 86, Id_OrdenDePreparacion = 9, Id_DepositoMercaderias = 4, Cantidad_Mercaderia = 1 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 87, Id_OrdenDePreparacion = 10, Id_DepositoMercaderias = 33, Cantidad_Mercaderia = 7 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 88, Id_OrdenDePreparacion = 11, Id_DepositoMercaderias = 35, Cantidad_Mercaderia = 12 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 89, Id_OrdenDePreparacion = 1, Id_DepositoMercaderias = 30, Cantidad_Mercaderia = 4 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 90, Id_OrdenDePreparacion = 2, Id_DepositoMercaderias = 15, Cantidad_Mercaderia = 17 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 91, Id_OrdenDePreparacion = 3, Id_DepositoMercaderias = 18, Cantidad_Mercaderia = 8 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 92, Id_OrdenDePreparacion = 4, Id_DepositoMercaderias = 40, Cantidad_Mercaderia = 14 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 93, Id_OrdenDePreparacion = 5, Id_DepositoMercaderias = 42, Cantidad_Mercaderia = 6 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 94, Id_OrdenDePreparacion = 6, Id_DepositoMercaderias = 46, Cantidad_Mercaderia = 11 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 95, Id_OrdenDePreparacion = 7, Id_DepositoMercaderias = 27, Cantidad_Mercaderia = 3 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 96, Id_OrdenDePreparacion = 8, Id_DepositoMercaderias = 32, Cantidad_Mercaderia = 15 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 97, Id_OrdenDePreparacion = 9, Id_DepositoMercaderias = 2, Cantidad_Mercaderia = 1 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 98, Id_OrdenDePreparacion = 10, Id_DepositoMercaderias = 14, Cantidad_Mercaderia = 10 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 99, Id_OrdenDePreparacion = 11, Id_DepositoMercaderias = 48, Cantidad_Mercaderia = 16 },
-            new OrdenesDePreparacionItems { Id_OrdenDePreparacionMercaderia = 100, Id_OrdenDePreparacion = 1, Id_DepositoMercaderias = 5, Cantidad_Mercaderia = 19 }
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 1, ID_OP = 1, ID_DepositoMercaderias = 5, Cantidad_Mercaderia = 10 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 2, ID_OP = 2, ID_DepositoMercaderias = 12, Cantidad_Mercaderia = 3 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 3, ID_OP = 3, ID_DepositoMercaderias = 18, Cantidad_Mercaderia = 7 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 4, ID_OP = 4, ID_DepositoMercaderias = 25, Cantidad_Mercaderia = 15 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 5, ID_OP = 5, ID_DepositoMercaderias = 30, Cantidad_Mercaderia = 2 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 6, ID_OP = 6, ID_DepositoMercaderias = 4, Cantidad_Mercaderia = 11 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 7, ID_OP = 7, ID_DepositoMercaderias = 8, Cantidad_Mercaderia = 9 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 8, ID_OP = 8, ID_DepositoMercaderias = 15, Cantidad_Mercaderia = 13 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 9, ID_OP = 9, ID_DepositoMercaderias = 22, Cantidad_Mercaderia = 6 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 10, ID_OP = 10, ID_DepositoMercaderias = 28, Cantidad_Mercaderia = 20 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 11, ID_OP = 11, ID_DepositoMercaderias = 35, Cantidad_Mercaderia = 1 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 12, ID_OP = 1, ID_DepositoMercaderias = 42, Cantidad_Mercaderia = 5 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 13, ID_OP = 2, ID_DepositoMercaderias = 14, Cantidad_Mercaderia = 10 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 14, ID_OP = 3, ID_DepositoMercaderias = 11, Cantidad_Mercaderia = 8 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 15, ID_OP = 4, ID_DepositoMercaderias = 19, Cantidad_Mercaderia = 4 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 16, ID_OP = 5, ID_DepositoMercaderias = 27, Cantidad_Mercaderia = 12 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 17, ID_OP = 6, ID_DepositoMercaderias = 33, Cantidad_Mercaderia = 18 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 18, ID_OP = 7, ID_DepositoMercaderias = 2, Cantidad_Mercaderia = 15 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 19, ID_OP = 8, ID_DepositoMercaderias = 6, Cantidad_Mercaderia = 3 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 20, ID_OP = 9, ID_DepositoMercaderias = 9, Cantidad_Mercaderia = 9 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 21, ID_OP = 10, ID_DepositoMercaderias = 31, Cantidad_Mercaderia = 6 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 22, ID_OP = 11, ID_DepositoMercaderias = 7, Cantidad_Mercaderia = 2 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 23, ID_OP = 1, ID_DepositoMercaderias = 15, Cantidad_Mercaderia = 17 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 24, ID_OP = 2, ID_DepositoMercaderias = 25, Cantidad_Mercaderia = 14 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 25, ID_OP = 3, ID_DepositoMercaderias = 38, Cantidad_Mercaderia = 1 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 26, ID_OP = 4, ID_DepositoMercaderias = 1, Cantidad_Mercaderia = 20 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 27, ID_OP = 5, ID_DepositoMercaderias = 29, Cantidad_Mercaderia = 11 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 28, ID_OP = 6, ID_DepositoMercaderias = 36, Cantidad_Mercaderia = 8 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 29, ID_OP = 7, ID_DepositoMercaderias = 44, Cantidad_Mercaderia = 4 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 30, ID_OP = 8, ID_DepositoMercaderias = 3, Cantidad_Mercaderia = 10 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 31, ID_OP = 9, ID_DepositoMercaderias = 18, Cantidad_Mercaderia = 19 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 32, ID_OP = 10, ID_DepositoMercaderias = 12, Cantidad_Mercaderia = 7 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 33, ID_OP = 11, ID_DepositoMercaderias = 40, Cantidad_Mercaderia = 16 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 34, ID_OP = 1, ID_DepositoMercaderias = 5, Cantidad_Mercaderia = 10 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 35, ID_OP = 2, ID_DepositoMercaderias = 9, Cantidad_Mercaderia = 3 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 36, ID_OP = 3, ID_DepositoMercaderias = 22, Cantidad_Mercaderia = 6 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 37, ID_OP = 4, ID_DepositoMercaderias = 11, Cantidad_Mercaderia = 17 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 38, ID_OP = 5, ID_DepositoMercaderias = 33, Cantidad_Mercaderia = 14 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 39, ID_OP = 6, ID_DepositoMercaderias = 14, Cantidad_Mercaderia = 12 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 40, ID_OP = 7, ID_DepositoMercaderias = 37, Cantidad_Mercaderia = 20 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 41, ID_OP = 8, ID_DepositoMercaderias = 15, Cantidad_Mercaderia = 2 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 42, ID_OP = 9, ID_DepositoMercaderias = 3, Cantidad_Mercaderia = 1 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 43, ID_OP = 10, ID_DepositoMercaderias = 8, Cantidad_Mercaderia = 9 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 44, ID_OP = 11, ID_DepositoMercaderias = 19, Cantidad_Mercaderia = 11 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 45, ID_OP = 1, ID_DepositoMercaderias = 26, Cantidad_Mercaderia = 4 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 46, ID_OP = 2, ID_DepositoMercaderias = 42, Cantidad_Mercaderia = 18 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 47, ID_OP = 3, ID_DepositoMercaderias = 1, Cantidad_Mercaderia = 13 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 48, ID_OP = 4, ID_DepositoMercaderias = 7, Cantidad_Mercaderia = 15 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 49, ID_OP = 5, ID_DepositoMercaderias = 38, Cantidad_Mercaderia = 10 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 50, ID_OP = 6, ID_DepositoMercaderias = 24, Cantidad_Mercaderia = 8 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 51, ID_OP = 7, ID_DepositoMercaderias = 36, Cantidad_Mercaderia = 5 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 52, ID_OP = 8, ID_DepositoMercaderias = 43, Cantidad_Mercaderia = 17 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 53, ID_OP = 9, ID_DepositoMercaderias = 4, Cantidad_Mercaderia = 1 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 54, ID_OP = 10, ID_DepositoMercaderias = 32, Cantidad_Mercaderia = 9 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 55, ID_OP = 11, ID_DepositoMercaderias = 10, Cantidad_Mercaderia = 14 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 56, ID_OP = 1, ID_DepositoMercaderias = 28, Cantidad_Mercaderia = 12 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 57, ID_OP = 2, ID_DepositoMercaderias = 11, Cantidad_Mercaderia = 3 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 58, ID_OP = 3, ID_DepositoMercaderias = 29, Cantidad_Mercaderia = 6 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 59, ID_OP = 4, ID_DepositoMercaderias = 30, Cantidad_Mercaderia = 18 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 60, ID_OP = 5, ID_DepositoMercaderias = 15, Cantidad_Mercaderia = 14 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 61, ID_OP = 6, ID_DepositoMercaderias = 20, Cantidad_Mercaderia = 5 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 62, ID_OP = 7, ID_DepositoMercaderias = 7, Cantidad_Mercaderia = 8 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 63, ID_OP = 8, ID_DepositoMercaderias = 17, Cantidad_Mercaderia = 19 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 64, ID_OP = 9, ID_DepositoMercaderias = 39, Cantidad_Mercaderia = 2 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 65, ID_OP = 10, ID_DepositoMercaderias = 18, Cantidad_Mercaderia = 3 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 66, ID_OP = 11, ID_DepositoMercaderias = 22, Cantidad_Mercaderia = 15 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 67, ID_OP = 1, ID_DepositoMercaderias = 10, Cantidad_Mercaderia = 9 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 68, ID_OP = 2, ID_DepositoMercaderias = 34, Cantidad_Mercaderia = 12 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 69, ID_OP = 3, ID_DepositoMercaderias = 28, Cantidad_Mercaderia = 4 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 70, ID_OP = 4, ID_DepositoMercaderias = 2, Cantidad_Mercaderia = 13 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 71, ID_OP = 5, ID_DepositoMercaderias = 48, Cantidad_Mercaderia = 11 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 72, ID_OP = 6, ID_DepositoMercaderias = 50, Cantidad_Mercaderia = 7 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 73, ID_OP = 7, ID_DepositoMercaderias = 13, Cantidad_Mercaderia = 5 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 74, ID_OP = 8, ID_DepositoMercaderias = 16, Cantidad_Mercaderia = 2 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 75, ID_OP = 9, ID_DepositoMercaderias = 24, Cantidad_Mercaderia = 6 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 76, ID_OP = 10, ID_DepositoMercaderias = 5, Cantidad_Mercaderia = 18 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 77, ID_OP = 11, ID_DepositoMercaderias = 40, Cantidad_Mercaderia = 14 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 78, ID_OP = 1, ID_DepositoMercaderias = 3, Cantidad_Mercaderia = 8 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 79, ID_OP = 2, ID_DepositoMercaderias = 39, Cantidad_Mercaderia = 10 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 80, ID_OP = 3, ID_DepositoMercaderias = 12, Cantidad_Mercaderia = 3 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 81, ID_OP = 4, ID_DepositoMercaderias = 45, Cantidad_Mercaderia = 11 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 82, ID_OP = 5, ID_DepositoMercaderias = 6, Cantidad_Mercaderia = 14 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 83, ID_OP = 6, ID_DepositoMercaderias = 8, Cantidad_Mercaderia = 5 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 84, ID_OP = 7, ID_DepositoMercaderias = 10, Cantidad_Mercaderia = 2 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 85, ID_OP = 8, ID_DepositoMercaderias = 21, Cantidad_Mercaderia = 9 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 86, ID_OP = 9, ID_DepositoMercaderias = 4, Cantidad_Mercaderia = 1 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 87, ID_OP = 10, ID_DepositoMercaderias = 33, Cantidad_Mercaderia = 7 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 88, ID_OP = 11, ID_DepositoMercaderias = 35, Cantidad_Mercaderia = 12 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 89, ID_OP = 1, ID_DepositoMercaderias = 30, Cantidad_Mercaderia = 4 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 90, ID_OP = 2, ID_DepositoMercaderias = 15, Cantidad_Mercaderia = 17 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 91, ID_OP = 3, ID_DepositoMercaderias = 18, Cantidad_Mercaderia = 8 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 92, ID_OP = 4, ID_DepositoMercaderias = 40, Cantidad_Mercaderia = 14 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 93, ID_OP = 5, ID_DepositoMercaderias = 42, Cantidad_Mercaderia = 6 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 94, ID_OP = 6, ID_DepositoMercaderias = 46, Cantidad_Mercaderia = 11 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 95, ID_OP = 7, ID_DepositoMercaderias = 27, Cantidad_Mercaderia = 3 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 96, ID_OP = 8, ID_DepositoMercaderias = 32, Cantidad_Mercaderia = 15 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 97, ID_OP = 9, ID_DepositoMercaderias = 2, Cantidad_Mercaderia = 1 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 98, ID_OP = 10, ID_DepositoMercaderias = 14, Cantidad_Mercaderia = 10 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 99, ID_OP = 11, ID_DepositoMercaderias = 48, Cantidad_Mercaderia = 16 },
+            new OrdenesDePreparacionItems { ID_OPMercaderia = 100, ID_OP = 1, ID_DepositoMercaderias = 5, Cantidad_Mercaderia = 19 }
 
         };
 
         public List<DepositoMercaderias> DepositoMercaderias { get; set; } = new List<DepositoMercaderias>
         {
             //  SET DE DATOS DE 50 slots de espacios distribuidos en 3 Clientes:
-            new DepositoMercaderias { Id_DepositoMercaderias = 1, Id_Cliente = 1, Id_Deposito = 2, Id_Mercaderia = 3, Cantidad_DepositoMercaderias = 550, Coordenadas_DepositoMercaderias = "12-34-5" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 2, Id_Cliente = 2, Id_Deposito = 1, Id_Mercaderia = 1, Cantidad_DepositoMercaderias = 600, Coordenadas_DepositoMercaderias = "23-45-1" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 3, Id_Cliente = 3, Id_Deposito = 3, Id_Mercaderia = 2, Cantidad_DepositoMercaderias = 700, Coordenadas_DepositoMercaderias = "34-56-2" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 4, Id_Cliente = 1, Id_Deposito = 4, Id_Mercaderia = 4, Cantidad_DepositoMercaderias = 800, Coordenadas_DepositoMercaderias = "45-67-3" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 5, Id_Cliente = 2, Id_Deposito = 5, Id_Mercaderia = 5, Cantidad_DepositoMercaderias = 900, Coordenadas_DepositoMercaderias = "56-78-4" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 6, Id_Cliente = 3, Id_Deposito = 1, Id_Mercaderia = 6, Cantidad_DepositoMercaderias = 500, Coordenadas_DepositoMercaderias = "67-89-0" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 7, Id_Cliente = 1, Id_Deposito = 2, Id_Mercaderia = 1, Cantidad_DepositoMercaderias = 650, Coordenadas_DepositoMercaderias = "78-90-5" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 8, Id_Cliente = 2, Id_Deposito = 3, Id_Mercaderia = 2, Cantidad_DepositoMercaderias = 600, Coordenadas_DepositoMercaderias = "89-01-1" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 9, Id_Cliente = 3, Id_Deposito = 4, Id_Mercaderia = 3, Cantidad_DepositoMercaderias = 700, Coordenadas_DepositoMercaderias = "90-12-2" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 10, Id_Cliente = 1, Id_Deposito = 5, Id_Mercaderia = 4, Cantidad_DepositoMercaderias = 800, Coordenadas_DepositoMercaderias = "01-23-3" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 11, Id_Cliente = 2, Id_Deposito = 1, Id_Mercaderia = 5, Cantidad_DepositoMercaderias = 900, Coordenadas_DepositoMercaderias = "12-34-4" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 12, Id_Cliente = 3, Id_Deposito = 2, Id_Mercaderia = 6, Cantidad_DepositoMercaderias = 550, Coordenadas_DepositoMercaderias = "23-45-5" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 13, Id_Cliente = 1, Id_Deposito = 3, Id_Mercaderia = 1, Cantidad_DepositoMercaderias = 600, Coordenadas_DepositoMercaderias = "34-56-1" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 14, Id_Cliente = 2, Id_Deposito = 4, Id_Mercaderia = 2, Cantidad_DepositoMercaderias = 700, Coordenadas_DepositoMercaderias = "45-67-2" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 15, Id_Cliente = 3, Id_Deposito = 5, Id_Mercaderia = 3, Cantidad_DepositoMercaderias = 800, Coordenadas_DepositoMercaderias = "56-78-3" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 16, Id_Cliente = 1, Id_Deposito = 1, Id_Mercaderia = 4, Cantidad_DepositoMercaderias = 900, Coordenadas_DepositoMercaderias = "67-89-4" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 17, Id_Cliente = 2, Id_Deposito = 2, Id_Mercaderia = 5, Cantidad_DepositoMercaderias = 500, Coordenadas_DepositoMercaderias = "78-90-0" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 18, Id_Cliente = 3, Id_Deposito = 3, Id_Mercaderia = 6, Cantidad_DepositoMercaderias = 650, Coordenadas_DepositoMercaderias = "89-01-1" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 19, Id_Cliente = 1, Id_Deposito = 4, Id_Mercaderia = 1, Cantidad_DepositoMercaderias = 600, Coordenadas_DepositoMercaderias = "90-12-2" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 20, Id_Cliente = 2, Id_Deposito = 5, Id_Mercaderia = 2, Cantidad_DepositoMercaderias = 700, Coordenadas_DepositoMercaderias = "01-23-3" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 21, Id_Cliente = 3, Id_Deposito = 1, Id_Mercaderia = 3, Cantidad_DepositoMercaderias = 800, Coordenadas_DepositoMercaderias = "12-34-4" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 22, Id_Cliente = 1, Id_Deposito = 2, Id_Mercaderia = 4, Cantidad_DepositoMercaderias = 900, Coordenadas_DepositoMercaderias = "23-45-5" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 23, Id_Cliente = 2, Id_Deposito = 3, Id_Mercaderia = 5, Cantidad_DepositoMercaderias = 500, Coordenadas_DepositoMercaderias = "34-56-1" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 24, Id_Cliente = 3, Id_Deposito = 4, Id_Mercaderia = 6, Cantidad_DepositoMercaderias = 650, Coordenadas_DepositoMercaderias = "45-67-2" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 25, Id_Cliente = 1, Id_Deposito = 5, Id_Mercaderia = 1, Cantidad_DepositoMercaderias = 600, Coordenadas_DepositoMercaderias = "56-78-3" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 26, Id_Cliente = 2, Id_Deposito = 1, Id_Mercaderia = 2, Cantidad_DepositoMercaderias = 700, Coordenadas_DepositoMercaderias = "67-89-4" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 27, Id_Cliente = 3, Id_Deposito = 2, Id_Mercaderia = 3, Cantidad_DepositoMercaderias = 800, Coordenadas_DepositoMercaderias = "78-90-0" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 28, Id_Cliente = 1, Id_Deposito = 3, Id_Mercaderia = 4, Cantidad_DepositoMercaderias = 900, Coordenadas_DepositoMercaderias = "89-01-1" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 29, Id_Cliente = 2, Id_Deposito = 4, Id_Mercaderia = 5, Cantidad_DepositoMercaderias = 500, Coordenadas_DepositoMercaderias = "90-12-2" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 30, Id_Cliente = 3, Id_Deposito = 5, Id_Mercaderia = 6, Cantidad_DepositoMercaderias = 650, Coordenadas_DepositoMercaderias = "01-23-3" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 31, Id_Cliente = 1, Id_Deposito = 1, Id_Mercaderia = 1, Cantidad_DepositoMercaderias = 600, Coordenadas_DepositoMercaderias = "12-34-4" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 32, Id_Cliente = 2, Id_Deposito = 2, Id_Mercaderia = 2, Cantidad_DepositoMercaderias = 700, Coordenadas_DepositoMercaderias = "23-45-5" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 33, Id_Cliente = 3, Id_Deposito = 3, Id_Mercaderia = 3, Cantidad_DepositoMercaderias = 800, Coordenadas_DepositoMercaderias = "34-56-1" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 34, Id_Cliente = 1, Id_Deposito = 4, Id_Mercaderia = 4, Cantidad_DepositoMercaderias = 900, Coordenadas_DepositoMercaderias = "45-67-2" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 35, Id_Cliente = 2, Id_Deposito = 5, Id_Mercaderia = 5, Cantidad_DepositoMercaderias = 500, Coordenadas_DepositoMercaderias = "56-78-3" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 36, Id_Cliente = 3, Id_Deposito = 1, Id_Mercaderia = 6, Cantidad_DepositoMercaderias = 650, Coordenadas_DepositoMercaderias = "67-89-4" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 37, Id_Cliente = 1, Id_Deposito = 2, Id_Mercaderia = 1, Cantidad_DepositoMercaderias = 600, Coordenadas_DepositoMercaderias = "78-90-0" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 38, Id_Cliente = 2, Id_Deposito = 3, Id_Mercaderia = 2, Cantidad_DepositoMercaderias = 700, Coordenadas_DepositoMercaderias = "89-01-1" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 39, Id_Cliente = 3, Id_Deposito = 4, Id_Mercaderia = 3, Cantidad_DepositoMercaderias = 800, Coordenadas_DepositoMercaderias = "90-12-2" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 40, Id_Cliente = 1, Id_Deposito = 5, Id_Mercaderia = 4, Cantidad_DepositoMercaderias = 900, Coordenadas_DepositoMercaderias = "01-23-3" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 41, Id_Cliente = 2, Id_Deposito = 1, Id_Mercaderia = 5, Cantidad_DepositoMercaderias = 500, Coordenadas_DepositoMercaderias = "12-34-4" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 42, Id_Cliente = 3, Id_Deposito = 2, Id_Mercaderia = 6, Cantidad_DepositoMercaderias = 650, Coordenadas_DepositoMercaderias = "23-45-5" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 43, Id_Cliente = 1, Id_Deposito = 3, Id_Mercaderia = 1, Cantidad_DepositoMercaderias = 600, Coordenadas_DepositoMercaderias = "34-56-1" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 44, Id_Cliente = 2, Id_Deposito = 4, Id_Mercaderia = 2, Cantidad_DepositoMercaderias = 700, Coordenadas_DepositoMercaderias = "45-67-2" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 45, Id_Cliente = 3, Id_Deposito = 5, Id_Mercaderia = 3, Cantidad_DepositoMercaderias = 800, Coordenadas_DepositoMercaderias = "56-78-3" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 46, Id_Cliente = 1, Id_Deposito = 1, Id_Mercaderia = 4, Cantidad_DepositoMercaderias = 900, Coordenadas_DepositoMercaderias = "67-89-4" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 47, Id_Cliente = 2, Id_Deposito = 2, Id_Mercaderia = 5, Cantidad_DepositoMercaderias = 500, Coordenadas_DepositoMercaderias = "78-90-0" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 48, Id_Cliente = 3, Id_Deposito = 3, Id_Mercaderia = 6, Cantidad_DepositoMercaderias = 650, Coordenadas_DepositoMercaderias = "89-01-1" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 49, Id_Cliente = 1, Id_Deposito = 4, Id_Mercaderia = 1, Cantidad_DepositoMercaderias = 600, Coordenadas_DepositoMercaderias = "90-12-2" },
-            new DepositoMercaderias { Id_DepositoMercaderias = 50, Id_Cliente = 2, Id_Deposito = 5, Id_Mercaderia = 2, Cantidad_DepositoMercaderias = 700, Coordenadas_DepositoMercaderias = "01-23-3" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 1, ID_Cliente = 1, ID_Deposito = 2, ID_Mercaderia = 3, Cantidad_DepositoMercaderias = 550, Coordenadas_DepositoMercaderias = "12-34-5" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 2, ID_Cliente = 2, ID_Deposito = 1, ID_Mercaderia = 1, Cantidad_DepositoMercaderias = 600, Coordenadas_DepositoMercaderias = "23-45-1" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 3, ID_Cliente = 3, ID_Deposito = 3, ID_Mercaderia = 2, Cantidad_DepositoMercaderias = 700, Coordenadas_DepositoMercaderias = "34-56-2" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 4, ID_Cliente = 1, ID_Deposito = 4, ID_Mercaderia = 4, Cantidad_DepositoMercaderias = 800, Coordenadas_DepositoMercaderias = "45-67-3" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 5, ID_Cliente = 2, ID_Deposito = 5, ID_Mercaderia = 5, Cantidad_DepositoMercaderias = 900, Coordenadas_DepositoMercaderias = "56-78-4" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 6, ID_Cliente = 3, ID_Deposito = 1, ID_Mercaderia = 6, Cantidad_DepositoMercaderias = 500, Coordenadas_DepositoMercaderias = "67-89-0" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 7, ID_Cliente = 1, ID_Deposito = 2, ID_Mercaderia = 1, Cantidad_DepositoMercaderias = 650, Coordenadas_DepositoMercaderias = "78-90-5" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 8, ID_Cliente = 2, ID_Deposito = 3, ID_Mercaderia = 2, Cantidad_DepositoMercaderias = 600, Coordenadas_DepositoMercaderias = "89-01-1" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 9, ID_Cliente = 3, ID_Deposito = 4, ID_Mercaderia = 3, Cantidad_DepositoMercaderias = 700, Coordenadas_DepositoMercaderias = "90-12-2" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 10, ID_Cliente = 1, ID_Deposito = 5, ID_Mercaderia = 4, Cantidad_DepositoMercaderias = 800, Coordenadas_DepositoMercaderias = "01-23-3" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 11, ID_Cliente = 2, ID_Deposito = 1, ID_Mercaderia = 5, Cantidad_DepositoMercaderias = 900, Coordenadas_DepositoMercaderias = "12-34-4" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 12, ID_Cliente = 3, ID_Deposito = 2, ID_Mercaderia = 6, Cantidad_DepositoMercaderias = 550, Coordenadas_DepositoMercaderias = "23-45-5" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 13, ID_Cliente = 1, ID_Deposito = 3, ID_Mercaderia = 1, Cantidad_DepositoMercaderias = 600, Coordenadas_DepositoMercaderias = "34-56-1" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 14, ID_Cliente = 2, ID_Deposito = 4, ID_Mercaderia = 2, Cantidad_DepositoMercaderias = 700, Coordenadas_DepositoMercaderias = "45-67-2" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 15, ID_Cliente = 3, ID_Deposito = 5, ID_Mercaderia = 3, Cantidad_DepositoMercaderias = 800, Coordenadas_DepositoMercaderias = "56-78-3" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 16, ID_Cliente = 1, ID_Deposito = 1, ID_Mercaderia = 4, Cantidad_DepositoMercaderias = 900, Coordenadas_DepositoMercaderias = "67-89-4" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 17, ID_Cliente = 2, ID_Deposito = 2, ID_Mercaderia = 5, Cantidad_DepositoMercaderias = 500, Coordenadas_DepositoMercaderias = "78-90-0" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 18, ID_Cliente = 3, ID_Deposito = 3, ID_Mercaderia = 6, Cantidad_DepositoMercaderias = 650, Coordenadas_DepositoMercaderias = "89-01-1" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 19, ID_Cliente = 1, ID_Deposito = 4, ID_Mercaderia = 1, Cantidad_DepositoMercaderias = 600, Coordenadas_DepositoMercaderias = "90-12-2" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 20, ID_Cliente = 2, ID_Deposito = 5, ID_Mercaderia = 2, Cantidad_DepositoMercaderias = 700, Coordenadas_DepositoMercaderias = "01-23-3" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 21, ID_Cliente = 3, ID_Deposito = 1, ID_Mercaderia = 3, Cantidad_DepositoMercaderias = 800, Coordenadas_DepositoMercaderias = "12-34-4" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 22, ID_Cliente = 1, ID_Deposito = 2, ID_Mercaderia = 4, Cantidad_DepositoMercaderias = 900, Coordenadas_DepositoMercaderias = "23-45-5" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 23, ID_Cliente = 2, ID_Deposito = 3, ID_Mercaderia = 5, Cantidad_DepositoMercaderias = 500, Coordenadas_DepositoMercaderias = "34-56-1" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 24, ID_Cliente = 3, ID_Deposito = 4, ID_Mercaderia = 6, Cantidad_DepositoMercaderias = 650, Coordenadas_DepositoMercaderias = "45-67-2" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 25, ID_Cliente = 1, ID_Deposito = 5, ID_Mercaderia = 1, Cantidad_DepositoMercaderias = 600, Coordenadas_DepositoMercaderias = "56-78-3" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 26, ID_Cliente = 2, ID_Deposito = 1, ID_Mercaderia = 2, Cantidad_DepositoMercaderias = 700, Coordenadas_DepositoMercaderias = "67-89-4" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 27, ID_Cliente = 3, ID_Deposito = 2, ID_Mercaderia = 3, Cantidad_DepositoMercaderias = 800, Coordenadas_DepositoMercaderias = "78-90-0" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 28, ID_Cliente = 1, ID_Deposito = 3, ID_Mercaderia = 4, Cantidad_DepositoMercaderias = 900, Coordenadas_DepositoMercaderias = "89-01-1" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 29, ID_Cliente = 2, ID_Deposito = 4, ID_Mercaderia = 5, Cantidad_DepositoMercaderias = 500, Coordenadas_DepositoMercaderias = "90-12-2" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 30, ID_Cliente = 3, ID_Deposito = 5, ID_Mercaderia = 6, Cantidad_DepositoMercaderias = 650, Coordenadas_DepositoMercaderias = "01-23-3" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 31, ID_Cliente = 1, ID_Deposito = 1, ID_Mercaderia = 1, Cantidad_DepositoMercaderias = 600, Coordenadas_DepositoMercaderias = "12-34-4" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 32, ID_Cliente = 2, ID_Deposito = 2, ID_Mercaderia = 2, Cantidad_DepositoMercaderias = 700, Coordenadas_DepositoMercaderias = "23-45-5" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 33, ID_Cliente = 3, ID_Deposito = 3, ID_Mercaderia = 3, Cantidad_DepositoMercaderias = 800, Coordenadas_DepositoMercaderias = "34-56-1" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 34, ID_Cliente = 1, ID_Deposito = 4, ID_Mercaderia = 4, Cantidad_DepositoMercaderias = 900, Coordenadas_DepositoMercaderias = "45-67-2" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 35, ID_Cliente = 2, ID_Deposito = 5, ID_Mercaderia = 5, Cantidad_DepositoMercaderias = 500, Coordenadas_DepositoMercaderias = "56-78-3" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 36, ID_Cliente = 3, ID_Deposito = 1, ID_Mercaderia = 6, Cantidad_DepositoMercaderias = 650, Coordenadas_DepositoMercaderias = "67-89-4" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 37, ID_Cliente = 1, ID_Deposito = 2, ID_Mercaderia = 1, Cantidad_DepositoMercaderias = 600, Coordenadas_DepositoMercaderias = "78-90-0" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 38, ID_Cliente = 2, ID_Deposito = 3, ID_Mercaderia = 2, Cantidad_DepositoMercaderias = 700, Coordenadas_DepositoMercaderias = "89-01-1" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 39, ID_Cliente = 3, ID_Deposito = 4, ID_Mercaderia = 3, Cantidad_DepositoMercaderias = 800, Coordenadas_DepositoMercaderias = "90-12-2" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 40, ID_Cliente = 1, ID_Deposito = 5, ID_Mercaderia = 4, Cantidad_DepositoMercaderias = 900, Coordenadas_DepositoMercaderias = "01-23-3" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 41, ID_Cliente = 2, ID_Deposito = 1, ID_Mercaderia = 5, Cantidad_DepositoMercaderias = 500, Coordenadas_DepositoMercaderias = "12-34-4" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 42, ID_Cliente = 3, ID_Deposito = 2, ID_Mercaderia = 6, Cantidad_DepositoMercaderias = 650, Coordenadas_DepositoMercaderias = "23-45-5" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 43, ID_Cliente = 1, ID_Deposito = 3, ID_Mercaderia = 1, Cantidad_DepositoMercaderias = 600, Coordenadas_DepositoMercaderias = "34-56-1" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 44, ID_Cliente = 2, ID_Deposito = 4, ID_Mercaderia = 2, Cantidad_DepositoMercaderias = 700, Coordenadas_DepositoMercaderias = "45-67-2" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 45, ID_Cliente = 3, ID_Deposito = 5, ID_Mercaderia = 3, Cantidad_DepositoMercaderias = 800, Coordenadas_DepositoMercaderias = "56-78-3" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 46, ID_Cliente = 1, ID_Deposito = 1, ID_Mercaderia = 4, Cantidad_DepositoMercaderias = 900, Coordenadas_DepositoMercaderias = "67-89-4" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 47, ID_Cliente = 2, ID_Deposito = 2, ID_Mercaderia = 5, Cantidad_DepositoMercaderias = 500, Coordenadas_DepositoMercaderias = "78-90-0" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 48, ID_Cliente = 3, ID_Deposito = 3, ID_Mercaderia = 6, Cantidad_DepositoMercaderias = 650, Coordenadas_DepositoMercaderias = "89-01-1" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 49, ID_Cliente = 1, ID_Deposito = 4, ID_Mercaderia = 1, Cantidad_DepositoMercaderias = 600, Coordenadas_DepositoMercaderias = "90-12-2" },
+            new DepositoMercaderias { ID_DepositoMercaderias = 50, ID_Cliente = 2, ID_Deposito = 5, ID_Mercaderia = 2, Cantidad_DepositoMercaderias = 700, Coordenadas_DepositoMercaderias = "01-23-3" },
 
         };
 
 
-        public List<EstadosOS> EstadosOS { get; set; } = new List<EstadosOS>
-        {
-            new EstadosOS {Id_EstadoOS = 1, Descripcion_EstadoOS = "EMITIDA"},
-            new EstadosOS {Id_EstadoOS = 2, Descripcion_EstadoOS = "CUMPLIDA"},
-
-
-        };
 
 
         public List<OrdenesDeSeleccion> OrdenesDeSeleccion = new();
         public string CrearOrdenesDePreparacion(OrdenesDeSeleccion ordenesDeSeleccion)
         {
-            var Id_OrdenDeSeleccion = OrdenesDeSeleccion.Count + 1;
-            var Id_OrdenDePreparacionMercaderia = OrdenesDePreparacionItems.Count + 1;
-            var Id_EstadoOP = ordenesDeSeleccion.Id_EstadoOS;
+            var ID_OS = OrdenesDeSeleccion.Count + 1;
+            var ID_OPMercaderia = OrdenesDePreparacionItems.Count + 1;
+            var Estado_OP = ordenesDeSeleccion.Estado_OS;
             var Emision_OrdenDeSeleccion = ordenesDeSeleccion.Emision_OrdenDeSeleccion;
             var AcualizacionEstado_OrdenDeSeleccion = ordenesDeSeleccion.AcualizacionEstado_OrdenDeSeleccion;
 
@@ -291,7 +271,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
             if (AcualizacionEstado_OrdenDeSeleccion < DateTime.Now.Date)
             {
-                return "La fecha de actualizacion de estado no puede ser menor al dia de hoy.";
+                return "La fecha de actualizacion de Estado_OP no puede ser menor al dia de hoy.";
             }
 
             OrdenesDeSeleccion.Add(ordenesDeSeleccion);
@@ -303,10 +283,10 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         {
             foreach (var item in ordenesDePreparacion)
             {
-                var ordenDePreparacion = OrdenesDePreparacion.Where(x => x.Id_OrdenDePreparacion == item).SingleOrDefault();
+                var ordenDePreparacion = OrdenesDePreparacion.Where(x => x.ID_OP == item).SingleOrDefault();
 
-                ordenDePreparacion.Id_EstadoOP = 2;
-                ordenDePreparacion.Id_OrdenDeSeleccion = OrdenesDeSeleccion.Last().Id_OrdenDeSeleccion;
+                ordenDePreparacion.Estado_OP = EstadoOPEnum.SELECCIONADA;
+                ordenDePreparacion.ID_OS = OrdenesDeSeleccion.Last().ID_OS;
             }
 
             return null;

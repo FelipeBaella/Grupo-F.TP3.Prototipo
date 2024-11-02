@@ -8,7 +8,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 {
     internal class Remito
     {
-        public int Id_Remito { get; set; }
+        public int ID_Remito { get; set; }
         public DateTime Emision_Remito { get; set; }
         public bool Procesado_Remito { get; set; }
     }

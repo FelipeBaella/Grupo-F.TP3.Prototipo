@@ -12,6 +12,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
+
+
 namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 {
     public partial class ProcesarOrdenDeSeleccion_form : Form
@@ -30,19 +34,19 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             ProcesarOrdenesDeSeleccion_listView.Items.Clear();
 
             var OrdenesDeSeleccion = ProcesarOrdenDeSeleccion_model.OrdenesDeSeleccion
-            .Where(x => x.Id_OrdenDeSeleccion == int.Parse(id))
+            .Where(x => x.ID_OS == int.Parse(id))
             .FirstOrDefault();
 
             var ordenes = ProcesarOrdenDeSeleccion_model.OrdenesDePreparacion
-                .Where(x => x.Id_OrdenDeSeleccion == OrdenesDeSeleccion.Id_OrdenDeSeleccion && x.Id_EstadoOP == 2)
+                .Where(x => x.ID_OS == OrdenesDeSeleccion.ID_OS && x.Estado_OP == GrupoF.Prototipo._1.Crear_Orden_de_Preparacion.EstadoOPEnum.SELECCIONADA)
                 .ToList();
 
-            var ordenesIds = ordenes.Select(x => x.Id_OrdenDePreparacion).ToList();
+            var ordenesIds = ordenes.Select(x => x.ID_OP).ToList();
 
             var OrdenesDePreparacionItems = from item in ProcesarOrdenDeSeleccion_model.OrdenesDePreparacionItems
                                             join deposito in ProcesarOrdenDeSeleccion_model.DepositoMercaderias
-                                            on item.Id_DepositoMercaderias equals deposito.Id_DepositoMercaderias
-                                            where ordenesIds.Contains(item.Id_OrdenDePreparacion)
+                                            on item.ID_DepositoMercaderias equals deposito.ID_DepositoMercaderias
+                                            where ordenesIds.Contains(item.ID_OP)
                                             orderby deposito.Coordenadas_DepositoMercaderias
                                             select item;
 
@@ -50,9 +54,9 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 
             foreach (var orden in resultado)
             {
-                var OrdenDePreparacion = ProcesarOrdenDeSeleccion_model.OrdenesDePreparacion.Where(x => x.Id_OrdenDePreparacion == orden.Id_OrdenDePreparacion).FirstOrDefault();
-                var DepositoMercaderias = ProcesarOrdenDeSeleccion_model.DepositoMercaderias.Where(x => x.Id_DepositoMercaderias == orden.Id_DepositoMercaderias).FirstOrDefault();
-                var mercaderia = ProcesarOrdenDeSeleccion_model.Mercaderias.Where(x => x.Id_Mercaderia == DepositoMercaderias.Id_Mercaderia).FirstOrDefault();
+                var OrdenDePreparacion = ProcesarOrdenDeSeleccion_model.OrdenesDePreparacion.Where(x => x.ID_OP == orden.ID_OP).FirstOrDefault();
+                var DepositoMercaderias = ProcesarOrdenDeSeleccion_model.DepositoMercaderias.Where(x => x.ID_DepositoMercaderias == orden.ID_DepositoMercaderias).FirstOrDefault();
+                var mercaderia = ProcesarOrdenDeSeleccion_model.Mercaderias.Where(x => x.ID_Mercaderia == DepositoMercaderias.ID_Mercaderia).FirstOrDefault();
 
                 ListViewItem listViewItem1 = new ListViewItem(new string[] {
 
@@ -78,7 +82,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 
         private void CargarOrdenesDeSeleccion()
         {
-            var OrdenesDeSeleccion = ProcesarOrdenDeSeleccion_model.OrdenesDeSeleccion.Where(x => x.Id_EstadoOS == 1).Select(x => x.Id_OrdenDeSeleccion).ToList();
+            var OrdenesDeSeleccion = ProcesarOrdenDeSeleccion_model.OrdenesDeSeleccion.Where(x => x.Estado_OS == GrupoF.Prototipo._2.Crear_Orden_de_seleccion.EstadoOSEnum.EMITIDA).Select(x => x.ID_OS).ToList();
 
             foreach (var orden in OrdenesDeSeleccion)
             {

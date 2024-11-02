@@ -26,17 +26,17 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
 
         private void CargarOrdenesDePreparacion()
         {
-            var ordenes = CrearOrdenDeEntrega_model.OrdenesDePreparacion.Where(x => x.Id_EstadoOP == 4).ToList();
+            var ordenes = CrearOrdenDeEntrega_model.OrdenesDePreparacion.Where(x => x.Estado_OP == GrupoF.Prototipo._1.Crear_Orden_de_Preparacion.EstadoOPEnum.PREPARADA).ToList();
 
             OrdenesDePreparacion_ListView.Items.Clear();
 
             foreach (var orden in ordenes)
             {
-                var cliente = CrearOrdenDeEntrega_model.Clientes.Where(x => x.Id_Cliente == orden.Id_Cliente).FirstOrDefault();
+                var cliente = CrearOrdenDeEntrega_model.Clientes.Where(x => x.ID_Cliente == orden.ID_Cliente).FirstOrDefault();
 
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 
-                        orden.Id_OrdenDePreparacion.ToString(),
+                        orden.ID_OP.ToString(),
 
                 }, -1);
 
@@ -49,16 +49,16 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
         {
             var ordenesDeEntrega = new OrdenesDeEntrega();
 
-            var Id_OrdenDeEntrega = CrearOrdenDeEntrega_model.OrdenesDeEntrega.Count + 1;
+            var ID_OE = CrearOrdenDeEntrega_model.OrdenesDeEntrega.Count + 1;
 
-            ordenesDeEntrega.Id_OrdenDeEntrega = Id_OrdenDeEntrega;
+            ordenesDeEntrega.ID_OE = ID_OE;
             ordenesDeEntrega.Emision_OrdenDeEntrega = DateTime.Now;
             ordenesDeEntrega.Procesado_OrdenDeEntrega = true;
 
             CrearOrdenDeEntrega_model.CrearOrdenesDeEntrega(ordenesDeEntrega);
 
 
-            var id = CrearOrdenDeEntrega_model.OrdenesDePreparacion.First().Id_OrdenDePreparacion;
+            var id = CrearOrdenDeEntrega_model.OrdenesDePreparacion.First().ID_OP;
 
             CrearOrdenDeEntrega_model.EditarEstadoOP(id);
 

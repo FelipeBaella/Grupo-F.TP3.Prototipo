@@ -8,7 +8,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 {
     internal class Mercaderia
     {
-        public int Id_Mercaderia { get; set; }
+        public int ID_Mercaderia { get; set; }
 
         public string Descripcion_Mercaderia { get; set; }  
         

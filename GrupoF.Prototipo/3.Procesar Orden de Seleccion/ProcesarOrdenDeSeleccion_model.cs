@@ -83,7 +83,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
         public List<OrdenesDePreparacionItems> OrdenesDePreparacionItems { get; set; } = new List<OrdenesDePreparacionItems>
         {
 
-            new OrdenesDePreparacionItems { ID_OPMercaderia = 1, ID_OP = 1, ID_DepositoMercaderias = 5, Cantidad_Mercaderia = 10 },
+            new OrdenesDePreparacionItems { ID_Mercaderia = 1, ID_OP = 1, ID_DepositoMercaderias = 5, Cantidad_Mercaderia = 10 },
             new OrdenesDePreparacionItems { ID_OPMercaderia = 2, ID_OP = 2, ID_DepositoMercaderias = 12, Cantidad_Mercaderia = 3 },
             new OrdenesDePreparacionItems { ID_OPMercaderia = 3, ID_OP = 3, ID_DepositoMercaderias = 18, Cantidad_Mercaderia = 7 },
             new OrdenesDePreparacionItems { ID_OPMercaderia = 4, ID_OP = 4, ID_DepositoMercaderias = 25, Cantidad_Mercaderia = 15 },

@@ -163,6 +163,8 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             ordenDePreparacion.Prioridad_OP = true;
             ordenDePreparacion.ID_Cliente = cliente;
             ordenDePreparacion.FechaEmision_OP = DateTime.Now;
+            ordenDePreparacion.FechaEntrega_OP = Fecha;
+            ordenDePreparacion.FechaActualizacionEstado_OP = DateTime.Now;
             ordenDePreparacion.ID_Deposito = deposito.ID_Deposito;
             ordenDePreparacion.Dni_transportista = Dni;
 

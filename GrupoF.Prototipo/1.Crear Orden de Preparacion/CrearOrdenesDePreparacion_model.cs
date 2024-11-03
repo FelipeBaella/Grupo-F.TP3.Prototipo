@@ -125,6 +125,8 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             var Prioridad_OP = ordenDePreparacion.Prioridad_OP;
             var ID_Cliente = ordenDePreparacion.ID_Cliente;
             var FechaEmision_OP = ordenDePreparacion.FechaEmision_OP;
+            var FechaEntrega_OP = ordenDePreparacion.FechaEntrega_OP;
+            var FechaEnFechaActualizacionEstado_OPtrega_OP = ordenDePreparacion.FechaActualizacionEstado_OP;
             var ID_Deposito = ordenDePreparacion.ID_Deposito;
             var Dni_transportista = ordenDePreparacion.Dni_transportista;
 

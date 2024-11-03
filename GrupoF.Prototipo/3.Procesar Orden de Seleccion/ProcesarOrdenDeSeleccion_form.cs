@@ -1,5 +1,5 @@
 ﻿using GrupoF.Prototipo._0.Menu;
-
+using GrupoF.Prototipo._1.Crear_Orden_de_Preparacion;
 using GrupoF.Prototipo.Procesar_ordener_de_seleccion;
 using GrupoF.Prototipo.Procesar_ordenes_de_preparacion;
 using System;
@@ -33,35 +33,22 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
         {
             ProcesarOrdenesDeSeleccion_listView.Items.Clear();
 
-            var OrdenesDeSeleccion = ProcesarOrdenDeSeleccion_model.OrdenesDeSeleccion
-            .Where(x => x.ID_OS == int.Parse(id))
-            .FirstOrDefault();
+            var lista = (from OS in ProcesarOrdenDeSeleccion_model.OrdenesDeSeleccion
+                         join OP in ProcesarOrdenDeSeleccion_model.OrdenesDePreparacion on OS.ID_OS equals OP.ID_OS
+                         join OPM in ProcesarOrdenDeSeleccion_model.OrdenesDePreparacionItems on OP.ID_OP equals OPM.ID_OP
+                         join DP in ProcesarOrdenDeSeleccion_model.DepositoMercaderias on OPM.ID_DepositoMercaderias equals DP.ID_DepositoMercaderias
+                         join M in ProcesarOrdenDeSeleccion_model.Mercaderias on DP.ID_Mercaderia equals M.ID_Mercaderia                  
+                         where OS.ID_OS == int.Parse(id)
+                         orderby OP.ID_OP
+                         select new {DP.Coordenadas_DepositoMercaderias, M.Descripcion_Mercaderia, OPM.Cantidad_Mercaderia }).ToList();
 
-            var ordenes = ProcesarOrdenDeSeleccion_model.OrdenesDePreparacion
-                .Where(x => x.ID_OS == OrdenesDeSeleccion.ID_OS && x.Estado_OP == GrupoF.Prototipo._1.Crear_Orden_de_Preparacion.EstadoOPEnum.SELECCIONADA)
-                .ToList();
-
-            var ordenesIds = ordenes.Select(x => x.ID_OP).ToList();
-
-            var OrdenesDePreparacionItems = from item in ProcesarOrdenDeSeleccion_model.OrdenesDePreparacionItems
-                                            join deposito in ProcesarOrdenDeSeleccion_model.DepositoMercaderias
-                                            on item.ID_DepositoMercaderias equals deposito.ID_DepositoMercaderias
-                                            where ordenesIds.Contains(item.ID_OP)
-                                            orderby deposito.Coordenadas_DepositoMercaderias
-                                            select item;
-
-            var resultado = OrdenesDePreparacionItems.ToList();
-
-            foreach (var orden in resultado)
+            foreach (var orden in lista)
             {
-                var OrdenDePreparacion = ProcesarOrdenDeSeleccion_model.OrdenesDePreparacion.Where(x => x.ID_OP == orden.ID_OP).FirstOrDefault();
-                var DepositoMercaderias = ProcesarOrdenDeSeleccion_model.DepositoMercaderias.Where(x => x.ID_DepositoMercaderias == orden.ID_DepositoMercaderias).FirstOrDefault();
-                var mercaderia = ProcesarOrdenDeSeleccion_model.Mercaderias.Where(x => x.ID_Mercaderia == DepositoMercaderias.ID_Mercaderia).FirstOrDefault();
 
                 ListViewItem listViewItem1 = new ListViewItem(new string[] {
 
-                    DepositoMercaderias.Coordenadas_DepositoMercaderias.ToString(),
-                    mercaderia.Descripcion_Mercaderia,
+                    orden.Coordenadas_DepositoMercaderias.ToString(),
+                    orden.Descripcion_Mercaderia,
                     orden.Cantidad_Mercaderia.ToString(),
 
 

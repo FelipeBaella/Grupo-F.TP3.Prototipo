@@ -75,16 +75,20 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
             var listado = CrearOrdenDeSeleccion_model.OrdenesDePreparacionItems.Where(x => x.ID_OP == ID_ordenDePrparacion).ToList();
 
-            foreach (var item in listado)
+
+            var lista = (from OP in CrearOrdenDeSeleccion_model.OrdenesDePreparacion
+                        join OPM in CrearOrdenDeSeleccion_model.OrdenesDePreparacionItems on OP.ID_OP equals OPM.ID_OP
+                        join M in CrearOrdenDeSeleccion_model.Mercaderias on OPM.ID_Mercaderia equals M.ID_Mercaderia
+                        where OP.ID_OP == ID_ordenDePrparacion
+                        orderby OP.ID_OP
+                        select new { OPM.ID_OPMercaderia, M.Descripcion_Mercaderia, OPM.Cantidad_Mercaderia }).ToList();
+
+            foreach (var item in lista)
             {
-                var DepositoMercaderias = CrearOrdenDeSeleccion_model.DepositoMercaderias.Where(x => x.ID_DepositoMercaderias == item.ID_DepositoMercaderias).FirstOrDefault();
-
-                var mercaderia = CrearOrdenDeSeleccion_model.Mercaderias.Where(x => x.ID_Mercaderia == DepositoMercaderias.ID_Mercaderia).FirstOrDefault();
-
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 
                         item.ID_OPMercaderia.ToString(),
-                        mercaderia.Descripcion_Mercaderia,
+                        item.Descripcion_Mercaderia,
                         item.Cantidad_Mercaderia.ToString(),
 
                 }, -1);

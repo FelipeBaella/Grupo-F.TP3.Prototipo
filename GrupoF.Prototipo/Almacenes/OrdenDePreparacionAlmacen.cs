@@ -22,8 +22,9 @@ namespace GrupoF.Prototipo.Almacenes
         // También voy a disponer de dos métodos:
 
         // 1) Utilizaré un método para grabar los datos dentro de un archivo.
-        public static void Grabar()
+        public static void Grabar(OrdenDePreparacionEnt ordendepreparacion)
         {
+            ordenesdepreparacion.Add(ordendepreparacion);
 
             // Transformo los datos de la lista a formato JSON.
             var datos = JsonSerializer.Serialize(ordenesdepreparacion);

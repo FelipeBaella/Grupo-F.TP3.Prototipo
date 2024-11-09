@@ -1,6 +1,6 @@
 ﻿using GrupoF.Prototipo._0.Menu;
 using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
-
+using GrupoF.Prototipo.Almacenes;
 using GrupoF.Prototipo.Procesar_ordener_de_seleccion;
 using GrupoF.Prototipo.Procesar_ordenes_de_preparacion;
 using System;
@@ -27,8 +27,8 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 
         private void CargarOrdenesDePreparacionItems()
         {
-            var ordenes = EmpaquetarMercaderias_model.OrdenesDePreparacion
-             .Where(x => x.Estado_OP == GrupoF.Prototipo._1.Crear_Orden_de_Preparacion.EstadoOPEnum.EN_PREPARACION)
+            var ordenes = EmpaquetarMercaderias_model.OrdenDePreparacionEnt
+             .Where(x => x.Estado_OP == EstadoOPEnum.EnPreparacion)
              .OrderBy(r => Guid.NewGuid())
              .ToList();
 
@@ -41,12 +41,12 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 
             foreach (var orden in OrdenesDePreparacionItems) 
             {
-                var DepositoMercaderias = EmpaquetarMercaderias_model.DepositoMercaderias.Where(x => x.ID_DepositoMercaderias == orden.ID_DepositoMercaderias).FirstOrDefault();
-                var mercaderia = EmpaquetarMercaderias_model.Mercaderias.Where(x => x.ID_Mercaderia == DepositoMercaderias.ID_Mercaderia).FirstOrDefault();
+                var DepositoMercaderiaEnt = EmpaquetarMercaderias_model.DepositoMercaderiaEnt.Where(x => x.ID_DepositoMercaderia == orden.ID_DepositoMercaderia).FirstOrDefault();
+                var MercaderiaEnt = EmpaquetarMercaderias_model.Mercaderias.Where(x => x.ID_Mercaderia == DepositoMercaderiaEnt.ID_Mercaderia).FirstOrDefault();
 
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 
-                    mercaderia.Descripcion_Mercaderia,
+                    MercaderiaEnt.Descripcion_Mercaderia,
                     orden.Cantidad_Mercaderia.ToString(),
 
                 }, -1);
@@ -66,7 +66,7 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 
         private void button_empaquetar_Click(object sender, EventArgs e)
         {
-            var id = EmpaquetarMercaderias_model.OrdenesDePreparacion.First().ID_OP;
+            var id = EmpaquetarMercaderias_model.OrdenDePreparacionEnt.First().ID_OP;
 
             EmpaquetarMercaderias_model.EditarEstadoOP(id);
 

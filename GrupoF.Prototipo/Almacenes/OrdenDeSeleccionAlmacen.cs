@@ -14,8 +14,10 @@ namespace GrupoF.Prototipo.Almacenes
 
         public static IReadOnlyCollection<OrdenDeSeleccionEnt> OrdenesDeSeleccion => ordenesdeseleccion.AsReadOnly();
 
-        public static void Grabar()
+        public static void Grabar(OrdenDeSeleccionEnt OrdenDeSeleccion)
         {
+            ordenesdeseleccion.Add(OrdenDeSeleccion);
+
             var datos = JsonSerializer.Serialize(ordenesdeseleccion);
             File.WriteAllText(@"OrdenesDeSeleccion.json", datos);
         }

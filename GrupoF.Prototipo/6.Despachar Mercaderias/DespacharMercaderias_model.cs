@@ -1,6 +1,6 @@
-﻿using GrupoF.Prototipo._1.Crear_Orden_de_Preparacion;
-using GrupoF.Prototipo._2.Crear_Orden_de_seleccion;
+﻿
 using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
+using GrupoF.Prototipo.Almacenes;
 using GrupoF.Prototipo.Procesar_ordenes_de_preparacion;
 using System;
 using System.Collections.Generic;
@@ -21,34 +21,34 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
             new Cliente { ID_Cliente = 3, Dni = 5678901, NombreApellido = "Carlos López", Cuit = 20567890123, Domicilio = "Calle del Sol 789, Capital Federal", CondIva = "Si" },
         };
 
-        public List<Mercaderia> Mercaderias { get; set; } = new List<Mercaderia>
+        public List<MercaderiaEnt> Mercaderias { get; set; } = new List<MercaderiaEnt>
         {
             // SET DE DATOS DE 6 TIPOS DE MERCADERÍAS:
-            new Mercaderia { ID_Mercaderia = 0, Descripcion_Mercaderia = "---"},
-            new Mercaderia { ID_Mercaderia = 1, Descripcion_Mercaderia = "Termos Negros" },
-            new Mercaderia { ID_Mercaderia = 2, Descripcion_Mercaderia = "Mates Aluminio" },
-            new Mercaderia { ID_Mercaderia = 3, Descripcion_Mercaderia = "Remeras Gris" },
-            new Mercaderia { ID_Mercaderia = 4, Descripcion_Mercaderia = "Zapatillas Adidas" },
-            new Mercaderia { ID_Mercaderia = 5, Descripcion_Mercaderia = "Buzos Blancos" },
-            new Mercaderia { ID_Mercaderia = 6, Descripcion_Mercaderia = "Yerba" },
+            new MercaderiaEnt { ID_Mercaderia = 0, Descripcion_Mercaderia = "---"},
+            new MercaderiaEnt { ID_Mercaderia = 1, Descripcion_Mercaderia = "Termos Negros" },
+            new MercaderiaEnt { ID_Mercaderia = 2, Descripcion_Mercaderia = "Mates Aluminio" },
+            new MercaderiaEnt { ID_Mercaderia = 3, Descripcion_Mercaderia = "Remeras Gris" },
+            new MercaderiaEnt { ID_Mercaderia = 4, Descripcion_Mercaderia = "Zapatillas Adidas" },
+            new MercaderiaEnt { ID_Mercaderia = 5, Descripcion_Mercaderia = "Buzos Blancos" },
+            new MercaderiaEnt { ID_Mercaderia = 6, Descripcion_Mercaderia = "Yerba" },
         };
 
-        public List<Deposito> Depositos { get; set; } = new List<Deposito>
+        public List<DepositoEnt> Depositos { get; set; } = new List<DepositoEnt>
         {
             // SET DE DATOS DE LOS 12 DEPÓSITOS:
-            new Deposito { ID_Deposito = 0, Nombre_Deposito = "---" },
-            new Deposito { ID_Deposito = 1, Nombre_Deposito = "GBAS 1" },
-            new Deposito { ID_Deposito = 2, Nombre_Deposito = "GBAS 2" },
-            new Deposito { ID_Deposito = 3, Nombre_Deposito = "GBAN 1" },
-            new Deposito { ID_Deposito = 4, Nombre_Deposito = "GBAN 2" },
-            new Deposito { ID_Deposito = 5, Nombre_Deposito = "ROS" },
-            new Deposito { ID_Deposito = 6, Nombre_Deposito = "CBA" },
-            new Deposito { ID_Deposito = 7, Nombre_Deposito = "MDZ" },
-            new Deposito { ID_Deposito = 8, Nombre_Deposito = "BHB" },
-            new Deposito { ID_Deposito = 9, Nombre_Deposito = "USH" },
-            new Deposito { ID_Deposito = 10, Nombre_Deposito = "STA" },
-            new Deposito { ID_Deposito = 11, Nombre_Deposito = "NQN" },
-            new Deposito { ID_Deposito = 12, Nombre_Deposito = "MSN" }
+            new DepositoEnt { ID_Deposito = 0, Descripcion_Deposito = "---" },
+            new DepositoEnt { ID_Deposito = 1, Descripcion_Deposito = "GBAS 1" },
+            new DepositoEnt { ID_Deposito = 2, Descripcion_Deposito = "GBAS 2" },
+            new DepositoEnt { ID_Deposito = 3, Descripcion_Deposito = "GBAN 1" },
+            new DepositoEnt { ID_Deposito = 4, Descripcion_Deposito = "GBAN 2" },
+            new DepositoEnt { ID_Deposito = 5, Descripcion_Deposito = "ROS" },
+            new DepositoEnt { ID_Deposito = 6, Descripcion_Deposito = "CBA" },
+            new DepositoEnt { ID_Deposito = 7, Descripcion_Deposito = "MDZ" },
+            new DepositoEnt { ID_Deposito = 8, Descripcion_Deposito = "BHB" },
+            new DepositoEnt { ID_Deposito = 9, Descripcion_Deposito = "USH" },
+            new DepositoEnt { ID_Deposito = 10, Descripcion_Deposito = "STA" },
+            new DepositoEnt { ID_Deposito = 11, Descripcion_Deposito = "NQN" },
+            new DepositoEnt { ID_Deposito = 12, Descripcion_Deposito = "MSN" }
         };
 
 
@@ -63,44 +63,44 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
         };
 
 
-        public List<OrdenesDePreparacion> OrdenesDePreparacion { get; set; } = new List<OrdenesDePreparacion>
+        public List<OrdenDePreparacionEnt> OrdenDePreparacionEnt { get; set; } = new List<OrdenDePreparacionEnt>
         {
-            new OrdenesDePreparacion { ID_OP = 1, Estado_OP = EstadoOPEnum.EN_DESPACHO, Prioridad_OP = true, ID_Cliente = 1, FechaEmision_OP = DateTime.Now.AddDays(1), ID_Deposito = 2, Dni_transportista = 11111111, ID_OE = 1, ID_OS = 1, ID_Remito = null },
-            new OrdenesDePreparacion { ID_OP = 2, Estado_OP = EstadoOPEnum.EN_DESPACHO, Prioridad_OP = false, ID_Cliente = 2, FechaEmision_OP = DateTime.Now.AddDays(2), ID_Deposito = 3, Dni_transportista = 22222222, ID_OE = 2, ID_OS = 2, ID_Remito = null },
-            new OrdenesDePreparacion { ID_OP = 3, Estado_OP = EstadoOPEnum.EN_DESPACHO, Prioridad_OP = true, ID_Cliente = 3, FechaEmision_OP = DateTime.Now.AddDays(3), ID_Deposito = 1, Dni_transportista = 11111111, ID_OE = 1, ID_OS = 3, ID_Remito = null },
-            new OrdenesDePreparacion { ID_OP = 4, Estado_OP = EstadoOPEnum.EN_DESPACHO, Prioridad_OP = false, ID_Cliente = 1, FechaEmision_OP = DateTime.Now.AddDays(4), ID_Deposito = 2, Dni_transportista = 22222222, ID_OE = 2, ID_OS = 4, ID_Remito = null },
-            new OrdenesDePreparacion { ID_OP = 5, Estado_OP = EstadoOPEnum.EN_DESPACHO, Prioridad_OP = true, ID_Cliente = 2, FechaEmision_OP = DateTime.Now.AddDays(5), ID_Deposito = 3, Dni_transportista = 11111111, ID_OE = 1, ID_OS = 1, ID_Remito = null },
-            new OrdenesDePreparacion { ID_OP = 6, Estado_OP = EstadoOPEnum.EN_DESPACHO, Prioridad_OP = false, ID_Cliente = 3, FechaEmision_OP = DateTime.Now.AddDays(1), ID_Deposito = 1, Dni_transportista = 22222222, ID_OE = 2, ID_OS = 2, ID_Remito = null },
-            new OrdenesDePreparacion { ID_OP = 7, Estado_OP = EstadoOPEnum.EN_DESPACHO, Prioridad_OP = true, ID_Cliente = 1, FechaEmision_OP = DateTime.Now.AddDays(2), ID_Deposito = 2, Dni_transportista = 11111111, ID_OE = 1, ID_OS = 3, ID_Remito = null },
-            new OrdenesDePreparacion { ID_OP = 8, Estado_OP = EstadoOPEnum.EN_DESPACHO, Prioridad_OP = false, ID_Cliente = 2, FechaEmision_OP = DateTime.Now.AddDays(3), ID_Deposito = 3, Dni_transportista = 22222222, ID_OE = 2, ID_OS = 4, ID_Remito = null },
-            new OrdenesDePreparacion { ID_OP = 9, Estado_OP = EstadoOPEnum.EN_DESPACHO, Prioridad_OP = true, ID_Cliente = 3, FechaEmision_OP = DateTime.Now.AddDays(4), ID_Deposito = 1, Dni_transportista = 11111111, ID_OE = 1, ID_OS = 1, ID_Remito = null },
-            new OrdenesDePreparacion { ID_OP = 10, Estado_OP = EstadoOPEnum.EN_DESPACHO, Prioridad_OP = false, ID_Cliente = 1, FechaEmision_OP = DateTime.Now.AddDays(5), ID_Deposito = 2, Dni_transportista = 22222222, ID_OE = 2, ID_OS = 2, ID_Remito = null },
-            new OrdenesDePreparacion { ID_OP = 11, Estado_OP = EstadoOPEnum.EN_DESPACHO, Prioridad_OP = true, ID_Cliente = 2, FechaEmision_OP = DateTime.Now.AddDays(1), ID_Deposito = 3, Dni_transportista = 11111111, ID_OE = 1, ID_OS = 3, ID_Remito = null },
+            new OrdenDePreparacionEnt { ID_OP = 1, Estado_OP = EstadoOPEnum.EnDespacho, Prioridad_OP = true, ID_Cliente = 1, FechaEmision_OP = DateTime.Now.AddDays(1), ID_Deposito = 2, DNI_Transportista = 11111111, ID_OE = 1, ID_OS = 1, ID_Remito = null },
+            new OrdenDePreparacionEnt { ID_OP = 2, Estado_OP = EstadoOPEnum.EnDespacho, Prioridad_OP = false, ID_Cliente = 2, FechaEmision_OP = DateTime.Now.AddDays(2), ID_Deposito = 3, DNI_Transportista = 22222222, ID_OE = 2, ID_OS = 2, ID_Remito = null },
+            new OrdenDePreparacionEnt { ID_OP = 3, Estado_OP = EstadoOPEnum.EnDespacho, Prioridad_OP = true, ID_Cliente = 3, FechaEmision_OP = DateTime.Now.AddDays(3), ID_Deposito = 1, DNI_Transportista = 11111111, ID_OE = 1, ID_OS = 3, ID_Remito = null },
+            new OrdenDePreparacionEnt { ID_OP = 4, Estado_OP = EstadoOPEnum.EnDespacho, Prioridad_OP = false, ID_Cliente = 1, FechaEmision_OP = DateTime.Now.AddDays(4), ID_Deposito = 2, DNI_Transportista = 22222222, ID_OE = 2, ID_OS = 4, ID_Remito = null },
+            new OrdenDePreparacionEnt { ID_OP = 5, Estado_OP = EstadoOPEnum.EnDespacho, Prioridad_OP = true, ID_Cliente = 2, FechaEmision_OP = DateTime.Now.AddDays(5), ID_Deposito = 3, DNI_Transportista = 11111111, ID_OE = 1, ID_OS = 1, ID_Remito = null },
+            new OrdenDePreparacionEnt { ID_OP = 6, Estado_OP = EstadoOPEnum.EnDespacho, Prioridad_OP = false, ID_Cliente = 3, FechaEmision_OP = DateTime.Now.AddDays(1), ID_Deposito = 1, DNI_Transportista = 22222222, ID_OE = 2, ID_OS = 2, ID_Remito = null },
+            new OrdenDePreparacionEnt { ID_OP = 7, Estado_OP = EstadoOPEnum.EnDespacho, Prioridad_OP = true, ID_Cliente = 1, FechaEmision_OP = DateTime.Now.AddDays(2), ID_Deposito = 2, DNI_Transportista = 11111111, ID_OE = 1, ID_OS = 3, ID_Remito = null },
+            new OrdenDePreparacionEnt { ID_OP = 8, Estado_OP = EstadoOPEnum.EnDespacho, Prioridad_OP = false, ID_Cliente = 2, FechaEmision_OP = DateTime.Now.AddDays(3), ID_Deposito = 3, DNI_Transportista = 22222222, ID_OE = 2, ID_OS = 4, ID_Remito = null },
+            new OrdenDePreparacionEnt { ID_OP = 9, Estado_OP = EstadoOPEnum.EnDespacho, Prioridad_OP = true, ID_Cliente = 3, FechaEmision_OP = DateTime.Now.AddDays(4), ID_Deposito = 1, DNI_Transportista = 11111111, ID_OE = 1, ID_OS = 1, ID_Remito = null },
+            new OrdenDePreparacionEnt { ID_OP = 10, Estado_OP = EstadoOPEnum.EnDespacho, Prioridad_OP = false, ID_Cliente = 1, FechaEmision_OP = DateTime.Now.AddDays(5), ID_Deposito = 2, DNI_Transportista = 22222222, ID_OE = 2, ID_OS = 2, ID_Remito = null },
+            new OrdenDePreparacionEnt { ID_OP = 11, Estado_OP = EstadoOPEnum.EnDespacho, Prioridad_OP = true, ID_Cliente = 2, FechaEmision_OP = DateTime.Now.AddDays(1), ID_Deposito = 3, DNI_Transportista = 11111111, ID_OE = 1, ID_OS = 3, ID_Remito = null },
 
         };
 
         public List<OrdenesDePreparacionItems> OrdenesDePreparacionItems { get; set; } = new List<OrdenesDePreparacionItems>
         {
-            new OrdenesDePreparacionItems {ID_OPMercaderia = 1, ID_OP = 1, ID_DepositoMercaderias = 1, Cantidad_Mercaderia = 250},
-            new OrdenesDePreparacionItems {ID_OPMercaderia = 2, ID_OP = 4, ID_DepositoMercaderias = 2, Cantidad_Mercaderia = 120},
-            new OrdenesDePreparacionItems {ID_OPMercaderia = 3, ID_OP = 2, ID_DepositoMercaderias = 3, Cantidad_Mercaderia = 210},
-            new OrdenesDePreparacionItems {ID_OPMercaderia = 4, ID_OP = 3, ID_DepositoMercaderias = 2, Cantidad_Mercaderia = 370},
+            new OrdenesDePreparacionItems {ID_OPMercaderia = 1, ID_OP = 1, ID_DepositoMercaderia = 1, Cantidad_Mercaderia = 250},
+            new OrdenesDePreparacionItems {ID_OPMercaderia = 2, ID_OP = 4, ID_DepositoMercaderia = 2, Cantidad_Mercaderia = 120},
+            new OrdenesDePreparacionItems {ID_OPMercaderia = 3, ID_OP = 2, ID_DepositoMercaderia = 3, Cantidad_Mercaderia = 210},
+            new OrdenesDePreparacionItems {ID_OPMercaderia = 4, ID_OP = 3, ID_DepositoMercaderia = 2, Cantidad_Mercaderia = 370},
         };
 
-        public List<DepositoMercaderias> DepositoMercaderias { get; set; } = new List<DepositoMercaderias>
+        public List<DepositoMercaderiaEnt> DepositoMercaderiaEnt { get; set; } = new List<DepositoMercaderiaEnt>
         {
-            new DepositoMercaderias { ID_DepositoMercaderias = 0, ID_Cliente = 0, ID_Deposito = 0, ID_Mercaderia = 0, Cantidad_DepositoMercaderias = 0, Coordenadas_DepositoMercaderias = "0-0-0"},
-            new DepositoMercaderias { ID_DepositoMercaderias = 1, ID_Cliente = 1, ID_Deposito = 1, ID_Mercaderia = 1, Cantidad_DepositoMercaderias = 200, Coordenadas_DepositoMercaderias = "12-43-2"},
-            new DepositoMercaderias { ID_DepositoMercaderias = 2, ID_Cliente = 2, ID_Deposito = 2, ID_Mercaderia = 2, Cantidad_DepositoMercaderias = 300, Coordenadas_DepositoMercaderias = "15-32-7"},
-            new DepositoMercaderias { ID_DepositoMercaderias = 3, ID_Cliente = 2, ID_Deposito = 2, ID_Mercaderia = 2, Cantidad_DepositoMercaderias = 300, Coordenadas_DepositoMercaderias = "15-32-7"},
+            new DepositoMercaderiaEnt { ID_DepositoMercaderia = 0, ID_Cliente = 0, ID_Deposito = 0, ID_Mercaderia = 0, Cantidad_DepositoMercaderia = 0, Coordenadas_DepositoMercaderia = "0-0-0"},
+            new DepositoMercaderiaEnt { ID_DepositoMercaderia = 1, ID_Cliente = 1, ID_Deposito = 1, ID_Mercaderia = 1, Cantidad_DepositoMercaderia = 200, Coordenadas_DepositoMercaderia = "12-43-2"},
+            new DepositoMercaderiaEnt { ID_DepositoMercaderia = 2, ID_Cliente = 2, ID_Deposito = 2, ID_Mercaderia = 2, Cantidad_DepositoMercaderia = 300, Coordenadas_DepositoMercaderia = "15-32-7"},
+            new DepositoMercaderiaEnt { ID_DepositoMercaderia = 3, ID_Cliente = 2, ID_Deposito = 2, ID_Mercaderia = 2, Cantidad_DepositoMercaderia = 300, Coordenadas_DepositoMercaderia = "15-32-7"},
         };
 
 
 
         public List<OrdenesDeSeleccion> OrdenesDeSeleccion { get; set; } = new List<OrdenesDeSeleccion>
         {
-            new OrdenesDeSeleccion {Estado_OS = EstadoOSEnum.EMITIDA, ID_OS = 1, Emision_OrdenDeSeleccion = DateTime.Now},
-            new OrdenesDeSeleccion {Estado_OS = EstadoOSEnum.EMITIDA, ID_OS = 2, Emision_OrdenDeSeleccion = DateTime.Now.AddMonths(1)},
+            new OrdenesDeSeleccion {Estado_OS = EstadoOSEnum.Emitida, ID_OS = 1, Emision_OrdenDeSeleccion = DateTime.Now},
+            new OrdenesDeSeleccion {Estado_OS = EstadoOSEnum.Emitida, ID_OS = 2, Emision_OrdenDeSeleccion = DateTime.Now.AddMonths(1)},
         };
 
 
@@ -112,13 +112,13 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 
 
 
-        public string EditarEstadoOP(List<int> ordenesDePreparacion)
+        public string EditarEstadoOP(List<int> OrdenDePreparacion)
         {
-            foreach (var item in ordenesDePreparacion)
+            foreach (var item in OrdenDePreparacion)
             {
-                var ordenDePreparacion = OrdenesDePreparacion.Where(x => x.ID_OP == item).SingleOrDefault();
+                var ordenDePreparacion = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.ID_OP == item).SingleOrDefault();
 
-                ordenDePreparacion.Estado_OP = EstadoOPEnum.DESPACHADA;
+                ordenDePreparacion.Estado_OP = EstadoOPEnum.Despachada;
                 ordenDePreparacion.ID_Remito = 0;
 
             }

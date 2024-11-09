@@ -15,8 +15,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Windows.Forms;
-using GrupoF.Prototipo._1.Crear_Orden_de_Preparacion;
-using GrupoF.Prototipo._2.Crear_Orden_de_seleccion;
+
+using GrupoF.Prototipo.Almacenes;
 
 
 
@@ -29,14 +29,13 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
         public CrearOrdenDeSeleccion_form()
         {
-            var listview = CrearOrdenDeSeleccion_model.OrdenesDePreparacion
-                .Where(x => x.Estado_OP == GrupoF.Prototipo._1.Crear_Orden_de_Preparacion.EstadoOPEnum.EMITIDA).ToList();
+            var listview = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.Estado_OP == EstadoOPEnum.Emitida).ToList();
 
             InitializeComponent();
             CargarOrdenesDePreparacion(listview);
         }
 
-        private void CargarOrdenesDePreparacion(List<OrdenesDePreparacion> ordenes)
+        private void CargarOrdenesDePreparacion(IReadOnlyCollection<OrdenDePreparacionEnt> ordenes)
         {
             OrdenesDePreparacion_ListView.Items.Clear();
 
@@ -59,7 +58,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
                         orden.ID_OP.ToString(),
                         prioridad,
-                        orden.FechaEmision_OP.ToString(),
+                        orden.FechaEntrega_OP.ToString(),
                         cliente.NombreApellido,
 
                 }, -1);
@@ -73,27 +72,30 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         {
             ItemsOP_listView2.Items.Clear();
 
-            var listado = CrearOrdenDeSeleccion_model.OrdenesDePreparacionItems.Where(x => x.ID_OP == ID_ordenDePrparacion).ToList();
+            var OP = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.ID_OP == ID_ordenDePrparacion).SingleOrDefault();
+
+            var Mercaderias_OP = OP.Mercaderias_OP;
 
 
-            var lista = (from OP in CrearOrdenDeSeleccion_model.OrdenesDePreparacion
-                        join OPM in CrearOrdenDeSeleccion_model.OrdenesDePreparacionItems on OP.ID_OP equals OPM.ID_OP
-                        join M in CrearOrdenDeSeleccion_model.Mercaderias on OPM.ID_Mercaderia equals M.ID_Mercaderia
-                        where OP.ID_OP == ID_ordenDePrparacion
-                        orderby OP.ID_OP
-                        select new { OPM.ID_OPMercaderia, M.Descripcion_Mercaderia, OPM.Cantidad_Mercaderia }).ToList();
+            CrearOrdnesDePreparacion_model modelo = new CrearOrdnesDePreparacion_model(); //CUANDO HAYAMOS CARGADO MERCADERIAS SE VA
 
-            foreach (var item in lista)
-            {
+            var i = 1;
+
+            foreach (var item in Mercaderias_OP)
+            {           
+                var mercaderia = modelo.Mercaderias.Where(x => x.ID_Mercaderia == item.ID_Mercaderia).SingleOrDefault(); //CUANDO HAYAMOS CARGADO MERCADERIAS SE MODIFICA
+
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 
-                        item.ID_OPMercaderia.ToString(),
-                        item.Descripcion_Mercaderia,
+                        i.ToString(),
+                        mercaderia.Descripcion_Mercaderia.ToString(),
                         item.Cantidad_Mercaderia.ToString(),
 
                 }, -1);
 
                 ItemsOP_listView2.Items.Add(listViewItem);
+
+                i++;
             }
         }
 
@@ -108,26 +110,25 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
                 return;
             }
 
-            var ordenesDeSeleccion = new OrdenesDeSeleccion();
-
-            var ID_OS = CrearOrdenDeSeleccion_model.OrdenesDeSeleccion.Count + 1;
-
-            ordenesDeSeleccion.ID_OS = ID_OS;
-            ordenesDeSeleccion.Estado_OS = EstadoOSEnum.EMITIDA;
-            ordenesDeSeleccion.Emision_OrdenDeSeleccion = DateTime.Now;
-            ordenesDeSeleccion.AcualizacionEstado_OrdenDeSeleccion = DateTime.Now;
-
-            CrearOrdenDeSeleccion_model.CrearOrdenesDePreparacion(ordenesDeSeleccion);
+            var ordenesDeSeleccion = new OrdenDeSeleccionEnt();
 
 
-            var ordenesDePreparacion = new List<int>();
+            ordenesDeSeleccion.Fecha_EmisionOS = DateTime.Now;
+            ordenesDeSeleccion.FechaActualizacion_EstadoOS = DateTime.Now;
+          
+
+            var OrdenDePreparacionEnt = new List<int>();
 
             foreach (ListViewItem item in Items_OS_listView.Items)
             {
-                ordenesDePreparacion.Add(int.Parse(item.SubItems[0].Text));
+                OrdenDePreparacionEnt.Add(int.Parse(item.SubItems[0].Text));
             }
 
-            CrearOrdenDeSeleccion_model.EditarEstadoOP(ordenesDePreparacion);
+            ordenesDeSeleccion.OrdenesPreparacion_OS = OrdenDePreparacionEnt;
+
+            CrearOrdenDeSeleccion_model.CrearOrdenesDePreparacion(ordenesDeSeleccion);
+
+            CrearOrdenDeSeleccion_model.EditarEstadoOP(OrdenDePreparacionEnt);
 
 
             MessageBox.Show("Se creo la orden de seleccion con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -258,7 +259,9 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
         private void button_Click(object sender, EventArgs e)
         {
-            var listview = CrearOrdenDeSeleccion_model.OrdenesDePreparacion.Where(x => x.Estado_OP == GrupoF.Prototipo._1.Crear_Orden_de_Preparacion.EstadoOPEnum.EN_PREPARACION).ToList();
+            var listview = OrdenDePreparacionAlmacen.OrdenesDePreparacion;
+
+            listview = listview.Where(x => x.Estado_OP == GrupoF.Prototipo.Almacenes.EstadoOPEnum.Emitida).ToList();
 
             if (comboBox1.SelectedIndex == 1)
             {
@@ -272,7 +275,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
             else if (comboBox1.SelectedIndex == 3)
             {
-                listview = listview.OrderBy(x => x.FechaEmision_OP).ToList();
+                listview = listview.OrderBy(x => x.FechaEntrega_OP).ToList();
             }
 
             if (comboBox1.SelectedIndex == 4)
@@ -309,7 +312,6 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             {
                 CargarOrdenesDePreparacion(listview);
             }
-
 
         }
 

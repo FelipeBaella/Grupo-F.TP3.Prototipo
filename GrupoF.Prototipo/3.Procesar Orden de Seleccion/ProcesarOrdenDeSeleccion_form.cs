@@ -1,5 +1,5 @@
 ﻿using GrupoF.Prototipo._0.Menu;
-using GrupoF.Prototipo._1.Crear_Orden_de_Preparacion;
+using GrupoF.Prototipo.Almacenes;
 using GrupoF.Prototipo.Procesar_ordener_de_seleccion;
 using GrupoF.Prototipo.Procesar_ordenes_de_preparacion;
 using System;
@@ -33,28 +33,36 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
         {
             ProcesarOrdenesDeSeleccion_listView.Items.Clear();
 
-            var lista = (from OS in ProcesarOrdenDeSeleccion_model.OrdenesDeSeleccion
-                         join OP in ProcesarOrdenDeSeleccion_model.OrdenesDePreparacion on OS.ID_OS equals OP.ID_OS
-                         join OPM in ProcesarOrdenDeSeleccion_model.OrdenesDePreparacionItems on OP.ID_OP equals OPM.ID_OP
-                         join DP in ProcesarOrdenDeSeleccion_model.DepositoMercaderias on OPM.ID_DepositoMercaderias equals DP.ID_DepositoMercaderias
-                         join M in ProcesarOrdenDeSeleccion_model.Mercaderias on DP.ID_Mercaderia equals M.ID_Mercaderia                  
-                         where OS.ID_OS == int.Parse(id)
-                         orderby OP.ID_OP
-                         select new {DP.Coordenadas_DepositoMercaderias, M.Descripcion_Mercaderia, OPM.Cantidad_Mercaderia }).ToList();
+            var OS = OrdenDeSeleccionAlmacen.OrdenesDeSeleccion.Where(x => x.ID_OS == int.Parse(id)).SingleOrDefault();
 
-            foreach (var orden in lista)
+            var OrdenesPreparacion_OS = OS.OrdenesPreparacion_OS;
+
+            CrearOrdnesDePreparacion_model modelo = new CrearOrdnesDePreparacion_model(); //CUANDO HAYAMOS CARGADO MERCADERIAS SE VA
+
+            foreach (var item in OrdenesPreparacion_OS)
             {
+                var OP = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.ID_OP == item).SingleOrDefault();
 
-                ListViewItem listViewItem1 = new ListViewItem(new string[] {
+                var cliente = OP.ID_Cliente;
+                var deposito = OP.ID_Deposito;
 
-                    orden.Coordenadas_DepositoMercaderias.ToString(),
-                    orden.Descripcion_Mercaderia,
-                    orden.Cantidad_Mercaderia.ToString(),
+                var mercaderias = OP.Mercaderias_OP;
 
+                foreach (var items in mercaderias)
+                {
+                    var mercaderia = modelo.Mercaderias.Where(x => x.ID_Mercaderia == items.ID_Mercaderia).SingleOrDefault(); 
+                    var depositoMercaderia = modelo.DepositoMercaderia.Where(x => x.ID_Mercaderia == mercaderia.ID_Mercaderia && x.ID_Cliente == cliente && x.ID_Deposito == deposito).FirstOrDefault(); 
 
-                }, -1);
+                    ListViewItem listViewItem1 = new ListViewItem(new string[] {
 
-                ProcesarOrdenesDeSeleccion_listView.Items.Add(listViewItem1);
+                        depositoMercaderia.Coordenadas_DepositoMercaderia.ToString(),
+                        mercaderia.Descripcion_Mercaderia,
+                        items.Cantidad_Mercaderia.ToString(),
+
+                    }, -1);
+
+                    ProcesarOrdenesDeSeleccion_listView.Items.Add(listViewItem1);
+                }
             }
         }
 
@@ -69,7 +77,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 
         private void CargarOrdenesDeSeleccion()
         {
-            var OrdenesDeSeleccion = ProcesarOrdenDeSeleccion_model.OrdenesDeSeleccion.Where(x => x.Estado_OS == GrupoF.Prototipo._2.Crear_Orden_de_seleccion.EstadoOSEnum.EMITIDA).Select(x => x.ID_OS).ToList();
+            var OrdenesDeSeleccion = OrdenDeSeleccionAlmacen.OrdenesDeSeleccion.Where(x => x.Estado_OS == EstadoOSEnum.Emitida).Select(x => x.ID_OS).ToList();
 
             foreach (var orden in OrdenesDeSeleccion)
             {
@@ -80,7 +88,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
         private void button_ProcesarOrdenDeSeleccion_Click(object sender, EventArgs e)
         {
             if (int.TryParse(OS_Pendientes_comboBox.Text, out int id))
-            {                        
+            {
                 ProcesarOrdenDeSeleccion_model.EditarEstadoOS(id);
 
                 ProcesarOrdenDeSeleccion_model.EditarEstadoOP(id);

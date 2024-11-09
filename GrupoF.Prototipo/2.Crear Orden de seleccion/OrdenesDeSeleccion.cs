@@ -1,5 +1,6 @@
-﻿using GrupoF.Prototipo._1.Crear_Orden_de_Preparacion;
-using GrupoF.Prototipo._2.Crear_Orden_de_seleccion;
+﻿
+
+using GrupoF.Prototipo.Almacenes;
 using System;
 using System.Collections.Generic;
 using System.Linq;

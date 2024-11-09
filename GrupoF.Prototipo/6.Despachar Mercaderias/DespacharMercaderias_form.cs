@@ -1,6 +1,6 @@
 ﻿using GrupoF.Prototipo._0.Menu;
 using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
-
+using GrupoF.Prototipo.Almacenes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,11 +27,11 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
         {
             listView_OrdenesDePreparacion.Items.Clear();
 
-            var ordenes = DespacharMercaderias_model.OrdenesDePreparacion.Where(x => x.Dni_transportista == 0).ToList();
+            var ordenes = DespacharMercaderias_model.OrdenDePreparacionEnt.Where(x => x.DNI_Transportista == 0).ToList();
 
             if (dniTransportista != 0)
             {
-                ordenes = DespacharMercaderias_model.OrdenesDePreparacion.Where(x => x.Dni_transportista == dniTransportista && x.Estado_OP == GrupoF.Prototipo._1.Crear_Orden_de_Preparacion.EstadoOPEnum.EN_DESPACHO).ToList();
+                ordenes = DespacharMercaderias_model.OrdenDePreparacionEnt.Where(x => x.DNI_Transportista == dniTransportista && x.Estado_OP == EstadoOPEnum.EnDespacho).ToList();
             }
 
             foreach (var orden in ordenes)
@@ -74,14 +74,14 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 
             if (OrdenesDeEntrega > 0)
             {
-                var ordenesDePreparacion = new List<int>();
+                var OrdenDePreparacionEnt = new List<int>();
 
                 foreach (ListViewItem item in listView_OrdenesDePreparacion.Items)
                 {
-                    ordenesDePreparacion.Add(int.Parse(item.SubItems[0].Text));
+                    OrdenDePreparacionEnt.Add(int.Parse(item.SubItems[0].Text));
                 }
 
-                DespacharMercaderias_model.EditarEstadoOP(ordenesDePreparacion);
+                DespacharMercaderias_model.EditarEstadoOP(OrdenDePreparacionEnt);
 
                 MessageBox.Show("Se emitio el remito con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

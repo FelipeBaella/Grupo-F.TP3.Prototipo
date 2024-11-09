@@ -51,7 +51,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             Descripcion_label = new Label();
             VolverAlMenu_button = new Button();
             listView_MercaderiasOrdenes = new ListView();
-            Mercaderia = new ColumnHeader();
+            MercaderiaEnt = new ColumnHeader();
             Cantidad = new ColumnHeader();
             groupBox1 = new GroupBox();
             button2 = new Button();
@@ -173,7 +173,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             Deposito_label.Name = "Deposito_label";
             Deposito_label.Size = new Size(119, 15);
             Deposito_label.TabIndex = 11;
-            Deposito_label.Text = "Descripcion Deposito";
+            Deposito_label.Text = "Descripcion DepositoEnt";
             // 
             // IdCliente_label
             // 
@@ -215,7 +215,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             Cantidad_label.Name = "Cantidad_label";
             Cantidad_label.Size = new Size(117, 15);
             Cantidad_label.TabIndex = 6;
-            Cantidad_label.Text = "Cantidad Mercaderia";
+            Cantidad_label.Text = "Cantidad MercaderiaEnt";
             // 
             // Descripcion_label
             // 
@@ -224,7 +224,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             Descripcion_label.Name = "Descripcion_label";
             Descripcion_label.Size = new Size(131, 15);
             Descripcion_label.TabIndex = 5;
-            Descripcion_label.Text = "Descripcion Mercaderia";
+            Descripcion_label.Text = "Descripcion MercaderiaEnt";
             // 
             // VolverAlMenu_button
             // 
@@ -239,7 +239,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             // listView_MercaderiasOrdenes
             // 
             listView_MercaderiasOrdenes.CheckBoxes = true;
-            listView_MercaderiasOrdenes.Columns.AddRange(new ColumnHeader[] { Mercaderia, Cantidad });
+            listView_MercaderiasOrdenes.Columns.AddRange(new ColumnHeader[] { MercaderiaEnt, Cantidad });
             listView_MercaderiasOrdenes.Location = new Point(6, 22);
             listView_MercaderiasOrdenes.Name = "listView_MercaderiasOrdenes";
             listView_MercaderiasOrdenes.Size = new Size(409, 252);
@@ -247,10 +247,10 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             listView_MercaderiasOrdenes.UseCompatibleStateImageBehavior = false;
             listView_MercaderiasOrdenes.View = View.Details;
             // 
-            // Mercaderia
+            // MercaderiaEnt
             // 
-            Mercaderia.Text = "Mercaderia";
-            Mercaderia.Width = 100;
+            MercaderiaEnt.Text = "MercaderiaEnt";
+            MercaderiaEnt.Width = 100;
             // 
             // Cantidad
             // 
@@ -329,7 +329,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         private Button button_agregar;
         private ListView listView_MercaderiasOrdenes;
         private GroupBox groupBox1;
-        private ColumnHeader Mercaderia;
+        private ColumnHeader MercaderiaEnt;
         private ColumnHeader Cantidad;
         private Button button2;
         private ColumnHeader Item;

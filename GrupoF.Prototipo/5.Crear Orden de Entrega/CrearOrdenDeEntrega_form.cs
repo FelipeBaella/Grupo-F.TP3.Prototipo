@@ -1,7 +1,7 @@
 ﻿using GrupoF.Prototipo._0.Menu;
 using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
 using GrupoF.Prototipo._4.Crear_Orden_de_Entrega;
-
+using GrupoF.Prototipo.Almacenes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,7 +26,7 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
 
         private void CargarOrdenesDePreparacion()
         {
-            var ordenes = CrearOrdenDeEntrega_model.OrdenesDePreparacion.Where(x => x.Estado_OP == GrupoF.Prototipo._1.Crear_Orden_de_Preparacion.EstadoOPEnum.PREPARADA).ToList();
+            var ordenes = CrearOrdenDeEntrega_model.OrdenDePreparacionEnt.Where(x => x.Estado_OP == EstadoOPEnum.Preparada).ToList();
 
             OrdenesDePreparacion_ListView.Items.Clear();
 
@@ -58,7 +58,7 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
             CrearOrdenDeEntrega_model.CrearOrdenesDeEntrega(ordenesDeEntrega);
 
 
-            var id = CrearOrdenDeEntrega_model.OrdenesDePreparacion.First().ID_OP;
+            var id = CrearOrdenDeEntrega_model.OrdenDePreparacionEnt.First().ID_OP;
 
             CrearOrdenDeEntrega_model.EditarEstadoOP(id);
 

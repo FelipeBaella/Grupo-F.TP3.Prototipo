@@ -1,6 +1,9 @@
 ﻿using GrupoF.Prototipo._0.Menu;
-using GrupoF.Prototipo._1.Crear_Orden_de_Preparacion;
+
+using GrupoF.Prototipo.Almacenes;
 using System.Data;
+using System.Reflection;
+using System.Runtime.Intrinsics.Arm;
 
 namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 {
@@ -24,32 +27,32 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             }
 
             // Limpiamos el ComboBox por si ya tiene elementos cargados
-          
+
             var depositos = CrearOrdnesDePreparacion_model.Depositos.ToList();
 
-            var depositosAEliminar = new List<Deposito>();
+            var depositosAEliminar = new List<DepositoEnt>();
 
-            foreach (var deposito in depositos)
+            foreach (var dep in depositos)
             {
-                var depositoMercaderias = CrearOrdnesDePreparacion_model.DepositoMercaderias
-                .Where(x => x.ID_Cliente == cliente && x.ID_Deposito == deposito.ID_Deposito)
+                var DepositoMercaderiaEnt = CrearOrdnesDePreparacion_model.DepositoMercaderia
+                .Where(x => x.ID_Cliente == cliente && x.ID_Deposito == dep.ID_Deposito)
                 .FirstOrDefault();
 
-                if (depositoMercaderias == null)
+                if (DepositoMercaderiaEnt == null)
                 {
-                    depositosAEliminar.Add(deposito);
+                    depositosAEliminar.Add(dep);
                 }
             }
 
-            foreach (var deposito in depositosAEliminar)
+            foreach (var dep in depositosAEliminar)
             {
-                depositos.Remove(deposito);
+                depositos.Remove(dep);
             }
 
             // Iteramos sobre la lista de depósitos y agregamos los nombres al ComboBox
-            foreach (var deposito in depositos)
+            foreach (var DepositoEnt in depositos)
             {
-                DescripcionDeposito_Combobox.Items.Add(deposito.Nombre_Deposito);
+                DescripcionDeposito_Combobox.Items.Add(DepositoEnt.Descripcion_Deposito);
             }
 
             // Si lo deseas, puedes seleccionar el primer elemento como predeterminado
@@ -61,9 +64,9 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
         private void CargarMercaderias()
         {
-            var deposito = CrearOrdnesDePreparacion_model.Depositos.Where(x => x.Nombre_Deposito == DescripcionDeposito_Combobox.SelectedItem).FirstOrDefault();
+            var DepositoEnt = CrearOrdnesDePreparacion_model.Depositos.Where(x => x.Descripcion_Deposito == DescripcionDeposito_Combobox.SelectedItem).FirstOrDefault();
 
-            if (deposito != null)
+            if (DepositoEnt != null)
             {
                 if (!int.TryParse(IdCliente_textbox.Text, out int cliente))
                 {
@@ -72,27 +75,28 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                     return;
                 }
 
-                var depositoMercaderias = CrearOrdnesDePreparacion_model.DepositoMercaderias
-                    .Where(x => x.ID_Deposito == deposito.ID_Deposito)
-                    .Where(x => x.ID_Cliente == cliente)
-                    .Select(x => x.ID_Mercaderia)
-                    .Distinct()
-                    .ToList();
+                var DepositoMercaderiaEnt = DepositoMercaderiaAlmacen.DepositosMercaderias
+                .Where(x => x.ID_Deposito == DepositoEnt.ID_Deposito && x.ID_Cliente == cliente && x.Cantidad_DepositoMercaderia > 0)
+                .Select(x => x.ID_Mercaderia)
+                .Distinct()
+                .OrderBy(id => id)  
+                .ToList();
+
 
                 var mercaderias = new List<string>();
 
-                foreach (var item in depositoMercaderias)
+                foreach (var item in DepositoMercaderiaEnt)
                 {
-                    var mercaderia = CrearOrdnesDePreparacion_model.Mercaderias.Where(x => x.ID_Mercaderia == item).FirstOrDefault();
+                    var MercaderiaEnt = CrearOrdnesDePreparacion_model.Mercaderias.Where(x => x.ID_Mercaderia == item).FirstOrDefault();
 
-                    mercaderias.Add(mercaderia.ID_Mercaderia + " - " + mercaderia.Descripcion_Mercaderia);
+                    mercaderias.Add(MercaderiaEnt.ID_Mercaderia + " - " + MercaderiaEnt.Descripcion_Mercaderia);
                 }
 
                 DescripcionMercaderia_ComboBox.Items.Clear();
 
-                foreach (var mercaderia in mercaderias)
+                foreach (var MercaderiaEnt in mercaderias)
                 {
-                    DescripcionMercaderia_ComboBox.Items.Add(mercaderia);
+                    DescripcionMercaderia_ComboBox.Items.Add(MercaderiaEnt);
                 }
 
                 if (DescripcionMercaderia_ComboBox.Items.Count > 0)
@@ -101,7 +105,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                 }
             }
         }
-
 
         private void button_aceptar_click(object sender, EventArgs e)
         {
@@ -137,8 +140,8 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                 dateTimePicker_fecha.Focus();
                 return;
             }
-            
-            //DEPOSITO
+
+            //DepositoEnt
             if (string.IsNullOrEmpty(DescripcionDeposito_Combobox.SelectedItem?.ToString()))
             {
                 MessageBox.Show("Debes seleccionar un depósito valido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -155,44 +158,77 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             }
 
 
-            var deposito = CrearOrdnesDePreparacion_model.Depositos.Where(x => x.Nombre_Deposito == DescripcionDeposito_Combobox.Text).FirstOrDefault();
+            var DepositoEnt = CrearOrdnesDePreparacion_model.Depositos.Where(x => x.Descripcion_Deposito == DescripcionDeposito_Combobox.Text).FirstOrDefault();
 
-            var ordenDePreparacion = new OrdenesDePreparacion();
+            var ordenDePreparacion = new OrdenDePreparacionEnt();
 
-            ordenDePreparacion.Estado_OP = EstadoOPEnum.EMITIDA;
+            ordenDePreparacion.Estado_OP = GrupoF.Prototipo.Almacenes.EstadoOPEnum.Emitida;
             ordenDePreparacion.Prioridad_OP = true;
             ordenDePreparacion.ID_Cliente = cliente;
             ordenDePreparacion.FechaEmision_OP = DateTime.Now;
             ordenDePreparacion.FechaEntrega_OP = Fecha;
-            ordenDePreparacion.FechaActualizacionEstado_OP = DateTime.Now;
-            ordenDePreparacion.ID_Deposito = deposito.ID_Deposito;
-            ordenDePreparacion.Dni_transportista = Dni;
+            //ordenDePreparacion.FechaActualizacionEstado_OP = DateTime.Now;
+            ordenDePreparacion.ID_Deposito = DepositoEnt.ID_Deposito;
+            ordenDePreparacion.DNI_Transportista = Dni;
 
-            CrearOrdnesDePreparacion_model.CrearOrdenesDePreparacion(ordenDePreparacion);
-
-
-
-
-            var ordenesDePreparacionItems = new OrdenesDePreparacionItems();
+            var ordenesDePreparacionItems = new List<Mercaderia_OP>();
 
             foreach (ListViewItem item in listView_MercaderiasOrdenes.Items)
             {
-                var mercaderia = CrearOrdnesDePreparacion_model.Mercaderias.Where(x => x.Descripcion_Mercaderia == item.SubItems[0].Text).FirstOrDefault();
+                var id_merca = item.SubItems[0].Text.Split('-')[0].Trim();
+                var cantidad = int.Parse(item.SubItems[1].Text);
 
-                var depositoMercaderias = CrearOrdnesDePreparacion_model.DepositoMercaderias.Where(x => x.ID_Deposito == deposito.ID_Deposito && x.ID_Mercaderia == mercaderia.ID_Mercaderia);
+                var items = new Mercaderia_OP();
 
-                ordenesDePreparacionItems.ID_DepositoMercaderias = 0;
-                ordenesDePreparacionItems.Cantidad_Mercaderia = int.Parse(item.SubItems[1].Text);
+                items.ID_Mercaderia = int.Parse(id_merca);
+                items.Cantidad_Mercaderia = cantidad;
 
-                CrearOrdnesDePreparacion_model.CrearOrdenesDePreparacionItem(ordenesDePreparacionItems);
+                ordenesDePreparacionItems.Add(items);
+
+                int cantidadRestante = cantidad;
+
+                while (cantidadRestante > 0)
+                {
+                    // Buscar un depósito con suficiente mercadería o el próximo disponible
+                    var depositoMercaderia = DepositoMercaderiaAlmacen.DepositosMercaderias
+                        .Where(x => x.ID_Mercaderia == int.Parse(id_merca) && x.ID_Cliente == cliente && x.ID_Deposito == DepositoEnt.ID_Deposito && x.Cantidad_DepositoMercaderia > 0)
+                        .FirstOrDefault();
+
+                    // Reducir la cantidad del depósito según la cantidad disponible
+                    if (depositoMercaderia.Cantidad_DepositoMercaderia >= cantidadRestante)
+                    {
+                        depositoMercaderia.Cantidad_DepositoMercaderia -= cantidadRestante;
+                        cantidadRestante = 0;
+                    }
+                    else
+                    {
+                        // Reducir todo el stock disponible en este depósito y ajustar la cantidad restante
+                        cantidadRestante -= depositoMercaderia.Cantidad_DepositoMercaderia;
+                        depositoMercaderia.Cantidad_DepositoMercaderia = 0;
+                    }
+                }
             }
 
+     
 
-            MessageBox.Show("Se creo la orden de preparacion con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ordenDePreparacion.Mercaderias_OP = ordenesDePreparacionItems;
 
-            CrearOrdenDePreparacion_form nuevaForma = new CrearOrdenDePreparacion_form();
-            nuevaForma.Show();
+            var mensaje = CrearOrdnesDePreparacion_model.CrearOrdenesDePreparacion(ordenDePreparacion);
+            var id = 0;
 
+            if (int.TryParse(mensaje.Trim(), out id))
+            {
+                MessageBox.Show($"Se creo la orden de preparacion: {mensaje} con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.Hide();
+
+                CrearOrdenDePreparacion_form nuevaForma = new CrearOrdenDePreparacion_form();
+                nuevaForma.Show();
+            }
+            else
+            {
+                MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void VolverAlMenu_button_Click(object sender, EventArgs e)
@@ -216,32 +252,16 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
         private void button_agregar_Click(object sender, EventArgs e)
         {
-            string descripcionMercaderia_ComboBox_Completo = DescripcionMercaderia_ComboBox.Text.Trim();
+            string depositoDescri = DescripcionDeposito_Combobox.Text;
+            var deposito = CrearOrdnesDePreparacion_model.Depositos.Where(x => x.Descripcion_Deposito == depositoDescri).SingleOrDefault().ID_Deposito;
 
-            string descripcionMercaderia_ComboBox = descripcionMercaderia_ComboBox_Completo.Split('-')[1];
+            string cliente = IdCliente_textbox.Text;
 
-            int cantidad;
-            string descripcionDeposito_Combobox = DescripcionDeposito_Combobox.Text.Trim();
+            string mercaderia = DescripcionMercaderia_ComboBox.Text;
+            string mercaderiaID = mercaderia.Split('-')[0].Trim();
+            string mercaderiaDescri = mercaderia.Split('-')[1].Trim();
 
-            var mercaderia = CrearOrdnesDePreparacion_model.Mercaderias.Where(x => x.Descripcion_Mercaderia == descripcionMercaderia_ComboBox.Trim()).FirstOrDefault();
-            var deposito = CrearOrdnesDePreparacion_model.Depositos.Where(x => x.Nombre_Deposito == descripcionDeposito_Combobox).FirstOrDefault();
-
-            var depositoMercaderia = CrearOrdnesDePreparacion_model.DepositoMercaderias.Where(x => x.ID_Deposito == deposito.ID_Deposito).FirstOrDefault();
-
-            string? depositoSeleccionado = DescripcionDeposito_Combobox.SelectedItem?.ToString();
-
-
-            if (!int.TryParse(Cantidad_textbox.Text.Trim(), out cantidad))
-            {
-                MessageBox.Show("Cantidad debe ser un numero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                DescripcionDeposito_Combobox.Focus();
-                return;
-            }
-
-            int cantidadNueva = cantidad;
-            int cantidadExistente = 0;
-            int cantidadItem = 0;
-
+            var MercaderiaEnt = DepositoMercaderiaAlmacen.DepositosMercaderias.Where(x => x.ID_Cliente == int.Parse(cliente) && x.ID_Deposito == deposito && x.ID_Mercaderia == int.Parse(mercaderiaID)).ToList();
 
             foreach (ListViewItem item in listView_MercaderiasOrdenes.Items)
             {
@@ -249,57 +269,58 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
                 string SubItems = SubItems_Completo.Split('-')[1];
 
-                if (SubItems.Trim() == mercaderia.Descripcion_Mercaderia)
+                if (SubItems.Trim() == mercaderiaDescri)
                 {
-                    cantidadItem = int.Parse(item.SubItems[1].Text);
-                    cantidadExistente += cantidadItem;
-                }
-            }
-
-            cantidadExistente += cantidadNueva;
-
-
-            if (depositoSeleccionado == "---")
-            {
-                MessageBox.Show("Debes seleccionar un depósito valido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                DescripcionDeposito_Combobox.Focus();
-                return;
-            }
-
-            if (descripcionMercaderia_ComboBox == "")
-            {
-                MessageBox.Show("Debes seleccionar una mercaderia valida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                DescripcionDeposito_Combobox.Focus();
-                return;
-            }
-
-            else
-            {
-                if (depositoMercaderia.Cantidad_DepositoMercaderias < cantidadExistente)
-                {
-                    MessageBox.Show("El deposito no contiene la cantidad seleccionada. La cantidad total es: " + depositoMercaderia.Cantidad_DepositoMercaderias, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("La mercaderia ya ha sido seleccionada, si desea modificar la cantidad remueva el producto de la lista y vuelva a ingresarla", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Cantidad_textbox.Focus();
                     return;
                 }
+            }
 
-                else
-                {
-                    var cantidadItems = listView_MercaderiasOrdenes.Items.Count;
-                    var numeroItem = cantidadItems + 1;
+            var cantidadExistente = MercaderiaEnt.Sum(m => m.Cantidad_DepositoMercaderia);
 
-                    ListViewItem listViewItem = new ListViewItem(new string[] {
+            var cantidad = 0;
+            if (!int.TryParse(Cantidad_textbox.Text.Trim(), out cantidad))
+            {
+                MessageBox.Show("Cantidad debe ser un numero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DescripcionDeposito_Combobox.Focus();
+                return;
+            }
+            if (cantidad > cantidadExistente)
+            {
+                MessageBox.Show("El Deposito no contiene la cantidad Seleccionada. La cantidad total es: " + cantidadExistente, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Cantidad_textbox.Focus();
+                return;
+            }
 
-                        mercaderia.ID_Mercaderia + " - "+ mercaderia.Descripcion_Mercaderia,
+            int cantidadNueva = cantidad;
+            int cantidadItem = 0;
+
+
+            if (mercaderia == "")
+            {
+                MessageBox.Show("Debes seleccionar una MercaderiaEnt valida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DescripcionDeposito_Combobox.Focus();
+                return;
+            }
+            else
+            {
+                var cantidadItems = listView_MercaderiasOrdenes.Items.Count;
+                var numeroItem = cantidadItems + 1;
+
+                ListViewItem listViewItem = new ListViewItem(new string[] {
+
+                        mercaderiaID + " - " + mercaderiaDescri,
                         Cantidad_textbox.Text.ToString(),
 
                     }, -1);
 
-                    listView_MercaderiasOrdenes.Items.Add(listViewItem);
+                listView_MercaderiasOrdenes.Items.Add(listViewItem);
 
-                    DescripcionDeposito_Combobox.Enabled = false;
-                    IdCliente_textbox.Enabled = false;
-                    Cantidad_textbox.Text = "";
-                }
+                DescripcionDeposito_Combobox.Enabled = false;
+                IdCliente_textbox.Enabled = false;
+                Cantidad_textbox.Text = "";
+
             }
         }
 

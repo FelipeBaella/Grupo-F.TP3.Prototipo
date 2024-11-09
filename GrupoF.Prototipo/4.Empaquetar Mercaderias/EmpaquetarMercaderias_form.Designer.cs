@@ -65,7 +65,7 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
             // 
             // Descripcion_Mercaderia
             // 
-            Descripcion_Mercaderia.Text = "Descripcion Mercaderia";
+            Descripcion_Mercaderia.Text = "Descripcion MercaderiaEnt";
             Descripcion_Mercaderia.Width = 140;
             // 
             // Cantidad
@@ -131,7 +131,7 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
         private ColumnHeader Estado_OP;
         private ColumnHeader ID_OP;
         private ColumnHeader ITEM_OP;
-        private ColumnHeader Deposito;
+        private ColumnHeader DepositoEnt;
         private ColumnHeader Descripcion_Mercaderia;
         private ColumnHeader Cantidad;
         private TextBox OrdenDePreparacion_textbox;

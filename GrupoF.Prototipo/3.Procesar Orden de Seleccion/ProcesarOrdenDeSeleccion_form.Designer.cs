@@ -60,7 +60,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             // 
             // Descripcion_Mercaderia
             // 
-            Descripcion_Mercaderia.Text = "Descripcion Mercaderia";
+            Descripcion_Mercaderia.Text = "Descripcion MercaderiaEnt";
             Descripcion_Mercaderia.Width = 160;
             // 
             // Cantidad
@@ -145,7 +145,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
         private ColumnHeader Descripcion_Mercaderia;
         private ColumnHeader Cantidad;
         private ColumnHeader Coordenadas_Item_OP;
-        private ColumnHeader Deposito;
+        private ColumnHeader DepositoEnt;
         private Button ProcesarOrdenDeSeleccion_button;
         private Button VolverAlMenu_button;
         private GroupBox OS_groupBox1;

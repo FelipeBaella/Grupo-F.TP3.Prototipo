@@ -107,7 +107,7 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
         private Button Salir_button2;
         private Button EnviadoADespacho_button;
         private ColumnHeader Estado_OP;
-        private ColumnHeader Deposito;
+        private ColumnHeader DepositoEnt;
         private ColumnHeader ID_OP;
         private ListView listView;
         private ListView OrdenesDePreparacion_listView;

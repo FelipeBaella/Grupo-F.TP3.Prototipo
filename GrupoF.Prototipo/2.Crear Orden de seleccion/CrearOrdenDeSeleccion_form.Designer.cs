@@ -225,12 +225,12 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // 
             // Descripcion
             // 
-            Descripcion.Text = "Descripcion Mercaderia";
+            Descripcion.Text = "Descripcion MercaderiaEnt";
             Descripcion.Width = 140;
             // 
             // Cantidad
             // 
-            Cantidad.Text = "Cantidad Mercaderia";
+            Cantidad.Text = "Cantidad MercaderiaEnt";
             Cantidad.Width = 130;
             // 
             // ID_OP1
@@ -245,12 +245,12 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // 
             // Descrip_Merc
             // 
-            Descrip_Merc.Text = "Descripcion Mercaderia";
+            Descrip_Merc.Text = "Descripcion MercaderiaEnt";
             Descrip_Merc.Width = 140;
             // 
             // Cant_Merc
             // 
-            Cant_Merc.Text = "Cantidad Mercaderia";
+            Cant_Merc.Text = "Cantidad MercaderiaEnt";
             Cant_Merc.Width = 130;
             // 
             // groupBox3
@@ -324,7 +324,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         private ColumnHeader ID_OP;
         private ColumnHeader Nombre_Cliente;
         private ColumnHeader Fecha_Entrega_OP;
-        private ColumnHeader Deposito;
+        private ColumnHeader DepositoEnt;
         private Button CrearOrden_button;
         private TextBox textBox1;
         private TextBox prueba6;

@@ -1,9 +1,11 @@
-﻿using GrupoF.Prototipo._1.Crear_Orden_de_Preparacion;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+
 
 namespace GrupoF.Prototipo.Almacenes
 {
@@ -11,7 +13,7 @@ namespace GrupoF.Prototipo.Almacenes
     // 1) Es una clase de datos. Sólo sirve para contener y definir todos los datos que utilizará una entidad.
     // 2) Si implemento métodos, únicamente deberán trabajar con los datos/parámetros que se encuentran dentro de esta entidad (sin referencias externas)
     // 3) Si tengo datos que pueden ser calculados, deberé crear un método para obtenerlos.
-    internal class OrdenDePreparacionEnt
+    public class OrdenDePreparacionEnt
     {
         public int ID_OP { get; set; }
         public EstadoOPEnum Estado_OP { get; set; }
@@ -24,6 +26,13 @@ namespace GrupoF.Prototipo.Almacenes
 
         // Esta lista va a representar cada uno de los productos dentro de la orden. Será una clase auxiliar
         public List<Mercaderia_OP> Mercaderias_OP { get; set; } = new();
+
+
+
+        public int? ID_OE { get; set; }
+        public int? ID_OS { get; set; }
+        public int? ID_Remito { get; set; }
+
 
     }
 

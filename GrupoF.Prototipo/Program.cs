@@ -16,7 +16,15 @@ namespace GrupoF.Prototipo
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+
+            // Aquí debería ejecutar la carga de datos desde los almacenes. Debería leer cada archivo, repitiendo 
+            // la misma sentencia para cada almacen del sistema.
+            // OrdenDePreparacionAlmacen.Leer();
+
             Application.Run(new LogIn_form());
+
+            // Aquí debería grabar los datos de la ejecución hacia los almacenes:
+            // OrdenDePreparacionAlmacen.Grabar();
         }
     }
 }

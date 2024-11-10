@@ -10,5 +10,11 @@
     "LogIn_Usuario": "AgustinLopez",
     "Contrasena_Usuario": "CAI2024",
     "ID_Deposito": 2
+  },
+  {
+    "ID_Usuario": 3,
+    "LogIn_Usuario": "1",
+    "Contrasena_Usuario": "1",
+    "ID_Deposito": 3
   }
 ]

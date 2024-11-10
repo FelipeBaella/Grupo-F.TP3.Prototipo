@@ -25,7 +25,10 @@ namespace GrupoF.Prototipo.Almacenes
 
         public static void Leer()
         {
-            if (!File.Exists("OrdenesDeEntrega.json"))
+            string rutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Datos", "OrdenesDeEntrega.json");
+
+            // Valido si el archivo no existe. Si ese es el caso, no hago nada.
+            if (!File.Exists(rutaArchivo))
             {
                 return;
             }

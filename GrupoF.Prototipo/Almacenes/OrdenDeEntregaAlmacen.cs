@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,8 +15,10 @@ namespace GrupoF.Prototipo.Almacenes
 
         public static IReadOnlyCollection<OrdenDeEntregaEnt> OrdenesDeEntrega => ordenesdeentrega.AsReadOnly();
 
-        public static void Grabar()
+        public static void Grabar(OrdenDeEntregaEnt ordenDeEntrega)
         {
+            ordenesdeentrega.Add(ordenDeEntrega);
+
             var datos = JsonSerializer.Serialize(ordenesdeentrega);
             File.WriteAllText(@"OrdenesDeEntrega.json", datos);
         }

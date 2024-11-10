@@ -229,40 +229,23 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
         };
 
 
-        public List<OrdenesDeSeleccion> OrdenesDeSeleccion { get; set; } = new List<OrdenesDeSeleccion>
-        {
-            // Set de Datos de 4 Ordenes de Selección
-            new OrdenesDeSeleccion {Estado_OS = EstadoOSEnum.Emitida, ID_OS = 1, Emision_OrdenDeSeleccion = DateTime.Now},
-            new OrdenesDeSeleccion {Estado_OS = EstadoOSEnum.Emitida, ID_OS = 2, Emision_OrdenDeSeleccion = DateTime.Now.AddMonths(1)},
-            new OrdenesDeSeleccion {Estado_OS = EstadoOSEnum.Emitida, ID_OS = 3, Emision_OrdenDeSeleccion = DateTime.Now.AddMonths(2)},
-            new OrdenesDeSeleccion {Estado_OS = EstadoOSEnum.Emitida, ID_OS = 4, Emision_OrdenDeSeleccion = DateTime.Now.AddMonths(3)}
-        };
-
-
-
         public string EditarEstadoOS(int id)
         {
-            var ordenesDeSeleccion = OrdenesDeSeleccion.Where(x => x.ID_OS == id).SingleOrDefault();
+            var ordenesDeSeleccion = OrdenDeSeleccionAlmacen.OrdenesDeSeleccion.Where(x => x.ID_OS == id).SingleOrDefault();
 
             ordenesDeSeleccion.Estado_OS = EstadoOSEnum.Cumplida;
 
+            var OrdenesDeSeleccion = ordenesDeSeleccion.OrdenesPreparacion_OS;
+
+            foreach(var orden in OrdenesDeSeleccion)
+            {
+                var OrdenDePreparacion = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.ID_OP == orden).SingleOrDefault();
+
+                OrdenDePreparacion.Estado_OP = EstadoOPEnum.EnPreparacion;
+            }
+        
             return null;
         }
-
-
-        //public string EditarEstadoOP(int id)
-        //{
-        //    var OrdenDePreparacionEnt = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.ID_OS == id).ToList();
-
-        //    foreach (var item in OrdenDePreparacionEnt)
-        //    {
-        //        item.Estado_OP = EstadoOPEnum.EnPreparacion;
-        //    }
-
-        //    return null;
-        //}
-
-
 
     }
 }

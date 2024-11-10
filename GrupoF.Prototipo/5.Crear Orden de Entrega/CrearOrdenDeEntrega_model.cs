@@ -236,31 +236,46 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
         };
 
 
-        public List<OrdenesDeEntrega> OrdenesDeEntrega = new();
-        public string CrearOrdenesDeEntrega(OrdenesDeEntrega ordenesDeEntrega)
+        public string CrearOrdenesDeEntrega(OrdenDeEntregaEnt ordenesDeEntrega)
         {
-            var ID_OE = ordenesDeEntrega.ID_OE;
-            var ID_OPMercaderia = ordenesDeEntrega.Emision_OrdenDeEntrega;
-            var Estado_OP = ordenesDeEntrega.Procesado_OrdenDeEntrega;
+            var OE = OrdenDeEntregaAlmacen.OrdenesDeEntrega.ToList();
 
-            OrdenesDeEntrega.Add(ordenesDeEntrega);
+            var ID_OE = 1;
+
+            if (OE.Count > 0) 
+            {
+                ID_OE = OE.Last().ID_OE + 1;
+            }
+
+            ordenesDeEntrega.ID_OE = ID_OE;
+
+            var FechaEmision_OE = ordenesDeEntrega.FechaEmision_OE;
+
+            OrdenDeEntregaAlmacen.Grabar(ordenesDeEntrega);
+
+            var OPs = ordenesDeEntrega.OrdenesPreparacion_OE;
+
+
+            foreach(var op in OPs)
+            {
+                var OP = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.ID_OP == op).SingleOrDefault();
+
+                OP.Estado_OP = EstadoOPEnum.EnDespacho;
+            }
+
 
             return null;
         }
 
 
-        //public string EditarEstadoOP(int id)
-        //{
-        //    var OrdenDePreparacionEnt = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.ID_OS == id && x.Estado_OP == EstadoOPEnum.Preparada).ToList();
+        public string EditarEstadoOP(int id)
+        {
+            var OrdenDePreparacion = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.ID_OP == id).FirstOrDefault();
 
-        //    foreach (var item in OrdenDePreparacionEnt)
-        //    {
-        //        item.Estado_OP = EstadoOPEnum.EnDespacho;
-        //        item.ID_OE = OrdenesDeEntrega.Last().ID_OE;
-        //    }
+            OrdenDePreparacion.Estado_OP = EstadoOPEnum.EnDespacho;
 
-        //    return null;
-        //}
+            return null;
+        }
 
 
     }

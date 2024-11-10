@@ -247,16 +247,15 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
         };
 
 
-        //public string EditarEstadoOP(int id)
-        //{
-        //    var OrdenDePreparacionEnt = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.ID_OS == id).ToList();
+        public string EditarEstadoOP(int id)
+        {
+            var OrdenDePreparacion = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.ID_OP == id).SingleOrDefault();
 
-        //    foreach (var item in OrdenDePreparacionEnt)
-        //    {
-        //        item.Estado_OP = EstadoOPEnum.Preparada;
-        //    }
+            OrdenDePreparacion.Estado_OP = EstadoOPEnum.Preparada;
 
-        //    return null;
-        //}
+            var OrdenDePreparacionE = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.ID_OP == id).SingleOrDefault().Estado_OP;
+
+            return null;
+        }
     }
 }

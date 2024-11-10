@@ -21,46 +21,51 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
         public CrearOrdenDeEntrega_form()
         {
             InitializeComponent();
-            //CargarOrdenesDePreparacion();
+            CargarOrdenesDePreparacion();
         }
 
-        //private void CargarOrdenesDePreparacion()
-        //{
-        //    var ordenes = CrearOrdenDeEntrega_model.OrdenDePreparacionEnt.Where(x => x.Estado_OP == EstadoOPEnum.Preparada).ToList();
+        private void CargarOrdenesDePreparacion()
+        {
+            var ordenes = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.Estado_OP == EstadoOPEnum.Preparada).ToList();
 
-        //    OrdenesDePreparacion_ListView.Items.Clear();
+            OrdenesDePreparacion_ListView.Items.Clear();
 
-        //    foreach (var orden in ordenes)
-        //    {
-        //        var cliente = CrearOrdenDeEntrega_model.Clientes.Where(x => x.ID_Cliente == orden.ID_Cliente).FirstOrDefault();
+            foreach (var orden in ordenes)
+            {
 
-        //        ListViewItem listViewItem = new ListViewItem(new string[] {
+                ListViewItem listViewItem = new ListViewItem(new string[] {
 
-        //                orden.ID_OP.ToString(),
+                        orden.ID_OP.ToString(),
 
-        //        }, -1);
+                }, -1);
 
-        //        OrdenesDePreparacion_ListView.Items.Add(listViewItem);
-        //    }
+                OrdenesDePreparacion_ListView.Items.Add(listViewItem);
+            }
 
-        //}
+        }
 
         private void EnviadoADespacho_button_Click(object sender, EventArgs e)
         {
-            var ordenesDeEntrega = new OrdenesDeEntrega();
+            var ordenesDeEntrega = new OrdenDeEntregaEnt();
 
-            var ID_OE = CrearOrdenDeEntrega_model.OrdenesDeEntrega.Count + 1;
+            ordenesDeEntrega.FechaEmision_OE = DateTime.Now;
 
-            ordenesDeEntrega.ID_OE = ID_OE;
-            ordenesDeEntrega.Emision_OrdenDeEntrega = DateTime.Now;
-            ordenesDeEntrega.Procesado_OrdenDeEntrega = true;
+            var ops = new List<int>();
+
+            foreach (var item in OrdenesDePreparacion_ListView.Items)
+            {
+                ListViewItem op = item as ListViewItem;
+
+                if (op != null)
+                {
+                    var opId = op.SubItems[0].Text; 
+                    ops.Add(int.Parse(opId));
+                }
+            }
+
+            ordenesDeEntrega.OrdenesPreparacion_OE = ops;
 
             CrearOrdenDeEntrega_model.CrearOrdenesDeEntrega(ordenesDeEntrega);
-
-
-            //var id = CrearOrdenDeEntrega_model.OrdenDePreparacionEnt.First().ID_OP;
-
-            //CrearOrdenDeEntrega_model.EditarEstadoOP(id);
 
 
             MessageBox.Show("Se envio a despacho con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);

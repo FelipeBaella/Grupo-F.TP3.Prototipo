@@ -1,7 +1,7 @@
 ﻿[
   {
     "ID_OP": 1,
-    "Estado_OP": "Despachada",
+    "Estado_OP": 5,
     "Prioridad_OP": true,
     "ID_Cliente": 1,
     "FechaEmision_OP": "2024-01-11T00:00:00",
@@ -37,7 +37,7 @@
   },
   {
     "ID_OP": 2,
-    "Estado_OP": "Despachada",
+    "Estado_OP": 5,
     "Prioridad_OP": true,
     "ID_Cliente": 2,
     "FechaEmision_OP": "2024-01-11T00:00:00",
@@ -73,7 +73,7 @@
   },
   {
     "ID_OP": 3,
-    "Estado_OP": "Despachada",
+    "Estado_OP": 5,
     "Prioridad_OP": false,
     "ID_Cliente": 3,
     "FechaEmision_OP": "2024-01-11T00:00:00",
@@ -109,7 +109,7 @@
   },
   {
     "ID_OP": 4,
-    "Estado_OP": "Despachada",
+    "Estado_OP": 5,
     "Prioridad_OP": true,
     "ID_Cliente": 1,
     "FechaEmision_OP": "2024-01-12T00:00:00",
@@ -145,7 +145,7 @@
   },
   {
     "ID_OP": 5,
-    "Estado_OP": "Despachada",
+    "Estado_OP": 5,
     "Prioridad_OP": true,
     "ID_Cliente": 2,
     "FechaEmision_OP": "2024-01-12T00:00:00",
@@ -181,7 +181,7 @@
   },
   {
     "ID_OP": 6,
-    "Estado_OP": "Despachada",
+    "Estado_OP": 5,
     "Prioridad_OP": false,
     "ID_Cliente": 3,
     "FechaEmision_OP": "2024-01-14T00:00:00",
@@ -217,7 +217,7 @@
   },
   {
     "ID_OP": 7,
-    "Estado_OP": "EnDespacho",
+    "Estado_OP": 4,
     "Prioridad_OP": true,
     "ID_Cliente": 1,
     "FechaEmision_OP": "2024-01-17T00:00:00",
@@ -253,7 +253,7 @@
   },
   {
     "ID_OP": 8,
-    "Estado_OP": "EnDespacho",
+    "Estado_OP": 4,
     "Prioridad_OP": true,
     "ID_Cliente": 2,
     "FechaEmision_OP": "2024-01-17T00:00:00",
@@ -289,7 +289,7 @@
   },
   {
     "ID_OP": 9,
-    "Estado_OP": "EnDespacho",
+    "Estado_OP": 4,
     "Prioridad_OP": false,
     "ID_Cliente": 3,
     "FechaEmision_OP": "2024-01-18T00:00:00",
@@ -325,7 +325,7 @@
   },
   {
     "ID_OP": 10,
-    "Estado_OP": "EnDespacho",
+    "Estado_OP": 4,
     "Prioridad_OP": true,
     "ID_Cliente": 1,
     "FechaEmision_OP": "2024-01-19T00:00:00",
@@ -361,7 +361,7 @@
   },
   {
     "ID_OP": 11,
-    "Estado_OP": "Preparada",
+    "Estado_OP": 3,
     "Prioridad_OP": true,
     "ID_Cliente": 2,
     "FechaEmision_OP": "2024-01-19T00:00:00",
@@ -397,7 +397,7 @@
   },
   {
     "ID_OP": 12,
-    "Estado_OP": "Preparada",
+    "Estado_OP": 3,
     "Prioridad_OP": false,
     "ID_Cliente": 3,
     "FechaEmision_OP": "2024-01-19T00:00:00",
@@ -433,7 +433,7 @@
   },
   {
     "ID_OP": 13,
-    "Estado_OP": "Preparada",
+    "Estado_OP": 3,
     "Prioridad_OP": true,
     "ID_Cliente": 1,
     "FechaEmision_OP": "2024-01-20T00:00:00",
@@ -469,7 +469,7 @@
   },
   {
     "ID_OP": 14,
-    "Estado_OP": "EnPreparacion",
+    "Estado_OP": 2,
     "Prioridad_OP": true,
     "ID_Cliente": 2,
     "FechaEmision_OP": "2024-01-21T00:00:00",
@@ -505,7 +505,7 @@
   },
   {
     "ID_OP": 15,
-    "Estado_OP": "EnPreparacion",
+    "Estado_OP": 2,
     "Prioridad_OP": false,
     "ID_Cliente": 3,
     "FechaEmision_OP": "2024-01-22T00:00:00",
@@ -541,7 +541,7 @@
   },
   {
     "ID_OP": 16,
-    "Estado_OP": "EnPreparacion",
+    "Estado_OP": 2,
     "Prioridad_OP": true,
     "ID_Cliente": 1,
     "FechaEmision_OP": "2024-01-23T00:00:00",
@@ -577,7 +577,7 @@
   },
   {
     "ID_OP": 17,
-    "Estado_OP": "Seleccionada",
+    "Estado_OP": 1,
     "Prioridad_OP": true,
     "ID_Cliente": 2,
     "FechaEmision_OP": "2024-01-24T00:00:00",
@@ -613,7 +613,7 @@
   },
   {
     "ID_OP": 18,
-    "Estado_OP": "Seleccionada",
+    "Estado_OP": 1,
     "Prioridad_OP": false,
     "ID_Cliente": 3,
     "FechaEmision_OP": "2024-01-24T00:00:00",
@@ -649,7 +649,7 @@
   },
   {
     "ID_OP": 19,
-    "Estado_OP": "Seleccionada",
+    "Estado_OP": 1,
     "Prioridad_OP": true,
     "ID_Cliente": 1,
     "FechaEmision_OP": "2024-01-24T00:00:00",
@@ -685,7 +685,7 @@
   },
   {
     "ID_OP": 20,
-    "Estado_OP": "Seleccionada",
+    "Estado_OP": 1,
     "Prioridad_OP": true,
     "ID_Cliente": 2,
     "FechaEmision_OP": "2024-01-24T00:00:00",
@@ -721,7 +721,7 @@
   },
   {
     "ID_OP": 21,
-    "Estado_OP": "Emitida",
+    "Estado_OP": 0,
     "Prioridad_OP": false,
     "ID_Cliente": 3,
     "FechaEmision_OP": "2024-01-25T00:00:00",
@@ -757,7 +757,7 @@
   },
   {
     "ID_OP": 22,
-    "Estado_OP": "Emitida",
+    "Estado_OP": 0,
     "Prioridad_OP": true,
     "ID_Cliente": 1,
     "FechaEmision_OP": "2024-01-25T00:00:00",
@@ -793,7 +793,7 @@
   },
   {
     "ID_OP": 23,
-    "Estado_OP": "Emitida",
+    "Estado_OP": 0,
     "Prioridad_OP": true,
     "ID_Cliente": 2,
     "FechaEmision_OP": "2024-01-26T00:00:00",
@@ -829,7 +829,7 @@
   },
   {
     "ID_OP": 24,
-    "Estado_OP": "Emitida",
+    "Estado_OP": 0,
     "Prioridad_OP": false,
     "ID_Cliente": 3,
     "FechaEmision_OP": "2024-01-26T00:00:00",
@@ -865,7 +865,7 @@
   },
   {
     "ID_OP": 25,
-    "Estado_OP": "Emitida",
+    "Estado_OP": 0,
     "Prioridad_OP": true,
     "ID_Cliente": 1,
     "FechaEmision_OP": "2024-01-26T00:00:00",

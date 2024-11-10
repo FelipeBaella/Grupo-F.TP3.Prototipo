@@ -22,38 +22,38 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
         public EmpaquetarMercaderias_form()
         {
             InitializeComponent();
-            CargarOrdenesDePreparacionItems();
+            //CargarOrdenesDePreparacionItems();
         }
 
-        private void CargarOrdenesDePreparacionItems()
-        {
-            var ordenes = EmpaquetarMercaderias_model.OrdenDePreparacionEnt
-             .Where(x => x.Estado_OP == EstadoOPEnum.EnPreparacion)
-             .OrderBy(r => Guid.NewGuid())
-             .ToList();
+        //private void CargarOrdenesDePreparacionItems()
+        //{
+        //    var ordenes = EmpaquetarMercaderias_model.OrdenDePreparacionEnt
+        //     .Where(x => x.Estado_OP == EstadoOPEnum.EnPreparacion)
+        //     .OrderBy(r => Guid.NewGuid())
+        //     .ToList();
 
-            var ordenIds = ordenes.Select(o => o.ID_OP).ToList();
+        //    var ordenIds = ordenes.Select(o => o.ID_OP).ToList();
 
-            var OrdenesDePreparacionItems = EmpaquetarMercaderias_model.OrdenesDePreparacionItems
-                .Where(x => ordenIds.Contains(x.ID_OP))
-                .OrderBy(r => Guid.NewGuid())
-                .ToList();
+        //    var OrdenesDePreparacionItems = EmpaquetarMercaderias_model.OrdenesDePreparacionItems
+        //        .Where(x => ordenIds.Contains(x.ID_OP))
+        //        .OrderBy(r => Guid.NewGuid())
+        //        .ToList();
 
-            foreach (var orden in OrdenesDePreparacionItems) 
-            {
-                var DepositoMercaderiaEnt = EmpaquetarMercaderias_model.DepositoMercaderiaEnt.Where(x => x.ID_DepositoMercaderia == orden.ID_DepositoMercaderia).FirstOrDefault();
-                var MercaderiaEnt = EmpaquetarMercaderias_model.Mercaderias.Where(x => x.ID_Mercaderia == DepositoMercaderiaEnt.ID_Mercaderia).FirstOrDefault();
+        //    foreach (var orden in OrdenesDePreparacionItems) 
+        //    {
+        //        var DepositoMercaderiaEnt = EmpaquetarMercaderias_model.DepositoMercaderiaEnt.Where(x => x.ID_DepositoMercaderia == orden.ID_DepositoMercaderia).FirstOrDefault();
+        //        var MercaderiaEnt = EmpaquetarMercaderias_model.Mercaderias.Where(x => x.ID_Mercaderia == DepositoMercaderiaEnt.ID_Mercaderia).FirstOrDefault();
 
-                ListViewItem listViewItem = new ListViewItem(new string[] {
+        //        ListViewItem listViewItem = new ListViewItem(new string[] {
 
-                    MercaderiaEnt.Descripcion_Mercaderia,
-                    orden.Cantidad_Mercaderia.ToString(),
+        //            MercaderiaEnt.Descripcion_Mercaderia,
+        //            orden.Cantidad_Mercaderia.ToString(),
 
-                }, -1);
+        //        }, -1);
 
-                OrdenesDePreparacion_listView.Items.Add(listViewItem);
-            }     
-        }
+        //        OrdenesDePreparacion_listView.Items.Add(listViewItem);
+        //    }     
+        //}
 
         private void VolverAlMenu_button_Click(object sender, EventArgs e)
         {
@@ -66,9 +66,9 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 
         private void button_empaquetar_Click(object sender, EventArgs e)
         {
-            var id = EmpaquetarMercaderias_model.OrdenDePreparacionEnt.First().ID_OP;
+            //var id = EmpaquetarMercaderias_model.OrdenDePreparacionEnt.First().ID_OP;
 
-            EmpaquetarMercaderias_model.EditarEstadoOP(id);
+            //EmpaquetarMercaderias_model.EditarEstadoOP(id);
 
             MessageBox.Show("Se listo con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

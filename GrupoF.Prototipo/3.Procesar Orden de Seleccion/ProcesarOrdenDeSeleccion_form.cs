@@ -50,18 +50,21 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 
                 foreach (var items in mercaderias)
                 {
-                    var mercaderia = modelo.Mercaderias.Where(x => x.ID_Mercaderia == items.ID_Mercaderia).SingleOrDefault(); 
-                    var depositoMercaderia = modelo.DepositoMercaderia.Where(x => x.ID_Mercaderia == mercaderia.ID_Mercaderia && x.ID_Cliente == cliente && x.ID_Deposito == deposito).FirstOrDefault(); 
+                    var mercaderia = modelo.Mercaderias.Where(x => x.ID_Mercaderia == items.ID_Mercaderia).SingleOrDefault();
+                    var depositoMercaderia = modelo.DepositoMercaderia.Where(x => x.ID_Mercaderia == mercaderia.ID_Mercaderia && x.ID_Cliente == cliente && x.ID_Deposito == deposito).FirstOrDefault();
 
-                    ListViewItem listViewItem1 = new ListViewItem(new string[] {
+                    if (depositoMercaderia != null)
+                    {
+                        ListViewItem listViewItem1 = new ListViewItem(new string[] {
 
-                        depositoMercaderia.Coordenadas_DepositoMercaderia.ToString(),
-                        mercaderia.Descripcion_Mercaderia,
-                        items.Cantidad_Mercaderia.ToString(),
+                            depositoMercaderia.Coordenadas_DepositoMercaderia.ToString(),
+                            mercaderia.Descripcion_Mercaderia,
+                            items.Cantidad_Mercaderia.ToString(),
 
-                    }, -1);
+                        }, -1);
 
-                    ProcesarOrdenesDeSeleccion_listView.Items.Add(listViewItem1);
+                        ProcesarOrdenesDeSeleccion_listView.Items.Add(listViewItem1);
+                    }
                 }
             }
         }
@@ -91,7 +94,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             {
                 ProcesarOrdenDeSeleccion_model.EditarEstadoOS(id);
 
-                ProcesarOrdenDeSeleccion_model.EditarEstadoOP(id);
+                //ProcesarOrdenDeSeleccion_model.EditarEstadoOP(id);
 
                 MessageBox.Show("Se proceso la orden de seleccion con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

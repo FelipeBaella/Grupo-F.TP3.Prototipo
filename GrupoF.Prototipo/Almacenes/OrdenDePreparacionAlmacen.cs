@@ -36,15 +36,16 @@ namespace GrupoF.Prototipo.Almacenes
         // 2) Utilizaré un método para leer los datos de un archivo.
         public static void Leer()
         {
+            string rutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Datos", "OrdenesDePreparacion.json");
 
             // Valido si el archivo no existe. Si ese es el caso, no hago nada.
-            if (!File.Exists("OrdenesDePreparacion.json"))
+            if (!File.Exists(rutaArchivo))
             {
                 return;
             }
 
             // Leo todo los datos del archivo y se los asigno a una variable
-            var datos = File.ReadAllText("OrdenesDePreparacion.json");
+            var datos = File.ReadAllText(rutaArchivo);
 
             // Transformo los datos del archivo (string) adecuandolos al formato del objeto.
             ordenesdepreparacion = JsonSerializer.Deserialize<List<OrdenDePreparacionEnt>>(datos)!;

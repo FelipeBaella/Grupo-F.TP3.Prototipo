@@ -71,23 +71,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         };
 
 
-        public List<OrdenDePreparacionEnt> OrdenDePreparacionEnt { get; set; } = new List<OrdenDePreparacionEnt>
-        {
 
-           //   SET DE DATOS DE 11 Ordenes de Preparación asociadas a 3 Clientes:
-            new OrdenDePreparacionEnt { ID_OP = 1, Estado_OP = EstadoOPEnum.Emitida, Prioridad_OP = true, ID_Cliente = 1, FechaEmision_OP = DateTime.Now.AddDays(1), ID_Deposito = 2, DNI_Transportista = 11111111, ID_OE = null, ID_OS = null, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 2, Estado_OP = EstadoOPEnum.Emitida, Prioridad_OP = false, ID_Cliente = 2, FechaEmision_OP = DateTime.Now.AddDays(2), ID_Deposito = 3, DNI_Transportista = 22222222, ID_OE = null, ID_OS = null, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 3, Estado_OP = EstadoOPEnum.Emitida, Prioridad_OP = true, ID_Cliente = 3, FechaEmision_OP = DateTime.Now.AddDays(3), ID_Deposito = 1, DNI_Transportista = 11111111, ID_OE = null, ID_OS = null, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 4, Estado_OP = EstadoOPEnum.Emitida, Prioridad_OP = false, ID_Cliente = 1, FechaEmision_OP = DateTime.Now.AddDays(4), ID_Deposito = 2, DNI_Transportista = 22222222, ID_OE = null, ID_OS = null, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 5, Estado_OP = EstadoOPEnum.Emitida, Prioridad_OP = true, ID_Cliente = 2, FechaEmision_OP = DateTime.Now.AddDays(5), ID_Deposito = 3, DNI_Transportista = 11111111, ID_OE = null, ID_OS = null, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 6, Estado_OP = EstadoOPEnum.Emitida, Prioridad_OP = false, ID_Cliente = 3, FechaEmision_OP = DateTime.Now.AddDays(1), ID_Deposito = 1, DNI_Transportista = 22222222, ID_OE = null, ID_OS = null, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 7, Estado_OP = EstadoOPEnum.Emitida, Prioridad_OP = true, ID_Cliente = 1, FechaEmision_OP = DateTime.Now.AddDays(2), ID_Deposito = 2, DNI_Transportista = 11111111, ID_OE = null, ID_OS = null, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 8, Estado_OP = EstadoOPEnum.Emitida, Prioridad_OP = false, ID_Cliente = 2, FechaEmision_OP = DateTime.Now.AddDays(3), ID_Deposito = 3, DNI_Transportista = 22222222, ID_OE = null, ID_OS = null, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 9, Estado_OP = EstadoOPEnum.Emitida, Prioridad_OP = true, ID_Cliente = 3, FechaEmision_OP = DateTime.Now.AddDays(4), ID_Deposito = 1, DNI_Transportista = 11111111, ID_OE = null, ID_OS = null, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 10, Estado_OP = EstadoOPEnum.Emitida, Prioridad_OP = false, ID_Cliente = 1, FechaEmision_OP = DateTime.Now.AddDays(5), ID_Deposito = 2, DNI_Transportista = 22222222, ID_OE = null, ID_OS = null, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 11, Estado_OP = EstadoOPEnum.Emitida, Prioridad_OP = true, ID_Cliente = 2, FechaEmision_OP = DateTime.Now.AddDays(1), ID_Deposito = 3, DNI_Transportista = 11111111, ID_OE = null, ID_OS = null, ID_Remito = null },
-
-        };
 
         public List<OrdenesDePreparacionItems> OrdenesDePreparacionItems { get; set; } = new List<OrdenesDePreparacionItems>
         {

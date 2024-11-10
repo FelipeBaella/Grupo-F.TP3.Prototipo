@@ -20,31 +20,31 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
         public DespacharMercaderias_form()
         {
             InitializeComponent();
-            CargarOrdenesDePreparacion();
+            //CargarOrdenesDePreparacion();
         }
 
-        private void CargarOrdenesDePreparacion(int dniTransportista = 0)
-        {
-            listView_OrdenesDePreparacion.Items.Clear();
+        //private void CargarOrdenesDePreparacion(int dniTransportista = 0)
+        //{
+        //    listView_OrdenesDePreparacion.Items.Clear();
 
-            var ordenes = DespacharMercaderias_model.OrdenDePreparacionEnt.Where(x => x.DNI_Transportista == 0).ToList();
+        //    //var ordenes = DespacharMercaderias_model.OrdenDePreparacionEnt.Where(x => x.DNI_Transportista == 0).ToList();
 
-            if (dniTransportista != 0)
-            {
-                ordenes = DespacharMercaderias_model.OrdenDePreparacionEnt.Where(x => x.DNI_Transportista == dniTransportista && x.Estado_OP == EstadoOPEnum.EnDespacho).ToList();
-            }
+        //    //if (dniTransportista != 0)
+        //    //{
+        //    //    ordenes = DespacharMercaderias_model.OrdenDePreparacionEnt.Where(x => x.DNI_Transportista == dniTransportista && x.Estado_OP == EstadoOPEnum.EnDespacho).ToList();
+        //    //}
 
-            foreach (var orden in ordenes)
-            {
-                ListViewItem listViewItem = new ListViewItem(new string[] {
+        //    foreach (var orden in ordenes)
+        //    {
+        //        ListViewItem listViewItem = new ListViewItem(new string[] {
 
-                    orden.ID_OP.ToString(),
+        //            orden.ID_OP.ToString(),
 
-                }, -1);
+        //        }, -1);
 
-                listView_OrdenesDePreparacion.Items.Add(listViewItem);
-            }
-        }
+        //        listView_OrdenesDePreparacion.Items.Add(listViewItem);
+        //    }
+        //}
 
         private void Button_Buscar_OP_Transportista_Click(object sender, EventArgs e)
         {
@@ -56,7 +56,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
                 return;
             }
 
-            CargarOrdenesDePreparacion(dniTransportista);
+            //CargarOrdenesDePreparacion(dniTransportista);
         }
 
         private void VolverAlMenu_button_Click(object sender, EventArgs e)
@@ -81,7 +81,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
                     OrdenDePreparacionEnt.Add(int.Parse(item.SubItems[0].Text));
                 }
 
-                DespacharMercaderias_model.EditarEstadoOP(OrdenDePreparacionEnt);
+                //DespacharMercaderias_model.EditarEstadoOP(OrdenDePreparacionEnt);
 
                 MessageBox.Show("Se emitio el remito con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

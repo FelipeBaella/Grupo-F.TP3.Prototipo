@@ -29,9 +29,9 @@ namespace GrupoF.Prototipo.Almacenes
 
 
 
-        public int? ID_OE { get; set; }
-        public int? ID_OS { get; set; }
-        public int? ID_Remito { get; set; }
+        //public int? ID_OE { get; set; }
+        //public int? ID_OS { get; set; }
+        //public int? ID_Remito { get; set; }
 
 
     }

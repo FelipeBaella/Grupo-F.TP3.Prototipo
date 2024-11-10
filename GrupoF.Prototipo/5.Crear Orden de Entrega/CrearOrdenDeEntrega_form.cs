@@ -21,29 +21,29 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
         public CrearOrdenDeEntrega_form()
         {
             InitializeComponent();
-            CargarOrdenesDePreparacion();
+            //CargarOrdenesDePreparacion();
         }
 
-        private void CargarOrdenesDePreparacion()
-        {
-            var ordenes = CrearOrdenDeEntrega_model.OrdenDePreparacionEnt.Where(x => x.Estado_OP == EstadoOPEnum.Preparada).ToList();
+        //private void CargarOrdenesDePreparacion()
+        //{
+        //    var ordenes = CrearOrdenDeEntrega_model.OrdenDePreparacionEnt.Where(x => x.Estado_OP == EstadoOPEnum.Preparada).ToList();
 
-            OrdenesDePreparacion_ListView.Items.Clear();
+        //    OrdenesDePreparacion_ListView.Items.Clear();
 
-            foreach (var orden in ordenes)
-            {
-                var cliente = CrearOrdenDeEntrega_model.Clientes.Where(x => x.ID_Cliente == orden.ID_Cliente).FirstOrDefault();
+        //    foreach (var orden in ordenes)
+        //    {
+        //        var cliente = CrearOrdenDeEntrega_model.Clientes.Where(x => x.ID_Cliente == orden.ID_Cliente).FirstOrDefault();
 
-                ListViewItem listViewItem = new ListViewItem(new string[] {
+        //        ListViewItem listViewItem = new ListViewItem(new string[] {
 
-                        orden.ID_OP.ToString(),
+        //                orden.ID_OP.ToString(),
 
-                }, -1);
+        //        }, -1);
 
-                OrdenesDePreparacion_ListView.Items.Add(listViewItem);
-            }
+        //        OrdenesDePreparacion_ListView.Items.Add(listViewItem);
+        //    }
 
-        }
+        //}
 
         private void EnviadoADespacho_button_Click(object sender, EventArgs e)
         {
@@ -58,9 +58,9 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
             CrearOrdenDeEntrega_model.CrearOrdenesDeEntrega(ordenesDeEntrega);
 
 
-            var id = CrearOrdenDeEntrega_model.OrdenDePreparacionEnt.First().ID_OP;
+            //var id = CrearOrdenDeEntrega_model.OrdenDePreparacionEnt.First().ID_OP;
 
-            CrearOrdenDeEntrega_model.EditarEstadoOP(id);
+            //CrearOrdenDeEntrega_model.EditarEstadoOP(id);
 
 
             MessageBox.Show("Se envio a despacho con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);

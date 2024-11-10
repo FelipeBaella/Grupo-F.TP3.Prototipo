@@ -63,21 +63,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
         };
 
 
-        public List<OrdenDePreparacionEnt> OrdenDePreparacionEnt { get; set; } = new List<OrdenDePreparacionEnt>
-        {
-            new OrdenDePreparacionEnt { ID_OP = 1, Estado_OP = EstadoOPEnum.EnDespacho, Prioridad_OP = true, ID_Cliente = 1, FechaEmision_OP = DateTime.Now.AddDays(1), ID_Deposito = 2, DNI_Transportista = 11111111, ID_OE = 1, ID_OS = 1, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 2, Estado_OP = EstadoOPEnum.EnDespacho, Prioridad_OP = false, ID_Cliente = 2, FechaEmision_OP = DateTime.Now.AddDays(2), ID_Deposito = 3, DNI_Transportista = 22222222, ID_OE = 2, ID_OS = 2, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 3, Estado_OP = EstadoOPEnum.EnDespacho, Prioridad_OP = true, ID_Cliente = 3, FechaEmision_OP = DateTime.Now.AddDays(3), ID_Deposito = 1, DNI_Transportista = 11111111, ID_OE = 1, ID_OS = 3, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 4, Estado_OP = EstadoOPEnum.EnDespacho, Prioridad_OP = false, ID_Cliente = 1, FechaEmision_OP = DateTime.Now.AddDays(4), ID_Deposito = 2, DNI_Transportista = 22222222, ID_OE = 2, ID_OS = 4, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 5, Estado_OP = EstadoOPEnum.EnDespacho, Prioridad_OP = true, ID_Cliente = 2, FechaEmision_OP = DateTime.Now.AddDays(5), ID_Deposito = 3, DNI_Transportista = 11111111, ID_OE = 1, ID_OS = 1, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 6, Estado_OP = EstadoOPEnum.EnDespacho, Prioridad_OP = false, ID_Cliente = 3, FechaEmision_OP = DateTime.Now.AddDays(1), ID_Deposito = 1, DNI_Transportista = 22222222, ID_OE = 2, ID_OS = 2, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 7, Estado_OP = EstadoOPEnum.EnDespacho, Prioridad_OP = true, ID_Cliente = 1, FechaEmision_OP = DateTime.Now.AddDays(2), ID_Deposito = 2, DNI_Transportista = 11111111, ID_OE = 1, ID_OS = 3, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 8, Estado_OP = EstadoOPEnum.EnDespacho, Prioridad_OP = false, ID_Cliente = 2, FechaEmision_OP = DateTime.Now.AddDays(3), ID_Deposito = 3, DNI_Transportista = 22222222, ID_OE = 2, ID_OS = 4, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 9, Estado_OP = EstadoOPEnum.EnDespacho, Prioridad_OP = true, ID_Cliente = 3, FechaEmision_OP = DateTime.Now.AddDays(4), ID_Deposito = 1, DNI_Transportista = 11111111, ID_OE = 1, ID_OS = 1, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 10, Estado_OP = EstadoOPEnum.EnDespacho, Prioridad_OP = false, ID_Cliente = 1, FechaEmision_OP = DateTime.Now.AddDays(5), ID_Deposito = 2, DNI_Transportista = 22222222, ID_OE = 2, ID_OS = 2, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 11, Estado_OP = EstadoOPEnum.EnDespacho, Prioridad_OP = true, ID_Cliente = 2, FechaEmision_OP = DateTime.Now.AddDays(1), ID_Deposito = 3, DNI_Transportista = 11111111, ID_OE = 1, ID_OS = 3, ID_Remito = null },
 
-        };
 
         public List<OrdenesDePreparacionItems> OrdenesDePreparacionItems { get; set; } = new List<OrdenesDePreparacionItems>
         {
@@ -112,18 +98,18 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 
 
 
-        public string EditarEstadoOP(List<int> OrdenDePreparacion)
-        {
-            foreach (var item in OrdenDePreparacion)
-            {
-                var ordenDePreparacion = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.ID_OP == item).SingleOrDefault();
+        //public string EditarEstadoOP(List<int> OrdenDePreparacion)
+        //{
+        //    foreach (var item in OrdenDePreparacion)
+        //    {
+        //        var ordenDePreparacion = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.ID_OP == item).SingleOrDefault();
 
-                ordenDePreparacion.Estado_OP = EstadoOPEnum.Despachada;
-                ordenDePreparacion.ID_Remito = 0;
+        //        ordenDePreparacion.Estado_OP = EstadoOPEnum.Despachada;
+        //        ordenDePreparacion.ID_Remito = 0;
 
-            }
+        //    }
 
-            return null;
-        }
+        //    return null;
+        //}
     }
 }

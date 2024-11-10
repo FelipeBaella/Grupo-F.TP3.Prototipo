@@ -64,20 +64,7 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
         };
 
 
-        public List<OrdenDePreparacionEnt> OrdenDePreparacionEnt { get; set; } = new List<OrdenDePreparacionEnt>
-        {
-            new OrdenDePreparacionEnt { ID_OP = 1,Estado_OP = EstadoOPEnum.Preparada, Prioridad_OP = true, ID_Cliente = 1, FechaEmision_OP = DateTime.Now.AddDays(1), ID_Deposito = 2, DNI_Transportista = 11111111, ID_OE = null, ID_OS = 1, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 2,Estado_OP = EstadoOPEnum.Preparada, Prioridad_OP = false, ID_Cliente = 2, FechaEmision_OP = DateTime.Now.AddDays(2), ID_Deposito = 3, DNI_Transportista = 22222222, ID_OE = null, ID_OS = 2, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 3,Estado_OP = EstadoOPEnum.Preparada, Prioridad_OP = true, ID_Cliente = 3, FechaEmision_OP = DateTime.Now.AddDays(3), ID_Deposito = 1, DNI_Transportista = 11111111, ID_OE = null, ID_OS = 3, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 4,Estado_OP = EstadoOPEnum.Preparada, Prioridad_OP = false, ID_Cliente = 1, FechaEmision_OP = DateTime.Now.AddDays(4), ID_Deposito = 2, DNI_Transportista = 22222222, ID_OE = null, ID_OS = 4, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 5,Estado_OP = EstadoOPEnum.Preparada, Prioridad_OP = true, ID_Cliente = 2, FechaEmision_OP = DateTime.Now.AddDays(5), ID_Deposito = 3, DNI_Transportista = 11111111, ID_OE = null, ID_OS = 1, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 6,Estado_OP = EstadoOPEnum.Preparada, Prioridad_OP = false, ID_Cliente = 3, FechaEmision_OP = DateTime.Now.AddDays(1), ID_Deposito = 1, DNI_Transportista = 22222222, ID_OE = null, ID_OS = 2, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 7,Estado_OP = EstadoOPEnum.Preparada, Prioridad_OP = true, ID_Cliente = 1, FechaEmision_OP = DateTime.Now.AddDays(2), ID_Deposito = 2, DNI_Transportista = 11111111, ID_OE = null, ID_OS = 3, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 8,Estado_OP = EstadoOPEnum.Preparada, Prioridad_OP = false, ID_Cliente = 2, FechaEmision_OP = DateTime.Now.AddDays(3), ID_Deposito = 3, DNI_Transportista = 22222222, ID_OE = null, ID_OS = 4, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 9,Estado_OP = EstadoOPEnum.Preparada, Prioridad_OP = true, ID_Cliente = 3, FechaEmision_OP = DateTime.Now.AddDays(4), ID_Deposito = 1, DNI_Transportista = 11111111, ID_OE = null, ID_OS = 1, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 10,Estado_OP = EstadoOPEnum.Preparada, Prioridad_OP = false, ID_Cliente = 1, FechaEmision_OP = DateTime.Now.AddDays(5), ID_Deposito = 2, DNI_Transportista = 22222222, ID_OE = null, ID_OS = 2, ID_Remito = null },
-            new OrdenDePreparacionEnt { ID_OP = 11,Estado_OP = EstadoOPEnum.Preparada, Prioridad_OP = true, ID_Cliente = 2, FechaEmision_OP = DateTime.Now.AddDays(1), ID_Deposito = 3, DNI_Transportista = 11111111, ID_OE = null, ID_OS = 3, ID_Remito = null },
-        };
+
 
         public List<OrdenesDePreparacionItems> OrdenesDePreparacionItems { get; set; } = new List<OrdenesDePreparacionItems>
         {
@@ -262,18 +249,18 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
         }
 
 
-        public string EditarEstadoOP(int id)
-        {
-            var OrdenDePreparacionEnt = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.ID_OS == id && x.Estado_OP == EstadoOPEnum.Preparada).ToList();
+        //public string EditarEstadoOP(int id)
+        //{
+        //    var OrdenDePreparacionEnt = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.ID_OS == id && x.Estado_OP == EstadoOPEnum.Preparada).ToList();
 
-            foreach (var item in OrdenDePreparacionEnt)
-            {
-                item.Estado_OP = EstadoOPEnum.EnDespacho;
-                item.ID_OE = OrdenesDeEntrega.Last().ID_OE;
-            }
+        //    foreach (var item in OrdenDePreparacionEnt)
+        //    {
+        //        item.Estado_OP = EstadoOPEnum.EnDespacho;
+        //        item.ID_OE = OrdenesDeEntrega.Last().ID_OE;
+        //    }
 
-            return null;
-        }
+        //    return null;
+        //}
 
 
     }

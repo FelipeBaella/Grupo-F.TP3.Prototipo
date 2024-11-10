@@ -20,7 +20,14 @@ namespace GrupoF.Prototipo
 
             // Aquí debería ejecutar la carga de datos desde los almacenes. Debería leer cada archivo, repitiendo 
             // la misma sentencia para cada almacen del sistema.
-            OrdenDePreparacionAlmacen.Leer();
+            ClienteAlmacen.Leer();
+            DepositoAlmacen.Leer();
+            DepositoMercaderiaAlmacen.Leer();
+            MercaderiaAlmacen.Leer();
+            OrdenDeEntregaAlmacen.Leer();
+            OrdenDeSeleccionAlmacen.Leer();
+            RemitoAlmacen.Leer();
+            UsuarioAlmacen.Leer();
 
             Application.Run(new LogIn_form());
 

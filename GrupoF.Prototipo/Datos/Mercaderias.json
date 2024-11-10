@@ -1,0 +1,30 @@
+﻿[
+  {
+    "ID_Mercaderia": 0,
+    "Descripcion_Mercaderia": "---"
+  },
+  {
+    "ID_Mercaderia": 1,
+    "Descripcion_Mercaderia": "Termos Negros"
+  },
+  {
+    "ID_Mercaderia": 2,
+    "Descripcion_Mercaderia": "Mates Aluminio"
+  },
+  {
+    "ID_Mercaderia": 3,
+    "Descripcion_Mercaderia": "Remeras Gris"
+  },
+  {
+    "ID_Mercaderia": 4,
+    "Descripcion_Mercaderia": "Zapatillas Adidas"
+  },
+  {
+    "ID_Mercaderia": 5,
+    "Descripcion_Mercaderia": "Buzos Blancos"
+  },
+  {
+    "ID_Mercaderia": 6,
+    "Descripcion_Mercaderia": "Yerba"
+  }
+]

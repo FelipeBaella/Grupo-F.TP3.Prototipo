@@ -1,0 +1,51 @@
+﻿[
+  {
+    "ID_OS": 1,
+    "Estado_OS": 2,
+    "FechaEmision_OS": "2024-01-12T00:00:00",
+    "FechaActualizacion_EstadoOS": "2024-01-13T00:00:00",
+    "OrdenesPreparacion_OS": [ 1, 2, 3 ]
+  },
+  {
+    "ID_OS": 2,
+    "Estado_OS": 2,
+    "FechaEmision_OS": "2024-01-13T00:00:00",
+    "FechaActualizacion_EstadoOS": "2024-01-14T00:00:00",
+    "OrdenesPreparacion_OS": [ 4, 5 ]
+  },
+  {
+    "ID_OS": 3,
+    "Estado_OS": 2,
+    "FechaEmision_OS": "2024-01-14T00:00:00",
+    "FechaActualizacion_EstadoOS": "2024-01-14T00:00:00",
+    "OrdenesPreparacion_OS": [ 6 ]
+  },
+  {
+    "ID_OS": 4,
+    "Estado_OS": 2,
+    "FechaEmision_OS": "2024-01-19T00:00:00",
+    "FechaActualizacion_EstadoOS": "2024-01-22T00:00:00",
+    "OrdenesPreparacion_OS": [ 7, 8, 9, 10 ]
+  },
+  {
+    "ID_OS": 5,
+    "Estado_OS": 2,
+    "FechaEmision_OS": "2024-01-24T00:00:00",
+    "FechaActualizacion_EstadoOS": "2024-01-25T00:00:00",
+    "OrdenesPreparacion_OS": [ 11, 12, 13 ]
+  },
+  {
+    "ID_OS": 6,
+    "Estado_OS": 2,
+    "FechaEmision_OS": "2024-01-24T00:00:00",
+    "FechaActualizacion_EstadoOS": "2024-01-24T00:00:00",
+    "OrdenesPreparacion_OS": [ 14, 15, 16 ]
+  },
+  {
+    "ID_OS": 7,
+    "Estado_OS": 1,
+    "FechaEmision_OS": "2024-01-26T00:00:00",
+    "FechaActualizacion_EstadoOS": "2024-01-26T00:00:00",
+    "OrdenesPreparacion_OS": [ 17, 18, 19, 20 ]
+  }
+]

@@ -1,0 +1,17 @@
+﻿[
+  {
+    "ID_Remito": 1,
+    "FechaEmision_Remito": "2024-01-15T00:00:00",
+    "OrdenesPreparacion_Remito": [ 1, 2, 3 ]
+  },
+  {
+    "ID_Remito": 2,
+    "FechaEmision_Remito": "2024-01-16T00:00:00",
+    "OrdenesPreparacion_Remito": [ 4, 5 ]
+  },
+  {
+    "ID_Remito": 3,
+    "FechaEmision_Remito": "2024-01-16T00:00:00",
+    "OrdenesPreparacion_Remito": [ 6 ]
+  }
+]

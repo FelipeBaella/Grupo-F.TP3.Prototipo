@@ -1,0 +1,902 @@
+﻿[
+  {
+    "ID_OP": 1,
+    "Estado_OP": "Despachada",
+    "Prioridad_OP": true,
+    "ID_Cliente": 1,
+    "FechaEmision_OP": "2024-01-11T00:00:00",
+    "FechaEntrega_OP": "2024-01-15T00:00:00",
+    "ID_Deposito": 1,
+    "DNI_Transportista": 20000000,
+    "Mercaderias_OP": [
+      {
+        "ID_Mercaderia": 1,
+        "Cantidad_Mercaderia": 10
+      },
+      {
+        "ID_Mercaderia": 2,
+        "Cantidad_Mercaderia": 15
+      },
+      {
+        "ID_Mercaderia": 3,
+        "Cantidad_Mercaderia": 7
+      },
+      {
+        "ID_Mercaderia": 6,
+        "Cantidad_Mercaderia": 3
+      },
+      {
+        "ID_Mercaderia": 4,
+        "Cantidad_Mercaderia": 12
+      },
+      {
+        "ID_Mercaderia": 5,
+        "Cantidad_Mercaderia": 18
+      }
+    ]
+  },
+  {
+    "ID_OP": 2,
+    "Estado_OP": "Despachada",
+    "Prioridad_OP": true,
+    "ID_Cliente": 2,
+    "FechaEmision_OP": "2024-01-11T00:00:00",
+    "FechaEntrega_OP": "2024-01-15T00:00:00",
+    "ID_Deposito": 2,
+    "DNI_Transportista": 30000000,
+    "Mercaderias_OP": [
+      {
+        "ID_Mercaderia": 3,
+        "Cantidad_Mercaderia": 8
+      },
+      {
+        "ID_Mercaderia": 1,
+        "Cantidad_Mercaderia": 20
+      },
+      {
+        "ID_Mercaderia": 5,
+        "Cantidad_Mercaderia": 4
+      },
+      {
+        "ID_Mercaderia": 2,
+        "Cantidad_Mercaderia": 17
+      },
+      {
+        "ID_Mercaderia": 4,
+        "Cantidad_Mercaderia": 11
+      },
+      {
+        "ID_Mercaderia": 6,
+        "Cantidad_Mercaderia": 6
+      }
+    ]
+  },
+  {
+    "ID_OP": 3,
+    "Estado_OP": "Despachada",
+    "Prioridad_OP": false,
+    "ID_Cliente": 3,
+    "FechaEmision_OP": "2024-01-11T00:00:00",
+    "FechaEntrega_OP": "2024-01-15T00:00:00",
+    "ID_Deposito": 3,
+    "DNI_Transportista": 20000000,
+    "Mercaderias_OP": [
+      {
+        "ID_Mercaderia": 2,
+        "Cantidad_Mercaderia": 5
+      },
+      {
+        "ID_Mercaderia": 4,
+        "Cantidad_Mercaderia": 9
+      },
+      {
+        "ID_Mercaderia": 6,
+        "Cantidad_Mercaderia": 14
+      },
+      {
+        "ID_Mercaderia": 3,
+        "Cantidad_Mercaderia": 19
+      },
+      {
+        "ID_Mercaderia": 1,
+        "Cantidad_Mercaderia": 7
+      },
+      {
+        "ID_Mercaderia": 5,
+        "Cantidad_Mercaderia": 13
+      }
+    ]
+  },
+  {
+    "ID_OP": 4,
+    "Estado_OP": "Despachada",
+    "Prioridad_OP": true,
+    "ID_Cliente": 1,
+    "FechaEmision_OP": "2024-01-12T00:00:00",
+    "FechaEntrega_OP": "2024-01-16T00:00:00",
+    "ID_Deposito": 4,
+    "DNI_Transportista": 30000000,
+    "Mercaderias_OP": [
+      {
+        "ID_Mercaderia": 5,
+        "Cantidad_Mercaderia": 16
+      },
+      {
+        "ID_Mercaderia": 3,
+        "Cantidad_Mercaderia": 12
+      },
+      {
+        "ID_Mercaderia": 6,
+        "Cantidad_Mercaderia": 5
+      },
+      {
+        "ID_Mercaderia": 1,
+        "Cantidad_Mercaderia": 9
+      },
+      {
+        "ID_Mercaderia": 2,
+        "Cantidad_Mercaderia": 20
+      },
+      {
+        "ID_Mercaderia": 4,
+        "Cantidad_Mercaderia": 3
+      }
+    ]
+  },
+  {
+    "ID_OP": 5,
+    "Estado_OP": "Despachada",
+    "Prioridad_OP": true,
+    "ID_Cliente": 2,
+    "FechaEmision_OP": "2024-01-12T00:00:00",
+    "FechaEntrega_OP": "2024-01-16T00:00:00",
+    "ID_Deposito": 1,
+    "DNI_Transportista": 20000000,
+    "Mercaderias_OP": [
+      {
+        "ID_Mercaderia": 4,
+        "Cantidad_Mercaderia": 15
+      },
+      {
+        "ID_Mercaderia": 6,
+        "Cantidad_Mercaderia": 8
+      },
+      {
+        "ID_Mercaderia": 2,
+        "Cantidad_Mercaderia": 6
+      },
+      {
+        "ID_Mercaderia": 1,
+        "Cantidad_Mercaderia": 14
+      },
+      {
+        "ID_Mercaderia": 3,
+        "Cantidad_Mercaderia": 11
+      },
+      {
+        "ID_Mercaderia": 5,
+        "Cantidad_Mercaderia": 19
+      }
+    ]
+  },
+  {
+    "ID_OP": 6,
+    "Estado_OP": "Despachada",
+    "Prioridad_OP": false,
+    "ID_Cliente": 3,
+    "FechaEmision_OP": "2024-01-14T00:00:00",
+    "FechaEntrega_OP": "2024-01-16T00:00:00",
+    "ID_Deposito": 2,
+    "DNI_Transportista": 30000000,
+    "Mercaderias_OP": [
+      {
+        "ID_Mercaderia": 1,
+        "Cantidad_Mercaderia": 3
+      },
+      {
+        "ID_Mercaderia": 2,
+        "Cantidad_Mercaderia": 12
+      },
+      {
+        "ID_Mercaderia": 3,
+        "Cantidad_Mercaderia": 18
+      },
+      {
+        "ID_Mercaderia": 4,
+        "Cantidad_Mercaderia": 7
+      },
+      {
+        "ID_Mercaderia": 5,
+        "Cantidad_Mercaderia": 14
+      },
+      {
+        "ID_Mercaderia": 6,
+        "Cantidad_Mercaderia": 11
+      }
+    ]
+  },
+  {
+    "ID_OP": 7,
+    "Estado_OP": "EnDespacho",
+    "Prioridad_OP": true,
+    "ID_Cliente": 1,
+    "FechaEmision_OP": "2024-01-17T00:00:00",
+    "FechaEntrega_OP": "2024-01-26T00:00:00",
+    "ID_Deposito": 3,
+    "DNI_Transportista": 20000000,
+    "Mercaderias_OP": [
+      {
+        "ID_Mercaderia": 6,
+        "Cantidad_Mercaderia": 10
+      },
+      {
+        "ID_Mercaderia": 5,
+        "Cantidad_Mercaderia": 5
+      },
+      {
+        "ID_Mercaderia": 4,
+        "Cantidad_Mercaderia": 20
+      },
+      {
+        "ID_Mercaderia": 3,
+        "Cantidad_Mercaderia": 9
+      },
+      {
+        "ID_Mercaderia": 2,
+        "Cantidad_Mercaderia": 17
+      },
+      {
+        "ID_Mercaderia": 1,
+        "Cantidad_Mercaderia": 13
+      }
+    ]
+  },
+  {
+    "ID_OP": 8,
+    "Estado_OP": "EnDespacho",
+    "Prioridad_OP": true,
+    "ID_Cliente": 2,
+    "FechaEmision_OP": "2024-01-17T00:00:00",
+    "FechaEntrega_OP": "2024-01-26T00:00:00",
+    "ID_Deposito": 4,
+    "DNI_Transportista": 30000000,
+    "Mercaderias_OP": [
+      {
+        "ID_Mercaderia": 3,
+        "Cantidad_Mercaderia": 16
+      },
+      {
+        "ID_Mercaderia": 1,
+        "Cantidad_Mercaderia": 6
+      },
+      {
+        "ID_Mercaderia": 2,
+        "Cantidad_Mercaderia": 14
+      },
+      {
+        "ID_Mercaderia": 5,
+        "Cantidad_Mercaderia": 19
+      },
+      {
+        "ID_Mercaderia": 4,
+        "Cantidad_Mercaderia": 8
+      },
+      {
+        "ID_Mercaderia": 6,
+        "Cantidad_Mercaderia": 4
+      }
+    ]
+  },
+  {
+    "ID_OP": 9,
+    "Estado_OP": "EnDespacho",
+    "Prioridad_OP": false,
+    "ID_Cliente": 3,
+    "FechaEmision_OP": "2024-01-18T00:00:00",
+    "FechaEntrega_OP": "2024-01-26T00:00:00",
+    "ID_Deposito": 1,
+    "DNI_Transportista": 30000000,
+    "Mercaderias_OP": [
+      {
+        "ID_Mercaderia": 5,
+        "Cantidad_Mercaderia": 7
+      },
+      {
+        "ID_Mercaderia": 6,
+        "Cantidad_Mercaderia": 20
+      },
+      {
+        "ID_Mercaderia": 1,
+        "Cantidad_Mercaderia": 11
+      },
+      {
+        "ID_Mercaderia": 2,
+        "Cantidad_Mercaderia": 13
+      },
+      {
+        "ID_Mercaderia": 3,
+        "Cantidad_Mercaderia": 5
+      },
+      {
+        "ID_Mercaderia": 4,
+        "Cantidad_Mercaderia": 15
+      }
+    ]
+  },
+  {
+    "ID_OP": 10,
+    "Estado_OP": "EnDespacho",
+    "Prioridad_OP": true,
+    "ID_Cliente": 1,
+    "FechaEmision_OP": "2024-01-19T00:00:00",
+    "FechaEntrega_OP": "2024-01-26T00:00:00",
+    "ID_Deposito": 2,
+    "DNI_Transportista": 30000000,
+    "Mercaderias_OP": [
+      {
+        "ID_Mercaderia": 4,
+        "Cantidad_Mercaderia": 9
+      },
+      {
+        "ID_Mercaderia": 3,
+        "Cantidad_Mercaderia": 8
+      },
+      {
+        "ID_Mercaderia": 5,
+        "Cantidad_Mercaderia": 12
+      },
+      {
+        "ID_Mercaderia": 2,
+        "Cantidad_Mercaderia": 18
+      },
+      {
+        "ID_Mercaderia": 6,
+        "Cantidad_Mercaderia": 2
+      },
+      {
+        "ID_Mercaderia": 1,
+        "Cantidad_Mercaderia": 14
+      }
+    ]
+  },
+  {
+    "ID_OP": 11,
+    "Estado_OP": "Preparada",
+    "Prioridad_OP": true,
+    "ID_Cliente": 2,
+    "FechaEmision_OP": "2024-01-19T00:00:00",
+    "FechaEntrega_OP": "2024-01-29T00:00:00",
+    "ID_Deposito": 3,
+    "DNI_Transportista": 20000000,
+    "Mercaderias_OP": [
+      {
+        "ID_Mercaderia": 1,
+        "Cantidad_Mercaderia": 15
+      },
+      {
+        "ID_Mercaderia": 6,
+        "Cantidad_Mercaderia": 6
+      },
+      {
+        "ID_Mercaderia": 4,
+        "Cantidad_Mercaderia": 17
+      },
+      {
+        "ID_Mercaderia": 2,
+        "Cantidad_Mercaderia": 7
+      },
+      {
+        "ID_Mercaderia": 5,
+        "Cantidad_Mercaderia": 10
+      },
+      {
+        "ID_Mercaderia": 3,
+        "Cantidad_Mercaderia": 13
+      }
+    ]
+  },
+  {
+    "ID_OP": 12,
+    "Estado_OP": "Preparada",
+    "Prioridad_OP": false,
+    "ID_Cliente": 3,
+    "FechaEmision_OP": "2024-01-19T00:00:00",
+    "FechaEntrega_OP": "2024-01-29T00:00:00",
+    "ID_Deposito": 4,
+    "DNI_Transportista": 30000000,
+    "Mercaderias_OP": [
+      {
+        "ID_Mercaderia": 2,
+        "Cantidad_Mercaderia": 19
+      },
+      {
+        "ID_Mercaderia": 3,
+        "Cantidad_Mercaderia": 5
+      },
+      {
+        "ID_Mercaderia": 4,
+        "Cantidad_Mercaderia": 14
+      },
+      {
+        "ID_Mercaderia": 6,
+        "Cantidad_Mercaderia": 4
+      },
+      {
+        "ID_Mercaderia": 1,
+        "Cantidad_Mercaderia": 12
+      },
+      {
+        "ID_Mercaderia": 5,
+        "Cantidad_Mercaderia": 16
+      }
+    ]
+  },
+  {
+    "ID_OP": 13,
+    "Estado_OP": "Preparada",
+    "Prioridad_OP": true,
+    "ID_Cliente": 1,
+    "FechaEmision_OP": "2024-01-20T00:00:00",
+    "FechaEntrega_OP": "2024-01-29T00:00:00",
+    "ID_Deposito": 1,
+    "DNI_Transportista": 20000000,
+    "Mercaderias_OP": [
+      {
+        "ID_Mercaderia": 4,
+        "Cantidad_Mercaderia": 11
+      },
+      {
+        "ID_Mercaderia": 5,
+        "Cantidad_Mercaderia": 6
+      },
+      {
+        "ID_Mercaderia": 1,
+        "Cantidad_Mercaderia": 9
+      },
+      {
+        "ID_Mercaderia": 2,
+        "Cantidad_Mercaderia": 3
+      },
+      {
+        "ID_Mercaderia": 3,
+        "Cantidad_Mercaderia": 17
+      },
+      {
+        "ID_Mercaderia": 6,
+        "Cantidad_Mercaderia": 15
+      }
+    ]
+  },
+  {
+    "ID_OP": 14,
+    "Estado_OP": "EnPreparacion",
+    "Prioridad_OP": true,
+    "ID_Cliente": 2,
+    "FechaEmision_OP": "2024-01-21T00:00:00",
+    "FechaEntrega_OP": "2024-01-29T00:00:00",
+    "ID_Deposito": 2,
+    "DNI_Transportista": 30000000,
+    "Mercaderias_OP": [
+      {
+        "ID_Mercaderia": 6,
+        "Cantidad_Mercaderia": 18
+      },
+      {
+        "ID_Mercaderia": 2,
+        "Cantidad_Mercaderia": 8
+      },
+      {
+        "ID_Mercaderia": 4,
+        "Cantidad_Mercaderia": 5
+      },
+      {
+        "ID_Mercaderia": 3,
+        "Cantidad_Mercaderia": 16
+      },
+      {
+        "ID_Mercaderia": 1,
+        "Cantidad_Mercaderia": 13
+      },
+      {
+        "ID_Mercaderia": 5,
+        "Cantidad_Mercaderia": 7
+      }
+    ]
+  },
+  {
+    "ID_OP": 15,
+    "Estado_OP": "EnPreparacion",
+    "Prioridad_OP": false,
+    "ID_Cliente": 3,
+    "FechaEmision_OP": "2024-01-22T00:00:00",
+    "FechaEntrega_OP": "2024-01-30T00:00:00",
+    "ID_Deposito": 3,
+    "DNI_Transportista": 20000000,
+    "Mercaderias_OP": [
+      {
+        "ID_Mercaderia": 3,
+        "Cantidad_Mercaderia": 10
+      },
+      {
+        "ID_Mercaderia": 1,
+        "Cantidad_Mercaderia": 15
+      },
+      {
+        "ID_Mercaderia": 2,
+        "Cantidad_Mercaderia": 14
+      },
+      {
+        "ID_Mercaderia": 4,
+        "Cantidad_Mercaderia": 6
+      },
+      {
+        "ID_Mercaderia": 6,
+        "Cantidad_Mercaderia": 11
+      },
+      {
+        "ID_Mercaderia": 5,
+        "Cantidad_Mercaderia": 9
+      }
+    ]
+  },
+  {
+    "ID_OP": 16,
+    "Estado_OP": "EnPreparacion",
+    "Prioridad_OP": true,
+    "ID_Cliente": 1,
+    "FechaEmision_OP": "2024-01-23T00:00:00",
+    "FechaEntrega_OP": "2024-01-30T00:00:00",
+    "ID_Deposito": 4,
+    "DNI_Transportista": 30000000,
+    "Mercaderias_OP": [
+      {
+        "ID_Mercaderia": 5,
+        "Cantidad_Mercaderia": 3
+      },
+      {
+        "ID_Mercaderia": 6,
+        "Cantidad_Mercaderia": 17
+      },
+      {
+        "ID_Mercaderia": 2,
+        "Cantidad_Mercaderia": 12
+      },
+      {
+        "ID_Mercaderia": 1,
+        "Cantidad_Mercaderia": 7
+      },
+      {
+        "ID_Mercaderia": 4,
+        "Cantidad_Mercaderia": 20
+      },
+      {
+        "ID_Mercaderia": 3,
+        "Cantidad_Mercaderia": 4
+      }
+    ]
+  },
+  {
+    "ID_OP": 17,
+    "Estado_OP": "Seleccionada",
+    "Prioridad_OP": true,
+    "ID_Cliente": 2,
+    "FechaEmision_OP": "2024-01-24T00:00:00",
+    "FechaEntrega_OP": "2024-01-27T00:00:00",
+    "ID_Deposito": 1,
+    "DNI_Transportista": 20000000,
+    "Mercaderias_OP": [
+      {
+        "ID_Mercaderia": 1,
+        "Cantidad_Mercaderia": 8
+      },
+      {
+        "ID_Mercaderia": 3,
+        "Cantidad_Mercaderia": 13
+      },
+      {
+        "ID_Mercaderia": 5,
+        "Cantidad_Mercaderia": 11
+      },
+      {
+        "ID_Mercaderia": 4,
+        "Cantidad_Mercaderia": 6
+      },
+      {
+        "ID_Mercaderia": 2,
+        "Cantidad_Mercaderia": 19
+      },
+      {
+        "ID_Mercaderia": 6,
+        "Cantidad_Mercaderia": 5
+      }
+    ]
+  },
+  {
+    "ID_OP": 18,
+    "Estado_OP": "Seleccionada",
+    "Prioridad_OP": false,
+    "ID_Cliente": 3,
+    "FechaEmision_OP": "2024-01-24T00:00:00",
+    "FechaEntrega_OP": "2024-01-27T00:00:00",
+    "ID_Deposito": 2,
+    "DNI_Transportista": 30000000,
+    "Mercaderias_OP": [
+      {
+        "ID_Mercaderia": 2,
+        "Cantidad_Mercaderia": 16
+      },
+      {
+        "ID_Mercaderia": 6,
+        "Cantidad_Mercaderia": 7
+      },
+      {
+        "ID_Mercaderia": 4,
+        "Cantidad_Mercaderia": 10
+      },
+      {
+        "ID_Mercaderia": 1,
+        "Cantidad_Mercaderia": 18
+      },
+      {
+        "ID_Mercaderia": 5,
+        "Cantidad_Mercaderia": 9
+      },
+      {
+        "ID_Mercaderia": 3,
+        "Cantidad_Mercaderia": 12
+      }
+    ]
+  },
+  {
+    "ID_OP": 19,
+    "Estado_OP": "Seleccionada",
+    "Prioridad_OP": true,
+    "ID_Cliente": 1,
+    "FechaEmision_OP": "2024-01-24T00:00:00",
+    "FechaEntrega_OP": "2024-01-27T00:00:00",
+    "ID_Deposito": 3,
+    "DNI_Transportista": 20000000,
+    "Mercaderias_OP": [
+      {
+        "ID_Mercaderia": 4,
+        "Cantidad_Mercaderia": 15
+      },
+      {
+        "ID_Mercaderia": 5,
+        "Cantidad_Mercaderia": 2
+      },
+      {
+        "ID_Mercaderia": 3,
+        "Cantidad_Mercaderia": 6
+      },
+      {
+        "ID_Mercaderia": 6,
+        "Cantidad_Mercaderia": 13
+      },
+      {
+        "ID_Mercaderia": 2,
+        "Cantidad_Mercaderia": 12
+      },
+      {
+        "ID_Mercaderia": 1,
+        "Cantidad_Mercaderia": 11
+      }
+    ]
+  },
+  {
+    "ID_OP": 20,
+    "Estado_OP": "Seleccionada",
+    "Prioridad_OP": true,
+    "ID_Cliente": 2,
+    "FechaEmision_OP": "2024-01-24T00:00:00",
+    "FechaEntrega_OP": "2024-01-28T00:00:00",
+    "ID_Deposito": 4,
+    "DNI_Transportista": 30000000,
+    "Mercaderias_OP": [
+      {
+        "ID_Mercaderia": 5,
+        "Cantidad_Mercaderia": 8
+      },
+      {
+        "ID_Mercaderia": 1,
+        "Cantidad_Mercaderia": 14
+      },
+      {
+        "ID_Mercaderia": 6,
+        "Cantidad_Mercaderia": 5
+      },
+      {
+        "ID_Mercaderia": 4,
+        "Cantidad_Mercaderia": 18
+      },
+      {
+        "ID_Mercaderia": 3,
+        "Cantidad_Mercaderia": 9
+      },
+      {
+        "ID_Mercaderia": 2,
+        "Cantidad_Mercaderia": 10
+      }
+    ]
+  },
+  {
+    "ID_OP": 21,
+    "Estado_OP": "Emitida",
+    "Prioridad_OP": false,
+    "ID_Cliente": 3,
+    "FechaEmision_OP": "2024-01-25T00:00:00",
+    "FechaEntrega_OP": "2024-01-29T00:00:00",
+    "ID_Deposito": 1,
+    "DNI_Transportista": 20000000,
+    "Mercaderias_OP": [
+      {
+        "ID_Mercaderia": 2,
+        "Cantidad_Mercaderia": 11
+      },
+      {
+        "ID_Mercaderia": 3,
+        "Cantidad_Mercaderia": 15
+      },
+      {
+        "ID_Mercaderia": 1,
+        "Cantidad_Mercaderia": 17
+      },
+      {
+        "ID_Mercaderia": 5,
+        "Cantidad_Mercaderia": 6
+      },
+      {
+        "ID_Mercaderia": 6,
+        "Cantidad_Mercaderia": 3
+      },
+      {
+        "ID_Mercaderia": 4,
+        "Cantidad_Mercaderia": 19
+      }
+    ]
+  },
+  {
+    "ID_OP": 22,
+    "Estado_OP": "Emitida",
+    "Prioridad_OP": true,
+    "ID_Cliente": 1,
+    "FechaEmision_OP": "2024-01-25T00:00:00",
+    "FechaEntrega_OP": "2024-01-30T00:00:00",
+    "ID_Deposito": 2,
+    "DNI_Transportista": 30000000,
+    "Mercaderias_OP": [
+      {
+        "ID_Mercaderia": 1,
+        "Cantidad_Mercaderia": 4
+      },
+      {
+        "ID_Mercaderia": 5,
+        "Cantidad_Mercaderia": 13
+      },
+      {
+        "ID_Mercaderia": 6,
+        "Cantidad_Mercaderia": 16
+      },
+      {
+        "ID_Mercaderia": 4,
+        "Cantidad_Mercaderia": 8
+      },
+      {
+        "ID_Mercaderia": 2,
+        "Cantidad_Mercaderia": 14
+      },
+      {
+        "ID_Mercaderia": 3,
+        "Cantidad_Mercaderia": 12
+      }
+    ]
+  },
+  {
+    "ID_OP": 23,
+    "Estado_OP": "Emitida",
+    "Prioridad_OP": true,
+    "ID_Cliente": 2,
+    "FechaEmision_OP": "2024-01-26T00:00:00",
+    "FechaEntrega_OP": "2024-01-30T00:00:00",
+    "ID_Deposito": 3,
+    "DNI_Transportista": 20000000,
+    "Mercaderias_OP": [
+      {
+        "ID_Mercaderia": 3,
+        "Cantidad_Mercaderia": 18
+      },
+      {
+        "ID_Mercaderia": 4,
+        "Cantidad_Mercaderia": 5
+      },
+      {
+        "ID_Mercaderia": 1,
+        "Cantidad_Mercaderia": 7
+      },
+      {
+        "ID_Mercaderia": 2,
+        "Cantidad_Mercaderia": 15
+      },
+      {
+        "ID_Mercaderia": 6,
+        "Cantidad_Mercaderia": 20
+      },
+      {
+        "ID_Mercaderia": 5,
+        "Cantidad_Mercaderia": 9
+      }
+    ]
+  },
+  {
+    "ID_OP": 24,
+    "Estado_OP": "Emitida",
+    "Prioridad_OP": false,
+    "ID_Cliente": 3,
+    "FechaEmision_OP": "2024-01-26T00:00:00",
+    "FechaEntrega_OP": "2024-01-30T00:00:00",
+    "ID_Deposito": 4,
+    "DNI_Transportista": 30000000,
+    "Mercaderias_OP": [
+      {
+        "ID_Mercaderia": 6,
+        "Cantidad_Mercaderia": 12
+      },
+      {
+        "ID_Mercaderia": 2,
+        "Cantidad_Mercaderia": 9
+      },
+      {
+        "ID_Mercaderia": 1,
+        "Cantidad_Mercaderia": 10
+      },
+      {
+        "ID_Mercaderia": 5,
+        "Cantidad_Mercaderia": 17
+      },
+      {
+        "ID_Mercaderia": 3,
+        "Cantidad_Mercaderia": 4
+      },
+      {
+        "ID_Mercaderia": 4,
+        "Cantidad_Mercaderia": 8
+      }
+    ]
+  },
+  {
+    "ID_OP": 25,
+    "Estado_OP": "Emitida",
+    "Prioridad_OP": true,
+    "ID_Cliente": 1,
+    "FechaEmision_OP": "2024-01-26T00:00:00",
+    "FechaEntrega_OP": "2024-01-30T00:00:00",
+    "ID_Deposito": 1,
+    "DNI_Transportista": 20000000,
+    "Mercaderias_OP": [
+      {
+        "ID_Mercaderia": 4,
+        "Cantidad_Mercaderia": 14
+      },
+      {
+        "ID_Mercaderia": 3,
+        "Cantidad_Mercaderia": 19
+      },
+      {
+        "ID_Mercaderia": 5,
+        "Cantidad_Mercaderia": 7
+      },
+      {
+        "ID_Mercaderia": 2,
+        "Cantidad_Mercaderia": 11
+      },
+      {
+        "ID_Mercaderia": 1,
+        "Cantidad_Mercaderia": 13
+      },
+      {
+        "ID_Mercaderia": 6,
+        "Cantidad_Mercaderia": 15
+      }
+    ]
+  }
+]

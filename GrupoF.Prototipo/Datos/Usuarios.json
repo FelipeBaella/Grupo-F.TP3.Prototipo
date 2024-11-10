@@ -1,0 +1,14 @@
+﻿[
+  {
+    "ID_Usuario": 1,
+    "LogIn_Usuario": "FernandoAlonso",
+    "Contrasena_Usuario": "CAI2024",
+    "ID_Deposito": 1
+  },
+  {
+    "ID_Usuario": 2,
+    "LogIn_Usuario": "AgustinLopez",
+    "Contrasena_Usuario": "CAI2024",
+    "ID_Deposito": 2
+  }
+]

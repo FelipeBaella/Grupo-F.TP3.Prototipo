@@ -1,0 +1,22 @@
+﻿[
+  {
+    "ID_OE": 1,
+    "FechaEmision_OE": "2024-01-14T00:00:00",
+    "OrdenesPreparacion_OE": [ 1, 2 ]
+  },
+  {
+    "ID_OE": 2,
+    "FechaEmision_OE": "2024-01-15T00:00:00",
+    "OrdenesPreparacion_OE": [ 3, 4, 5 ]
+  },
+  {
+    "ID_OE": 3,
+    "FechaEmision_OE": "2024-01-15T00:00:00",
+    "OrdenesPreparacion_OE": [ 6 ]
+  },
+  {
+    "ID_OE": 4,
+    "FechaEmision_OE": "2024-01-24T00:00:00",
+    "OrdenesPreparacion_OE": [ 7, 8, 9, 10 ]
+  }
+]

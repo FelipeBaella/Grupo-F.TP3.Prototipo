@@ -1,0 +1,67 @@
+﻿[
+  {
+    "ID_Deposito": 0,
+    "Descripcion_Deposito": "---",
+    "M3_Deposito": 0
+  },
+  {
+    "ID_Deposito": 1,
+    "Descripcion_Deposito": "GBAS 1",
+    "M3_Deposito": 400
+  },
+  {
+    "ID_Deposito": 2,
+    "Descripcion_Deposito": "GBAS 2",
+    "M3_Deposito": 300
+  },
+  {
+    "ID_Deposito": 3,
+    "Descripcion_Deposito": "GBAN 1",
+    "M3_Deposito": 500
+  },
+  {
+    "ID_Deposito": 4,
+    "Descripcion_Deposito": "GBAN 2",
+    "M3_Deposito": 250
+  },
+  {
+    "ID_Deposito": 5,
+    "Descripcion_Deposito": "ROS",
+    "M3_Deposito": 200
+  },
+  {
+    "ID_Deposito": 6,
+    "Descripcion_Deposito": "CBA",
+    "M3_Deposito": 300
+  },
+  {
+    "ID_Deposito": 7,
+    "Descripcion_Deposito": "MDZ",
+    "M3_Deposito": 150
+  },
+  {
+    "ID_Deposito": 8,
+    "Descripcion_Deposito": "BHB",
+    "M3_Deposito": 200
+  },
+  {
+    "ID_Deposito": 9,
+    "Descripcion_Deposito": "USH",
+    "M3_Deposito": 150
+  },
+  {
+    "ID_Deposito": 10,
+    "Descripcion_Deposito": "STA",
+    "M3_Deposito": 200
+  },
+  {
+    "ID_Deposito": 11,
+    "Descripcion_Deposito": "NQN",
+    "M3_Deposito": 300
+  },
+  {
+    "ID_Deposito": 12,
+    "Descripcion_Deposito": "MSN",
+    "M3_Deposito": 200
+  }
+]

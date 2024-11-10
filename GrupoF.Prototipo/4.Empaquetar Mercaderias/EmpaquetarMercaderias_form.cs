@@ -35,7 +35,7 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 
             foreach (var orden in OPItems)
             {         
-                var MercaderiaEnt = EmpaquetarMercaderias_model.Mercaderias.Where(x => x.ID_Mercaderia == orden.ID_Mercaderia).FirstOrDefault();
+                var MercaderiaEnt = MercaderiaAlmacen.Mercaderias.Where(x => x.ID_Mercaderia == orden.ID_Mercaderia).FirstOrDefault();
 
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 

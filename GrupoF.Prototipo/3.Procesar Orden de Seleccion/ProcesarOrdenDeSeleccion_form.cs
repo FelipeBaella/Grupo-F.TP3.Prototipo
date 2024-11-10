@@ -20,9 +20,6 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 {
     public partial class ProcesarOrdenDeSeleccion_form : Form
     {
-        private ProcesarOrdenDeSeleccion_model ProcesarOrdenDeSeleccion_model = new ProcesarOrdenDeSeleccion_model();
-
-
         public ProcesarOrdenDeSeleccion_form()
         {
             InitializeComponent();
@@ -50,8 +47,8 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 
                 foreach (var items in mercaderias)
                 {
-                    var mercaderia = modelo.Mercaderias.Where(x => x.ID_Mercaderia == items.ID_Mercaderia).SingleOrDefault();
-                    var depositoMercaderia = modelo.DepositoMercaderia.Where(x => x.ID_Mercaderia == mercaderia.ID_Mercaderia && x.ID_Cliente == cliente && x.ID_Deposito == deposito).FirstOrDefault();
+                    var mercaderia = MercaderiaAlmacen.Mercaderias.Where(x => x.ID_Mercaderia == items.ID_Mercaderia).SingleOrDefault();
+                    var depositoMercaderia = DepositoMercaderiaAlmacen.DepositosMercaderias.Where(x => x.ID_Mercaderia == mercaderia.ID_Mercaderia && x.ID_Cliente == cliente && x.ID_Deposito == deposito).FirstOrDefault();
 
                     if (depositoMercaderia != null)
                     {
@@ -90,7 +87,9 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 
         private void button_ProcesarOrdenDeSeleccion_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(OS_Pendientes_comboBox.Text, out int id))
+            int id = 0;
+
+            if (int.TryParse(OS_Pendientes_comboBox.Text, out id))
             {
                 ProcesarOrdenDeSeleccion_model.EditarEstadoOS(id);
 

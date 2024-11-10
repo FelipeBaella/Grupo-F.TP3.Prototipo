@@ -26,15 +26,14 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                 cliente = int.Parse(IdCliente_textbox.Text);
             }
 
-            // Limpiamos el ComboBox por si ya tiene elementos cargados
 
-            var depositos = CrearOrdnesDePreparacion_model.Depositos.ToList();
+            var depositos = DepositoAlmacen.Depositos.ToList();
 
             var depositosAEliminar = new List<DepositoEnt>();
 
             foreach (var dep in depositos)
             {
-                var DepositoMercaderiaEnt = CrearOrdnesDePreparacion_model.DepositoMercaderia
+                var DepositoMercaderiaEnt = DepositoMercaderiaAlmacen.DepositosMercaderias
                 .Where(x => x.ID_Cliente == cliente && x.ID_Deposito == dep.ID_Deposito)
                 .FirstOrDefault();
 
@@ -64,7 +63,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
         private void CargarMercaderias()
         {
-            var DepositoEnt = CrearOrdnesDePreparacion_model.Depositos.Where(x => x.Descripcion_Deposito == DescripcionDeposito_Combobox.SelectedItem).FirstOrDefault();
+            var DepositoEnt = DepositoAlmacen.Depositos.Where(x => x.Descripcion_Deposito == DescripcionDeposito_Combobox.SelectedItem).FirstOrDefault();
 
             if (DepositoEnt != null)
             {
@@ -87,7 +86,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
                 foreach (var item in DepositoMercaderiaEnt)
                 {
-                    var MercaderiaEnt = CrearOrdnesDePreparacion_model.Mercaderias.Where(x => x.ID_Mercaderia == item).FirstOrDefault();
+                    var MercaderiaEnt = MercaderiaAlmacen.Mercaderias.Where(x => x.ID_Mercaderia == item).FirstOrDefault();
 
                     mercaderias.Add(MercaderiaEnt.ID_Mercaderia + " - " + MercaderiaEnt.Descripcion_Mercaderia);
                 }
@@ -158,7 +157,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             }
 
 
-            var DepositoEnt = CrearOrdnesDePreparacion_model.Depositos.Where(x => x.Descripcion_Deposito == DescripcionDeposito_Combobox.Text).FirstOrDefault();
+            var DepositoEnt = DepositoAlmacen.Depositos.Where(x => x.Descripcion_Deposito == DescripcionDeposito_Combobox.Text).FirstOrDefault();
 
             var ordenDePreparacion = new OrdenDePreparacionEnt();
 
@@ -253,7 +252,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         private void button_agregar_Click(object sender, EventArgs e)
         {
             string depositoDescri = DescripcionDeposito_Combobox.Text;
-            var deposito = CrearOrdnesDePreparacion_model.Depositos.Where(x => x.Descripcion_Deposito == depositoDescri).SingleOrDefault().ID_Deposito;
+            var deposito = DepositoAlmacen.Depositos.Where(x => x.Descripcion_Deposito == depositoDescri).SingleOrDefault().ID_Deposito;
 
             string cliente = IdCliente_textbox.Text;
 
@@ -354,7 +353,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             //CLIENTE
             if (ID_Cliente.All(char.IsDigit) && !string.IsNullOrEmpty(ID_Cliente))
             {
-                var clientes = CrearOrdnesDePreparacion_model.Clientes.Where(x => x.ID_Cliente == int.Parse(ID_Cliente)).FirstOrDefault();
+                var clientes = ClienteAlmacen.Clientes.Where(x => x.ID_Cliente == int.Parse(ID_Cliente)).FirstOrDefault();
 
                 if (clientes != null)
                 {

@@ -41,7 +41,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
             foreach (var orden in ordenes)
             {
-                var cliente = CrearOrdenDeSeleccion_model.Clientes.Where(x => x.ID_Cliente == orden.ID_Cliente).FirstOrDefault();
+                var cliente = ClienteAlmacen.Clientes.Where(x => x.ID_Cliente == orden.ID_Cliente).FirstOrDefault();
 
                 var prioridad = "";
 
@@ -59,7 +59,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
                         orden.ID_OP.ToString(),
                         prioridad,
                         orden.FechaEntrega_OP.ToString(),
-                        cliente.NombreApellido,
+                        cliente.NombreApellido_Cliente,
 
                 }, -1);
 
@@ -83,7 +83,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
             foreach (var item in Mercaderias_OP)
             {           
-                var mercaderia = modelo.Mercaderias.Where(x => x.ID_Mercaderia == item.ID_Mercaderia).SingleOrDefault(); //CUANDO HAYAMOS CARGADO MERCADERIAS SE MODIFICA
+                var mercaderia = MercaderiaAlmacen.Mercaderias.Where(x => x.ID_Mercaderia == item.ID_Mercaderia).SingleOrDefault(); //CUANDO HAYAMOS CARGADO MERCADERIAS SE MODIFICA
 
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 

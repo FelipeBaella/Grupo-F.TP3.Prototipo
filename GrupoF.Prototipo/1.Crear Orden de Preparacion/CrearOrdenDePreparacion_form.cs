@@ -285,6 +285,12 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                 DescripcionDeposito_Combobox.Focus();
                 return;
             }
+            if (cantidad < 1)
+            {
+                MessageBox.Show("Cantidad debe ser mayor a 0.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DescripcionDeposito_Combobox.Focus();
+                return;
+            }
             if (cantidad > cantidadExistente)
             {
                 MessageBox.Show("El Deposito no contiene la cantidad Seleccionada. La cantidad total es: " + cantidadExistente, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

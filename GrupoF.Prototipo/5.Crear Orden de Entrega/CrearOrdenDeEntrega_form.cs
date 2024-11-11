@@ -16,7 +16,6 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
 {
     public partial class CrearOrdenDeEntrega_form : Form
     {
-        private CrearOrdenDeEntrega_model CrearOrdenDeEntrega_model = new CrearOrdenDeEntrega_model();
 
         public CrearOrdenDeEntrega_form()
         {
@@ -46,34 +45,43 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
 
         private void EnviadoADespacho_button_Click(object sender, EventArgs e)
         {
-            var ordenesDeEntrega = new OrdenDeEntregaEnt();
-
-            ordenesDeEntrega.FechaEmision_OE = DateTime.Now;
-
-            var ops = new List<int>();
-
-            foreach (var item in OrdenesDePreparacion_ListView.Items)
+            if (OrdenesDePreparacion_ListView.Items.Count > 0)
             {
-                ListViewItem op = item as ListViewItem;
 
-                if (op != null)
+                var ordenesDeEntrega = new OrdenDeEntregaEnt();
+
+                ordenesDeEntrega.FechaEmision_OE = DateTime.Now;
+
+                var ops = new List<int>();
+
+                foreach (var item in OrdenesDePreparacion_ListView.Items)
                 {
-                    var opId = op.SubItems[0].Text; 
-                    ops.Add(int.Parse(opId));
+                    ListViewItem op = item as ListViewItem;
+
+                    if (op != null)
+                    {
+                        var opId = op.SubItems[0].Text;
+                        ops.Add(int.Parse(opId));
+                    }
                 }
+
+                ordenesDeEntrega.OrdenesPreparacion_OE = ops;
+
+                CrearOrdenDeEntrega_model.CrearOrdenesDeEntrega(ordenesDeEntrega);
+
+                MessageBox.Show("Se envio a despacho con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.Hide();
+
+                CrearOrdenDeEntrega_form nuevaForma = new CrearOrdenDeEntrega_form();
+                nuevaForma.Show();
+            }
+            else 
+            {
+                MessageBox.Show("No hay Ordenes de preparacion pendientes de envio a despacho.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            ordenesDeEntrega.OrdenesPreparacion_OE = ops;
 
-            CrearOrdenDeEntrega_model.CrearOrdenesDeEntrega(ordenesDeEntrega);
-
-
-            MessageBox.Show("Se envio a despacho con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            this.Hide();
-
-            CrearOrdenDeEntrega_form nuevaForma = new CrearOrdenDeEntrega_form();
-            nuevaForma.Show();
         }
 
         private void Salir_button2_Click(object sender, EventArgs e)

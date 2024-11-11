@@ -27,25 +27,29 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 
         private void CargarOrdenesDePreparacionItems()
         {
-            var ordenes = OrdenDePreparacionAlmacen.OrdenesDePreparacion
-             .Where(x => x.Estado_OP == EstadoOPEnum.EnPreparacion)
-             .First();
+            if (OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.Estado_OP == EstadoOPEnum.EnPreparacion).ToList().Count > 0)
+            {
+                var ordenes = OrdenDePreparacionAlmacen.OrdenesDePreparacion
+                 .Where(x => x.Estado_OP == EstadoOPEnum.EnPreparacion)
+                 .First();
 
-            var OPItems = ordenes.Mercaderias_OP;
+                var OPItems = ordenes.Mercaderias_OP;
 
-            foreach (var orden in OPItems)
-            {         
-                var MercaderiaEnt = MercaderiaAlmacen.Mercaderias.Where(x => x.ID_Mercaderia == orden.ID_Mercaderia).FirstOrDefault();
+                foreach (var orden in OPItems)
+                {
+                    var MercaderiaEnt = MercaderiaAlmacen.Mercaderias.Where(x => x.ID_Mercaderia == orden.ID_Mercaderia).FirstOrDefault();
 
-                ListViewItem listViewItem = new ListViewItem(new string[] {
+                    ListViewItem listViewItem = new ListViewItem(new string[] {
 
                     MercaderiaEnt.Descripcion_Mercaderia,
                     orden.Cantidad_Mercaderia.ToString(),
 
                 }, -1);
 
-                OrdenesDePreparacion_listView.Items.Add(listViewItem);
+                    OrdenesDePreparacion_listView.Items.Add(listViewItem);
+                }
             }
+         
         }
 
         private void VolverAlMenu_button_Click(object sender, EventArgs e)
@@ -59,18 +63,25 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 
         private void button_empaquetar_Click(object sender, EventArgs e)
         {
-            var id = OrdenDePreparacionAlmacen.OrdenesDePreparacion
-             .Where(x => x.Estado_OP == EstadoOPEnum.EnPreparacion)
-             .First().ID_OP;
+            if (OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.Estado_OP == EstadoOPEnum.EnPreparacion).ToList().Count > 0)
+            {
+                var id = OrdenDePreparacionAlmacen.OrdenesDePreparacion
+                 .Where(x => x.Estado_OP == EstadoOPEnum.EnPreparacion)
+                 .First().ID_OP;
 
-            EmpaquetarMercaderias_model.EditarEstadoOP(id);
+                EmpaquetarMercaderias_model.EditarEstadoOP(id);
 
-            MessageBox.Show("Se listo con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Se listo con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            this.Hide();
+                this.Hide();
 
-            EmpaquetarMercaderias_form nuevaForma = new EmpaquetarMercaderias_form();
-            nuevaForma.Show();
+                EmpaquetarMercaderias_form nuevaForma = new EmpaquetarMercaderias_form();
+                nuevaForma.Show();
+            }
+            else 
+            {
+                MessageBox.Show("No hay Ordenes de preparacion pendientes de preparar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 

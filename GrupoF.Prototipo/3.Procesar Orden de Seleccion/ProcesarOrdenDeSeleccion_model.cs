@@ -26,6 +26,8 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 
                 OrdenDePreparacion.Estado_OP = EstadoOPEnum.EnPreparacion;
             }
+
+            Program.Grabar();
         
             return null;
         }

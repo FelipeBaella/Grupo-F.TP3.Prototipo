@@ -58,7 +58,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
                         orden.ID_OP.ToString(),
                         prioridad,
-                        orden.FechaEntrega_OP.ToString(),
+                        orden.FechaEntrega_OP.ToString("dd-MM-yyyy"),
                         cliente.NombreApellido_Cliente,
 
                 }, -1);
@@ -126,10 +126,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
             ordenesDeSeleccion.OrdenesPreparacion_OS = OrdenDePreparacionEnt;
 
-            CrearOrdenDeSeleccion_model.CrearOrdenesDePreparacion(ordenesDeSeleccion);
-
-            CrearOrdenDeSeleccion_model.EditarEstadoOP(OrdenDePreparacionEnt);
-
+            CrearOrdenDeSeleccion_model.CrearOrdenesDeSeleccion(ordenesDeSeleccion);
 
             MessageBox.Show("Se creo la orden de seleccion con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -176,6 +173,8 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
                     i++;
                 }
             }
+
+            button.Enabled = false;
         }
 
         private void agregarTodo_button_Click(object sender, EventArgs e)
@@ -197,6 +196,8 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
                 OrdenesDePreparacion_ListView.Items.Remove(item);
             }
+
+            button.Enabled = false;
         }
 
         private void Remover_button_Click(object sender, EventArgs e)
@@ -218,6 +219,11 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
                     Items_OS_listView.Items.Remove(item);
                 }
+            }
+
+            if (Items_OS_listView.Items.Count == 0)
+            {
+                button.Enabled = true;
             }
         }
 
@@ -263,22 +269,22 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
             listview = listview.Where(x => x.Estado_OP == GrupoF.Prototipo.Almacenes.EstadoOPEnum.Emitida).ToList();
 
-            if (comboBox1.SelectedIndex == 1)
+            if (comboBox1.SelectedIndex == 0)
             {
                 listview = listview.OrderBy(x => x.ID_OP).ToList();
             }
 
-            else if (comboBox1.SelectedIndex == 2)
+            else if (comboBox1.SelectedIndex == 1)
             {
                 listview = listview.OrderByDescending(x => x.Prioridad_OP).ToList();
             }
 
-            else if (comboBox1.SelectedIndex == 3)
+            else if (comboBox1.SelectedIndex == 2)
             {
                 listview = listview.OrderBy(x => x.FechaEntrega_OP).ToList();
             }
 
-            if (comboBox1.SelectedIndex == 4)
+            if (comboBox1.SelectedIndex == 3)
             {
                 var nombres = new List<(string, string, string, string)>();
 
@@ -308,7 +314,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
                 }
             }
 
-            if (comboBox1.SelectedIndex != 4)
+            if (comboBox1.SelectedIndex != 3)
             {
                 CargarOrdenesDePreparacion(listview);
             }

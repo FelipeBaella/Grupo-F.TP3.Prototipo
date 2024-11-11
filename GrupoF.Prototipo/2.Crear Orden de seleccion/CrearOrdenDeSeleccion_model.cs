@@ -14,11 +14,13 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
     internal class CrearOrdenDeSeleccion_model
     {
 
-        public string CrearOrdenesDePreparacion(OrdenDeSeleccionEnt ordenesDeSeleccion)
+        public string CrearOrdenesDeSeleccion(OrdenDeSeleccionEnt ordenesDeSeleccion)
         {
             var Estado_OP = ordenesDeSeleccion.Estado_OS;
             var Emision_OrdenDeSeleccion = ordenesDeSeleccion.Fecha_EmisionOS;
             var AcualizacionEstado_OrdenDeSeleccion = ordenesDeSeleccion.FechaActualizacion_EstadoOS;
+
+            ordenesDeSeleccion.Estado_OS = EstadoOSEnum.Emitida;
 
             if (Emision_OrdenDeSeleccion < DateTime.Now.Date)
             {
@@ -41,15 +43,8 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
                 ordenesDeSeleccion.ID_OS = 1;
             }
 
-            OrdenDeSeleccionAlmacen.Grabar(ordenesDeSeleccion);
+            var OrdenDePreparacion = ordenesDeSeleccion.OrdenesPreparacion_OS;
 
-            OrdenDeSeleccionAlmacen.Leer();
-
-            return null;
-        }
-
-        public string EditarEstadoOP(List<int> OrdenDePreparacion)
-        {
             foreach (var item in OrdenDePreparacion)
             {
                 var ordenDePreparacion = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.ID_OP == item).SingleOrDefault();
@@ -57,11 +52,13 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
                 ordenDePreparacion.Estado_OP = EstadoOPEnum.Seleccionada;
             }
 
+
+            OrdenDeSeleccionAlmacen.Nueva(ordenesDeSeleccion);
+
+            Program.Grabar();
+
             return null;
         }
-
-
-
     }
 
 }

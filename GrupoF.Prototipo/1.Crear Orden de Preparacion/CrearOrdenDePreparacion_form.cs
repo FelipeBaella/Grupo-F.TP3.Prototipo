@@ -9,8 +9,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 {
     public partial class CrearOrdenDePreparacion_form : Form
     {
-        private CrearOrdnesDePreparacion_model CrearOrdnesDePreparacion_model = new CrearOrdnesDePreparacion_model();
-
         public CrearOrdenDePreparacion_form()
         {
             InitializeComponent();
@@ -73,6 +71,8 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                     Dni_textbox.Focus();
                     return;
                 }
+
+                var DepositoMercaderiaEnt2 = DepositoMercaderiaAlmacen.DepositosMercaderias;
 
                 var DepositoMercaderiaEnt = DepositoMercaderiaAlmacen.DepositosMercaderias
                 .Where(x => x.ID_Deposito == DepositoEnt.ID_Deposito && x.ID_Cliente == cliente && x.Cantidad_DepositoMercaderia > 0)

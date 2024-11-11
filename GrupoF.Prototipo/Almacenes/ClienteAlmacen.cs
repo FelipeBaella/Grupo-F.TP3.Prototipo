@@ -31,7 +31,7 @@ namespace GrupoF.Prototipo.Almacenes
                 return;
             }
 
-            var datos = File.ReadAllText("Clientes.json");
+            var datos = File.ReadAllText(rutaArchivo);
             clientes = JsonSerializer.Deserialize<List<ClienteEnt>>(datos)!;
         }
     }

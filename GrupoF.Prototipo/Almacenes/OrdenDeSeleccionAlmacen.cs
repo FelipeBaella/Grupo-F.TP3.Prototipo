@@ -14,20 +14,23 @@ namespace GrupoF.Prototipo.Almacenes
 
         public static IReadOnlyCollection<OrdenDeSeleccionEnt> OrdenesDeSeleccion => ordenesdeseleccion.AsReadOnly();
 
-        public static void Grabar(OrdenDeSeleccionEnt OrdenDeSeleccion)
+        public static void Nueva(OrdenDeSeleccionEnt OrdenDeSeleccion)
         {
             ordenesdeseleccion.Add(OrdenDeSeleccion);
+        }
 
+        public static void Grabar()
+        {
             var datos = JsonSerializer.Serialize(ordenesdeseleccion);
             File.WriteAllText(@"OrdenesDeSeleccion.json", datos);
         }
 
         public static void Leer()
         {
-            string rutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Datos", "OrdenesDeSeleccion.json");
+            string rutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "OrdenesDeSeleccion.json");
 
             // Valido si el archivo no existe. Si ese es el caso, no hago nada.
-            if (!File.Exists(rutaArchivo))
+            if (!File.Exists("OrdenesDeSeleccion.json"))
             {
                 return;
             }

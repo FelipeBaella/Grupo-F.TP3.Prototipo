@@ -30,7 +30,7 @@ namespace GrupoF.Prototipo.Almacenes
                 return;
             }
 
-            var datos = File.ReadAllText("Mercaderias.json");
+            var datos = File.ReadAllText(rutaArchivo);
             mercaderias = JsonSerializer.Deserialize<List<MercaderiaEnt>>(datos)!;
         }
     }

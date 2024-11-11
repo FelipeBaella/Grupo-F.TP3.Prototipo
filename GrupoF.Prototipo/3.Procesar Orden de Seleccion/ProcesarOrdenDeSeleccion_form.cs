@@ -34,8 +34,6 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 
             var OrdenesPreparacion_OS = OS.OrdenesPreparacion_OS;
 
-            CrearOrdnesDePreparacion_model modelo = new CrearOrdnesDePreparacion_model(); //CUANDO HAYAMOS CARGADO MERCADERIAS SE VA
-
             foreach (var item in OrdenesPreparacion_OS)
             {
                 var OP = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.ID_OP == item).SingleOrDefault();

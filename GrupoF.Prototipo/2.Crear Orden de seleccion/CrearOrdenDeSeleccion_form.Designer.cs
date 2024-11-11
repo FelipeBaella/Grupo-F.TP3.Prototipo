@@ -181,7 +181,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "---", "ID OP", "Prioridad Cliente ", "Fecha Entrega ", "Nombre Cliente" });
+            comboBox1.Items.AddRange(new object[] { "ID OP", "Prioridad Cliente ", "Fecha Entrega ", "Nombre Cliente" });
             comboBox1.Location = new Point(3, 21);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(211, 25);

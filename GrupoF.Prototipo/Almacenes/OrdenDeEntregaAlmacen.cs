@@ -15,10 +15,13 @@ namespace GrupoF.Prototipo.Almacenes
 
         public static IReadOnlyCollection<OrdenDeEntregaEnt> OrdenesDeEntrega => ordenesdeentrega.AsReadOnly();
 
-        public static void Grabar(OrdenDeEntregaEnt ordenDeEntrega)
+        public static void Nueva(OrdenDeEntregaEnt ordenDeEntrega)
         {
             ordenesdeentrega.Add(ordenDeEntrega);
+        }
 
+        public static void Grabar()
+        {
             var datos = JsonSerializer.Serialize(ordenesdeentrega);
             File.WriteAllText(@"OrdenesDeEntrega.json", datos);
         }
@@ -33,7 +36,7 @@ namespace GrupoF.Prototipo.Almacenes
                 return;
             }
 
-            var datos = File.ReadAllText("OrdenesDeEntrega.json");
+            var datos = File.ReadAllText(rutaArchivo);
             ordenesdeentrega = JsonSerializer.Deserialize<List<OrdenDeEntregaEnt>>(datos)!;
         }
     }

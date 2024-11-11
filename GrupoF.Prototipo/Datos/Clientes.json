@@ -1,34 +1,34 @@
 ﻿[
-    {
-        "ID_Cliente": 0,
-        "DNI_Cliente": 0,
-        "NombreApellido_Cliente": "---",
-        "CUIT_Cliente": 0,
-        "Domicilio_Cliente": "---",
-        "CondIva_Cliente": "false"
-    },
-    {
-        "ID_Cliente": 1,
-        "DNI_Cliente": 1111111,
-        "NombreApellido_Cliente": "Juan Perez",
-        "CUIT_Cliente": 2011111117,
-        "Domicilio_Cliente": "Calle Falsa 123, Ciudad",
-        "CondIva_Cliente": "true"
-    },
-    {
-        "ID_Cliente": 2,
-        "DNI_Cliente": 22222222,
-        "NombreApellido_Cliente": "Maria Gomez",
-        "CUIT_Cliente": 26222222228,
-        "Domicilio_Cliente": "Av. Siempre Viva 456, Provincia",
-        "CondIva_Cliente": "false"
-    },
-    {
-        "ID_Cliente": 3,
-        "DNI_Cliente": 33333333,
-        "NombreApellido_Cliente": "Carlos Lopez",
-        "CUIT_Cliente": 28333333339,
-        "Domicilio_Cliente": "Calle del Sol 789, Capital Federal",
-        "CondIva_Cliente": "true"
-    }
+  {
+    "ID_Cliente": 0,
+    "DNI_Cliente": 0,
+    "NombreApellido_Cliente": "---",
+    "CUIT_Cliente": 0,
+    "Domicilio_Cliente": "---",
+    "CondIva_Cliente": "false"
+  },
+  {
+    "ID_Cliente": 1,
+    "DNI_Cliente": 1111111,
+    "NombreApellido_Cliente": "Juan Perez",
+    "CUIT_Cliente": 2011111117,
+    "Domicilio_Cliente": "Calle Falsa 123, Ciudad",
+    "CondIva_Cliente": "true"
+  },
+  {
+    "ID_Cliente": 2,
+    "DNI_Cliente": 22222222,
+    "NombreApellido_Cliente": "Maria Gomez",
+    "CUIT_Cliente": 26222222228,
+    "Domicilio_Cliente": "Av. Siempre Viva 456, Provincia",
+    "CondIva_Cliente": "false"
+  },
+  {
+    "ID_Cliente": 3,
+    "DNI_Cliente": 33333333,
+    "NombreApellido_Cliente": "Carlos Lopez",
+    "CUIT_Cliente": 28333333339,
+    "Domicilio_Cliente": "Calle del Sol 789, Capital Federal",
+    "CondIva_Cliente": "true"
+  }
 ]

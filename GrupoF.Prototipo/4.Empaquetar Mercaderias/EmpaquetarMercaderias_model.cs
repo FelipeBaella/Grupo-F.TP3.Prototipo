@@ -11,24 +11,6 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 {
     internal class EmpaquetarMercaderias_model
     {
-  
-
-
-
-
-
-
-
-
-     
-
-
-
-
-
-
-
-
         public string EditarEstadoOP(int id)
         {
             var OrdenDePreparacion = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.ID_OP == id).SingleOrDefault();
@@ -36,6 +18,8 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             OrdenDePreparacion.Estado_OP = EstadoOPEnum.Preparada;
 
             var OrdenDePreparacionE = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.ID_OP == id).SingleOrDefault().Estado_OP;
+
+            Program.Grabar();
 
             return null;
         }

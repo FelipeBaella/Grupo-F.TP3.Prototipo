@@ -18,14 +18,16 @@ namespace GrupoF.Prototipo.Almacenes
         // 2) Una lista pública de los objetos que almacenaré para que el resto del sistema la pueda consultar.
         public static IReadOnlyCollection<OrdenDePreparacionEnt> OrdenesDePreparacion => ordenesdepreparacion.AsReadOnly();
 
+        public static void Nueva(OrdenDePreparacionEnt ordendepreparacion)
+        {
+            ordenesdepreparacion.Add(ordendepreparacion);
+        }
 
         // También voy a disponer de dos métodos:
 
         // 1) Utilizaré un método para grabar los datos dentro de un archivo.
-        public static void Grabar(OrdenDePreparacionEnt ordendepreparacion)
+        public static void Grabar()
         {
-            ordenesdepreparacion.Add(ordendepreparacion);
-
             // Transformo los datos de la lista a formato JSON.
             var datos = JsonSerializer.Serialize(ordenesdepreparacion);
 
@@ -36,16 +38,16 @@ namespace GrupoF.Prototipo.Almacenes
         // 2) Utilizaré un método para leer los datos de un archivo.
         public static void Leer()
         {
-            string rutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Datos", "OrdenesDePreparacion.json");
+            string rutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"OrdenesDePreparacion.json");
 
             // Valido si el archivo no existe. Si ese es el caso, no hago nada.
-            if (!File.Exists(rutaArchivo))
+            if (!File.Exists("OrdenesDePreparacion.json"))
             {
                 return;
             }
 
             // Leo todo los datos del archivo y se los asigno a una variable
-            var datos = File.ReadAllText(rutaArchivo);
+            var datos = File.ReadAllText("OrdenesDePreparacion.json");
 
             // Transformo los datos del archivo (string) adecuandolos al formato del objeto.
             ordenesdepreparacion = JsonSerializer.Deserialize<List<OrdenDePreparacionEnt>>(datos)!;

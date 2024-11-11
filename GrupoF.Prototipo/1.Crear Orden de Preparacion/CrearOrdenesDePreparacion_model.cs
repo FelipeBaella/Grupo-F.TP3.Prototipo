@@ -11,7 +11,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 {
     internal class CrearOrdnesDePreparacion_model
     {    
-        public string CrearOrdenesDePreparacion(OrdenDePreparacionEnt ordenDePreparacion)
+        public static string CrearOrdenesDePreparacion(OrdenDePreparacionEnt ordenDePreparacion)
         {
             var Estado_OP = ordenDePreparacion.Estado_OP;
             var Prioridad_OP = ordenDePreparacion.Prioridad_OP;
@@ -45,25 +45,11 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                 ordenDePreparacion.ID_OP = 1;
             }
 
-            OrdenDePreparacionAlmacen.Grabar(ordenDePreparacion);
+            OrdenDePreparacionAlmacen.Nueva(ordenDePreparacion);
+
+            Program.Grabar();
 
             return ordenDePreparacion.ID_OP.ToString();
         }
-
-
-        //public string CrearOrdenesDePreparacionItem(Mercaderia_OP OrdeneDePreparacionItem)
-        //{
-        //    var ID_DepositoMercaderia = OrdeneDePreparacionItem.ID_Mercaderia;
-        //    var Cantidad_Mercaderia = OrdeneDePreparacionItem.Cantidad_Mercaderia;
-
-        //    OrdenesDePreparacionItems.(OrdeneDePreparacionItem);
-
-        //    OrdenDePreparacionAlmacen.Grabar(OrdeneDePreparacionItem);
-
-        //    return null;
-        //}
-
-
-
     }
 }

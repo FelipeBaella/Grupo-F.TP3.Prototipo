@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,18 +15,21 @@ namespace GrupoF.Prototipo.Almacenes
 
         public static IReadOnlyCollection<RemitoEnt> Remitos => remitos.AsReadOnly();
 
+        public static void Nueva(RemitoEnt remito)
+        {
+            remitos.Add(remito);
+        }
+
         public static void Grabar()
         {
             var datos = JsonSerializer.Serialize(remitos);
-            File.WriteAllText(@"Remitos.json", datos);
+            File.WriteAllText("Remitos.json", datos);
         }
 
         public static void Leer()
         {
-            string rutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Datos", "Remitos.json");
-
             // Valido si el archivo no existe. Si ese es el caso, no hago nada.
-            if (!File.Exists(rutaArchivo))
+            if (!File.Exists("Remitos.json"))
             {
                 return;
             }

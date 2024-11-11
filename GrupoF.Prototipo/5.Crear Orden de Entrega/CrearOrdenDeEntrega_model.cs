@@ -13,17 +13,7 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
 {
     internal class CrearOrdenDeEntrega_model
     {
-       
-
-
-
-
-
-
-    
-
-
-        public string CrearOrdenesDeEntrega(OrdenDeEntregaEnt ordenesDeEntrega)
+        public static string CrearOrdenesDeEntrega(OrdenDeEntregaEnt ordenesDeEntrega)
         {
             var OE = OrdenDeEntregaAlmacen.OrdenesDeEntrega.ToList();
 
@@ -38,7 +28,7 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
 
             var FechaEmision_OE = ordenesDeEntrega.FechaEmision_OE;
 
-            OrdenDeEntregaAlmacen.Grabar(ordenesDeEntrega);
+            OrdenDeEntregaAlmacen.Nueva(ordenesDeEntrega);
 
             var OPs = ordenesDeEntrega.OrdenesPreparacion_OE;
 
@@ -50,20 +40,9 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
                 OP.Estado_OP = EstadoOPEnum.EnDespacho;
             }
 
+            Program.Grabar();
 
             return null;
         }
-
-
-        public string EditarEstadoOP(int id)
-        {
-            var OrdenDePreparacion = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.ID_OP == id).FirstOrDefault();
-
-            OrdenDePreparacion.Estado_OP = EstadoOPEnum.EnDespacho;
-
-            return null;
-        }
-
-
     }
 }

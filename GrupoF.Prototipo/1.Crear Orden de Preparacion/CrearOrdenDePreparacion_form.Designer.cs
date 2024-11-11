@@ -72,6 +72,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             // 
             // Cantidad_textbox
             // 
+            Cantidad_textbox.Enabled = false;
             Cantidad_textbox.Location = new Point(9, 113);
             Cantidad_textbox.Name = "Cantidad_textbox";
             Cantidad_textbox.Size = new Size(186, 23);
@@ -171,7 +172,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             Deposito_label.AutoSize = true;
             Deposito_label.Location = new Point(19, 78);
             Deposito_label.Name = "Deposito_label";
-            Deposito_label.Size = new Size(119, 15);
+            Deposito_label.Size = new Size(136, 15);
             Deposito_label.TabIndex = 11;
             Deposito_label.Text = "Descripcion DepositoEnt";
             // 
@@ -213,7 +214,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             Cantidad_label.AutoSize = true;
             Cantidad_label.Location = new Point(9, 95);
             Cantidad_label.Name = "Cantidad_label";
-            Cantidad_label.Size = new Size(117, 15);
+            Cantidad_label.Size = new Size(134, 15);
             Cantidad_label.TabIndex = 6;
             Cantidad_label.Text = "Cantidad MercaderiaEnt";
             // 
@@ -222,7 +223,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             Descripcion_label.AutoSize = true;
             Descripcion_label.Location = new Point(9, 37);
             Descripcion_label.Name = "Descripcion_label";
-            Descripcion_label.Size = new Size(131, 15);
+            Descripcion_label.Size = new Size(148, 15);
             Descripcion_label.TabIndex = 5;
             Descripcion_label.Text = "Descripcion MercaderiaEnt";
             // 

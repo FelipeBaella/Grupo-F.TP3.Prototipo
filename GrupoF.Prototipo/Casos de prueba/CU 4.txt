@@ -1,0 +1,23 @@
+CASO DE USO 4: Casos de Prueba
+Caso 1: Empaquetar Mercaderías (exitoso)
+- Iniciar sesión y seleccionar "Empaquetar Mercaderías" en el menú principal.
+- Toca el botón “Lista”
+- Verificar: aparece el mensaje: “Las mercaderías han sido empaquetadas con éxito”
+- Toca el botón “Aceptar”
+- Toca el botón “Volver Al Menu”
+- Toca el botón “Salir”
+- Verificar: OrdenesDePreparacion.json
+“ID_OE”: 1
+“DateTime FechaEmision_OE”: 08/11/2024
+“OrdenesPreparacion_OE”:
+[{
+“ID_OP”: 1
+}]
+Caso 2: Intentar procesar sin una Mercaderia Pendiente a Empaquetar
+- Iniciar sesión y seleccionar "Empaquetar Mercaderías" en el menú principal.
+- Toca el botón “Lista”.
+- Verificar: aparece el mensaje: “No hay ordenes de preparación pendientes de
+empaquetar”.
+- Toca el botón “Aceptar”.
+- Toca el botón “Volver al Menu”
+- Toca el botón “Salir”

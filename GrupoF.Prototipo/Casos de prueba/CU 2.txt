@@ -1,0 +1,41 @@
+CASO DE USO 2: Casos de Prueba
+Caso 1: Crear Orden de Selección (exitoso)
+- Iniciar sesión y seleccionar "Crear Orden de Selección" en el menú principal.
+- En la sección “OP Pendientes”, selecciona del desplegable “Ordenar” la opción “ID
+OP”.
+- Toca el botón “Aplicar”
+- En la lista que se muestra debajo de la sección “Filtros”, selecciona el checkbox de ID
+OP 1 y 2.
+- Toca el botón “Agregar”
+- Toca el botón “Crear orden de selección”
+- Verificar: aparece el mensaje: “Se creó la orden de selección con éxito.”
+- Toca el botón “Aceptar”
+- Toca el botón “Volver Al Menu”
+- Toca el botón “Salir”
+- Verificar: OrdenesDeSeleccion.json, nuevo registro:
+“ID_OS”: 1
+“Estado_OS”: Emitida
+“Fecha_EmisionOS”: 07/11/2024
+“FechaActualizacion_EstadoOS”: 08/11/2024
+“OrdenesPreparacion_OS”
+[{
+ "ID_OP": 1
+}]
+Caso 2: Crear Orden de Selección sin seleccionar una OP
+- Iniciar sesión y seleccionar "Crear Orden de Selección" en el menú principal.
+- Toca el botón “Crear orden de Selección”
+- Verificar: aparece el mensaje: “Debe seleccionar al menos 1 item para la Orden de
+Selección”
+- Toca el botón “Aceptar”
+- Toca el botón “Volver Al Menu”
+- Toca el botón “Salir”
+Caso 3: Salir del sistema sin crear OP
+- Iniciar sesión y seleccionar "Crear Orden de Selección" en el menú principal.
+- En la sección “OP Pendientes”, selecciona selecciona del desplegable “Ordenar” la
+opción “ID OP”.
+- Toca el botón “Aplicar”
+- En la lista que se muestra debajo de la sección “Filtros”, selecciona el checkbox de ID
+OP 1 y 2.
+- Toca el botón “Agregar”
+- Toca el botón “Volver Al Menu”
+- Toca el botón “Salir

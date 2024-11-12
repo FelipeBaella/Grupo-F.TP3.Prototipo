@@ -65,7 +65,7 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
             // 
             // Descripcion_Mercaderia
             // 
-            Descripcion_Mercaderia.Text = "Descripcion MercaderiaEnt";
+            Descripcion_Mercaderia.Text = "Descripcion Mercaderia";
             Descripcion_Mercaderia.Width = 140;
             // 
             // Cantidad

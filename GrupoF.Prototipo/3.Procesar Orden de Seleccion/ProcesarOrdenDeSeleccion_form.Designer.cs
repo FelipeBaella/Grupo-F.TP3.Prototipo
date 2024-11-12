@@ -60,7 +60,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             // 
             // Descripcion_Mercaderia
             // 
-            Descripcion_Mercaderia.Text = "Descripcion MercaderiaEnt";
+            Descripcion_Mercaderia.Text = "Descripcion Mercaderia";
             Descripcion_Mercaderia.Width = 160;
             // 
             // Cantidad

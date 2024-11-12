@@ -67,7 +67,7 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
             EnviadoADespacho_button.Name = "EnviadoADespacho_button";
             EnviadoADespacho_button.Size = new Size(131, 29);
             EnviadoADespacho_button.TabIndex = 1;
-            EnviadoADespacho_button.Text = "Enviado a Despacho";
+            EnviadoADespacho_button.Text = "Enviar a Despacho";
             EnviadoADespacho_button.UseVisualStyleBackColor = true;
             EnviadoADespacho_button.Click += EnviadoADespacho_button_Click;
             // 

@@ -272,7 +272,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             // 
             // MercaderiaEnt
             // 
-            MercaderiaEnt.Text = "MercaderiaEnt";
+            MercaderiaEnt.Text = "Mercaderia";
             MercaderiaEnt.Width = 100;
             // 
             // Cantidad

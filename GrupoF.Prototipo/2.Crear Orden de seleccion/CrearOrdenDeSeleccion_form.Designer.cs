@@ -240,12 +240,12 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // 
             // Descripcion
             // 
-            Descripcion.Text = "Descripcion MercaderiaEnt";
+            Descripcion.Text = "Descripcion Mercaderia";
             Descripcion.Width = 140;
             // 
             // Cantidad
             // 
-            Cantidad.Text = "Cantidad MercaderiaEnt";
+            Cantidad.Text = "Cantidad Mercaderia";
             Cantidad.Width = 130;
             // 
             // ID_OP1

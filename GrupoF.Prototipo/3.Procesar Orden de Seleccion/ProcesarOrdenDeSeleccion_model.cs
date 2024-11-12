@@ -12,6 +12,8 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 {
     internal class ProcesarOrdenDeSeleccion_model
     {
+        //TODO: dar de baja el stock.
+
         public static string EditarEstadoOS(int id)
         {
             var ordenesDeSeleccion = OrdenDeSeleccionAlmacen.OrdenesDeSeleccion.Where(x => x.ID_OS == id).SingleOrDefault();

@@ -1,5 +1,4 @@
-﻿
-using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
+﻿using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +9,10 @@ using GrupoF.Prototipo.Almacenes;
 namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 {
     internal class CrearOrdnesDePreparacion_model
-    {    
+    {
+        //TODO: cuando validen o le den las cantidades maximas de cada producto a la pantalla para que valide
+        //hay que restarle a esas cantidades lo que haya en OP en estado Emitida o Seleccionada
+
         public static string CrearOrdenesDePreparacion(OrdenDePreparacionEnt ordenDePreparacion)
         {
             var Estado_OP = ordenDePreparacion.Estado_OP;

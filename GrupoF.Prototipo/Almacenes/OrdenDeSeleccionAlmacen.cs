@@ -22,20 +22,20 @@ namespace GrupoF.Prototipo.Almacenes
         public static void Grabar()
         {
             var datos = JsonSerializer.Serialize(ordenesdeseleccion);
-            File.WriteAllText(@"OrdenesDeSeleccion.json", datos);
+            File.WriteAllText(@"Datos\OrdenesDeSeleccion.json", datos);
         }
 
         public static void Leer()
         {
-            string rutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "OrdenesDeSeleccion.json");
+            string rutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Datos\OrdenesDeSeleccion.json");
 
             // Valido si el archivo no existe. Si ese es el caso, no hago nada.
-            if (!File.Exists("OrdenesDeSeleccion.json"))
+            if (!File.Exists(@"Datos\OrdenesDeSeleccion.json"))
             {
                 return;
             }
 
-            var datos = File.ReadAllText("OrdenesDeSeleccion.json");
+            var datos = File.ReadAllText(@"Datos\OrdenesDeSeleccion.json");
             ordenesdeseleccion = JsonSerializer.Deserialize<List<OrdenDeSeleccionEnt>>(datos)!;
         }
     }

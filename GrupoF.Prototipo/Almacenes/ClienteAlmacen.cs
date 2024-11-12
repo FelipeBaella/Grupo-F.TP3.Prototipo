@@ -18,7 +18,7 @@ namespace GrupoF.Prototipo.Almacenes
         public static void Grabar()
         {
             var datos = JsonSerializer.Serialize(clientes);
-            File.WriteAllText(@"Clientes.json", datos);
+            File.WriteAllText(@"Datos\Clientes.json", datos);
         }
 
         public static void Leer()

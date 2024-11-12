@@ -23,7 +23,7 @@ namespace GrupoF.Prototipo.Almacenes
         public static void Grabar()
         {
             var datos = JsonSerializer.Serialize(ordenesdeentrega);
-            File.WriteAllText(@"OrdenesDeEntrega.json", datos);
+            File.WriteAllText(@"Datos\OrdenesDeEntrega.json", datos);
         }
 
         public static void Leer()

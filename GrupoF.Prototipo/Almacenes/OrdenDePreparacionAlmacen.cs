@@ -32,7 +32,7 @@ namespace GrupoF.Prototipo.Almacenes
             var datos = JsonSerializer.Serialize(ordenesdepreparacion);
 
             // Los grabo en un archivo
-            File.WriteAllText(@"OrdenesDePreparacion.json", datos);
+            File.WriteAllText(@"Datos\OrdenesDePreparacion.json", datos);
         }
 
         // 2) Utilizaré un método para leer los datos de un archivo.
@@ -41,13 +41,13 @@ namespace GrupoF.Prototipo.Almacenes
             string rutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"OrdenesDePreparacion.json");
 
             // Valido si el archivo no existe. Si ese es el caso, no hago nada.
-            if (!File.Exists("OrdenesDePreparacion.json"))
+            if (!File.Exists(@"Datos\OrdenesDePreparacion.json"))
             {
                 return;
             }
 
             // Leo todo los datos del archivo y se los asigno a una variable
-            var datos = File.ReadAllText("OrdenesDePreparacion.json");
+            var datos = File.ReadAllText(@"Datos\OrdenesDePreparacion.json");
 
             // Transformo los datos del archivo (string) adecuandolos al formato del objeto.
             ordenesdepreparacion = JsonSerializer.Deserialize<List<OrdenDePreparacionEnt>>(datos)!;

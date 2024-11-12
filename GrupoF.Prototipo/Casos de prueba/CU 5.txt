@@ -1,7 +1,7 @@
 CASO DE USO 5: Casos de Prueba
 Caso 1: Crear Orden de Entrega (exitoso)
 - Iniciar sesión y seleccionar "Crear Orden de Entrega" en el menú principal.
-- Toca el botón “Enviado a Despacho”
+- Toca el botón “Enviar a Despacho”
 - Verificar: aparece el mensaje: “Se envió a despacho con éxito”.
 - Toca el botón “Aceptar”
 - Toca el botón “Volver Al Menu”
@@ -15,7 +15,7 @@ Caso 1: Crear Orden de Entrega (exitoso)
 }]
 Caso 2: Intentar procesar sin Órdenes pendientes de envío a Despacho
 - Iniciar sesión y seleccionar "Crear Orden de Entrega" en el menú principal.
-- Toca el botón “Enviado a Despacho”.
+- Toca el botón “Enviar a Despacho”.
 - Verificar: aparece el mensaje de error: “No hay órdenes de preparación pendientes
 de envío a despacho”.
 - Toca el botón “Aceptar”.

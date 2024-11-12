@@ -13,17 +13,32 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         //TODO: cuando validen o le den las cantidades maximas de cada producto a la pantalla para que valide
         //hay que restarle a esas cantidades lo que haya en OP en estado Emitida o Seleccionada
 
-        public static string CrearOrdenesDePreparacion(OrdenDePreparacionEnt ordenDePreparacion)
+        public List<DepositoEnt> ObtenerDepositos()
         {
-            var Estado_OP = ordenDePreparacion.Estado_OP;
-            var Prioridad_OP = ordenDePreparacion.Prioridad_OP;
-            var ID_Cliente = ordenDePreparacion.ID_Cliente;
-            var FechaEmision_OP = ordenDePreparacion.FechaEmision_OP;
-            var FechaEntrega_OP = ordenDePreparacion.FechaEntrega_OP;
-            //var FechaEnFechaActualizacionEstado_OPtrega_OP = ordenDePreparacion.FechaActualizacionEstado_OP;
-            var ID_Deposito = ordenDePreparacion.ID_Deposito;
-            var DNI_Transportista = ordenDePreparacion.DNI_Transportista;
-            var Mercaderias_OP = ordenDePreparacion.Mercaderias_OP;
+            var lista = DepositoAlmacen.Depositos.ToList();
+
+            return lista;
+        }
+
+        public List<DepositoMercaderiaEnt> ObtenerDepositosMercaderias()
+        {
+            var lista = DepositoMercaderiaAlmacen.DepositosMercaderias.ToList();
+
+            return lista;
+        }
+
+        public List<MercaderiaEnt> ObtenerMercaderias()
+        {
+            var lista = MercaderiaAlmacen.Mercaderias.ToList();
+
+            return lista;
+        }
+
+
+        public static string CrearOrdenesDePreparacion(bool Prioridad_OP, int ID_Cliente, DateTime FechaEntrega_OP, int ID_Deposito, int DNI_Transportista, Dictionary<int,int> Mercaderias_OP)
+        { 
+            var Estado_OP = EstadoOPEnum.Emitida;        
+            var FechaEmision_OP = DateTime.Now.Date;
 
             if (DNI_Transportista < 0)
             {
@@ -39,8 +54,29 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                 return "La fecha de emision no puede ser menor al dia de hoy.";
             }
 
+            var ordenDePreparacion = new OrdenDePreparacionEnt();
 
-            var OP = GrupoF.Prototipo.Almacenes.OrdenDePreparacionAlmacen.OrdenesDePreparacion;
+            ordenDePreparacion.Prioridad_OP = Prioridad_OP;
+            ordenDePreparacion.ID_Cliente = ID_Cliente;
+            ordenDePreparacion.FechaEntrega_OP = FechaEntrega_OP;
+            ordenDePreparacion.ID_Deposito = ID_Deposito;
+            ordenDePreparacion.DNI_Transportista = DNI_Transportista;
+
+            var marcaderias_op = new List<Mercaderia_OP>();
+
+            foreach (var opItem in Mercaderias_OP) 
+            {
+                var item = new Mercaderia_OP();
+
+                item.ID_Mercaderia = opItem.Key;
+                item.Cantidad_Mercaderia = opItem.Value;
+
+                marcaderias_op.Add(item);
+            }
+
+            ordenDePreparacion.Mercaderias_OP = marcaderias_op;
+
+            var OP = OrdenDePreparacionAlmacen.OrdenesDePreparacion.ToList();
 
             if (OP.Count > 0)
             {

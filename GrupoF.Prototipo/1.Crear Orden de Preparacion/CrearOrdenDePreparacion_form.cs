@@ -9,6 +9,8 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 {
     public partial class CrearOrdenDePreparacion_form : Form
     {
+        private CrearOrdnesDePreparacion_model model = new CrearOrdnesDePreparacion_model();
+
         public CrearOrdenDePreparacion_form()
         {
             InitializeComponent();
@@ -25,14 +27,13 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             }
 
 
-            var depositos = DepositoAlmacen.Depositos.ToList();
+            var depositos = model.ObtenerDepositos();
 
             var depositosAEliminar = new List<DepositoEnt>();
 
             foreach (var dep in depositos)
             {
-                var DepositoMercaderiaEnt = DepositoMercaderiaAlmacen.DepositosMercaderias
-                .Where(x => x.ID_Cliente == cliente && x.ID_Deposito == dep.ID_Deposito)
+                var DepositoMercaderiaEnt = model.ObtenerDepositosMercaderias().Where(x => x.ID_Cliente == cliente && x.ID_Deposito == dep.ID_Deposito)
                 .FirstOrDefault();
 
                 if (DepositoMercaderiaEnt == null)
@@ -61,7 +62,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
         private void CargarMercaderias()
         {
-            var DepositoEnt = DepositoAlmacen.Depositos.Where(x => x.Descripcion_Deposito == DescripcionDeposito_Combobox.SelectedItem).FirstOrDefault();
+            var DepositoEnt = model.ObtenerDepositos().Where(x => x.Descripcion_Deposito == DescripcionDeposito_Combobox.SelectedItem).FirstOrDefault();
 
             if (DepositoEnt != null)
             {
@@ -72,9 +73,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                     return;
                 }
 
-                var DepositoMercaderiaEnt2 = DepositoMercaderiaAlmacen.DepositosMercaderias;
-
-                var DepositoMercaderiaEnt = DepositoMercaderiaAlmacen.DepositosMercaderias
+                var DepositoMercaderiaEnt = model.ObtenerDepositosMercaderias()
                 .Where(x => x.ID_Deposito == DepositoEnt.ID_Deposito && x.ID_Cliente == cliente && x.Cantidad_DepositoMercaderia > 0)
                 .Select(x => x.ID_Mercaderia)
                 .Distinct()
@@ -86,7 +85,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
                 foreach (var item in DepositoMercaderiaEnt)
                 {
-                    var MercaderiaEnt = MercaderiaAlmacen.Mercaderias.Where(x => x.ID_Mercaderia == item).FirstOrDefault();
+                    var MercaderiaEnt = model.ObtenerMercaderias().Where(x => x.ID_Mercaderia == item).FirstOrDefault();
 
                     mercaderias.Add(MercaderiaEnt.ID_Mercaderia + " - " + MercaderiaEnt.Descripcion_Mercaderia);
                 }
@@ -157,62 +156,28 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             }
 
 
-            var DepositoEnt = DepositoAlmacen.Depositos.Where(x => x.Descripcion_Deposito == DescripcionDeposito_Combobox.Text).FirstOrDefault();
+            var DepositoEnt = model.ObtenerDepositos().Where(x => x.Descripcion_Deposito == DescripcionDeposito_Combobox.Text).FirstOrDefault();
 
-            var ordenDePreparacion = new OrdenDePreparacionEnt();
+            var Prioridad_OP = true;
+            var ID_Cliente = cliente;
+            var FechaEntrega_OP = Fecha;
+            var ID_Deposito = DepositoEnt.ID_Deposito;
+            var DNI_Transportista = Dni;
 
-            ordenDePreparacion.Estado_OP = GrupoF.Prototipo.Almacenes.EstadoOPEnum.Emitida;
-            ordenDePreparacion.Prioridad_OP = true;
-            ordenDePreparacion.ID_Cliente = cliente;
-            ordenDePreparacion.FechaEmision_OP = DateTime.Now;
-            ordenDePreparacion.FechaEntrega_OP = Fecha;
-            //ordenDePreparacion.FechaActualizacionEstado_OP = DateTime.Now;
-            ordenDePreparacion.ID_Deposito = DepositoEnt.ID_Deposito;
-            ordenDePreparacion.DNI_Transportista = Dni;
-
-            var ordenesDePreparacionItems = new List<Mercaderia_OP>();
+            var ordenesDePreparacionItems = new Dictionary<int,int>();
 
             foreach (ListViewItem item in listView_MercaderiasOrdenes.Items)
             {
                 var id_merca = item.SubItems[0].Text.Split('-')[0].Trim();
                 var cantidad = int.Parse(item.SubItems[1].Text);
+            
+                var ID_Mercaderia = int.Parse(id_merca);
+                var Cantidad_Mercaderia = cantidad;
 
-                var items = new Mercaderia_OP();
-
-                items.ID_Mercaderia = int.Parse(id_merca);
-                items.Cantidad_Mercaderia = cantidad;
-
-                ordenesDePreparacionItems.Add(items);
-
-                int cantidadRestante = cantidad;
-
-                while (cantidadRestante > 0)
-                {
-                    // Buscar un depósito con suficiente mercadería o el próximo disponible
-                    var depositoMercaderia = DepositoMercaderiaAlmacen.DepositosMercaderias
-                        .Where(x => x.ID_Mercaderia == int.Parse(id_merca) && x.ID_Cliente == cliente && x.ID_Deposito == DepositoEnt.ID_Deposito && x.Cantidad_DepositoMercaderia > 0)
-                        .FirstOrDefault();
-
-                    // Reducir la cantidad del depósito según la cantidad disponible
-                    if (depositoMercaderia.Cantidad_DepositoMercaderia >= cantidadRestante)
-                    {
-                        depositoMercaderia.Cantidad_DepositoMercaderia -= cantidadRestante;
-                        cantidadRestante = 0;
-                    }
-                    else
-                    {
-                        // Reducir todo el stock disponible en este depósito y ajustar la cantidad restante
-                        cantidadRestante -= depositoMercaderia.Cantidad_DepositoMercaderia;
-                        depositoMercaderia.Cantidad_DepositoMercaderia = 0;
-                    }
-                }
+                ordenesDePreparacionItems.Add(ID_Mercaderia, Cantidad_Mercaderia);             
             }
 
-     
-
-            ordenDePreparacion.Mercaderias_OP = ordenesDePreparacionItems;
-
-            var mensaje = CrearOrdnesDePreparacion_model.CrearOrdenesDePreparacion(ordenDePreparacion);
+            var mensaje = CrearOrdnesDePreparacion_model.CrearOrdenesDePreparacion(Prioridad_OP, ID_Cliente, FechaEntrega_OP, ID_Deposito, DNI_Transportista, ordenesDePreparacionItems);
             var id = 0;
 
             if (int.TryParse(mensaje.Trim(), out id))
@@ -252,7 +217,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         private void button_agregar_Click(object sender, EventArgs e)
         {
             string depositoDescri = DescripcionDeposito_Combobox.Text;
-            var deposito = DepositoAlmacen.Depositos.Where(x => x.Descripcion_Deposito == depositoDescri).SingleOrDefault().ID_Deposito;
+            var deposito = model.ObtenerDepositos().Where(x => x.Descripcion_Deposito == depositoDescri).SingleOrDefault().ID_Deposito;
 
             string cliente = IdCliente_textbox.Text;
 
@@ -260,7 +225,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             string mercaderiaID = mercaderia.Split('-')[0].Trim();
             string mercaderiaDescri = mercaderia.Split('-')[1].Trim();
 
-            var MercaderiaEnt = DepositoMercaderiaAlmacen.DepositosMercaderias.Where(x => x.ID_Cliente == int.Parse(cliente) && x.ID_Deposito == deposito && x.ID_Mercaderia == int.Parse(mercaderiaID)).ToList();
+            var MercaderiaEnt = model.ObtenerDepositosMercaderias().Where(x => x.ID_Cliente == int.Parse(cliente) && x.ID_Deposito == deposito && x.ID_Mercaderia == int.Parse(mercaderiaID)).ToList();
 
             foreach (ListViewItem item in listView_MercaderiasOrdenes.Items)
             {
@@ -372,9 +337,5 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             }
         }
 
-        private void Dni_textbox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

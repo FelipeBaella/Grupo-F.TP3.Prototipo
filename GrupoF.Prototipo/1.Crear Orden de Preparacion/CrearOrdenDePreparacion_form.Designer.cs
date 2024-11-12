@@ -87,7 +87,6 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             Dni_textbox.Name = "Dni_textbox";
             Dni_textbox.Size = new Size(338, 31);
             Dni_textbox.TabIndex = 3;
-            Dni_textbox.TextChanged += Dni_textbox_TextChanged;
             // 
             // DescripcionMercaderia_ComboBox
             // 

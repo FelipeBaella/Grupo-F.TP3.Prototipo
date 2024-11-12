@@ -78,9 +78,10 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             OrdenesDePreparacion_ListView.FullRowSelect = true;
             OrdenesDePreparacion_ListView.GridLines = true;
             OrdenesDePreparacion_ListView.LabelEdit = true;
-            OrdenesDePreparacion_ListView.Location = new Point(3, 89);
+            OrdenesDePreparacion_ListView.Location = new Point(4, 148);
+            OrdenesDePreparacion_ListView.Margin = new Padding(4, 5, 4, 5);
             OrdenesDePreparacion_ListView.Name = "OrdenesDePreparacion_ListView";
-            OrdenesDePreparacion_ListView.Size = new Size(602, 358);
+            OrdenesDePreparacion_ListView.Size = new Size(858, 594);
             OrdenesDePreparacion_ListView.TabIndex = 0;
             OrdenesDePreparacion_ListView.UseCompatibleStateImageBehavior = false;
             OrdenesDePreparacion_ListView.View = View.Details;
@@ -106,9 +107,10 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // 
             // CrearOrden_button
             // 
-            CrearOrden_button.Location = new Point(363, 568);
+            CrearOrden_button.Location = new Point(519, 947);
+            CrearOrden_button.Margin = new Padding(4, 5, 4, 5);
             CrearOrden_button.Name = "CrearOrden_button";
-            CrearOrden_button.Size = new Size(168, 33);
+            CrearOrden_button.Size = new Size(240, 55);
             CrearOrden_button.TabIndex = 1;
             CrearOrden_button.Text = "Crear orden de seleccion";
             CrearOrden_button.UseVisualStyleBackColor = true;
@@ -116,9 +118,10 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // 
             // VolverAlMenu_button
             // 
-            VolverAlMenu_button.Location = new Point(537, 568);
+            VolverAlMenu_button.Location = new Point(767, 947);
+            VolverAlMenu_button.Margin = new Padding(4, 5, 4, 5);
             VolverAlMenu_button.Name = "VolverAlMenu_button";
-            VolverAlMenu_button.Size = new Size(101, 32);
+            VolverAlMenu_button.Size = new Size(144, 53);
             VolverAlMenu_button.TabIndex = 5;
             VolverAlMenu_button.Text = "Volver al Menu";
             VolverAlMenu_button.UseVisualStyleBackColor = true;
@@ -132,27 +135,31 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             groupBox1.Controls.Add(Agregar_button);
             groupBox1.Controls.Add(OrdenesDePreparacion_ListView);
             groupBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(12, 12);
+            groupBox1.Location = new Point(17, 20);
+            groupBox1.Margin = new Padding(4, 5, 4, 5);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(611, 488);
+            groupBox1.Padding = new Padding(4, 5, 4, 5);
+            groupBox1.Size = new Size(873, 813);
             groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
             groupBox1.Text = "Ordenes de Preparacion Pendientes";
             // 
             // agregarTodo_button
             // 
-            agregarTodo_button.Location = new Point(502, 453);
+            agregarTodo_button.Location = new Point(717, 755);
+            agregarTodo_button.Margin = new Padding(4, 5, 4, 5);
             agregarTodo_button.Name = "agregarTodo_button";
-            agregarTodo_button.Size = new Size(103, 29);
+            agregarTodo_button.Size = new Size(147, 48);
             agregarTodo_button.TabIndex = 9;
             agregarTodo_button.Text = "Agregar Todo";
             agregarTodo_button.Click += agregarTodo_button_Click;
             // 
             // Ver_button
             // 
-            Ver_button.Location = new Point(316, 453);
+            Ver_button.Location = new Point(451, 755);
+            Ver_button.Margin = new Padding(4, 5, 4, 5);
             Ver_button.Name = "Ver_button";
-            Ver_button.Size = new Size(84, 29);
+            Ver_button.Size = new Size(120, 48);
             Ver_button.TabIndex = 2;
             Ver_button.Text = "Ver";
             Ver_button.Click += Ver_button_Click;
@@ -161,18 +168,21 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // 
             filtrar_groupBox4.Controls.Add(button);
             filtrar_groupBox4.Controls.Add(comboBox1);
-            filtrar_groupBox4.Location = new Point(3, 21);
+            filtrar_groupBox4.Location = new Point(4, 35);
+            filtrar_groupBox4.Margin = new Padding(4, 5, 4, 5);
             filtrar_groupBox4.Name = "filtrar_groupBox4";
-            filtrar_groupBox4.Size = new Size(355, 62);
+            filtrar_groupBox4.Padding = new Padding(4, 5, 4, 5);
+            filtrar_groupBox4.Size = new Size(507, 103);
             filtrar_groupBox4.TabIndex = 8;
             filtrar_groupBox4.TabStop = false;
-            filtrar_groupBox4.Text = "Filtros";
+            filtrar_groupBox4.Text = "Ordenar";
             // 
             // button
             // 
-            button.Location = new Point(234, 21);
+            button.Location = new Point(334, 35);
+            button.Margin = new Padding(4, 5, 4, 5);
             button.Name = "button";
-            button.Size = new Size(83, 25);
+            button.Size = new Size(119, 42);
             button.TabIndex = 1;
             button.Text = "Aplicar";
             button.UseVisualStyleBackColor = true;
@@ -182,17 +192,19 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // 
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "ID OP", "Prioridad Cliente ", "Fecha Entrega ", "Nombre Cliente" });
-            comboBox1.Location = new Point(3, 21);
+            comboBox1.Location = new Point(4, 35);
+            comboBox1.Margin = new Padding(4, 5, 4, 5);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(211, 25);
+            comboBox1.Size = new Size(300, 36);
             comboBox1.TabIndex = 0;
             // 
             // Agregar_button
             // 
             Agregar_button.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Agregar_button.Location = new Point(406, 453);
+            Agregar_button.Location = new Point(580, 755);
+            Agregar_button.Margin = new Padding(4, 5, 4, 5);
             Agregar_button.Name = "Agregar_button";
-            Agregar_button.Size = new Size(90, 29);
+            Agregar_button.Size = new Size(129, 48);
             Agregar_button.TabIndex = 7;
             Agregar_button.Text = "Agregar";
             Agregar_button.UseVisualStyleBackColor = true;
@@ -201,9 +213,11 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // groupBox2
             // 
             groupBox2.Controls.Add(ItemsOP_listView2);
-            groupBox2.Location = new Point(651, 15);
+            groupBox2.Location = new Point(930, 25);
+            groupBox2.Margin = new Padding(4, 5, 4, 5);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(462, 342);
+            groupBox2.Padding = new Padding(4, 5, 4, 5);
+            groupBox2.Size = new Size(660, 570);
             groupBox2.TabIndex = 7;
             groupBox2.TabStop = false;
             groupBox2.Text = "Items Orden de Preparacion";
@@ -211,9 +225,10 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // ItemsOP_listView2
             // 
             ItemsOP_listView2.Columns.AddRange(new ColumnHeader[] { Item2, Descripcion, Cantidad });
-            ItemsOP_listView2.Location = new Point(6, 22);
+            ItemsOP_listView2.Location = new Point(9, 37);
+            ItemsOP_listView2.Margin = new Padding(4, 5, 4, 5);
             ItemsOP_listView2.Name = "ItemsOP_listView2";
-            ItemsOP_listView2.Size = new Size(444, 314);
+            ItemsOP_listView2.Size = new Size(633, 521);
             ItemsOP_listView2.TabIndex = 9;
             ItemsOP_listView2.UseCompatibleStateImageBehavior = false;
             ItemsOP_listView2.View = View.Details;
@@ -257,18 +272,21 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // 
             groupBox3.Controls.Add(Remover_button);
             groupBox3.Controls.Add(Items_OS_listView);
-            groupBox3.Location = new Point(651, 363);
+            groupBox3.Location = new Point(930, 605);
+            groupBox3.Margin = new Padding(4, 5, 4, 5);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(453, 242);
+            groupBox3.Padding = new Padding(4, 5, 4, 5);
+            groupBox3.Size = new Size(647, 403);
             groupBox3.TabIndex = 8;
             groupBox3.TabStop = false;
             groupBox3.Text = "Items Orden de Seleccion";
             // 
             // Remover_button
             // 
-            Remover_button.Location = new Point(365, 210);
+            Remover_button.Location = new Point(521, 350);
+            Remover_button.Margin = new Padding(4, 5, 4, 5);
             Remover_button.Name = "Remover_button";
-            Remover_button.Size = new Size(75, 23);
+            Remover_button.Size = new Size(107, 38);
             Remover_button.TabIndex = 0;
             Remover_button.Text = "Remover";
             Remover_button.Click += Remover_button_Click;
@@ -277,9 +295,10 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // 
             Items_OS_listView.CheckBoxes = true;
             Items_OS_listView.Columns.AddRange(new ColumnHeader[] { ID_OP2, Nombre_Cliente1 });
-            Items_OS_listView.Location = new Point(11, 21);
+            Items_OS_listView.Location = new Point(16, 35);
+            Items_OS_listView.Margin = new Padding(4, 5, 4, 5);
             Items_OS_listView.Name = "Items_OS_listView";
-            Items_OS_listView.Size = new Size(348, 214);
+            Items_OS_listView.Size = new Size(495, 354);
             Items_OS_listView.TabIndex = 1;
             Items_OS_listView.UseCompatibleStateImageBehavior = false;
             Items_OS_listView.View = View.Details;
@@ -296,14 +315,15 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
             // 
             // CrearOrdenDeSeleccion_form
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1118, 612);
+            ClientSize = new Size(1597, 1020);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(VolverAlMenu_button);
             Controls.Add(CrearOrden_button);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "CrearOrdenDeSeleccion_form";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Crear Orden de seleccion";

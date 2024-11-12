@@ -121,7 +121,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             //DNI
             if (!int.TryParse(Dni_textbox.Text, out int Dni))
             {
-                MessageBox.Show("El campo Dni solo puede contener números.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El DNI ingresado debe ser un número positivo de 8 dígitos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Dni_textbox.Focus();
                 return;
             }
@@ -135,7 +135,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
             if (DateTime.Parse(fecha) < DateTime.Now.Date)
             {
-                MessageBox.Show("El campo Fecha, no puede ser menor al dia de hoy.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La fecha de entrega ingresada debe ser igual o mayor al día de hoy.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dateTimePicker_fecha.Focus();
                 return;
             }
@@ -281,13 +281,13 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             var cantidad = 0;
             if (!int.TryParse(Cantidad_textbox.Text.Trim(), out cantidad))
             {
-                MessageBox.Show("Cantidad debe ser un numero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La cantidad ingresada debe ser un numero positivo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 DescripcionDeposito_Combobox.Focus();
                 return;
             }
             if (cantidad < 1)
             {
-                MessageBox.Show("Cantidad debe ser mayor a 0.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La cantidad ingresada debe ser mayor a 0.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 DescripcionDeposito_Combobox.Focus();
                 return;
             }

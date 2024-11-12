@@ -51,7 +51,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 
             if (!int.TryParse(DniTransportista_textBox.Text, out int dniTransportista))
             {
-                MessageBox.Show("El campo transportista solo puede contener números.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El DNI ingresado debe ser un número positivo de 8 dígitos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 DniTransportista_textBox.Focus();
                 return;
             }
@@ -88,7 +88,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
                 DespacharMercaderias_model.CrearRemito(remito);
 
 
-                MessageBox.Show("Se emitio el remito con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Se emitio el remito con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.Hide();
 

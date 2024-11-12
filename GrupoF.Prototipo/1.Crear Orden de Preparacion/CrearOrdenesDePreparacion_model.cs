@@ -23,9 +23,13 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             var DNI_Transportista = ordenDePreparacion.DNI_Transportista;
             var Mercaderias_OP = ordenDePreparacion.Mercaderias_OP;
 
+            if (DNI_Transportista < 0)
+            {
+                return "El DNI ingresado debe ser un número positivo.";
+            }
             if (DNI_Transportista < 10_000_000 || DNI_Transportista > 99_999_999)
             {
-                return "El DNI_Cliente ingresado debe tener 8 dígitos.";
+                return "El DNI ingresado debe tener 8 dígitos.";
             }
 
             if (FechaEmision_OP < DateTime.Now.Date)

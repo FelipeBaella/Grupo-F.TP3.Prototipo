@@ -64,25 +64,28 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             // 
             // IdCliente_textbox
             // 
-            IdCliente_textbox.Location = new Point(19, 39);
+            IdCliente_textbox.Location = new Point(27, 65);
+            IdCliente_textbox.Margin = new Padding(4, 5, 4, 5);
             IdCliente_textbox.Name = "IdCliente_textbox";
-            IdCliente_textbox.Size = new Size(121, 23);
+            IdCliente_textbox.Size = new Size(171, 31);
             IdCliente_textbox.TabIndex = 0;
             IdCliente_textbox.TextChanged += IdCliente_textbox_TextChanged;
             // 
             // Cantidad_textbox
             // 
             Cantidad_textbox.Enabled = false;
-            Cantidad_textbox.Location = new Point(9, 113);
+            Cantidad_textbox.Location = new Point(13, 188);
+            Cantidad_textbox.Margin = new Padding(4, 5, 4, 5);
             Cantidad_textbox.Name = "Cantidad_textbox";
-            Cantidad_textbox.Size = new Size(186, 23);
+            Cantidad_textbox.Size = new Size(264, 31);
             Cantidad_textbox.TabIndex = 1;
             // 
             // Dni_textbox
             // 
-            Dni_textbox.Location = new Point(6, 37);
+            Dni_textbox.Location = new Point(9, 62);
+            Dni_textbox.Margin = new Padding(4, 5, 4, 5);
             Dni_textbox.Name = "Dni_textbox";
-            Dni_textbox.Size = new Size(238, 23);
+            Dni_textbox.Size = new Size(338, 31);
             Dni_textbox.TabIndex = 3;
             Dni_textbox.TextChanged += Dni_textbox_TextChanged;
             // 
@@ -90,9 +93,10 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             // 
             DescripcionMercaderia_ComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             DescripcionMercaderia_ComboBox.FormattingEnabled = true;
-            DescripcionMercaderia_ComboBox.Location = new Point(9, 55);
+            DescripcionMercaderia_ComboBox.Location = new Point(13, 92);
+            DescripcionMercaderia_ComboBox.Margin = new Padding(4, 5, 4, 5);
             DescripcionMercaderia_ComboBox.Name = "DescripcionMercaderia_ComboBox";
-            DescripcionMercaderia_ComboBox.Size = new Size(186, 23);
+            DescripcionMercaderia_ComboBox.Size = new Size(264, 33);
             DescripcionMercaderia_ComboBox.TabIndex = 4;
             // 
             // DescripcionDeposito_Combobox
@@ -100,17 +104,19 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             DescripcionDeposito_Combobox.DropDownStyle = ComboBoxStyle.DropDownList;
             DescripcionDeposito_Combobox.Enabled = false;
             DescripcionDeposito_Combobox.FormattingEnabled = true;
-            DescripcionDeposito_Combobox.Location = new Point(19, 107);
+            DescripcionDeposito_Combobox.Location = new Point(27, 160);
+            DescripcionDeposito_Combobox.Margin = new Padding(4, 5, 4, 5);
             DescripcionDeposito_Combobox.Name = "DescripcionDeposito_Combobox";
-            DescripcionDeposito_Combobox.Size = new Size(121, 23);
+            DescripcionDeposito_Combobox.Size = new Size(171, 33);
             DescripcionDeposito_Combobox.TabIndex = 5;
             DescripcionDeposito_Combobox.SelectedIndexChanged += DescripcionDeposito_Combobox_SelectedIndexChanged;
             // 
             // CrearOP_button
             // 
-            CrearOP_button.Location = new Point(554, 492);
+            CrearOP_button.Location = new Point(791, 820);
+            CrearOP_button.Margin = new Padding(4, 5, 4, 5);
             CrearOP_button.Name = "CrearOP_button";
-            CrearOP_button.Size = new Size(75, 23);
+            CrearOP_button.Size = new Size(107, 38);
             CrearOP_button.TabIndex = 6;
             CrearOP_button.Text = "Crear OP";
             CrearOP_button.UseVisualStyleBackColor = true;
@@ -122,35 +128,40 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             DatosTransportistas_groupbox.Controls.Add(FechaEntrega_label);
             DatosTransportistas_groupbox.Controls.Add(label5);
             DatosTransportistas_groupbox.Controls.Add(Dni_textbox);
-            DatosTransportistas_groupbox.Location = new Point(298, 23);
+            DatosTransportistas_groupbox.Location = new Point(426, 38);
+            DatosTransportistas_groupbox.Margin = new Padding(4, 5, 4, 5);
             DatosTransportistas_groupbox.Name = "DatosTransportistas_groupbox";
-            DatosTransportistas_groupbox.Size = new Size(446, 152);
+            DatosTransportistas_groupbox.Padding = new Padding(4, 5, 4, 5);
+            DatosTransportistas_groupbox.Size = new Size(637, 253);
             DatosTransportistas_groupbox.TabIndex = 8;
             DatosTransportistas_groupbox.TabStop = false;
             DatosTransportistas_groupbox.Text = "Datos Transportistas";
             // 
             // dateTimePicker_fecha
             // 
-            dateTimePicker_fecha.Location = new Point(6, 96);
+            dateTimePicker_fecha.Location = new Point(9, 160);
+            dateTimePicker_fecha.Margin = new Padding(4, 5, 4, 5);
             dateTimePicker_fecha.Name = "dateTimePicker_fecha";
-            dateTimePicker_fecha.Size = new Size(287, 23);
+            dateTimePicker_fecha.Size = new Size(408, 31);
             dateTimePicker_fecha.TabIndex = 6;
             // 
             // FechaEntrega_label
             // 
             FechaEntrega_label.AutoSize = true;
-            FechaEntrega_label.Location = new Point(6, 78);
+            FechaEntrega_label.Location = new Point(9, 130);
+            FechaEntrega_label.Margin = new Padding(4, 0, 4, 0);
             FechaEntrega_label.Name = "FechaEntrega_label";
-            FechaEntrega_label.Size = new Size(199, 15);
+            FechaEntrega_label.Size = new Size(300, 25);
             FechaEntrega_label.TabIndex = 5;
             FechaEntrega_label.Text = "Fecha Entrega Orden de Preparacion";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(6, 19);
+            label5.Location = new Point(9, 32);
+            label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(97, 15);
+            label5.Size = new Size(149, 25);
             label5.TabIndex = 4;
             label5.Text = "DNI Transportista";
             // 
@@ -160,9 +171,11 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             DatosGenerales_groupBox.Controls.Add(IdCliente_label);
             DatosGenerales_groupBox.Controls.Add(DescripcionDeposito_Combobox);
             DatosGenerales_groupBox.Controls.Add(IdCliente_textbox);
-            DatosGenerales_groupBox.Location = new Point(48, 23);
+            DatosGenerales_groupBox.Location = new Point(69, 38);
+            DatosGenerales_groupBox.Margin = new Padding(4, 5, 4, 5);
             DatosGenerales_groupBox.Name = "DatosGenerales_groupBox";
-            DatosGenerales_groupBox.Size = new Size(226, 152);
+            DatosGenerales_groupBox.Padding = new Padding(4, 5, 4, 5);
+            DatosGenerales_groupBox.Size = new Size(323, 253);
             DatosGenerales_groupBox.TabIndex = 10;
             DatosGenerales_groupBox.TabStop = false;
             DatosGenerales_groupBox.Text = "Datos Generales";
@@ -170,18 +183,20 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             // Deposito_label
             // 
             Deposito_label.AutoSize = true;
-            Deposito_label.Location = new Point(19, 78);
+            Deposito_label.Location = new Point(27, 130);
+            Deposito_label.Margin = new Padding(4, 0, 4, 0);
             Deposito_label.Name = "Deposito_label";
-            Deposito_label.Size = new Size(136, 15);
+            Deposito_label.Size = new Size(182, 25);
             Deposito_label.TabIndex = 11;
-            Deposito_label.Text = "Descripcion DepositoEnt";
+            Deposito_label.Text = "Descripción Depósito";
             // 
             // IdCliente_label
             // 
             IdCliente_label.AutoSize = true;
-            IdCliente_label.Location = new Point(19, 19);
+            IdCliente_label.Location = new Point(27, 32);
+            IdCliente_label.Margin = new Padding(4, 0, 4, 0);
             IdCliente_label.Name = "IdCliente_label";
-            IdCliente_label.Size = new Size(58, 15);
+            IdCliente_label.Size = new Size(88, 25);
             IdCliente_label.TabIndex = 10;
             IdCliente_label.Text = "ID Cliente";
             // 
@@ -192,18 +207,21 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             DatosMercaderias_groupBox.Controls.Add(Descripcion_label);
             DatosMercaderias_groupBox.Controls.Add(DescripcionMercaderia_ComboBox);
             DatosMercaderias_groupBox.Controls.Add(Cantidad_textbox);
-            DatosMercaderias_groupBox.Location = new Point(48, 196);
+            DatosMercaderias_groupBox.Location = new Point(69, 327);
+            DatosMercaderias_groupBox.Margin = new Padding(4, 5, 4, 5);
             DatosMercaderias_groupBox.Name = "DatosMercaderias_groupBox";
-            DatosMercaderias_groupBox.Size = new Size(226, 290);
+            DatosMercaderias_groupBox.Padding = new Padding(4, 5, 4, 5);
+            DatosMercaderias_groupBox.Size = new Size(323, 483);
             DatosMercaderias_groupBox.TabIndex = 11;
             DatosMercaderias_groupBox.TabStop = false;
             DatosMercaderias_groupBox.Text = "Datos Mercaderias";
             // 
             // button_agregar
             // 
-            button_agregar.Location = new Point(120, 152);
+            button_agregar.Location = new Point(171, 253);
+            button_agregar.Margin = new Padding(4, 5, 4, 5);
             button_agregar.Name = "button_agregar";
-            button_agregar.Size = new Size(75, 23);
+            button_agregar.Size = new Size(107, 38);
             button_agregar.TabIndex = 13;
             button_agregar.Text = "Agregar ";
             button_agregar.UseVisualStyleBackColor = true;
@@ -212,26 +230,29 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             // Cantidad_label
             // 
             Cantidad_label.AutoSize = true;
-            Cantidad_label.Location = new Point(9, 95);
+            Cantidad_label.Location = new Point(13, 158);
+            Cantidad_label.Margin = new Padding(4, 0, 4, 0);
             Cantidad_label.Name = "Cantidad_label";
-            Cantidad_label.Size = new Size(134, 15);
+            Cantidad_label.Size = new Size(175, 25);
             Cantidad_label.TabIndex = 6;
-            Cantidad_label.Text = "Cantidad MercaderiaEnt";
+            Cantidad_label.Text = "Cantidad Mercaderia";
             // 
             // Descripcion_label
             // 
             Descripcion_label.AutoSize = true;
-            Descripcion_label.Location = new Point(9, 37);
+            Descripcion_label.Location = new Point(13, 62);
+            Descripcion_label.Margin = new Padding(4, 0, 4, 0);
             Descripcion_label.Name = "Descripcion_label";
-            Descripcion_label.Size = new Size(148, 15);
+            Descripcion_label.Size = new Size(196, 25);
             Descripcion_label.TabIndex = 5;
-            Descripcion_label.Text = "Descripcion MercaderiaEnt";
+            Descripcion_label.Text = "Descripción Mercaderia";
             // 
             // VolverAlMenu_button
             // 
-            VolverAlMenu_button.Location = new Point(642, 492);
+            VolverAlMenu_button.Location = new Point(917, 820);
+            VolverAlMenu_button.Margin = new Padding(4, 5, 4, 5);
             VolverAlMenu_button.Name = "VolverAlMenu_button";
-            VolverAlMenu_button.Size = new Size(102, 23);
+            VolverAlMenu_button.Size = new Size(146, 38);
             VolverAlMenu_button.TabIndex = 12;
             VolverAlMenu_button.Text = "Volver al Menu";
             VolverAlMenu_button.UseVisualStyleBackColor = true;
@@ -241,9 +262,10 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             // 
             listView_MercaderiasOrdenes.CheckBoxes = true;
             listView_MercaderiasOrdenes.Columns.AddRange(new ColumnHeader[] { MercaderiaEnt, Cantidad });
-            listView_MercaderiasOrdenes.Location = new Point(6, 22);
+            listView_MercaderiasOrdenes.Location = new Point(9, 37);
+            listView_MercaderiasOrdenes.Margin = new Padding(4, 5, 4, 5);
             listView_MercaderiasOrdenes.Name = "listView_MercaderiasOrdenes";
-            listView_MercaderiasOrdenes.Size = new Size(409, 252);
+            listView_MercaderiasOrdenes.Size = new Size(583, 417);
             listView_MercaderiasOrdenes.TabIndex = 13;
             listView_MercaderiasOrdenes.UseCompatibleStateImageBehavior = false;
             listView_MercaderiasOrdenes.View = View.Details;
@@ -261,18 +283,21 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             // groupBox1
             // 
             groupBox1.Controls.Add(listView_MercaderiasOrdenes);
-            groupBox1.Location = new Point(298, 197);
+            groupBox1.Location = new Point(426, 328);
+            groupBox1.Margin = new Padding(4, 5, 4, 5);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(446, 289);
+            groupBox1.Padding = new Padding(4, 5, 4, 5);
+            groupBox1.Size = new Size(637, 482);
             groupBox1.TabIndex = 14;
             groupBox1.TabStop = false;
             groupBox1.Text = "Items Orden de Preparacion";
             // 
             // button2
             // 
-            button2.Location = new Point(455, 492);
+            button2.Location = new Point(650, 820);
+            button2.Margin = new Padding(4, 5, 4, 5);
             button2.Name = "button2";
-            button2.Size = new Size(75, 23);
+            button2.Size = new Size(107, 38);
             button2.TabIndex = 15;
             button2.Text = "Borrar Item";
             button2.UseVisualStyleBackColor = true;
@@ -284,9 +309,9 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             // 
             // CrearOrdenDePreparacion_form
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(766, 541);
+            ClientSize = new Size(1094, 902);
             Controls.Add(button2);
             Controls.Add(groupBox1);
             Controls.Add(VolverAlMenu_button);
@@ -294,6 +319,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             Controls.Add(DatosGenerales_groupBox);
             Controls.Add(DatosTransportistas_groupbox);
             Controls.Add(CrearOP_button);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "CrearOrdenDePreparacion_form";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Generar Orden de Preparacion";

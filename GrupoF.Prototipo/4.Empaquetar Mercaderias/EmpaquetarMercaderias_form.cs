@@ -71,7 +71,7 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 
                 EmpaquetarMercaderias_model.EditarEstadoOP(id);
 
-                MessageBox.Show("Se listo con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Las mercaderías han sido empaquetadas con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.Hide();
 
@@ -80,7 +80,7 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
             }
             else 
             {
-                MessageBox.Show("No hay Ordenes de preparacion pendientes de preparar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No hay ordenes de preparacion pendientes de empaquetar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

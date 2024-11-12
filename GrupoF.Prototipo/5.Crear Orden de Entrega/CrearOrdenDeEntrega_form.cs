@@ -69,7 +69,7 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
 
                 CrearOrdenDeEntrega_model.CrearOrdenesDeEntrega(ordenesDeEntrega);
 
-                MessageBox.Show("Se envio a despacho con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Se envió a despacho con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.Hide();
 
@@ -78,7 +78,7 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
             }
             else 
             {
-                MessageBox.Show("No hay Ordenes de preparacion pendientes de envio a despacho.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No hay órdenes de preparacion pendientes de envio a despacho.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 

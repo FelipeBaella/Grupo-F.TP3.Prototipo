@@ -13,6 +13,44 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
 {
     internal class CrearOrdenDeEntrega_model
     {
+        // EL NUEVO
+        public static string CrearOrdenesDeEntrega2(List<int> Ordenespreparacion_OE)
+        {
+
+            var ordenDeEntrega = new OrdenDeEntregaEnt();
+
+            var FechaEmision_OE = DateTime.Now.Date;
+
+            var OE = OrdenDeEntregaAlmacen.OrdenesDeEntrega;
+            var ID_OE = 1;
+
+            if (OE.Count > 0)
+            {
+                ID_OE = OE.Last().ID_OE + 1;
+            }
+
+            var OrdenesDePreparacion = ordenDeEntrega.OrdenesPreparacion_OE;
+
+            foreach (var item in OrdenesDePreparacion)
+            {
+                var ordenDePreparacion = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.ID_OP == item).SingleOrDefault();
+
+                ordenDePreparacion.Estado_OP = EstadoOPEnum.EnDespacho; // Verificar
+            }
+
+            ordenDeEntrega.OrdenesPreparacion_OE = OrdenesDePreparacion;
+            ordenDeEntrega.ID_OE = ID_OE;
+            ordenDeEntrega.FechaEmision_OE = FechaEmision_OE;
+
+            OrdenDeEntregaAlmacen.Nueva(ordenDeEntrega);
+
+            Program.Grabar();
+
+            return null; //?? Validar si es eso o: return ordenDeEntrega.ID_OE.ToString();
+
+        }
+
+        // EL ORIGINAL
         public static string CrearOrdenesDeEntrega(OrdenDeEntregaEnt ordenesDeEntrega)
         {
             var OE = OrdenDeEntregaAlmacen.OrdenesDeEntrega.ToList();

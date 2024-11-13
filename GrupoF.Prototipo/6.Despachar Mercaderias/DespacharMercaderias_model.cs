@@ -12,6 +12,51 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 {
     internal class DespacharMercaderias_model
     {
+        // Nuevo
+        public static string CrearRemito2(List<int> Ordenespreparacion_Remito)
+        {
+
+            var Remito = new RemitoEnt();
+
+            var FechaEmision_Remito = DateTime.Now.Date;
+            var ID_Remito = 1;
+
+            //if (remito.count > 0)
+            //{
+            //    id_oe = oe.last().id_oe + 1;
+            //}
+
+            //remito.id_remito = id_remito;
+            //var fechaemision_remito = datetime.now.date;
+            //remito.fechaemision_remito = fechaemision_remito;
+
+            // TODO FALTA ITERAR PARA OBTENER LOS ID DE LAS OP ASOCIADAS A LOS REMITOS
+
+            //var ordenespreparacion_oe = new List<OrdenesPreparacion_OE>();
+
+            //foreach (var opId in Ordenespreparacion_OE){}
+
+
+            var remito = RemitoAlmacen.Remitos.ToList();
+
+            if (remito.Count > 0)
+            {
+                Remito.ID_Remito = remito.Last().ID_Remito + 1;
+            }
+            else
+            {
+                Remito.ID_Remito = 1;
+            }
+
+            RemitoAlmacen.Nueva(Remito);
+
+            Program.Grabar();
+
+            return null; //?? Validar si es eso o: return Remito.ID_Remito.ToString();
+
+        }
+
+        // Original
         public static string CrearRemito(RemitoEnt remito)
         {
             var remitos = RemitoAlmacen.Remitos;

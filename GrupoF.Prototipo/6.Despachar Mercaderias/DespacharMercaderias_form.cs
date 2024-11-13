@@ -15,7 +15,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 {
     public partial class DespacharMercaderias_form : Form
     {
-        private DespacharMercaderias_model DespacharMercaderias_model = new DespacharMercaderias_model();
+        private DespacharMercaderias_model model = new DespacharMercaderias_model();
 
         public DespacharMercaderias_form()
         {
@@ -31,7 +31,7 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 
             if (dniTransportista != 0)
             {
-                ordenes = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.DNI_Transportista == dniTransportista && x.Estado_OP == EstadoOPEnum.EnDespacho).ToList();
+                ordenes = ordenes.Where(x => x.DNI_Transportista == dniTransportista && x.Estado_OP == EstadoOPEnum.EnDespacho).ToList();
             }
 
             foreach (var orden in ordenes)

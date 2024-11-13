@@ -95,7 +95,6 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
             Name = "CrearOrdenDeEntrega_form";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Crear Orden De Entrega";
-            Load += CrearOrdenDeEntrega_form_Load;
             OPPreparadasgroupBox1.ResumeLayout(false);
             ResumeLayout(false);
         }

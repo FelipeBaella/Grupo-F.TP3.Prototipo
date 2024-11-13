@@ -16,6 +16,7 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
 {
     public partial class CrearOrdenDeEntrega_form : Form
     {
+        private CrearOrdenDeEntrega_model model = new CrearOrdenDeEntrega_model();
 
         public CrearOrdenDeEntrega_form()
         {
@@ -25,7 +26,7 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
 
         private void CargarOrdenesDePreparacion()
         {
-            var ordenes = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.Estado_OP == EstadoOPEnum.Preparada).ToList();
+            var ordenes = model.ObtenerOPs().Where(x => x.Estado_OP == EstadoOPEnum.Preparada).ToList();
 
             OrdenesDePreparacion_ListView.Items.Clear();
 
@@ -47,11 +48,6 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
         {
             if (OrdenesDePreparacion_ListView.Items.Count > 0)
             {
-
-                var ordenesDeEntrega = new OrdenDeEntregaEnt();
-
-                ordenesDeEntrega.FechaEmision_OE = DateTime.Now;
-
                 var ops = new List<int>();
 
                 foreach (var item in OrdenesDePreparacion_ListView.Items)
@@ -65,9 +61,7 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
                     }
                 }
 
-                ordenesDeEntrega.OrdenesPreparacion_OE = ops;
-
-                CrearOrdenDeEntrega_model.CrearOrdenesDeEntrega(ordenesDeEntrega);
+                model.CrearOrdenesDeEntrega(ops);
 
                 MessageBox.Show("Se envió a despacho con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -91,11 +85,6 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
             Menu_form nuevaForma = new Menu_form();
 
             nuevaForma.Show();
-        }
-
-        private void CrearOrdenDeEntrega_form_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

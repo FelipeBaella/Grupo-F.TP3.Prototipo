@@ -19,12 +19,26 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
             var Remito = new RemitoEnt();
 
             var FechaEmision_Remito = DateTime.Now.Date;
+            
+            var remito = RemitoAlmacen.Remitos;
             var ID_Remito = 1;
 
-            //if (remito.count > 0)
-            //{
-            //    id_oe = oe.last().id_oe + 1;
-            //}
+            if (remito.Count > 0)
+            {
+                ID_Remito= remito.Last().ID_Remito + 1;
+            }
+
+            var Remitos;
+
+            var OrdenesDePreparacion = ordenDeEntrega.OrdenesPreparacion_OE;
+
+            foreach (var item in OrdenesDePreparacion)
+            {
+                var ordenDePreparacion = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.ID_OP == item).SingleOrDefault();
+
+                ordenDePreparacion.Estado_OP = EstadoOPEnum.EnDespacho; // Verificar
+            }
+
 
             //remito.id_remito = id_remito;
             //var fechaemision_remito = datetime.now.date;

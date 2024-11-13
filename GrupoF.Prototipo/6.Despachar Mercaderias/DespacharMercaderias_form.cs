@@ -27,11 +27,11 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
         {
             listView_OrdenesDePreparacion.Items.Clear();
 
-            var ordenes = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.DNI_Transportista == 0).ToList();
+            var ordenes = model.ObtenerOPs().Where(x => x.DNI_Transportista == 0).ToList();
 
             if (dniTransportista != 0)
             {
-                ordenes = ordenes.Where(x => x.DNI_Transportista == dniTransportista && x.Estado_OP == EstadoOPEnum.EnDespacho).ToList();
+                ordenes = model.ObtenerOPs().Where(x => x.DNI_Transportista == dniTransportista && x.Estado_OP == EstadoOPEnum.EnDespacho).ToList();
             }
 
             foreach (var orden in ordenes)
@@ -43,6 +43,13 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
                 }, -1);
 
                 listView_OrdenesDePreparacion.Items.Add(listViewItem);
+            }
+
+            if (dniTransportista != 0 && listView_OrdenesDePreparacion.Items.Count == 0)
+            {
+                MessageBox.Show("No hay ordenes de preparacion asociadas al DNI ingresado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DniTransportista_textBox.Focus();
+                return;
             }
         }
 
@@ -74,18 +81,14 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 
             if (OrdenesDeEntrega > 0)
             {
-                var ordenDePreparacionEnt = new List<int>();
-
-                var remito = new RemitoEnt();
+                var Ordenespreparacion_Remito = new List<int>();
 
                 foreach (ListViewItem item in listView_OrdenesDePreparacion.Items)
                 {
-                    ordenDePreparacionEnt.Add(int.Parse(item.SubItems[0].Text));
+                    Ordenespreparacion_Remito.Add(int.Parse(item.SubItems[0].Text));
                 }
 
-                remito.OrdenesPreparacion_Remito = ordenDePreparacionEnt;
-
-                DespacharMercaderias_model.CrearRemito(remito);
+                model.CrearRemito(Ordenespreparacion_Remito);
 
 
                 MessageBox.Show("Se emitio el remito con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);

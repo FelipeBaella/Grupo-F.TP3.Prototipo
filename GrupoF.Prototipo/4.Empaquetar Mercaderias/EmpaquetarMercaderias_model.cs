@@ -11,6 +11,21 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 {
     internal class EmpaquetarMercaderias_model
     {
+        public List<OrdenDePreparacionEnt> ObtenerOPs()
+        {
+            var lista = OrdenDePreparacionAlmacen.OrdenesDePreparacion.ToList();
+
+            return lista;
+        }
+
+        public List<MercaderiaEnt> ObtenerMercaderias()
+        {
+            var lista = MercaderiaAlmacen.Mercaderias.ToList();
+
+            return lista;
+        }
+
+
         public string EditarEstadoOP(int id)
         {
             var OrdenDePreparacion = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.ID_OP == id).SingleOrDefault();

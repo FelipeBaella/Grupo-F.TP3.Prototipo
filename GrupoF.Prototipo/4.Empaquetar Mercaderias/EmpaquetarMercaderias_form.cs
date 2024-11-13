@@ -17,7 +17,7 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 {
     public partial class EmpaquetarMercaderias_form : Form
     {
-        private EmpaquetarMercaderias_model EmpaquetarMercaderias_model = new EmpaquetarMercaderias_model();
+        private EmpaquetarMercaderias_model model = new EmpaquetarMercaderias_model();
 
         public EmpaquetarMercaderias_form()
         {
@@ -27,9 +27,9 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 
         private void CargarOrdenesDePreparacionItems()
         {
-            if (OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.Estado_OP == EstadoOPEnum.EnPreparacion).ToList().Count > 0)
+            if (model.ObtenerOPs().Where(x => x.Estado_OP == EstadoOPEnum.EnPreparacion).ToList().Count > 0)
             {
-                var ordenes = OrdenDePreparacionAlmacen.OrdenesDePreparacion
+                var ordenes = model.ObtenerOPs()
                  .Where(x => x.Estado_OP == EstadoOPEnum.EnPreparacion)
                  .First();
 
@@ -37,14 +37,14 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 
                 foreach (var orden in OPItems)
                 {
-                    var MercaderiaEnt = MercaderiaAlmacen.Mercaderias.Where(x => x.ID_Mercaderia == orden.ID_Mercaderia).FirstOrDefault();
+                    var MercaderiaEnt = model.ObtenerMercaderias().Where(x => x.ID_Mercaderia == orden.ID_Mercaderia).FirstOrDefault();
 
                     ListViewItem listViewItem = new ListViewItem(new string[] {
 
-                    MercaderiaEnt.Descripcion_Mercaderia,
-                    orden.Cantidad_Mercaderia.ToString(),
+                        MercaderiaEnt.Descripcion_Mercaderia,
+                        orden.Cantidad_Mercaderia.ToString(),
 
-                }, -1);
+                    }, -1);
 
                     OrdenesDePreparacion_listView.Items.Add(listViewItem);
                 }
@@ -63,13 +63,13 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 
         private void button_empaquetar_Click(object sender, EventArgs e)
         {
-            if (OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.Estado_OP == EstadoOPEnum.EnPreparacion).ToList().Count > 0)
+            if (model.ObtenerOPs().Where(x => x.Estado_OP == EstadoOPEnum.EnPreparacion).ToList().Count > 0)
             {
-                var id = OrdenDePreparacionAlmacen.OrdenesDePreparacion
+                var id = model.ObtenerOPs()
                  .Where(x => x.Estado_OP == EstadoOPEnum.EnPreparacion)
                  .First().ID_OP;
 
-                EmpaquetarMercaderias_model.EditarEstadoOP(id);
+                model.EditarEstadoOP(id);
 
                 MessageBox.Show("Las mercaderías han sido empaquetadas con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

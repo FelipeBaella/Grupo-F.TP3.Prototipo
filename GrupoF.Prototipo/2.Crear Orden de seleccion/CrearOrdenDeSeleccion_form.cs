@@ -25,7 +25,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 {
     public partial class CrearOrdenDeSeleccion_form : Form
     {
-        private CrearOrdenDeSeleccion_model CrearOrdenDeSeleccion_model = new CrearOrdenDeSeleccion_model();
+        private CrearOrdenDeSeleccion_model model = new CrearOrdenDeSeleccion_model();
 
         public CrearOrdenDeSeleccion_form()
         {
@@ -41,7 +41,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
             foreach (var orden in ordenes)
             {
-                var cliente = ClienteAlmacen.Clientes.Where(x => x.ID_Cliente == orden.ID_Cliente).FirstOrDefault();
+                var cliente = model.ObtenerClientes().Where(x => x.ID_Cliente == orden.ID_Cliente).FirstOrDefault();
 
                 var prioridad = "";
 
@@ -72,18 +72,15 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         {
             ItemsOP_listView2.Items.Clear();
 
-            var OP = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.ID_OP == ID_ordenDePrparacion).SingleOrDefault();
+            var OP = model.ObtenerOPs().Where(x => x.ID_OP == ID_ordenDePrparacion).SingleOrDefault();
 
             var Mercaderias_OP = OP.Mercaderias_OP;
-
-
-            CrearOrdnesDePreparacion_model modelo = new CrearOrdnesDePreparacion_model(); //CUANDO HAYAMOS CARGADO MERCADERIAS SE VA
 
             var i = 1;
 
             foreach (var item in Mercaderias_OP)
             {           
-                var mercaderia = MercaderiaAlmacen.Mercaderias.Where(x => x.ID_Mercaderia == item.ID_Mercaderia).SingleOrDefault(); //CUANDO HAYAMOS CARGADO MERCADERIAS SE MODIFICA
+                var mercaderia = model.ObtenerMercaderias().Where(x => x.ID_Mercaderia == item.ID_Mercaderia).SingleOrDefault(); 
 
                 ListViewItem listViewItem = new ListViewItem(new string[] {
 
@@ -109,24 +106,15 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
                 Items_OS_listView.Focus();
                 return;
             }
-
-            var ordenesDeSeleccion = new OrdenDeSeleccionEnt();
-
-
-            ordenesDeSeleccion.Fecha_EmisionOS = DateTime.Now;
-            ordenesDeSeleccion.FechaActualizacion_EstadoOS = DateTime.Now;
-          
-
-            var OrdenDePreparacionEnt = new List<int>();
+       
+            var Ops = new List<int>();
 
             foreach (ListViewItem item in Items_OS_listView.Items)
             {
-                OrdenDePreparacionEnt.Add(int.Parse(item.SubItems[0].Text));
+                Ops.Add(int.Parse(item.SubItems[0].Text));
             }
 
-            ordenesDeSeleccion.OrdenesPreparacion_OS = OrdenDePreparacionEnt;
-
-            CrearOrdenDeSeleccion_model.CrearOrdenesDeSeleccion(ordenesDeSeleccion);
+            model.CrearOrdenesDeSeleccion(Ops);
 
             MessageBox.Show("Se creo la orden de seleccion con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -265,9 +253,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
         private void button_Click(object sender, EventArgs e)
         {
-            var listview = OrdenDePreparacionAlmacen.OrdenesDePreparacion;
-
-            listview = listview.Where(x => x.Estado_OP == GrupoF.Prototipo.Almacenes.EstadoOPEnum.Emitida).ToList();
+            var listview = model.ObtenerOPs().Where(x => x.Estado_OP == EstadoOPEnum.Emitida).ToList();
 
             if (comboBox1.SelectedIndex == 0)
             {
@@ -319,8 +305,6 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
                 CargarOrdenesDePreparacion(listview);
             }
 
-        }
-
-     
+        }    
     }
 }

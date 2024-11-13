@@ -227,6 +227,13 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
             var MercaderiaEnt = model.ObtenerDepositosMercaderias().Where(x => x.ID_Cliente == int.Parse(cliente) && x.ID_Deposito == deposito && x.ID_Mercaderia == int.Parse(mercaderiaID)).ToList();
 
+            int cantidadTotal = model.ObtenerOPs()
+             .Where(x => x.Value.Item1 == int.Parse(cliente)
+                 && x.Value.Item2 == deposito
+                 && x.Value.Item3 == int.Parse(mercaderiaID))
+             .Sum(x => x.Value.Item4);
+
+
             foreach (ListViewItem item in listView_MercaderiasOrdenes.Items)
             {
                 string SubItems_Completo = item.SubItems[0].Text;
@@ -241,7 +248,9 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                 }
             }
 
-            var cantidadExistente = MercaderiaEnt.Sum(m => m.Cantidad_DepositoMercaderia);
+            int cantidadExistente = MercaderiaEnt.Sum(m => m.Cantidad_DepositoMercaderia);
+
+            int cantidadDisponible = cantidadExistente - cantidadTotal;
 
             var cantidad = 0;
             if (!int.TryParse(Cantidad_textbox.Text.Trim(), out cantidad))
@@ -256,9 +265,9 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                 DescripcionDeposito_Combobox.Focus();
                 return;
             }
-            if (cantidad > cantidadExistente)
+            if (cantidad > cantidadDisponible)
             {
-                MessageBox.Show("El Deposito no contiene la cantidad Seleccionada. La cantidad total es: " + cantidadExistente, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El Deposito no contiene la cantidad Seleccionada. La cantidad total es: " + cantidadDisponible, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Cantidad_textbox.Focus();
                 return;
             }

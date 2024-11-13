@@ -34,6 +34,32 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             return lista;
         }
 
+        public new Dictionary<int, ( int, int, int, int)> ObtenerOPs()
+        {
+            var OPs = OrdenDePreparacionAlmacen.OrdenesDePreparacion
+                .Where(x => x.Estado_OP == EstadoOPEnum.Emitida || x.Estado_OP == EstadoOPEnum.Seleccionada)
+                .Select(x => new { x.ID_Cliente, x.ID_Deposito, x.Mercaderias_OP }) 
+                .ToList();
+
+            var lista = new Dictionary<int,(int, int, int, int)>();
+
+            var i = 1;
+
+            // Recorremos cada orden de preparación
+            foreach (var op in OPs)
+            {
+                // Recorremos cada mercadería en Mercaderias_OP y la agregamos a la lista
+                foreach (var mercaderia in op.Mercaderias_OP)
+                {               
+                    lista.Add( i, (op.ID_Cliente, op.ID_Deposito, mercaderia.ID_Mercaderia, mercaderia.Cantidad_Mercaderia));
+
+                    i++;
+                }
+            }
+
+            return lista;
+        }
+
 
         public static string CrearOrdenesDePreparacion(bool Prioridad_OP, int ID_Cliente, DateTime FechaEntrega_OP, int ID_Deposito, int DNI_Transportista, Dictionary<int,int> Mercaderias_OP)
         { 

@@ -20,6 +20,8 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 {
     public partial class ProcesarOrdenDeSeleccion_form : Form
     {
+        private ProcesarOrdenDeSeleccion_model model = new ProcesarOrdenDeSeleccion_model();
+
         public ProcesarOrdenDeSeleccion_form()
         {
             InitializeComponent();
@@ -30,13 +32,13 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
         {
             ProcesarOrdenesDeSeleccion_listView.Items.Clear();
 
-            var OS = OrdenDeSeleccionAlmacen.OrdenesDeSeleccion.Where(x => x.ID_OS == int.Parse(id)).SingleOrDefault();
+            var OS = model.ObtenerOSs().Where(x => x.ID_OS == int.Parse(id)).SingleOrDefault();
 
             var OrdenesPreparacion_OS = OS.OrdenesPreparacion_OS;
 
             foreach (var item in OrdenesPreparacion_OS)
             {
-                var OP = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.ID_OP == item).SingleOrDefault();
+                var OP = model.ObtenerOPs().Where(x => x.ID_OP == item).SingleOrDefault();
 
                 var cliente = OP.ID_Cliente;
                 var deposito = OP.ID_Deposito;
@@ -45,8 +47,8 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 
                 foreach (var items in mercaderias)
                 {
-                    var mercaderia = MercaderiaAlmacen.Mercaderias.Where(x => x.ID_Mercaderia == items.ID_Mercaderia).SingleOrDefault();
-                    var depositoMercaderia = DepositoMercaderiaAlmacen.DepositosMercaderias.Where(x => x.ID_Mercaderia == mercaderia.ID_Mercaderia && x.ID_Cliente == cliente && x.ID_Deposito == deposito).FirstOrDefault();
+                    var mercaderia = model.ObtenerMercaderias().Where(x => x.ID_Mercaderia == items.ID_Mercaderia).SingleOrDefault();
+                    var depositoMercaderia = model.ObtenerDepositosMercaderias().Where(x => x.ID_Mercaderia == mercaderia.ID_Mercaderia && x.ID_Cliente == cliente && x.ID_Deposito == deposito).FirstOrDefault();
 
                     if (depositoMercaderia != null)
                     {
@@ -75,7 +77,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 
         private void CargarOrdenesDeSeleccion()
         {
-            var OrdenesDeSeleccion = OrdenDeSeleccionAlmacen.OrdenesDeSeleccion.Where(x => x.Estado_OS == EstadoOSEnum.Emitida).Select(x => x.ID_OS).ToList();
+            var OrdenesDeSeleccion = model.ObtenerOSs().Where(x => x.Estado_OS == EstadoOSEnum.Emitida).Select(x => x.ID_OS).ToList();
 
             foreach (var orden in OrdenesDeSeleccion)
             {
@@ -90,8 +92,6 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
             if (int.TryParse(OS_Pendientes_comboBox.Text, out id))
             {
                 ProcesarOrdenDeSeleccion_model.EditarEstadoOS(id);
-
-                //ProcesarOrdenDeSeleccion_model.EditarEstadoOP(id);
 
                 MessageBox.Show("Se proceso la orden de seleccion con exito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

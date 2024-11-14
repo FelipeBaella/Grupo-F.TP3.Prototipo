@@ -44,16 +44,14 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
                 ID_OE = OE.Last().ID_OE + 1;
             }
 
-            var OrdenesDePreparacion = ordenDeEntrega.OrdenesPreparacion_OE;
-
-            foreach (var item in OrdenesDePreparacion)
+            foreach (var item in Ordenespreparacion_OE)
             {
                 var ordenDePreparacion = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.ID_OP == item).SingleOrDefault();
 
                 ordenDePreparacion.Estado_OP = EstadoOPEnum.EnDespacho; // Verificar
             }
 
-            ordenDeEntrega.OrdenesPreparacion_OE = OrdenesDePreparacion;
+            ordenDeEntrega.OrdenesPreparacion_OE = Ordenespreparacion_OE;
             ordenDeEntrega.ID_OE = ID_OE;
             ordenDeEntrega.FechaEmision_OE = FechaEmision_OE;
 

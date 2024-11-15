@@ -1,5 +1,13 @@
 ﻿[
   {
+    "ID_DepositoMercaderia": 0,
+    "ID_Cliente": 1,
+    "ID_Deposito": 1,
+    "ID_Mercaderia": 1,
+    "Cantidad_DepositoMercaderia": 250,
+    "Coordenadas_DepositoMercaderia": "99-99-9"
+  },
+  {
     "ID_DepositoMercaderia": 1,
     "ID_Cliente": 1,
     "ID_Deposito": 1,

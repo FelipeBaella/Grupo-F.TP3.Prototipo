@@ -81,6 +81,13 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                 .ToList();
 
 
+                //int cantidadTotal = model.ObtenerOPs()
+                // .Where(x => x.Value.Item1 == cliente
+                //     && x.Value.Item2 == deposito
+                //     && x.Value.Item3 == int.Parse(mercaderiaID))
+                // .Sum(x => x.Value.Item4);
+
+
                 var mercaderias = new List<string>();
 
                 foreach (var item in DepositoMercaderiaEnt)

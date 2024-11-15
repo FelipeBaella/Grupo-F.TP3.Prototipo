@@ -3,6 +3,7 @@ using GrupoF.Prototipo.Almacenes;
 using GrupoF.Prototipo.Procesar_ordener_de_seleccion;
 using GrupoF.Prototipo.Procesar_ordenes_de_preparacion;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,34 +37,101 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 
             var OrdenesPreparacion_OS = OS.OrdenesPreparacion_OS;
 
+            var lista = new Dictionary<int, (int, int, int, int)>();
+
+            var i = 1;
+
             foreach (var item in OrdenesPreparacion_OS)
             {
                 var OP = model.ObtenerOPs().Where(x => x.ID_OP == item).SingleOrDefault();
 
-                var cliente = OP.ID_Cliente;
-                var deposito = OP.ID_Deposito;
+                var ID_Cliente = OP.ID_Cliente;
+                var ID_Deposito = OP.ID_Deposito;
+                var Mercaderias_OP = OP.Mercaderias_OP;
 
-                var mercaderias = OP.Mercaderias_OP;
-
-                foreach (var items in mercaderias)
+                // Recorremos cada orden de preparación
+                foreach (var mercaderia in Mercaderias_OP)
                 {
-                    var mercaderia = model.ObtenerMercaderias().Where(x => x.ID_Mercaderia == items.ID_Mercaderia).SingleOrDefault();
-                    var depositoMercaderia = model.ObtenerDepositosMercaderias().Where(x => x.ID_Mercaderia == mercaderia.ID_Mercaderia && x.ID_Cliente == cliente && x.ID_Deposito == deposito).FirstOrDefault();
+                    lista.Add(i, (ID_Cliente, ID_Deposito, mercaderia.ID_Mercaderia, mercaderia.Cantidad_Mercaderia));
+
+                    i++;
+                }
+            }
+
+            var Mercaderias_OP_agrupadas = lista
+             .GroupBy(x => new { x.Value.Item1, x.Value.Item2, x.Value.Item3 })  // Agrupamos por ID_Cliente, ID_Deposito, ID_Mercaderia
+             .ToDictionary(
+                 g => g.Key,  // La clave es el grupo de ID_Cliente, ID_Deposito, ID_Mercaderia
+                 g => (
+                     g.Key.Item1,  // ID_Cliente
+                     g.Key.Item2,  // ID_Deposito
+                     g.Key.Item3,  // ID_Mercaderia
+                     g.Sum(x => x.Value.Item4)  // Suma de las cantidades
+                 )
+             );
+
+            var depositosUsados = new HashSet<int>();
+
+            foreach (var item in Mercaderias_OP_agrupadas)
+            {
+                var cantidadRestante = item.Value.Item4;
+
+                while (cantidadRestante > 0)
+                {
+                    // Buscar un depósito con suficiente mercadería o el próximo disponible, excluyendo los ya usados
+                    var depositoMercaderia = model.ObtenerDepositosMercaderias()
+                        .Where(x => x.ID_Cliente == item.Value.Item1 &&
+                                    x.ID_Deposito == item.Value.Item2 &&
+                                    x.ID_Mercaderia == item.Value.Item3 &&
+                                    x.Cantidad_DepositoMercaderia > 0 &&
+                                    !depositosUsados.Contains(x.ID_DepositoMercaderia))
+                        .FirstOrDefault();
 
                     if (depositoMercaderia != null)
                     {
-                        ListViewItem listViewItem1 = new ListViewItem(new string[] {
+                        // Añadir el depósito a la lista de usados
+                        depositosUsados.Add(depositoMercaderia.ID_DepositoMercaderia);
 
+
+                        var mercaderia = model.ObtenerMercaderias()
+                            .Where(x => x.ID_Mercaderia == item.Value.Item3)
+                            .FirstOrDefault()?.Descripcion_Mercaderia;
+
+                        if (depositoMercaderia.Cantidad_DepositoMercaderia >= cantidadRestante)
+                        {
+                            // El depósito tiene suficiente para cubrir la cantidad restante
+                            ListViewItem listViewItem1 = new ListViewItem(new string[]
+                            {
                             depositoMercaderia.Coordenadas_DepositoMercaderia.ToString(),
-                            mercaderia.Descripcion_Mercaderia,
-                            items.Cantidad_Mercaderia.ToString(),
+                            mercaderia,
+                            cantidadRestante.ToString(),
+                            }, -1);
 
-                        }, -1);
+                            ProcesarOrdenesDeSeleccion_listView.Items.Add(listViewItem1);
 
-                        ProcesarOrdenesDeSeleccion_listView.Items.Add(listViewItem1);
+                            cantidadRestante = 0;
+                        }
+                        else
+                        {
+                            // El depósito no tiene suficiente, tomar lo que tiene disponible
+                            ListViewItem listViewItem1 = new ListViewItem(new string[]
+                            {
+                            depositoMercaderia.Coordenadas_DepositoMercaderia.ToString(),
+                            mercaderia,
+                            depositoMercaderia.Cantidad_DepositoMercaderia.ToString(),
+                            }, -1);
+
+                            ProcesarOrdenesDeSeleccion_listView.Items.Add(listViewItem1);
+
+                            cantidadRestante -= depositoMercaderia.Cantidad_DepositoMercaderia;
+                        }
                     }
                 }
+
+
             }
+
+
         }
 
         private void VolverAlMenu_button_Click(object sender, EventArgs e)

@@ -46,20 +46,20 @@
     "Estado_OS": 0,
     "FechaEmision_OS": "2024-01-26T00:00:00",
     "FechaActualizacion_EstadoOS": "2024-01-26T00:00:00",
-    "OrdenesPreparacion_OS": [ 17, 18, 19, 20 ]
+    "OrdenesPreparacion_OS": [ 17, 18]
   },
   {
     "ID_OS": 8,
     "Estado_OS": 0,
     "FechaEmision_OS": "2024-01-26T00:00:00",
     "FechaActualizacion_EstadoOS": "2024-01-26T00:00:00",
-    "OrdenesPreparacion_OS": [ 17, 18, 19, 20 ]
+    "OrdenesPreparacion_OS": [ 19 ]
   },
   {
     "ID_OS": 9,
     "Estado_OS": 0,
     "FechaEmision_OS": "2024-01-26T00:00:00",
     "FechaActualizacion_EstadoOS": "2024-01-26T00:00:00",
-    "OrdenesPreparacion_OS": [ 17, 18, 19, 20 ]
+    "OrdenesPreparacion_OS": [ 20 ]
   }
 ]

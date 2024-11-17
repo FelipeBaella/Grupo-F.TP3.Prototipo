@@ -13,6 +13,15 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
 {
     internal class CrearOrdenDeEntrega_model
     {
+        public int ObtenerUsuarioDeposito()
+        {
+            var usuario = UsuarioAlmacen.UsuarioSeleccionado;
+
+            var usuarioDeposito = UsuarioAlmacen.Usuarios.Where(x => x.ID_Usuario == usuario).FirstOrDefault().ID_Deposito;
+
+            return usuarioDeposito;
+        }
+
         public List<OrdenDePreparacionEnt> ObtenerOPs()
         {
             var lista = OrdenDePreparacionAlmacen.OrdenesDePreparacion.ToList();

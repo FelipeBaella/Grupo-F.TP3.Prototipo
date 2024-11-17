@@ -27,10 +27,12 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 
         private void CargarOrdenesDePreparacionItems()
         {
-            if (model.ObtenerOPs().Where(x => x.Estado_OP == EstadoOPEnum.EnPreparacion).ToList().Count > 0)
+            var usuarioDeposito = model.ObtenerUsuarioDeposito();
+
+            if (model.ObtenerOPs().Where(x => x.Estado_OP == EstadoOPEnum.EnPreparacion && x.ID_Deposito == usuarioDeposito).ToList().Count > 0)
             {
                 var ordenes = model.ObtenerOPs()
-                 .Where(x => x.Estado_OP == EstadoOPEnum.EnPreparacion)
+                 .Where(x => x.Estado_OP == EstadoOPEnum.EnPreparacion && x.ID_Deposito == usuarioDeposito)
                  .First();
 
                 var OPItems = ordenes.Mercaderias_OP;
@@ -63,10 +65,12 @@ namespace GrupoF.Prototipo._4.Crear_Orden_de_Entrega
 
         private void button_empaquetar_Click(object sender, EventArgs e)
         {
-            if (model.ObtenerOPs().Where(x => x.Estado_OP == EstadoOPEnum.EnPreparacion).ToList().Count > 0)
+            var usuarioDeposito = model.ObtenerUsuarioDeposito();
+
+            if (model.ObtenerOPs().Where(x => x.Estado_OP == EstadoOPEnum.EnPreparacion && x.ID_Deposito == usuarioDeposito).ToList().Count > 0)
             {
                 var id = model.ObtenerOPs()
-                 .Where(x => x.Estado_OP == EstadoOPEnum.EnPreparacion)
+                 .Where(x => x.Estado_OP == EstadoOPEnum.EnPreparacion && x.ID_Deposito == usuarioDeposito)
                  .First().ID_OP;
 
                 model.EditarEstadoOP(id);

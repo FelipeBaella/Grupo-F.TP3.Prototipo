@@ -87,13 +87,19 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 
                 while (cantidadRestante > 0)
                 {
+                    var ID_Cliente = item.Value.Item1;
+                    var ID_Deposito = item.Value.Item2;
+                    var ID_Mercaderia = item.Value.Item3;
+
+                    var ObtenerDepositosMercaderias = model.ObtenerDepositosMercaderias();
+
                     // Buscar un depósito con suficiente mercadería o el próximo disponible, excluyendo los ya usados
-                    var depositoMercaderia = model.ObtenerDepositosMercaderias()
-                        .Where(x => x.ID_Cliente == item.Value.Item1 &&
-                                    x.ID_Deposito == item.Value.Item2 &&
-                                    x.ID_Mercaderia == item.Value.Item3 &&
+                    var depositoMercaderia = ObtenerDepositosMercaderias
+                        .Where(x => x.ID_Cliente == ID_Cliente &&
+                                    x.ID_Deposito == ID_Deposito &&
+                                    x.ID_Mercaderia == ID_Mercaderia &&
                                     x.Cantidad_DepositoMercaderia > 0 &&
-                                    !depositosUsados.Contains(x.ID_DepositoMercaderia))
+                                    !depositosUsados.Contains(x.ID_DepositoMercaderia))     
                         .FirstOrDefault();
 
                     if (depositoMercaderia != null)
@@ -116,7 +122,7 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
                         }
                         else
                         {
-                            listViewItems.Add(e, (depositoMercaderia.Coordenadas_DepositoMercaderia.ToString(), mercaderia, cantidadRestante.ToString()));
+                            listViewItems.Add(e, (depositoMercaderia.Coordenadas_DepositoMercaderia.ToString(), mercaderia, depositoMercaderia.Cantidad_DepositoMercaderia.ToString()));
 
                             cantidadRestante -= depositoMercaderia.Cantidad_DepositoMercaderia;
 
@@ -152,11 +158,29 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 
         private void CargarOrdenesDeSeleccion()
         {
-            var OrdenesDeSeleccion = model.ObtenerOSs().Where(x => x.Estado_OS == EstadoOSEnum.Emitida).Select(x => x.ID_OS).ToList();
+            var OrdenesDeSeleccion = model.ObtenerOSs().Where(x => x.Estado_OS == EstadoOSEnum.Emitida).ToList();
+            var usuarioDeposito = model.ObtenerUsuarioDeposito();
 
             foreach (var orden in OrdenesDeSeleccion)
             {
-                OS_Pendientes_comboBox.Items.AddRange(new object[] { orden });
+                var depositoCorrecto = false;
+
+                var Ops = orden.OrdenesPreparacion_OS;
+
+                foreach (var op in Ops)
+                {
+                    var Op = model.ObtenerOPs().Any(x => x.ID_OP == op && x.ID_Deposito == usuarioDeposito);
+
+                    if (Op == true)
+                    {
+                        depositoCorrecto = true;
+                    }
+                }
+
+                if (depositoCorrecto == true)
+                {
+                    OS_Pendientes_comboBox.Items.AddRange(new object[] { orden.ID_OS.ToString() });
+                }
             }
         }
 

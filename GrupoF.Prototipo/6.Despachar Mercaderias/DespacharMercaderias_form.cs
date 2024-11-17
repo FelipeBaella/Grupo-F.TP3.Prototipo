@@ -27,11 +27,13 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
         {
             listView_OrdenesDePreparacion.Items.Clear();
 
+            var usuarioDeposito = model.ObtenerUsuarioDeposito();
+
             var ordenes = model.ObtenerOPs().Where(x => x.DNI_Transportista == 0).ToList();
 
             if (dniTransportista != 0)
             {
-                ordenes = model.ObtenerOPs().Where(x => x.DNI_Transportista == dniTransportista && x.Estado_OP == EstadoOPEnum.EnDespacho).ToList();
+                ordenes = model.ObtenerOPs().Where(x => x.DNI_Transportista == dniTransportista && x.Estado_OP == EstadoOPEnum.EnDespacho && x.ID_Deposito == usuarioDeposito).ToList();
             }
 
             foreach (var orden in ordenes)

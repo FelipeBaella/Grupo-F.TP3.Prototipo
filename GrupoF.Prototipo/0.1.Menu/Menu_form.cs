@@ -1,4 +1,5 @@
-﻿using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
+﻿using GrupoF.Prototipo._0._0.LogIn_form;
+using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
 using GrupoF.Prototipo._4.Crear_Orden_de_Entrega;
 using GrupoF.Prototipo._5.Crear_Orden_deEntrega;
 using GrupoF.Prototipo._6.Procesar_Orden_de_Entrega;
@@ -78,7 +79,11 @@ namespace GrupoF.Prototipo._0.Menu
 
             if (result == DialogResult.Yes)
             {
-                Application.Exit();
+                this.Hide();
+
+                //Application.Exit();
+                LogIn_form nuevaForma = new LogIn_form();
+                nuevaForma.Show();
             }        
         }
     }

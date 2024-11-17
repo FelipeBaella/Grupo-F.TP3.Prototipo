@@ -12,6 +12,15 @@ namespace GrupoF.Prototipo._6.Procesar_Orden_de_Entrega
 {
     internal class DespacharMercaderias_model
     {
+        public int ObtenerUsuarioDeposito()
+        {
+            var usuario = UsuarioAlmacen.UsuarioSeleccionado;
+
+            var usuarioDeposito = UsuarioAlmacen.Usuarios.Where(x => x.ID_Usuario == usuario).FirstOrDefault().ID_Deposito;
+
+            return usuarioDeposito;
+        }
+
         public List<OrdenDePreparacionEnt> ObtenerOPs()
         {
             var lista = OrdenDePreparacionAlmacen.OrdenesDePreparacion.ToList();

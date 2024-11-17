@@ -26,7 +26,9 @@ namespace GrupoF.Prototipo._5.Crear_Orden_deEntrega
 
         private void CargarOrdenesDePreparacion()
         {
-            var ordenes = model.ObtenerOPs().Where(x => x.Estado_OP == EstadoOPEnum.Preparada).ToList();
+            var usuarioDeposito = model.ObtenerUsuarioDeposito();
+
+            var ordenes = model.ObtenerOPs().Where(x => x.Estado_OP == EstadoOPEnum.Preparada && x.ID_Deposito == usuarioDeposito).ToList();
 
             OrdenesDePreparacion_ListView.Items.Clear();
 

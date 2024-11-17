@@ -30,5 +30,13 @@
     "CUIT_Cliente": 28333333339,
     "Domicilio_Cliente": "Calle del Sol 789, Capital Federal",
     "CondIva_Cliente": "true"
+  },
+  {
+    "ID_Cliente": 4,
+    "DNI_Cliente": 33333333,
+    "NombreApellido_Cliente": "Carlos Lopez",
+    "CUIT_Cliente": 28333333339,
+    "Domicilio_Cliente": "Calle del Sol 789, Capital Federal",
+    "CondIva_Cliente": "true"
   }
 ]

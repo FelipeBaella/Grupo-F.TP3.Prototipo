@@ -1,19 +1,11 @@
 ﻿[
   {
-    "ID_DepositoMercaderia": 0,
-    "ID_Cliente": 1,
-    "ID_Deposito": 1,
-    "ID_Mercaderia": 1,
-    "Cantidad_DepositoMercaderia": 250,
-    "Coordenadas_DepositoMercaderia": "99-99-9"
-  },
-  {
     "ID_DepositoMercaderia": 1,
     "ID_Cliente": 1,
     "ID_Deposito": 1,
     "ID_Mercaderia": 1,
     "Cantidad_DepositoMercaderia": 550,
-    "Coordenadas_DepositoMercaderia": "12-34-5"
+    "Coordenadas_DepositoMercaderia": "01-01-1"
   },
   {
     "ID_DepositoMercaderia": 2,
@@ -21,7 +13,7 @@
     "ID_Deposito": 1,
     "ID_Mercaderia": 2,
     "Cantidad_DepositoMercaderia": 600,
-    "Coordenadas_DepositoMercaderia": "23-45-1"
+    "Coordenadas_DepositoMercaderia": "01-01-2"
   },
   {
     "ID_DepositoMercaderia": 3,
@@ -29,7 +21,7 @@
     "ID_Deposito": 1,
     "ID_Mercaderia": 3,
     "Cantidad_DepositoMercaderia": 700,
-    "Coordenadas_DepositoMercaderia": "34-56-2"
+    "Coordenadas_DepositoMercaderia": "01-01-3"
   },
   {
     "ID_DepositoMercaderia": 4,
@@ -37,7 +29,7 @@
     "ID_Deposito": 1,
     "ID_Mercaderia": 4,
     "Cantidad_DepositoMercaderia": 800,
-    "Coordenadas_DepositoMercaderia": "45-67-3"
+    "Coordenadas_DepositoMercaderia": "01-01-4"
   },
   {
     "ID_DepositoMercaderia": 5,
@@ -45,7 +37,7 @@
     "ID_Deposito": 1,
     "ID_Mercaderia": 5,
     "Cantidad_DepositoMercaderia": 900,
-    "Coordenadas_DepositoMercaderia": "56-78-4"
+    "Coordenadas_DepositoMercaderia": "01-01-5"
   },
   {
     "ID_DepositoMercaderia": 6,
@@ -53,7 +45,7 @@
     "ID_Deposito": 1,
     "ID_Mercaderia": 6,
     "Cantidad_DepositoMercaderia": 500,
-    "Coordenadas_DepositoMercaderia": "67-89-0"
+    "Coordenadas_DepositoMercaderia": "01-01-6"
   },
   {
     "ID_DepositoMercaderia": 7,
@@ -61,7 +53,7 @@
     "ID_Deposito": 2,
     "ID_Mercaderia": 1,
     "Cantidad_DepositoMercaderia": 650,
-    "Coordenadas_DepositoMercaderia": "78-90-5"
+    "Coordenadas_DepositoMercaderia": "01-01-7"
   },
   {
     "ID_DepositoMercaderia": 8,
@@ -69,7 +61,7 @@
     "ID_Deposito": 2,
     "ID_Mercaderia": 2,
     "Cantidad_DepositoMercaderia": 600,
-    "Coordenadas_DepositoMercaderia": "89-01-1"
+    "Coordenadas_DepositoMercaderia": "01-01-8"
   },
   {
     "ID_DepositoMercaderia": 9,
@@ -77,7 +69,7 @@
     "ID_Deposito": 2,
     "ID_Mercaderia": 3,
     "Cantidad_DepositoMercaderia": 700,
-    "Coordenadas_DepositoMercaderia": "90-12-2"
+    "Coordenadas_DepositoMercaderia": "01-01-9"
   },
   {
     "ID_DepositoMercaderia": 10,
@@ -85,7 +77,7 @@
     "ID_Deposito": 2,
     "ID_Mercaderia": 4,
     "Cantidad_DepositoMercaderia": 800,
-    "Coordenadas_DepositoMercaderia": "01-23-3"
+    "Coordenadas_DepositoMercaderia": "01-02-1"
   },
   {
     "ID_DepositoMercaderia": 11,
@@ -93,7 +85,7 @@
     "ID_Deposito": 2,
     "ID_Mercaderia": 5,
     "Cantidad_DepositoMercaderia": 900,
-    "Coordenadas_DepositoMercaderia": "12-34-4"
+    "Coordenadas_DepositoMercaderia": "01-02-2"
   },
   {
     "ID_DepositoMercaderia": 12,
@@ -101,7 +93,7 @@
     "ID_Deposito": 2,
     "ID_Mercaderia": 6,
     "Cantidad_DepositoMercaderia": 550,
-    "Coordenadas_DepositoMercaderia": "23-45-5"
+    "Coordenadas_DepositoMercaderia": "01-02-3"
   },
   {
     "ID_DepositoMercaderia": 13,
@@ -109,7 +101,7 @@
     "ID_Deposito": 3,
     "ID_Mercaderia": 1,
     "Cantidad_DepositoMercaderia": 600,
-    "Coordenadas_DepositoMercaderia": "34-56-2"
+    "Coordenadas_DepositoMercaderia": "01-02-4"
   },
   {
     "ID_DepositoMercaderia": 14,
@@ -117,7 +109,7 @@
     "ID_Deposito": 3,
     "ID_Mercaderia": 2,
     "Cantidad_DepositoMercaderia": 700,
-    "Coordenadas_DepositoMercaderia": "45-67-5"
+    "Coordenadas_DepositoMercaderia": "01-02-5"
   },
   {
     "ID_DepositoMercaderia": 15,
@@ -125,7 +117,7 @@
     "ID_Deposito": 3,
     "ID_Mercaderia": 3,
     "Cantidad_DepositoMercaderia": 800,
-    "Coordenadas_DepositoMercaderia": "56-78-5"
+    "Coordenadas_DepositoMercaderia": "01-02-6"
   },
   {
     "ID_DepositoMercaderia": 16,
@@ -133,7 +125,7 @@
     "ID_Deposito": 3,
     "ID_Mercaderia": 4,
     "Cantidad_DepositoMercaderia": 900,
-    "Coordenadas_DepositoMercaderia": "67-89-7"
+    "Coordenadas_DepositoMercaderia": "01-02-7"
   },
   {
     "ID_DepositoMercaderia": 17,
@@ -141,7 +133,7 @@
     "ID_Deposito": 3,
     "ID_Mercaderia": 5,
     "Cantidad_DepositoMercaderia": 500,
-    "Coordenadas_DepositoMercaderia": "78-90-2"
+    "Coordenadas_DepositoMercaderia": "01-02-8"
   },
   {
     "ID_DepositoMercaderia": 18,
@@ -149,7 +141,7 @@
     "ID_Deposito": 3,
     "ID_Mercaderia": 6,
     "Cantidad_DepositoMercaderia": 650,
-    "Coordenadas_DepositoMercaderia": "89-01-6"
+    "Coordenadas_DepositoMercaderia": "01-02-9"
   },
   {
     "ID_DepositoMercaderia": 19,
@@ -157,7 +149,7 @@
     "ID_Deposito": 4,
     "ID_Mercaderia": 1,
     "Cantidad_DepositoMercaderia": 600,
-    "Coordenadas_DepositoMercaderia": "90-12-2"
+    "Coordenadas_DepositoMercaderia": "01-03-1"
   },
   {
     "ID_DepositoMercaderia": 20,
@@ -165,7 +157,7 @@
     "ID_Deposito": 4,
     "ID_Mercaderia": 2,
     "Cantidad_DepositoMercaderia": 700,
-    "Coordenadas_DepositoMercaderia": "01-23-3"
+    "Coordenadas_DepositoMercaderia": "01-03-2"
   },
   {
     "ID_DepositoMercaderia": 21,
@@ -173,7 +165,7 @@
     "ID_Deposito": 4,
     "ID_Mercaderia": 3,
     "Cantidad_DepositoMercaderia": 800,
-    "Coordenadas_DepositoMercaderia": "12-34-4"
+    "Coordenadas_DepositoMercaderia": "01-03-3"
   },
   {
     "ID_DepositoMercaderia": 22,
@@ -181,7 +173,7 @@
     "ID_Deposito": 4,
     "ID_Mercaderia": 4,
     "Cantidad_DepositoMercaderia": 900,
-    "Coordenadas_DepositoMercaderia": "23-45-5"
+    "Coordenadas_DepositoMercaderia": "01-03-4"
   },
   {
     "ID_DepositoMercaderia": 23,
@@ -189,7 +181,7 @@
     "ID_Deposito": 4,
     "ID_Mercaderia": 5,
     "Cantidad_DepositoMercaderia": 500,
-    "Coordenadas_DepositoMercaderia": "34-56-3"
+    "Coordenadas_DepositoMercaderia": "01-03-5"
   },
   {
     "ID_DepositoMercaderia": 24,
@@ -197,7 +189,7 @@
     "ID_Deposito": 4,
     "ID_Mercaderia": 6,
     "Cantidad_DepositoMercaderia": 650,
-    "Coordenadas_DepositoMercaderia": "45-67-6"
+    "Coordenadas_DepositoMercaderia": "01-03-6"
   },
   {
     "ID_DepositoMercaderia": 25,
@@ -205,7 +197,7 @@
     "ID_Deposito": 1,
     "ID_Mercaderia": 1,
     "Cantidad_DepositoMercaderia": 600,
-    "Coordenadas_DepositoMercaderia": "56-78-6"
+    "Coordenadas_DepositoMercaderia": "01-03-7"
   },
   {
     "ID_DepositoMercaderia": 26,
@@ -213,7 +205,7 @@
     "ID_Deposito": 1,
     "ID_Mercaderia": 2,
     "Cantidad_DepositoMercaderia": 700,
-    "Coordenadas_DepositoMercaderia": "67-89-8"
+    "Coordenadas_DepositoMercaderia": "01-03-8"
   },
   {
     "ID_DepositoMercaderia": 27,
@@ -221,7 +213,7 @@
     "ID_Deposito": 1,
     "ID_Mercaderia": 3,
     "Cantidad_DepositoMercaderia": 800,
-    "Coordenadas_DepositoMercaderia": "78-90-3"
+    "Coordenadas_DepositoMercaderia": "01-03-9"
   },
   {
     "ID_DepositoMercaderia": 28,
@@ -229,7 +221,7 @@
     "ID_Deposito": 1,
     "ID_Mercaderia": 4,
     "Cantidad_DepositoMercaderia": 900,
-    "Coordenadas_DepositoMercaderia": "89-01-7"
+    "Coordenadas_DepositoMercaderia": "01-04-1"
   },
   {
     "ID_DepositoMercaderia": 29,
@@ -237,7 +229,7 @@
     "ID_Deposito": 1,
     "ID_Mercaderia": 5,
     "Cantidad_DepositoMercaderia": 500,
-    "Coordenadas_DepositoMercaderia": "90-12-2"
+    "Coordenadas_DepositoMercaderia": "01-04-2"
   },
   {
     "ID_DepositoMercaderia": 30,
@@ -245,7 +237,7 @@
     "ID_Deposito": 1,
     "ID_Mercaderia": 6,
     "Cantidad_DepositoMercaderia": 650,
-    "Coordenadas_DepositoMercaderia": "01-23-3"
+    "Coordenadas_DepositoMercaderia": "01-04-3"
   },
   {
     "ID_DepositoMercaderia": 31,
@@ -253,7 +245,7 @@
     "ID_Deposito": 2,
     "ID_Mercaderia": 1,
     "Cantidad_DepositoMercaderia": 600,
-    "Coordenadas_DepositoMercaderia": "12-34-4"
+    "Coordenadas_DepositoMercaderia": "01-04-4"
   },
   {
     "ID_DepositoMercaderia": 32,
@@ -261,7 +253,7 @@
     "ID_Deposito": 2,
     "ID_Mercaderia": 2,
     "Cantidad_DepositoMercaderia": 700,
-    "Coordenadas_DepositoMercaderia": "23-45-5"
+    "Coordenadas_DepositoMercaderia": "01-04-5"
   },
   {
     "ID_DepositoMercaderia": 33,
@@ -269,7 +261,7 @@
     "ID_Deposito": 2,
     "ID_Mercaderia": 3,
     "Cantidad_DepositoMercaderia": 800,
-    "Coordenadas_DepositoMercaderia": "34-56-4"
+    "Coordenadas_DepositoMercaderia": "01-04-6"
   },
   {
     "ID_DepositoMercaderia": 34,
@@ -277,7 +269,7 @@
     "ID_Deposito": 2,
     "ID_Mercaderia": 4,
     "Cantidad_DepositoMercaderia": 900,
-    "Coordenadas_DepositoMercaderia": "45-67-7"
+    "Coordenadas_DepositoMercaderia": "01-04-7"
   },
   {
     "ID_DepositoMercaderia": 35,
@@ -285,7 +277,7 @@
     "ID_Deposito": 2,
     "ID_Mercaderia": 5,
     "Cantidad_DepositoMercaderia": 500,
-    "Coordenadas_DepositoMercaderia": "56-78-7"
+    "Coordenadas_DepositoMercaderia": "01-04-8"
   },
   {
     "ID_DepositoMercaderia": 36,
@@ -293,7 +285,7 @@
     "ID_Deposito": 2,
     "ID_Mercaderia": 6,
     "Cantidad_DepositoMercaderia": 650,
-    "Coordenadas_DepositoMercaderia": "67-89-9"
+    "Coordenadas_DepositoMercaderia": "01-04-9"
   },
   {
     "ID_DepositoMercaderia": 37,
@@ -301,7 +293,7 @@
     "ID_Deposito": 3,
     "ID_Mercaderia": 1,
     "Cantidad_DepositoMercaderia": 600,
-    "Coordenadas_DepositoMercaderia": "78-90-4"
+    "Coordenadas_DepositoMercaderia": "01-05-1"
   },
   {
     "ID_DepositoMercaderia": 38,
@@ -309,7 +301,7 @@
     "ID_Deposito": 3,
     "ID_Mercaderia": 2,
     "Cantidad_DepositoMercaderia": 700,
-    "Coordenadas_DepositoMercaderia": "89-01-8"
+    "Coordenadas_DepositoMercaderia": "01-05-2"
   },
   {
     "ID_DepositoMercaderia": 39,
@@ -317,7 +309,7 @@
     "ID_Deposito": 3,
     "ID_Mercaderia": 3,
     "Cantidad_DepositoMercaderia": 800,
-    "Coordenadas_DepositoMercaderia": "90-12-2"
+    "Coordenadas_DepositoMercaderia": "01-05-3"
   },
   {
     "ID_DepositoMercaderia": 40,
@@ -325,7 +317,7 @@
     "ID_Deposito": 3,
     "ID_Mercaderia": 4,
     "Cantidad_DepositoMercaderia": 900,
-    "Coordenadas_DepositoMercaderia": "01-23-3"
+    "Coordenadas_DepositoMercaderia": "01-05-4"
   },
   {
     "ID_DepositoMercaderia": 41,
@@ -333,7 +325,7 @@
     "ID_Deposito": 3,
     "ID_Mercaderia": 5,
     "Cantidad_DepositoMercaderia": 500,
-    "Coordenadas_DepositoMercaderia": "12-34-4"
+    "Coordenadas_DepositoMercaderia": "01-05-5"
   },
   {
     "ID_DepositoMercaderia": 42,
@@ -341,7 +333,7 @@
     "ID_Deposito": 3,
     "ID_Mercaderia": 6,
     "Cantidad_DepositoMercaderia": 650,
-    "Coordenadas_DepositoMercaderia": "23-45-5"
+    "Coordenadas_DepositoMercaderia": "01-05-6"
   },
   {
     "ID_DepositoMercaderia": 43,
@@ -349,7 +341,7 @@
     "ID_Deposito": 4,
     "ID_Mercaderia": 1,
     "Cantidad_DepositoMercaderia": 600,
-    "Coordenadas_DepositoMercaderia": "34-56-5"
+    "Coordenadas_DepositoMercaderia": "01-05-7"
   },
   {
     "ID_DepositoMercaderia": 44,
@@ -357,7 +349,7 @@
     "ID_Deposito": 4,
     "ID_Mercaderia": 2,
     "Cantidad_DepositoMercaderia": 700,
-    "Coordenadas_DepositoMercaderia": "45-67-8"
+    "Coordenadas_DepositoMercaderia": "01-05-8"
   },
   {
     "ID_DepositoMercaderia": 45,
@@ -365,7 +357,7 @@
     "ID_Deposito": 4,
     "ID_Mercaderia": 3,
     "Cantidad_DepositoMercaderia": 800,
-    "Coordenadas_DepositoMercaderia": "56-78-8"
+    "Coordenadas_DepositoMercaderia": "01-05-9"
   },
   {
     "ID_DepositoMercaderia": 46,
@@ -373,7 +365,7 @@
     "ID_Deposito": 4,
     "ID_Mercaderia": 4,
     "Cantidad_DepositoMercaderia": 900,
-    "Coordenadas_DepositoMercaderia": "67-89-0"
+    "Coordenadas_DepositoMercaderia": "01-06-1"
   },
   {
     "ID_DepositoMercaderia": 47,
@@ -381,7 +373,7 @@
     "ID_Deposito": 4,
     "ID_Mercaderia": 5,
     "Cantidad_DepositoMercaderia": 500,
-    "Coordenadas_DepositoMercaderia": "78-90-5"
+    "Coordenadas_DepositoMercaderia": "01-06-2"
   },
   {
     "ID_DepositoMercaderia": 48,
@@ -389,7 +381,7 @@
     "ID_Deposito": 4,
     "ID_Mercaderia": 6,
     "Cantidad_DepositoMercaderia": 650,
-    "Coordenadas_DepositoMercaderia": "89-01-2"
+    "Coordenadas_DepositoMercaderia": "01-06-3"
   },
   {
     "ID_DepositoMercaderia": 49,
@@ -397,7 +389,7 @@
     "ID_Deposito": 1,
     "ID_Mercaderia": 1,
     "Cantidad_DepositoMercaderia": 600,
-    "Coordenadas_DepositoMercaderia": "90-12-2"
+    "Coordenadas_DepositoMercaderia": "01-06-4"
   },
   {
     "ID_DepositoMercaderia": 50,
@@ -405,7 +397,7 @@
     "ID_Deposito": 1,
     "ID_Mercaderia": 2,
     "Cantidad_DepositoMercaderia": 700,
-    "Coordenadas_DepositoMercaderia": "01-23-3"
+    "Coordenadas_DepositoMercaderia": "01-06-5"
   },
   {
     "ID_DepositoMercaderia": 51,
@@ -413,7 +405,7 @@
     "ID_Deposito": 1,
     "ID_Mercaderia": 3,
     "Cantidad_DepositoMercaderia": 650,
-    "Coordenadas_DepositoMercaderia": "89-01-3"
+    "Coordenadas_DepositoMercaderia": "01-06-6"
   },
   {
     "ID_DepositoMercaderia": 52,
@@ -421,7 +413,7 @@
     "ID_Deposito": 1,
     "ID_Mercaderia": 4,
     "Cantidad_DepositoMercaderia": 600,
-    "Coordenadas_DepositoMercaderia": "90-12-2"
+    "Coordenadas_DepositoMercaderia": "01-06-7"
   },
   {
     "ID_DepositoMercaderia": 53,
@@ -429,15 +421,15 @@
     "ID_Deposito": 1,
     "ID_Mercaderia": 5,
     "Cantidad_DepositoMercaderia": 700,
-    "Coordenadas_DepositoMercaderia": "01-23-3"
+    "Coordenadas_DepositoMercaderia": "01-06-8"
   },
   {
     "ID_DepositoMercaderia": 54,
     "ID_Cliente": 3,
     "ID_Deposito": 1,
     "ID_Mercaderia": 6,
-    "Cantidad_DepositoMercaderia": 550,
-    "Coordenadas_DepositoMercaderia": "34-56-6"
+    "Cantidad_DepositoMercaderia": 800,
+    "Coordenadas_DepositoMercaderia": "01-06-9"
   },
   {
     "ID_DepositoMercaderia": 55,
@@ -445,7 +437,7 @@
     "ID_Deposito": 2,
     "ID_Mercaderia": 1,
     "Cantidad_DepositoMercaderia": 900,
-    "Coordenadas_DepositoMercaderia": "23-45-5"
+    "Coordenadas_DepositoMercaderia": "01-07-1"
   },
   {
     "ID_DepositoMercaderia": 56,
@@ -453,7 +445,7 @@
     "ID_Deposito": 2,
     "ID_Mercaderia": 2,
     "Cantidad_DepositoMercaderia": 500,
-    "Coordenadas_DepositoMercaderia": "34-56-7"
+    "Coordenadas_DepositoMercaderia": "01-07-2"
   },
   {
     "ID_DepositoMercaderia": 57,
@@ -461,7 +453,7 @@
     "ID_Deposito": 2,
     "ID_Mercaderia": 3,
     "Cantidad_DepositoMercaderia": 650,
-    "Coordenadas_DepositoMercaderia": "45-67-3"
+    "Coordenadas_DepositoMercaderia": "01-07-3"
   },
   {
     "ID_DepositoMercaderia": 58,
@@ -469,7 +461,7 @@
     "ID_Deposito": 2,
     "ID_Mercaderia": 4,
     "Cantidad_DepositoMercaderia": 600,
-    "Coordenadas_DepositoMercaderia": "56-78-9"
+    "Coordenadas_DepositoMercaderia": "01-07-4"
   },
   {
     "ID_DepositoMercaderia": 59,
@@ -477,7 +469,7 @@
     "ID_Deposito": 2,
     "ID_Mercaderia": 5,
     "Cantidad_DepositoMercaderia": 700,
-    "Coordenadas_DepositoMercaderia": "67-89-5"
+    "Coordenadas_DepositoMercaderia": "01-07-5"
   },
   {
     "ID_DepositoMercaderia": 60,
@@ -485,7 +477,7 @@
     "ID_Deposito": 2,
     "ID_Mercaderia": 6,
     "Cantidad_DepositoMercaderia": 800,
-    "Coordenadas_DepositoMercaderia": "78-90-6"
+    "Coordenadas_DepositoMercaderia": "01-07-6"
   },
   {
     "ID_DepositoMercaderia": 61,
@@ -493,7 +485,7 @@
     "ID_Deposito": 3,
     "ID_Mercaderia": 1,
     "Cantidad_DepositoMercaderia": 900,
-    "Coordenadas_DepositoMercaderia": "89-01-4"
+    "Coordenadas_DepositoMercaderia": "01-07-7"
   },
   {
     "ID_DepositoMercaderia": 62,
@@ -501,7 +493,7 @@
     "ID_Deposito": 3,
     "ID_Mercaderia": 2,
     "Cantidad_DepositoMercaderia": 500,
-    "Coordenadas_DepositoMercaderia": "90-12-2"
+    "Coordenadas_DepositoMercaderia": "01-07-8"
   },
   {
     "ID_DepositoMercaderia": 63,
@@ -509,7 +501,7 @@
     "ID_Deposito": 3,
     "ID_Mercaderia": 3,
     "Cantidad_DepositoMercaderia": 650,
-    "Coordenadas_DepositoMercaderia": "01-23-3"
+    "Coordenadas_DepositoMercaderia": "01-07-9"
   },
   {
     "ID_DepositoMercaderia": 64,
@@ -517,7 +509,7 @@
     "ID_Deposito": 3,
     "ID_Mercaderia": 4,
     "Cantidad_DepositoMercaderia": 600,
-    "Coordenadas_DepositoMercaderia": "12-34-4"
+    "Coordenadas_DepositoMercaderia": "01-08-1"
   },
   {
     "ID_DepositoMercaderia": 65,
@@ -525,7 +517,7 @@
     "ID_Deposito": 3,
     "ID_Mercaderia": 5,
     "Cantidad_DepositoMercaderia": 700,
-    "Coordenadas_DepositoMercaderia": "23-45-5"
+    "Coordenadas_DepositoMercaderia": "01-08-2"
   },
   {
     "ID_DepositoMercaderia": 66,
@@ -533,7 +525,7 @@
     "ID_Deposito": 3,
     "ID_Mercaderia": 6,
     "Cantidad_DepositoMercaderia": 800,
-    "Coordenadas_DepositoMercaderia": "34-56-8"
+    "Coordenadas_DepositoMercaderia": "01-08-3"
   },
   {
     "ID_DepositoMercaderia": 67,
@@ -541,7 +533,7 @@
     "ID_Deposito": 4,
     "ID_Mercaderia": 1,
     "Cantidad_DepositoMercaderia": 900,
-    "Coordenadas_DepositoMercaderia": "45-67-4"
+    "Coordenadas_DepositoMercaderia": "01-08-4"
   },
   {
     "ID_DepositoMercaderia": 68,
@@ -549,7 +541,7 @@
     "ID_Deposito": 4,
     "ID_Mercaderia": 2,
     "Cantidad_DepositoMercaderia": 500,
-    "Coordenadas_DepositoMercaderia": "56-78-4"
+    "Coordenadas_DepositoMercaderia": "01-08-5"
   },
   {
     "ID_DepositoMercaderia": 69,
@@ -557,7 +549,7 @@
     "ID_Deposito": 4,
     "ID_Mercaderia": 3,
     "Cantidad_DepositoMercaderia": 650,
-    "Coordenadas_DepositoMercaderia": "67-89-6"
+    "Coordenadas_DepositoMercaderia": "01-08-6"
   },
   {
     "ID_DepositoMercaderia": 70,
@@ -565,7 +557,7 @@
     "ID_Deposito": 4,
     "ID_Mercaderia": 4,
     "Cantidad_DepositoMercaderia": 600,
-    "Coordenadas_DepositoMercaderia": "78-90-1"
+    "Coordenadas_DepositoMercaderia": "01-08-7"
   },
   {
     "ID_DepositoMercaderia": 71,
@@ -573,7 +565,7 @@
     "ID_Deposito": 4,
     "ID_Mercaderia": 5,
     "Cantidad_DepositoMercaderia": 700,
-    "Coordenadas_DepositoMercaderia": "89-01-5"
+    "Coordenadas_DepositoMercaderia": "01-08-8"
   },
   {
     "ID_DepositoMercaderia": 72,
@@ -581,6 +573,7 @@
     "ID_Deposito": 4,
     "ID_Mercaderia": 6,
     "Cantidad_DepositoMercaderia": 800,
-    "Coordenadas_DepositoMercaderia": "90-12-2"
+    "Coordenadas_DepositoMercaderia": "01-08-9"
   }
+
 ]

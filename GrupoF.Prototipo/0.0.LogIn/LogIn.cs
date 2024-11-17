@@ -16,7 +16,7 @@ namespace GrupoF.Prototipo._0._0.LogIn_form
 {
     public partial class LogIn_form : Form
     {
-        private LogIn_model LogIn_model = new LogIn_model();
+        private LogIn_model model = new LogIn_model();
 
         public LogIn_form()
         {
@@ -44,30 +44,33 @@ namespace GrupoF.Prototipo._0._0.LogIn_form
                 return;
             }
 
-
-            if (LogIn_model.Usuarios.Any(o => o.LogIn_usuario.ToUpper() == usuario))
+            if (!model.ObtenerUsuarios().Any(o => o.LogIn_Usuario.ToUpper() == usuario.ToUpper()))
             {
-                contraseñaUsuario = LogIn_model.Usuarios
-                 .Where(o => o.LogIn_usuario.ToUpper() == usuario)
-                 .Select(o => o.Contrasena_usuario)
-                 .FirstOrDefault();
-            }
-
-            if (contraseña != contraseñaUsuario)
-            {
-                MessageBox.Show("Usuario o contraseña incorrecto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Usuario incorrecto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Usuario_textBox.Focus();
                 return;
             }
 
-            if (contraseña == contraseñaUsuario)
+            if (model.ObtenerUsuarios().Any(o => o.LogIn_Usuario.ToUpper() == usuario.ToUpper()))
             {
-                MessageBox.Show("Usuario correcto.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                contraseñaUsuario = model.ObtenerUsuarios().Where(u => u.LogIn_Usuario.ToUpper() == usuario.ToUpper()).Select(u => u.Contrasena_Usuario).SingleOrDefault();
 
-                this.Hide();
+                if (contraseña != contraseñaUsuario) 
+                {
+                    MessageBox.Show("Contraseña incorrecta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Contrasena_textbox.Focus();
+                    return;
+                }   
+                else
+                {
+                    MessageBox.Show("Usuario correcto.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                Menu_form nuevaForma = new Menu_form();
-                nuevaForma.Show();
+                    this.Hide();
+
+                    Menu_form nuevaForma = new Menu_form();
+                    nuevaForma.Show();
+
+                }
             }
         }
 

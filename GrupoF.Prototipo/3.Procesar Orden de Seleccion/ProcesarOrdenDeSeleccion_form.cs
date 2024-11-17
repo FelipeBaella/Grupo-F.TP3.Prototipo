@@ -72,6 +72,10 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 
             var depositosUsados = new HashSet<int>();
 
+            var listViewItems = new Dictionary<int, (string, string, string)>();
+
+            int e = 0;
+
             foreach (var item in Mercaderias_OP_agrupadas)
             {
                 var cantidadRestante = item.Value.Item4;
@@ -99,39 +103,37 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 
                         if (depositoMercaderia.Cantidad_DepositoMercaderia >= cantidadRestante)
                         {
-                            // El depósito tiene suficiente para cubrir la cantidad restante
-                            ListViewItem listViewItem1 = new ListViewItem(new string[]
-                            {
-                            depositoMercaderia.Coordenadas_DepositoMercaderia.ToString(),
-                            mercaderia,
-                            cantidadRestante.ToString(),
-                            }, -1);
-
-                            ProcesarOrdenesDeSeleccion_listView.Items.Add(listViewItem1);
+                            listViewItems.Add(e, (depositoMercaderia.Coordenadas_DepositoMercaderia.ToString(), mercaderia, cantidadRestante.ToString()));
 
                             cantidadRestante = 0;
+
+                            e++;
                         }
                         else
                         {
-                            // El depósito no tiene suficiente, tomar lo que tiene disponible
-                            ListViewItem listViewItem1 = new ListViewItem(new string[]
-                            {
-                            depositoMercaderia.Coordenadas_DepositoMercaderia.ToString(),
-                            mercaderia,
-                            depositoMercaderia.Cantidad_DepositoMercaderia.ToString(),
-                            }, -1);
-
-                            ProcesarOrdenesDeSeleccion_listView.Items.Add(listViewItem1);
+                            listViewItems.Add(e, (depositoMercaderia.Coordenadas_DepositoMercaderia.ToString(), mercaderia, cantidadRestante.ToString()));
 
                             cantidadRestante -= depositoMercaderia.Cantidad_DepositoMercaderia;
+
+                            e++;
                         }
                     }
                 }
-
-
             }
 
+            var itemsOrdenados = listViewItems.OrderBy(x => x.Value.Item1).ToList();
 
+            foreach (var item in itemsOrdenados)
+            {
+                ListViewItem listViewItem1 = new ListViewItem(new string[]
+                {
+                          item.Value.Item1.ToString(),
+                          item.Value.Item2.ToString(),
+                          item.Value.Item3.ToString(),
+                }, -1);
+
+                ProcesarOrdenesDeSeleccion_listView.Items.Add(listViewItem1);
+            }
         }
 
         private void VolverAlMenu_button_Click(object sender, EventArgs e)

@@ -11,7 +11,7 @@ namespace GrupoF.Prototipo.Almacenes
 
         public int ID_Usuario { get; set; }
         public string LogIn_Usuario { get; set; }
-        public string contrasena_Usuario { get; set; }
+        public string Contrasena_Usuario { get; set; }
         public int ID_Deposito{ get; set; }
     }
 }

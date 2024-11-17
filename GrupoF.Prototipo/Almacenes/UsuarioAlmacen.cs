@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
@@ -33,5 +34,31 @@ namespace GrupoF.Prototipo.Almacenes
             var datos = File.ReadAllText(rutaArchivo);
             usuarios = JsonSerializer.Deserialize<List<UsuarioEnt>>(datos)!;
         }
+
+
+
+        private static int usuarioSeleccionado;
+        public static int UsuarioSeleccionado => usuarioSeleccionado;
+
+        public static void GrabarUsuario(int id_usuario)
+        {
+            usuarioSeleccionado = id_usuario; 
+            var datos = JsonSerializer.Serialize(id_usuario);
+            File.WriteAllText(@"Datos\UsuarioSeleccionado.json", datos);
+        }
+        public static void LeerUsuario()
+        {
+            string rutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Datos", "UsuarioSeleccionado.json");
+
+        
+            if (!File.Exists(rutaArchivo))
+            {
+                return;
+            }
+
+            var datos = File.ReadAllText(rutaArchivo); 
+            usuarioSeleccionado = JsonSerializer.Deserialize<int>(datos)!; 
+        }
     }
 }
+

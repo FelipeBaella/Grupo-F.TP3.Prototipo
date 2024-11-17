@@ -67,6 +67,8 @@ namespace GrupoF.Prototipo._0._0.LogIn_form
 
                     this.Hide();
 
+                    model.UsuarioSeleccionado(usuario);
+
                     Menu_form nuevaForma = new Menu_form();
                     nuevaForma.Show();
 

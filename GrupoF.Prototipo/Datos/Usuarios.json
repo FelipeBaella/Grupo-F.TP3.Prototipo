@@ -15,6 +15,18 @@
     "ID_Usuario": 3,
     "LogIn_Usuario": "1",
     "Contrasena_Usuario": "1",
+    "ID_Deposito": 1
+  },
+  {
+    "ID_Usuario": 4,
+    "LogIn_Usuario": "2",
+    "Contrasena_Usuario": "2",
+    "ID_Deposito": 2
+  },
+  {
+    "ID_Usuario": 5,
+    "LogIn_Usuario": "3",
+    "Contrasena_Usuario": "3",
     "ID_Deposito": 3
   }
 ]

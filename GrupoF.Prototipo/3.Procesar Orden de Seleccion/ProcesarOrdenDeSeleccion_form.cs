@@ -31,6 +31,8 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 
         private void CargarOrdenesDePreparacionItems(string id)
         {
+            var usuarioDeposito = model.ObtenerUsuarioDeposito();
+
             ProcesarOrdenesDeSeleccion_listView.Items.Clear();
 
             var OS = model.ObtenerOSs().Where(x => x.ID_OS == int.Parse(id)).SingleOrDefault();
@@ -43,18 +45,21 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 
             foreach (var item in OrdenesPreparacion_OS)
             {
-                var OP = model.ObtenerOPs().Where(x => x.ID_OP == item).SingleOrDefault();
+                var OP = model.ObtenerOPs().Where(x => x.ID_OP == item && x.ID_Deposito == usuarioDeposito).SingleOrDefault();
 
-                var ID_Cliente = OP.ID_Cliente;
-                var ID_Deposito = OP.ID_Deposito;
-                var Mercaderias_OP = OP.Mercaderias_OP;
-
-                // Recorremos cada orden de preparación
-                foreach (var mercaderia in Mercaderias_OP)
+                if (OP != null)
                 {
-                    lista.Add(i, (ID_Cliente, ID_Deposito, mercaderia.ID_Mercaderia, mercaderia.Cantidad_Mercaderia));
+                    var ID_Cliente = OP.ID_Cliente;
+                    var ID_Deposito = OP.ID_Deposito;
+                    var Mercaderias_OP = OP.Mercaderias_OP;
 
-                    i++;
+                    // Recorremos cada orden de preparación
+                    foreach (var mercaderia in Mercaderias_OP)
+                    {
+                        lista.Add(i, (ID_Cliente, ID_Deposito, mercaderia.ID_Mercaderia, mercaderia.Cantidad_Mercaderia));
+
+                        i++;
+                    }
                 }
             }
 

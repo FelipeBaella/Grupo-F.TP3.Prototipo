@@ -19,6 +19,8 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 
         private void CargarDepositos()
         {
+            var usuarioDeposito = model.ObtenerUsuarioDeposito();
+
             var cliente = 0;
 
             if (IdCliente_textbox.Text != "")
@@ -26,8 +28,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
                 cliente = int.Parse(IdCliente_textbox.Text);
             }
 
-
-            var depositos = model.ObtenerDepositos();
+            var depositos = model.ObtenerDepositos().Where(x => x.ID_Deposito == usuarioDeposito).ToList();
 
             var depositosAEliminar = new List<DepositoEnt>();
 

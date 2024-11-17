@@ -13,6 +13,15 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 {
     internal class CrearOrdenDeSeleccion_model
     {
+        public int ObtenerUsuarioDeposito()
+        {
+            var usuario = UsuarioAlmacen.UsuarioSeleccionado;
+
+            var usuarioDeposito = UsuarioAlmacen.Usuarios.Where(x => x.ID_Usuario == usuario).FirstOrDefault().ID_Deposito;
+
+            return usuarioDeposito;
+        }
+
         public List<ClienteEnt> ObtenerClientes()
         {
             var lista = ClienteAlmacen.Clientes.ToList();

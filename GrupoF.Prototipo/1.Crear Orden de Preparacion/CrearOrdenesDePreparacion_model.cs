@@ -13,6 +13,16 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         //TODO: cuando validen o le den las cantidades maximas de cada producto a la pantalla para que valide
         //hay que restarle a esas cantidades lo que haya en OP en estado Emitida o Seleccionada
 
+        public int ObtenerUsuarioDeposito()
+        {
+            var usuario = UsuarioAlmacen.UsuarioSeleccionado;
+
+            var usuarioDeposito = UsuarioAlmacen.Usuarios.Where(x => x.ID_Usuario == usuario).FirstOrDefault().ID_Deposito;
+
+            return usuarioDeposito;
+        }
+
+
         public List<DepositoEnt> ObtenerDepositos()
         {
             var lista = DepositoAlmacen.Depositos.ToList();

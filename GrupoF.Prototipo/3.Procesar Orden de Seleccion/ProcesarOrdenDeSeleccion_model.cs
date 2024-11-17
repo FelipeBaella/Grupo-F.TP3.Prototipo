@@ -12,6 +12,16 @@ namespace GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion
 {
     internal class ProcesarOrdenDeSeleccion_model
     {
+        public int ObtenerUsuarioDeposito()
+        {
+            var usuario = UsuarioAlmacen.UsuarioSeleccionado;
+
+            var usuarioDeposito = UsuarioAlmacen.Usuarios.Where(x => x.ID_Usuario == usuario).FirstOrDefault().ID_Deposito;
+
+            return usuarioDeposito;
+        }
+
+
         //TODO: dar de baja el stock.
         public List<ClienteEnt> ObtenerClientes()
         {

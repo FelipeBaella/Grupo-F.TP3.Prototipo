@@ -29,7 +29,9 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
         public CrearOrdenDeSeleccion_form()
         {
-            var listview = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.Estado_OP == EstadoOPEnum.Emitida).ToList();
+            var usuarioDeposito = model.ObtenerUsuarioDeposito();
+
+            var listview = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.Estado_OP == EstadoOPEnum.Emitida && x.ID_Deposito == usuarioDeposito).ToList();
 
             InitializeComponent();
             CargarOrdenesDePreparacion(listview);
@@ -253,7 +255,9 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
 
         private void button_Click(object sender, EventArgs e)
         {
-            var listview = model.ObtenerOPs().Where(x => x.Estado_OP == EstadoOPEnum.Emitida).ToList();
+            var usuarioDeposito = model.ObtenerUsuarioDeposito();
+
+            var listview = model.ObtenerOPs().Where(x => x.Estado_OP == EstadoOPEnum.Emitida && x.ID_Deposito == usuarioDeposito).ToList();
 
             if (comboBox1.SelectedIndex == 0)
             {

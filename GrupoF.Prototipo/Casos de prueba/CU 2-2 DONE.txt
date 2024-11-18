@@ -1,0 +1,8 @@
+﻿Caso 2: Crear Orden de Selección sin seleccionar una OP
+- Iniciar sesión y seleccionar "Crear Orden de Selección" en el menú principal.
+- Toca el botón “Crear orden de Selección”
+- Verificar: aparece el mensaje: “Debe seleccionar al menos 1 item para la Orden de
+Selección”
+- Toca el botón “Aceptar”
+- Toca el botón “Volver Al Menu”
+- Toca el botón “Salir”

@@ -1,0 +1,34 @@
+CASO DE USO 1: Casos de Prueba
+Caso 1: Crear Orden de Preparación (exitoso)
+- Iniciar sesión y seleccionar "Crear Orden de Preparación" en el menú principal.
+- Ingresa ID Cliente: 1
+- Toca en el desplegable “Descripción depósito” y selecciona “GBAS1”
+- En la seccion “Datos Mercaderia”, toca el desplegable “Descripcion Mercaderia” y
+selecciona “1- Termos Negros”
+- Luego, ingresa en el campo “Cantidad Mercadería” la cantidad “10” unidades.
+- Toca el botón “Agregar”
+- En las sección “Datos Transportista”, , toca el Text Box “DNI Transportista” e ingresa el
+DNI: “42252452”
+- Luego, en el campo “Fecha Entrega Orden de Preparación”, selecciona la fecha “viernes
+6 de diciembre de 2024”.
+- Toca el botón “Crear OP”
+- Verificar: aparece el mensaje: "Se creó la orden de preparación: 26 con éxito".
+- Toca el botón “Aceptar”
+- Toca el botón “Volver Al Menu”
+- Toca el botón “Salir”
+- Verificar: OrdenesDePreparacion.json, nuevo registro:
+"ID_OP": 26
+"EstadoOPEnum Estado_OP": “Emitida”
+"Prioridad_OP": True
+"ID_Cliente": 1
+"FechaEmision_OP": “07/11/2024”
+"FechaEntrega_OP": “06/12/2024”
+"ID_Deposito": 1
+"DNI_Transportista": 42252452
+"Mercaderias_OP":
+[{
+ "ID_Mercaderia": 1
+ "Cantidad_Mercaderia": 10
+}]
+
+

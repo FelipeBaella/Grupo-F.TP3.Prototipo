@@ -1,0 +1,7 @@
+﻿Caso 2: Intentar procesar sin una OE seleccionada
+- Iniciar sesión y seleccionar "Procesar Orden de Selección" en el menú principal.
+- Toca el botón “Procesar Orden de Selección”.
+- Verificar: aparece el mensaje: “Seleccione una orden de selección”.
+- Toca el botón “Aceptar”.
+- Toca el botón “Volver al Menu”
+- Toca el botón “Salir”

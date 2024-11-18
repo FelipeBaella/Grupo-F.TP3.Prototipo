@@ -1,0 +1,19 @@
+CASO DE USO 6: Casos de Prueba
+Caso 1: Despachar Mercaderías (exitoso)
+- Iniciar sesión y seleccionar "Despachar Mercaderías" en el menú principal.
+- Dentro de la sección “Datos Transportista”, toca el Text Box “DNI Transportista” e
+ingresa el DNI: 94991666
+- Toca el botón “Buscar”
+- Dentro de la sección “Ordenes De Preparación a Despachar”, toca el botón “Emitir
+Remito”
+- Verificar: aparece el mensaje: “Se emitió el remito con éxito.”
+- Toca el botón “Aceptar”.
+- Toca el botón “Volver Al Menu”
+- Toca el botón “Salir”
+- Verificar: Remitos.json
+“ID_Remito”: 1
+“FechaEmision_Remito”: 08/11/2024
+“OrdenesPreparacion_Remito”:
+[{
+“ID_OP”:
+}]

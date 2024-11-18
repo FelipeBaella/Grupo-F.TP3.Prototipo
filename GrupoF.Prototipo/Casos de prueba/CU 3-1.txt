@@ -1,0 +1,18 @@
+CASO DE USO 3: Casos de Prueba
+Caso 1: Procesar Orden de Selección (exitoso)
+- Iniciar sesión (ID 3, Deposito 3) y seleccionar "Procesar Orden de Selección" en el menú principal.
+- Toca el desplegable “Ordenes de Selección Pendientes” y elije “7”
+- Toca el botón “Procesar Orden de Selección”
+- Verificar: aparece el mensaje: “Se procesó la orden de selección con éxito”
+- Toca el botón “Aceptar”
+- Toca el botón “Volver Al Menu”
+- Toca el botón “Salir”
+- Verificar: OrdenesDeSeleccion.json:
+“ID_OS”: 1
+“Estado_OS”: “Cumplida”
+“Fecha_EmisionOS”: 07/11/2024
+“FechaActualizacion_EstadoOS”: 08/11/2024
+“OrdenesPreparacion_OS”
+[{
+ "ID_OP": 1
+}]

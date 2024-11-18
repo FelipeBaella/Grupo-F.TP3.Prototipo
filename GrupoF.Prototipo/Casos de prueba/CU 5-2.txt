@@ -1,1 +1,8 @@
-﻿
+﻿Caso 2: Intentar procesar sin Órdenes pendientes de envío a Despacho
+- Iniciar sesión y seleccionar "Crear Orden de Entrega" en el menú principal.
+- Toca el botón “Enviar a Despacho”.
+- Verificar: aparece el mensaje de error: “No hay órdenes de preparación pendientes
+de envío a despacho”.
+- Toca el botón “Aceptar”.
+- Toca el botón “Volver al Menu”
+- Toca el botón “Salir”

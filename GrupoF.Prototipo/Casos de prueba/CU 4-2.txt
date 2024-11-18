@@ -1,1 +1,8 @@
-﻿
+﻿Caso 2: Intentar procesar sin una Mercaderia Pendiente a Empaquetar
+- Iniciar sesión y seleccionar "Empaquetar Mercaderías" en el menú principal.
+- Toca el botón “Lista”.
+- Verificar: aparece el mensaje: “No hay ordenes de preparación pendientes de
+empaquetar”.
+- Toca el botón “Aceptar”.
+- Toca el botón “Volver al Menu”
+- Toca el botón “Salir”

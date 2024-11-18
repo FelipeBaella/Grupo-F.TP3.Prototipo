@@ -1,7 +1,7 @@
 CASO DE USO 3: Casos de Prueba
 Caso 1: Procesar Orden de Selección (exitoso)
-- Iniciar sesión y seleccionar "Procesar Orden de Selección" en el menú principal.
-- Toca el desplegable “Ordenes de Selección Pendientes” y elije “1”
+- Iniciar sesión (ID 3, Deposito 3) y seleccionar "Procesar Orden de Selección" en el menú principal.
+- Toca el desplegable “Ordenes de Selección Pendientes” y elije “7”
 - Toca el botón “Procesar Orden de Selección”
 - Verificar: aparece el mensaje: “Se procesó la orden de selección con éxito”
 - Toca el botón “Aceptar”
@@ -16,10 +16,3 @@ Caso 1: Procesar Orden de Selección (exitoso)
 [{
  "ID_OP": 1
 }]
-Caso 2: Intentar procesar sin una OE seleccionada
-- Iniciar sesión y seleccionar "Procesar Orden de Selección" en el menú principal.
-- Toca el botón “Procesar Orden de Selección”.
-- Verificar: aparece el mensaje: “Seleccione una orden de selección”.
-- Toca el botón “Aceptar”.
-- Toca el botón “Volver al Menu”
-- Toca el botón “Salir”

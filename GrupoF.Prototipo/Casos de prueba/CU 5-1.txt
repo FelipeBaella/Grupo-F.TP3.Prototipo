@@ -7,9 +7,8 @@ Caso 1: Crear Orden de Entrega (exitoso)
 - Toca el botón “Volver Al Menu”
 - Toca el botón “Salir”
 - Verificar: OrdenesDeEntrega.json
-“ID_OE”: 1
-“FechaEmision_OE”: 08/11/2024
-“OrdenesPreparacion_OE”:
-[{
-“ID_OP”: 1
-}]
+{
+    "ID_OE": 6,
+    "FechaEmision_OE": "2024-11-18T00:00:00-03:00",
+    "OrdenesPreparacion_OE": [ 13, 21 ]
+  }

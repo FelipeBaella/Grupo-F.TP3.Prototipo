@@ -3,7 +3,7 @@ Caso 1: Crear Orden de Selección (exitoso)
 - Iniciar sesión y seleccionar "Crear Orden de Selección" en el menú principal.
 - En la sección “OP Pendientes”, selecciona del desplegable “Ordenar” la opción “ID
 OP”.
-- Toca el botón “Aplicar”
+- Toca el botón “Aplicar”.
 - En la lista que se muestra debajo de la sección “Filtros”, selecciona el checkbox de ID
 OP 21.
 - Verificar: OrdenesDePreparacion.json
@@ -42,12 +42,13 @@ OP 21.
         "Cantidad_Mercaderia": 19
       }
     ]
-- Toca el botón “Agregar”
-- Toca el botón “Crear orden de selección”
+
+- Toca el botón “Agregar”.
+- Toca el botón “Crear orden de selección”.
 - Verificar: aparece el mensaje: “Se creó la orden de selección con éxito.”
-- Toca el botón “Aceptar”
-- Toca el botón “Volver Al Menu”
-- Toca el botón “Salir”
+- Toca el botón “Aceptar”.
+- Toca el botón “Volver Al Menu”.
+- Toca el botón “Salir”.
 - Verificar: OrdenesDeSeleccion.json, nuevo registro:
 {
     "ID_OS": 4,

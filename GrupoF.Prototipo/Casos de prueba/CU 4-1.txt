@@ -6,10 +6,10 @@ Caso 1: Empaquetar Mercaderías (exitoso)
 - Toca el botón “Aceptar”
 - Toca el botón “Volver Al Menu”
 - Toca el botón “Salir”
-- Verificar: OrdenesDePreparacion.json
-“ID_OE”: 1
-“DateTime FechaEmision_OE”: 08/11/2024
-“OrdenesPreparacion_OE”:
-[{
-“ID_OP”: 1
-}]
+- Verificar: OrdenesDePreparacion.json // NO SE QUE VA ACA , DEBERIA CAMBIAR EL ESTADO DE LA OP ENTIENDO, VERIFICAR
+    "ID_OE": 4,
+    "FechaEmision_OE": "2024-01-24T00:00:00",
+    "OrdenesPreparacion_OE": [ 7, 8, 9, 10 ]
+  }
+
+ 

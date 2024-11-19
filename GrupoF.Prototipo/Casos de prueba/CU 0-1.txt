@@ -1,9 +1,0 @@
-CASO DE USO 0: Casos de prueba
-Caso 1: Login (exitoso)
-- Iniciar sesión con usuario y contraseña.
-- Toca el botón "Ingresar". 
-- Aparece el mensaje "Usuario correcto".
-- Toca el botón "Aceptar".
-- Aparece el menú principal. 
-
-

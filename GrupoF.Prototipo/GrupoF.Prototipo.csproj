@@ -9,15 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Casos de prueba\NewFolder\**" />
     <Compile Remove="NewFolder\**" />
-    <EmbeddedResource Remove="Casos de prueba\NewFolder\**" />
 	  
 	  
 	  
 	  
 	  <EmbeddedResource Remove="NewFolder\**" />
-    <None Remove="Casos de prueba\NewFolder\**" />
     <None Remove="NewFolder\**" />
   </ItemGroup>
 

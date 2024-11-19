@@ -1,0 +1,4 @@
+﻿Caso 4: Contraseña inválida 
+- Inicia sesión con una contraseña inválida. 
+- Aparece el mensaje "Contraseña incorrecta".
+- Vuelve al "Form1".

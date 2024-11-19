@@ -1,0 +1,14 @@
+﻿CASO DE USO 5: Casos de Prueba
+Caso 1: Crear Orden de Entrega (exitoso)
+- Iniciar sesión y seleccionar "Crear Orden de Entrega" en el menú principal.
+- Toca el botón “Enviar a Despacho”
+- Verificar: aparece el mensaje: “Se envió a despacho con éxito”.
+- Toca el botón “Aceptar”
+- Toca el botón “Volver Al Menu”
+- Toca el botón “Salir”
+- Verificar: OrdenesDeEntrega.json
+{
+    "ID_OE": 6,
+    "FechaEmision_OE": "2024-11-18T00:00:00-03:00",
+    "OrdenesPreparacion_OE": [ 13, 21 ]
+  }

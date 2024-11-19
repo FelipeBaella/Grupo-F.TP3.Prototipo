@@ -1,0 +1,5 @@
+﻿Caso 3: Usuario inválido 
+- Inicia sesión con un usuario inválido. 
+- Aparece el mennsaje "Usuario incorrecto".
+- Toca el botón "Aceptar".
+- Vuelve al "Form1".

@@ -1,0 +1,5 @@
+﻿Caso 2: Login inválido
+- Inicia sesión con usuario/contraseña inválido. 
+- Aparece el mensaje "Usuario o Contraseña incorrecto".
+- Toca el botón "Aceptar".
+- Vuelve al "Form1".

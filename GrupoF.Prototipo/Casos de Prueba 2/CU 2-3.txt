@@ -1,0 +1,10 @@
+﻿Caso 3: Salir del sistema sin crear OP
+- Iniciar sesión y seleccionar "Crear Orden de Selección" en el menú principal.
+- En la sección “OP Pendientes”, selecciona selecciona del desplegable “Ordenar” la
+opción “ID OP”.
+- Toca el botón “Aplicar”.
+- En la lista que se muestra debajo de la sección “Filtros”, selecciona el checkbox de ID
+OP 25.
+- Toca el botón “Agregar”.
+- Toca el botón “Volver Al Menu”.
+- Toca el botón “Salir.

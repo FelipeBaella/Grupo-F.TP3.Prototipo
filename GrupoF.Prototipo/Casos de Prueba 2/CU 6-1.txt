@@ -11,8 +11,8 @@ Remito”
 - Toca el botón “Volver Al Menu”
 - Toca el botón “Salir”
 - Verificar: Remitos.json
-{
+  {
     "ID_Remito": 4,
-    "FechaEmision_Remito": "2024-11-18T00:00:00-03:00",
-    "OrdenesPreparacion_Remito": [ 13, 21 ]
+    "FechaEmision_Remito": "2024-11-19T00:00:00-03:00",
+    "OrdenesPreparacion_Remito": [ 26 ]
   }

@@ -1,0 +1,8 @@
+﻿CASO DE USO 6: Casos de Prueba
+Caso 3: Emitir Remito sin tener Órdenes de Preparación a despachar.
+- Iniciar sesión y seleccionar "Despachar Mercaderías" en el menú principal.
+- En la sección “Ordenes De Preparación a Despachar”, toca el botón “Emitir Remito”.
+- Verificar: aparece el mensaje de error: “El listado de ordenes de preparacion no puede estar vacio”
+- Toca el botón “Aceptar”.
+- Toca el botón “Volver Al Menu”
+- Toca el botón “Salir”

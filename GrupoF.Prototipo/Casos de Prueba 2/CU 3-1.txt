@@ -8,10 +8,10 @@ Caso 1: Procesar Orden de Selección (exitoso)
 - Toca el botón “Volver Al Menu”
 - Toca el botón “Salir”
 - Verificar: OrdenesDeSeleccion.json:
-{
-    "ID_OS": 4,
+  {
+    "ID_OS": 10,
     "Estado_OS": 1,
-    "Fecha_EmisionOS": "0001-01-01T00:00:00",
-    "FechaActualizacion_EstadoOS": "2024-01-22T00:00:00",
-    "OrdenesPreparacion_OS": [ 7, 8, 9, 10 ]
+    "Fecha_EmisionOS": "2024-11-19T00:00:00-03:00",
+    "FechaActualizacion_EstadoOS": "2024-11-19T00:00:00-03:00",
+    "OrdenesPreparacion_OS": [ 26 ]
   }

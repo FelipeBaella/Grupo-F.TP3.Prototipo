@@ -6,8 +6,29 @@ Caso 1: Empaquetar Mercaderías (exitoso)
 - Toca el botón “Aceptar”
 - Toca el botón “Volver Al Menu”
 - Toca el botón “Salir”
-- Verificar: OrdenesDePreparacion.json // NO SE QUE VA ACA , DEBERIA CAMBIAR EL ESTADO DE LA OP ENTIENDO, VERIFICAR
-    "ID_OE": 4,
-    "FechaEmision_OE": "2024-01-24T00:00:00",
-    "OrdenesPreparacion_OE": [ 7, 8, 9, 10 ]
+- Verificar: OrdenesDePreparacion.json
+    {
+    "ID_OP": 26,
+    "Estado_OP": 3,
+    "Prioridad_OP": true,
+    "ID_Cliente": 1,
+    "FechaEmision_OP": "0001-01-01T00:00:00",
+    "FechaEntrega_OP": "2024-12-06T00:00:00",
+    "ID_Deposito": 1,
+    "DNI_Transportista": 42252452,
+    "Mercaderias_OP": [
+      {
+        "ID_Mercaderia": 1,
+        "Cantidad_Mercaderia": 10
+      },
+      {
+        "ID_Mercaderia": 3,
+        "Cantidad_Mercaderia": 20
+      },
+      {
+        "ID_Mercaderia": 5,
+        "Cantidad_Mercaderia": 15
+      }
+    ]
+  }
   }

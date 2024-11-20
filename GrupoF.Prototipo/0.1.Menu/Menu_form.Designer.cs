@@ -35,6 +35,7 @@
             CrearOE_button = new Button();
             DespacharMercaderias_button = new Button();
             Salir_button = new Button();
+            button1 = new Button();
             SuspendLayout();
             // 
             // CrearOrdenDePreparacion_button
@@ -107,11 +108,22 @@
             Salir_button.UseVisualStyleBackColor = true;
             Salir_button.Click += button_Salir_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(317, 24);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 7;
+            button1.Text = "Reporte OP";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // Menu_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(412, 450);
+            Controls.Add(button1);
             Controls.Add(Salir_button);
             Controls.Add(DespacharMercaderias_button);
             Controls.Add(CrearOE_button);
@@ -134,5 +146,6 @@
         private Button CrearOE_button;
         private Button DespacharMercaderias_button;
         private Button Salir_button;
+        private Button button1;
     }
 }

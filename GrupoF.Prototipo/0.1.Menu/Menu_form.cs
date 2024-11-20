@@ -1,4 +1,5 @@
 ﻿using GrupoF.Prototipo._0._0.LogIn_form;
+using GrupoF.Prototipo._1._1_Reportes_OP;
 using GrupoF.Prototipo._3.Procesar_Orden_de_Seleccion;
 using GrupoF.Prototipo._4.Crear_Orden_de_Entrega;
 using GrupoF.Prototipo._5.Crear_Orden_deEntrega;
@@ -46,7 +47,7 @@ namespace GrupoF.Prototipo._0.Menu
 
             ProcesarOrdenDeSeleccion_form nuevaForma = new ProcesarOrdenDeSeleccion_form();
             nuevaForma.Show();
-        }      
+        }
 
         private void button_ProcesarOrdenDeEntrega_Click(object sender, EventArgs e)
         {
@@ -84,7 +85,15 @@ namespace GrupoF.Prototipo._0.Menu
                 //Application.Exit();
                 LogIn_form nuevaForma = new LogIn_form();
                 nuevaForma.Show();
-            }        
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            ReporteOP_form nuevaForma = new ReporteOP_form();
+            nuevaForma.Show();
         }
     }
 }

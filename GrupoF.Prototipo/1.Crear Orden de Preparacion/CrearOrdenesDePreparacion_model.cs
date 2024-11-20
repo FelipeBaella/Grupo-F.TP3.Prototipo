@@ -10,6 +10,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
 {
     internal class CrearOrdnesDePreparacion_model
     {
+
         //TODO: cuando validen o le den las cantidades maximas de cada producto a la pantalla para que valide
         //hay que restarle a esas cantidades lo que haya en OP en estado Emitida o Seleccionada
 
@@ -33,6 +34,13 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
         public List<DepositoMercaderiaEnt> ObtenerDepositosMercaderias()
         {
             var lista = DepositoMercaderiaAlmacen.DepositosMercaderias.ToList();
+
+            return lista;
+        }
+
+        public List<ClienteEnt> ObtenerClientes()
+        {
+            var lista = ClienteAlmacen.Clientes.ToList();
 
             return lista;
         }

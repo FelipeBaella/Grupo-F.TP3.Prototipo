@@ -341,7 +341,7 @@ namespace GrupoF.Prototipo.Procesar_ordenes_de_preparacion
             //CLIENTE
             if (ID_Cliente.All(char.IsDigit) && !string.IsNullOrEmpty(ID_Cliente))
             {
-                var clientes = ClienteAlmacen.Clientes.Where(x => x.ID_Cliente == int.Parse(ID_Cliente)).FirstOrDefault();
+                var clientes = model.ObtenerClientes().Where(x => x.ID_Cliente == int.Parse(ID_Cliente)).FirstOrDefault();
 
                 if (clientes != null)
                 {

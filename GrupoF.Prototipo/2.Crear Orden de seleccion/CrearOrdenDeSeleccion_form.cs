@@ -31,7 +31,7 @@ namespace GrupoF.Prototipo.Procesar_ordener_de_seleccion
         {
             var usuarioDeposito = model.ObtenerUsuarioDeposito();
 
-            var listview = OrdenDePreparacionAlmacen.OrdenesDePreparacion.Where(x => x.Estado_OP == EstadoOPEnum.Emitida && x.ID_Deposito == usuarioDeposito).ToList();
+            var listview = model.ObtenerOPs().Where(x => x.Estado_OP == EstadoOPEnum.Emitida && x.ID_Deposito == usuarioDeposito).ToList();
 
             InitializeComponent();
             CargarOrdenesDePreparacion(listview);
